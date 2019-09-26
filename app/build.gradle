@@ -5,11 +5,23 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.transport.xianxian"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "ba95d1496721e1aa9aff3e91", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
     }
     buildTypes {
         release {
@@ -19,6 +31,11 @@ android {
     }
 }
 
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -78,6 +95,10 @@ dependencies {
     //    implementation 'com.liaoinstan.springview:RotationHeader:1.5.1'      //齿轮机械风格 （header and footer）
 
     //    implementation 'com.liaoinstan.springview:WeixinHeader:1.5.1'        //微信小程序header（只有header）
+
+    //极光推送
+    implementation 'cn.jiguang.sdk:jpush:3.3.4'
+    implementation 'cn.jiguang.sdk:jcore:2.1.2'
 
     //异常上报-腾讯bugly
     implementation 'com.tencent.bugly:crashreport:latest.release'

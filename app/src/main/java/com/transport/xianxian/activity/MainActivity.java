@@ -1,8 +1,10 @@
-package com.transport.xianxian;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.transport.xianxian.activity;
 
 import android.os.Bundle;
+
+import com.transport.xianxian.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 

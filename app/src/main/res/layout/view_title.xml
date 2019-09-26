@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/title_bg">
+        <!--左边按钮-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/left_btn"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:padding="22dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_return1" />
+
+            <TextView
+                android:id="@+id/left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:ellipsize="end"
+                android:maxEms="4"
+                android:singleLine="true"
+                android:text="重庆"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <!--右边按钮-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/right_btn"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:padding="14dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_return"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/right_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxEms="4"
+                android:singleLine="true"
+                android:text="重庆"
+                android:textColor="@color/txt_white"
+                android:textSize="13sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <!--中间文字-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="56dp">
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="标题" />
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:hint="请输入关键字"
+                android:visibility="gone"></EditText>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>
