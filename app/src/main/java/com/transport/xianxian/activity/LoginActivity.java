@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Environment;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -14,6 +13,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,10 +31,11 @@ import com.transport.xianxian.utils.MyLogger;
 import com.transport.xianxian.utils.permission.PermissionsActivity;
 import com.transport.xianxian.utils.permission.PermissionsChecker;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AlertDialog;
+
+import static com.transport.xianxian.net.OkHttpClientManager.HOST;
 
 
 /**
@@ -43,10 +44,10 @@ import androidx.appcompat.app.AlertDialog;
  */
 public class LoginActivity extends BaseActivity {
     private EditText editText1, editText2;
-    private TextView textView1, textView2, textView3;
+    private TextView textView1, textView2, textView3,textView4;
+    private ImageView imageView1;
 
     private String phonenum = "", password = "";
-    private TimeCount time = null;
 
     //更新
     UpgradeModel model_up;
@@ -58,10 +59,10 @@ public class LoginActivity extends BaseActivity {
             android.Manifest.permission.CAMERA,
             android.Manifest.permission.READ_PHONE_STATE,
             android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             //定位
-            /*android.Manifest.permission.ACCESS_FINE_LOCATION,
-            android.Manifest.permission.ACCESS_COARSE_LOCATION*/
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
+            android.Manifest.permission.ACCESS_COARSE_LOCATION
 
             /*Manifest.permission.RECORD_AUDIO,
             Manifest.permission.VIBRATE*/
@@ -82,6 +83,9 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
 
 //        mImmersionBar.reset().init();
+        //        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+//        CommonUtil.setMargins(findViewByID_My(R.id.headView),0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+
 
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
 
@@ -94,9 +98,11 @@ public class LoginActivity extends BaseActivity {
 
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
+
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
+        textView4 = findViewByID_My(R.id.textView4);
 
     }
 
@@ -123,17 +129,12 @@ public class LoginActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.textView1:
                 //忘记密码
-//                CommonUtil.gotoActivity(LoginActivity.this, ForgetPasswordActivity.class, false);
+                CommonUtil.gotoActivity(LoginActivity.this, ForgetPasswordActivity.class, false);
                 break;
+
             case R.id.textView2:
-                //注册
-                Bundle bundle1 = new Bundle();
-                bundle1.putString("open_id", "");
-//                CommonUtil.gotoActivityWithData(LoginActivity.this, RegisteredActivity.class, bundle1, false);
-                break;
-            case R.id.textView3:
                 //确认登录
-                if (match()) {
+                /*if (match()) {
                     textView3.setClickable(false);
                     this.showProgress(true, getString(R.string.login_h7));
                     params.put("uuid", CommonUtil.getIMEI(LoginActivity.this));//IMEI
@@ -141,8 +142,20 @@ public class LoginActivity extends BaseActivity {
                     params.put("password", password);
 //                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                     RequestLogin(params);//登录
-                }
-//                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
+                }*/
+                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
+                break;
+            case R.id.textView3:
+                //注册
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("open_id", "");
+                CommonUtil.gotoActivityWithData(LoginActivity.this, Registered1Activity.class, bundle1, false);
+                break;
+            case R.id.textView4:
+                //协议
+                Bundle bundle = new Bundle();
+                bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
+                CommonUtil.gotoActivityWithData(LoginActivity.this, WebContentActivity.class, bundle, false);
                 break;
         }
     }
@@ -205,30 +218,6 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    //获取验证码
-    private void RequestCode(HashMap<String, String> params, final TextView tv) {
-        OkHttpClientManager.postAsyn(LoginActivity.this, URLs.Code, params, new OkHttpClientManager.ResultCallback<String>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-                hideProgress();
-                tv.setClickable(true);
-                if (!info.equals("")) {
-                    showToast(info);
-                }
-            }
-
-            @Override
-            public void onResponse(String response) {
-                hideProgress();
-                MyLogger.i(">>>>>>>>>验证码" + response);
-                tv.setClickable(true);
-                time.start();//开始计时
-                myToast(getString(R.string.app_sendcode_hint));
-            }
-        }, true);
-
-    }
-
     private boolean match() {
         phonenum = editText1.getText().toString().trim();
         if (TextUtils.isEmpty(phonenum)) {
@@ -246,7 +235,8 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setVisibility(View.GONE);
+        titleView.setTitle("登录");
+        titleView.hideLeftBtn();
     }
 
     //屏蔽返回键
@@ -257,48 +247,7 @@ public class LoginActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);//继续执行父类其他点击事件
     }
 
-    //获取验证码倒计时
-    class TimeCount extends CountDownTimer {
-        TextView tv;
-
-        public TimeCount(long millisInFuture, long countDownInterval, TextView tv) {
-            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
-            this.tv = tv;
-        }
-
-        @Override
-        public void onFinish() {//计时完毕时触发
-            tv.setText(getString(R.string.app_reacquirecode));
-            tv.setClickable(true);
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {//计时过程显示
-            tv.setClickable(false);
-            tv.setText(millisUntilFinished / 1000 + getString(R.string.app_codethen));
-        }
-    }
-
     private void RequestUpgrade(String string) {
-        /*OkhttpUtil.okHttpGet(HOST + URLs.Upgrade, new CallBackUtil<UpgradeModel>() {
-
-            @Override
-            public UpgradeModel onParseResponse(Call call, Response response) {
-                MyLogger.i(">>>>>>"+response.toString());
-                return null;
-            }
-
-            @Override
-            public void onFailure(Call call, Exception e) {
-
-            }
-
-            @Override
-            public void onResponse(UpgradeModel response) {
-                MyLogger.i(">>>>>>"+response.toString());
-            }
-        });*/
-
         OkHttpClientManager.getAsyn(LoginActivity.this, URLs.Upgrade + string, new OkHttpClientManager.ResultCallback<UpgradeModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -494,22 +443,6 @@ public class LoginActivity extends BaseActivity {
                 dialog.dismiss();
             }
         });
-
-
-        /*showToast(getString(R.string.update_hint) + model_up.getVersion_title(),
-                getString(R.string.app_confirm_true),
-                getString(R.string.app_cancel), new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                }, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-//                        finish();
-                    }
-                });*/
     }
 
 

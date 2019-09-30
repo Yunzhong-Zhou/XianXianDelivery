@@ -191,6 +191,9 @@ public class CommonUtil {
         curActivity.startActivity(intent);
 //		curActivity.overridePendingTransition(R.anim.slide_left_in,
 //				R.anim.slide_left_out);
+        if (refresh) {
+            curActivity.finish();
+        }
     }
 
     public static void gotoActivityWithFinishOtherAll(Context curActivity,
@@ -204,6 +207,10 @@ public class CommonUtil {
         curActivity.startActivity(intent);
 //		curActivity.overridePendingTransition(R.anim.slide_left_in,
 //				R.anim.slide_left_out);
+
+        /*if (refresh) {
+            curActivity.finish();
+        }*/
     }
 
     /**
@@ -225,6 +232,10 @@ public class CommonUtil {
         curActivity.startActivity(intent);
 //		curActivity.overridePendingTransition(R.anim.slide_left_in,
 //				R.anim.slide_left_out);
+
+        if (refresh) {
+            curActivity.finish();
+        }
     }
 
     /**

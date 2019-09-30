@@ -17,7 +17,6 @@ import com.transport.xianxian.activity.MainActivity;
 import com.transport.xianxian.utils.LocalUserInfo;
 import com.transport.xianxian.utils.MyLogger;
 import com.transport.xianxian.view.LoadingLayout;
-import com.transport.xianxian.view.TitleView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +33,6 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
     private ProgressDialog pd;
     protected View mParent;
     protected BaseActivity mActivity;
-    protected TitleView titleView;
     protected SpringView springView;
     protected LoadingLayout loadingLayout;
     protected LocalUserInfo localUserInfo;
@@ -51,8 +49,6 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
         if (!(getActivity() instanceof MainActivity)) {//这里转换
             mActivity = (BaseActivity) getActivity();
         }
-
-        titleView = (TitleView) getView().findViewById(R.id.title_view);
         localUserInfo = LocalUserInfo.getInstance(getActivity());
 
         dialog = new BaseDialog(getActivity());
@@ -96,7 +92,6 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
 //        springView.setHeader(new RotationHeader(getActivity()));
 //        springView.setFooter(new RotationFooter(getActivity()));
         }
-
 
         loadingLayout = findViewByID_My(R.id.loading_layout);
         if (loadingLayout != null) {

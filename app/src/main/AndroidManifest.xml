@@ -39,6 +39,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -49,14 +50,43 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false">
-        <activity android:name=".activity.MainActivity">
+        <activity
+            android:name=".activity.HelloActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"><!--//全屏-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".utils.permission.PermissionsActivity"
+            android:label="权限页" />
+        <activity
+            android:name=".activity.GuideActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:label="引导页" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="主页" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="登录" />
+        <activity
+            android:name=".activity.ForgetPasswordActivity"
+            android:label="忘记密码" />
+        <activity
+            android:name=".activity.Registered1Activity"
+            android:label="注册1" />
+        <activity
+            android:name=".activity.Registered2Activity"
+            android:label="注册1" />
+        <activity
+            android:name=".activity.WebContentActivity"
+            android:label="网页" />
+        <activity
+            android:name=".zxing.CaptureActivity"
+            android:label="扫一扫" />
 
 
 

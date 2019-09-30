@@ -99,9 +99,9 @@
     <string name="app_refresh6">查看更多</string>
 
     <!--底部栏-->
-    <string name="fragment1">算力</string>
-    <string name="fragment2">区块</string>
-    <string name="fragment3">首页</string>
+    <string name="fragment1">首页</string>
+    <string name="fragment2">订单</string>
+    <string name="fragment3">我的</string>
     <string name="fragment4">充币</string>
     <string name="fragment5">我的</string>
 

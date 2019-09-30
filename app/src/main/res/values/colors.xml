@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#00BDB6</color>
+    <color name="colorPrimaryDark">#00BDB6</color>
+    <color name="colorAccent">#00BDB6</color>
 
-    <color name="background">#F5F4F9</color>
-    <color name="title_bg">#01DBD7</color>
+    <color name="background">#F4F4F4</color>
+    <color name="title_bg">#00BDB6</color>
     <color name="btn_bg">#6380a4</color>
 
     <color name="default_text">#333333</color>
-    <color name="xian">#80C6C6C7</color>
+    <color name="xian">#E3E7EE</color>
 
     <color name="tab_black">#8C9FAD</color>
     <color name="tab_blue">#7007BC</color>
@@ -20,23 +20,22 @@
     <color name="white2">#66FFFFFF</color> 50%
     <color name="white3">#33FFFFFF</color> 80%
 
-
-    <color name="green">#01e216</color>
-
     <color name="bg_gray">#E6EAEC</color>
 
     <color name="yellow">#F8BE39</color>
+    <color name="green">#6BE201</color>
     <color name="grey">#9fb3e6</color>
-    <color name="blue">#2128C1</color>
-    <color name="qianblue">#44C7ED</color>
+    <color name="blue">#00BDB6</color>
+    <color name="qianblue">#41C4C1</color>
     <color name="purple">#7C08C5</color>
-    <color name="red">#F81223</color>
-    <color name="orange">#FD5542</color>
+    <color name="red">#F14634</color>
+    <color name="orange">#FF833E</color>
+    <color name="qianorange">#FA935B</color>
 
     <color name="black">#000000</color>
     <color name="black1">#333333</color>
-    <color name="black2">#BFBFBF</color>
-    <color name="black3">#A4A3A0</color>
+    <color name="black2">#666666</color>
+    <color name="black3">#999999</color>
     <color name="black4">#CCC8C8</color>
     <color name="black5">#F2F2F2</color>
 
