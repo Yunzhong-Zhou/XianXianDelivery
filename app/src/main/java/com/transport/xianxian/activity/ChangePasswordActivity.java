@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,20 +21,15 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.transport.xianxian.net.OkHttpClientManager.HOST;
-
 
 /**
  * Created by fafukeji01 on 2017/4/25.
- * 注册
+ * 修改密码
  */
 
-public class Registered2Activity extends BaseActivity {
-    private TextView textView1, textView2, textView4;
+public class ChangePasswordActivity extends BaseActivity {
+    private TextView textView1, textView2, textView3;
     private EditText editText1, editText2, editText3, editText4;
-
-    private ImageView imageView1;
-    boolean isgouxuan = true;
 
     String phonenum = "", password1 = "", password2 = "", code = "", num = "", nickname = "", register_addr = "";
 
@@ -82,11 +76,12 @@ public class Registered2Activity extends BaseActivity {
     @Override
     protected void initView() {
         editText1 = findViewByID_My(R.id.editText1);
+        editText1.setText(localUserInfo.getPhonenumber());
+        editText1.setEnabled(false);
         editText2 = findViewByID_My(R.id.editText2);
         editText3 = findViewByID_My(R.id.editText3);
         editText4 = findViewByID_My(R.id.editText4);
 
-        imageView1 = findViewByID_My(R.id.imageView1);
     }
 
     @Override
@@ -120,20 +115,13 @@ public class Registered2Activity extends BaseActivity {
 
                 }
                 break;
-            case R.id.textView4:
-                //用户注册协议
-                Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
-                CommonUtil.gotoActivityWithData(Registered2Activity.this, WebContentActivity.class, bundle, false);
-
-                break;
             case R.id.textView2:
                 //确认注册
 //                MyLogger.i(">>>>>>" + CommonUtil.isRealMachine() + CommonUtil.getIMEI(RegisteredActivity.this));
 //                if (CommonUtil.isRealMachine()){
                 //是真机
                 if (match()) {
-                    textView2.setClickable(false);
+                    textView3.setClickable(false);
                     showProgress(true, getString(R.string.registered_h14));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("mobile", phonenum);//手机号
@@ -141,7 +129,7 @@ public class Registered2Activity extends BaseActivity {
                     params.put("code", code);//手机验证码
 //                    params.put("nickname", nickname);//昵称
 //                    params.put("invite_code", num);//邀请码
-                    params.put("uuid", CommonUtil.getIMEI(Registered2Activity.this));//IMEI
+                    params.put("uuid", CommonUtil.getIMEI(ChangePasswordActivity.this));//IMEI
                     params.put("register_addr", register_addr);//注册地址
 //                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                     RequestRegistered(params);//注册
@@ -150,15 +138,6 @@ public class Registered2Activity extends BaseActivity {
 //                    //不是真机
 //                    myToast("该设备不能进行注册");
 //                }
-                break;
-
-            case R.id.imageView1:
-                //勾选协议
-                isgouxuan = !isgouxuan;
-                if (isgouxuan)
-                    imageView1.setImageResource(R.mipmap.ic_gouxuan);
-                else
-                    imageView1.setImageResource(R.mipmap.ic_weigouxuan);
                 break;
         }
     }
@@ -189,10 +168,6 @@ public class Registered2Activity extends BaseActivity {
             return false;
         }
 
-        if (!isgouxuan) {
-            myToast("注册请勾选同意遵守《用户注册协议》");
-            return false;
-        }
         /*num = editText5.getText().toString().trim();
         if (TextUtils.isEmpty(num)) {
             myToast(getString(R.string.registered_h5));
@@ -250,11 +225,11 @@ public class Registered2Activity extends BaseActivity {
 
     //注册
     private void RequestRegistered(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(Registered2Activity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(ChangePasswordActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
-                textView2.setClickable(true);
+                textView3.setClickable(true);
                 if (!info.equals("")) {
                     showToast(info);
                 }
@@ -263,7 +238,7 @@ public class Registered2Activity extends BaseActivity {
             @Override
             public void onResponse(final String response) {
                 MyLogger.i(">>>>>>>>>注册" + response);
-                textView2.setClickable(true);
+                textView3.setClickable(true);
 //                localUserInfo.setTime(System.currentTimeMillis() + "");
                 /*showToast("该账户尚未激活，请完成人脸识别后进行操作", new View.OnClickListener() {
                     @Override
@@ -301,7 +276,7 @@ public class Registered2Activity extends BaseActivity {
                     Bundle bundle = new Bundle();
 //                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
                     bundle.putInt("isShowAd", 1);
-                    CommonUtil.gotoActivityWithFinishOtherAllAndData(Registered2Activity.this, MainActivity.class, bundle, true);
+                    CommonUtil.gotoActivityWithFinishOtherAllAndData(ChangePasswordActivity.this, MainActivity.class, bundle, true);
 
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
@@ -316,7 +291,7 @@ public class Registered2Activity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle("注册");
+        titleView.setTitle("修改密码");
     }
 
     /*//屏蔽返回键

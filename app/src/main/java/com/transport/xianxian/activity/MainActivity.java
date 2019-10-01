@@ -77,6 +77,7 @@ public class MainActivity extends BaseActivity {
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
 
         mPermissionsChecker = new PermissionsChecker(this);
+
     }
 
     @Override
@@ -107,27 +108,28 @@ public class MainActivity extends BaseActivity {
                         switch (position) {
                             case 0:
                                 MainActivity.item = 0;
-                                mImmersionBar.reset()
+                                mImmersionBar.getTag("common").init();
+                                /*mImmersionBar.reset()
                                         .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
                                         .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
-                                        .init();
+                                        .init();*/
                                 break;
                             case 1:
                                 MainActivity.item = 1;
-//                                mImmersionBar.getTag("common").init();
-                                mImmersionBar.reset()
+                                mImmersionBar.getTag("common").init();
+                               /* mImmersionBar.reset()
 //                                        .statusBarColor(R.color.red)
                                         .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
                                         .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
-                                        .init();
+                                        .init();*/
                                 break;
                             case 2:
                                 MainActivity.item = 2;
-//                                mImmersionBar.getTag("common").init();
-                                mImmersionBar.reset()
+                                mImmersionBar.getTag("common").init();
+                               /* mImmersionBar.reset()
 //                                        .statusBarColor(R.color.red)
                                         .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
-                                        .init();
+                                        .init();*/
                                 break;
                            /* case 3:
                                 MainActivity.item = 3;

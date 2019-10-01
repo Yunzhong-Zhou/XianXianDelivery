@@ -90,6 +90,14 @@
 
 
 
+        <!--个人中心-->
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:label="修改密码" />
+        <activity
+            android:name=".activity.Auth_CheZhuActivity"
+            android:label="车主认证" />
+
         <!--全面屏适配-->
         <meta-data
             android:name="android.max_aspect"

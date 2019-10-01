@@ -110,8 +110,8 @@ public class Fragment1 extends BaseFragment {
     public void requestServer() {
         super.requestServer();
 //        this.showLoadingPage();
-        showProgress(true, getString(R.string.app_loading));
+       /* showProgress(true, getString(R.string.app_loading));
         String string = "?token=" + localUserInfo.getToken();
-        Request(string);
+        Request(string);*/
     }
 }

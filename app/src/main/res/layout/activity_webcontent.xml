@@ -17,7 +17,7 @@
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:drawableLeft="@mipmap/ic_return"
+            android:drawableLeft="@mipmap/ic_return_black"
             android:drawablePadding="14dp"
             android:gravity="center_vertical"
             android:onClick="onClick"

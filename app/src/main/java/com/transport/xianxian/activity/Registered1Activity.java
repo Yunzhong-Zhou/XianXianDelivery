@@ -3,6 +3,7 @@ package com.transport.xianxian.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
@@ -18,6 +19,9 @@ import static com.transport.xianxian.net.OkHttpClientManager.HOST;
 
 public class Registered1Activity extends BaseActivity {
     private EditText editText1, editText2, editText3;
+
+    private ImageView imageView1;
+    boolean isgouxuan = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,8 @@ public class Registered1Activity extends BaseActivity {
         editText2 = findViewByID_My(R.id.editText2);
         editText3 = findViewByID_My(R.id.editText3);
 
+        imageView1 = findViewByID_My(R.id.imageView1);
+
         /*//失去焦点时触发
         editText6.setOnFocusChangeListener(new View.
                 OnFocusChangeListener() {
@@ -102,7 +108,17 @@ public class Registered1Activity extends BaseActivity {
                 break;
             case R.id.textView2:
                 //下一步
-                CommonUtil.gotoActivity(this,Registered2Activity.class);
+                if (match())
+                    CommonUtil.gotoActivity(this, Registered2Activity.class);
+                break;
+
+            case R.id.imageView1:
+                //勾选协议
+                isgouxuan = !isgouxuan;
+                if (isgouxuan)
+                    imageView1.setImageResource(R.mipmap.ic_gouxuan);
+                else
+                    imageView1.setImageResource(R.mipmap.ic_weigouxuan);
                 break;
         }
     }
@@ -123,6 +139,11 @@ public class Registered1Activity extends BaseActivity {
             myToast(getString(R.string.registered_h3));
             return false;
         }*/
+
+        if (!isgouxuan) {
+            myToast("注册请勾选同意遵守《用户注册协议》");
+            return false;
+        }
         return true;
     }
 

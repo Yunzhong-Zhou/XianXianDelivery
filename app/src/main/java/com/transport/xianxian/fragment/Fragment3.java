@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
+import com.transport.xianxian.activity.Auth_CheZhuActivity;
+import com.transport.xianxian.activity.ChangePasswordActivity;
 import com.transport.xianxian.activity.LoginActivity;
 import com.transport.xianxian.activity.MainActivity;
 import com.transport.xianxian.base.BaseFragment;
@@ -68,6 +70,7 @@ public class Fragment3 extends BaseFragment {
 
     @Override
     protected void initView(View view) {
+//        CommonUtil.setMargins(findViewByID_My(R.id.springView),0, (int) CommonUtil.getStatusBarHeight(getActivity()),0,0);
         setSpringViewMore(false);//不需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
@@ -169,7 +172,7 @@ public class Fragment3 extends BaseFragment {
         super.requestServer();
 //        this.showLoadingPage();
 
-        showProgress(true, getString(R.string.app_loading));
+//        showProgress(true, getString(R.string.app_loading));
 //        requestCenter("?token=" + localUserInfo.getToken());
     }
 
@@ -182,7 +185,7 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout2:
                 //车主认证
-//                CommonUtil.gotoActivity(getActivity(), .class);
+                CommonUtil.gotoActivity(getActivity(), Auth_CheZhuActivity.class);
                 break;
             case R.id.linearLayout3:
                 //车主助手
@@ -202,7 +205,7 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout7:
                 //修改密码
-//                CommonUtil.gotoActivity(getActivity(), .class);
+                CommonUtil.gotoActivity(getActivity(), ChangePasswordActivity.class);
                 break;
             case R.id.linearLayout8:
                 //退出登录

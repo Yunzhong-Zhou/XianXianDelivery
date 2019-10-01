@@ -78,13 +78,13 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <!--<ImageView
+            <ImageView
                 android:id="@+id/imageView1"
                 android:onClick="onClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:src="@mipmap/ic_login_3" />-->
+                android:src="@mipmap/ic_gouxuan" />
 
             <TextView
                 android:layout_width="wrap_content"

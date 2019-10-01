@@ -21,8 +21,8 @@
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
                 android:scaleType="fitCenter"
-                android:padding="14dp"
-                android:src="@mipmap/ic_return1" />
+                android:padding="12dp"
+                android:src="@mipmap/ic_return_white" />
 
             <TextView
                 android:id="@+id/left_text"
@@ -48,7 +48,7 @@
                 android:layout_height="match_parent"
                 android:padding="14dp"
                 android:scaleType="fitCenter"
-                android:src="@mipmap/ic_return"
+                android:src="@mipmap/ic_return_black"
                 android:visibility="invisible" />
 
             <TextView

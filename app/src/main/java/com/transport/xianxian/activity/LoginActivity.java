@@ -44,8 +44,9 @@ import static com.transport.xianxian.net.OkHttpClientManager.HOST;
  */
 public class LoginActivity extends BaseActivity {
     private EditText editText1, editText2;
-    private TextView textView1, textView2, textView3,textView4;
+    private TextView textView1, textView2, textView3, textView4;
     private ImageView imageView1;
+    boolean isgouxuan = true;
 
     private String phonenum = "", password = "";
 
@@ -104,6 +105,7 @@ public class LoginActivity extends BaseActivity {
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
 
+        imageView1 = findViewByID_My(R.id.imageView1);
     }
 
     @Override
@@ -156,6 +158,15 @@ public class LoginActivity extends BaseActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
                 CommonUtil.gotoActivityWithData(LoginActivity.this, WebContentActivity.class, bundle, false);
+                break;
+
+            case R.id.imageView1:
+                //勾选协议
+                isgouxuan = !isgouxuan;
+                if (isgouxuan)
+                    imageView1.setImageResource(R.mipmap.ic_gouxuan);
+                else
+                    imageView1.setImageResource(R.mipmap.ic_weigouxuan);
                 break;
         }
     }
@@ -227,6 +238,11 @@ public class LoginActivity extends BaseActivity {
         password = editText2.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
             myToast(getString(R.string.login_h2));
+            return false;
+        }
+
+        if (!isgouxuan){
+            myToast("登录请勾选同意遵守《用户协议》");
             return false;
         }
 
