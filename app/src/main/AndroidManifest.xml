@@ -97,7 +97,27 @@
         <activity
             android:name=".activity.Auth_CheZhuActivity"
             android:label="车主认证" />
-
+        <activity
+            android:name=".activity.Auth_ShenFenZhengActivity"
+            android:label="身份证认证" />
+        <activity
+            android:name=".activity.Auth_JiaShiZhengActivity"
+            android:label="驾驶证及行驶证认证" />
+        <activity
+            android:name=".activity.Auth_YinHangKaActivity"
+            android:label="银行卡" />
+        <activity
+            android:name=".activity.Auth_CheLiangBaoXianActivity"
+            android:label="车辆保险" />
+        <activity
+            android:name=".activity.Auth_ChongYeZhiGeActivity"
+            android:label="从业资格证认证" />
+        <activity
+            android:name=".activity.Auth_GuaKaoGongSiActivity"
+            android:label="挂靠公司告知书" />
+        <activity
+            android:name=".activity.Auth_ChePaiHaoMaActivity"
+            android:label="车牌号码" />
         <!--全面屏适配-->
         <meta-data
             android:name="android.max_aspect"

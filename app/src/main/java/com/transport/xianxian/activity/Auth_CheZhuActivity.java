@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
+import com.transport.xianxian.utils.CommonUtil;
 
 /**
  * Created by zyz on 2019-10-01.
@@ -45,11 +46,11 @@ public class Auth_CheZhuActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.linearLayout1:
                 //身份证认证
-//                CommonUtil.gotoActivity(this,,false);
+                CommonUtil.gotoActivity(this, Auth_ShenFenZhengActivity.class, false);
                 break;
             case R.id.linearLayout2:
                 //驾驶证及行驶证认证
-//                CommonUtil.gotoActivity(this,,false);
+                CommonUtil.gotoActivity(this,Auth_JiaShiZhengActivity.class,false);
                 break;
             case R.id.linearLayout3:
                 //人脸认证
@@ -57,23 +58,23 @@ public class Auth_CheZhuActivity extends BaseActivity {
                 break;
             case R.id.linearLayout4:
                 //银行卡绑定
-//                CommonUtil.gotoActivity(this,,false);
+                CommonUtil.gotoActivity(this,Auth_YinHangKaActivity.class,false);
                 break;
             case R.id.linearLayout5:
                 //车辆保险
-//                CommonUtil.gotoActivity(this,,false);
+                CommonUtil.gotoActivity(this,Auth_CheLiangBaoXianActivity.class,false);
                 break;
             case R.id.linearLayout6:
                 //从业资格证
-//                CommonUtil.gotoActivity(this,,false);
+                CommonUtil.gotoActivity(this,Auth_ChongYeZhiGeActivity.class,false);
                 break;
             case R.id.linearLayout7:
                 //挂靠公司告知书
-//                CommonUtil.gotoActivity(this,,false);
+                CommonUtil.gotoActivity(this,Auth_GuaKaoGongSiActivity.class,false);
                 break;
             case R.id.linearLayout8:
                 //车牌号码
-//                CommonUtil.gotoActivity(this,,false);
+                CommonUtil.gotoActivity(this,Auth_ChePaiHaoMaActivity.class,false);
                 break;
             case R.id.linearLayout9:
                 //车辆照片
