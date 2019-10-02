@@ -78,7 +78,7 @@ public class Auth_CheZhuActivity extends BaseActivity {
                 break;
             case R.id.linearLayout9:
                 //车辆照片
-//                CommonUtil.gotoActivity(this,,false);
+                CommonUtil.gotoActivity(this,Auth_CheLiangZhaoPianActivity.class,false);
                 break;
             default:
                 break;

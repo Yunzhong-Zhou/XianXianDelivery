@@ -15,8 +15,12 @@ import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.activity.Auth_CheZhuActivity;
 import com.transport.xianxian.activity.ChangePasswordActivity;
+import com.transport.xianxian.activity.CheZhuZhuShouActivity;
+import com.transport.xianxian.activity.JiFenShangChengActivity;
+import com.transport.xianxian.activity.JiangLiHuoDongActivity;
 import com.transport.xianxian.activity.LoginActivity;
 import com.transport.xianxian.activity.MainActivity;
+import com.transport.xianxian.activity.WalletActivity;
 import com.transport.xianxian.base.BaseFragment;
 import com.transport.xianxian.model.Fragment3Model;
 import com.transport.xianxian.net.OkHttpClientManager;
@@ -189,19 +193,19 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout3:
                 //车主助手
-//                CommonUtil.gotoActivity(getActivity(), .class);
+                CommonUtil.gotoActivity(getActivity(), CheZhuZhuShouActivity.class);
                 break;
             case R.id.linearLayout4:
                 //我的钱包
-//                CommonUtil.gotoActivity(getActivity(), .class);
+                CommonUtil.gotoActivity(getActivity(), WalletActivity.class);
                 break;
             case R.id.linearLayout5:
                 //积分商城
-//                CommonUtil.gotoActivity(getActivity(), .class);
+                CommonUtil.gotoActivity(getActivity(), JiFenShangChengActivity.class);
                 break;
             case R.id.linearLayout6:
                 //奖励活动
-//                CommonUtil.gotoActivity(getActivity(), .class);
+                CommonUtil.gotoActivity(getActivity(), JiangLiHuoDongActivity.class);
                 break;
             case R.id.linearLayout7:
                 //修改密码

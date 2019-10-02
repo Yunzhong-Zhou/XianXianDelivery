@@ -95,6 +95,18 @@
             android:name=".activity.ChangePasswordActivity"
             android:label="修改密码" />
         <activity
+            android:name=".activity.WalletActivity"
+            android:label="钱包" />
+        <activity
+            android:name=".activity.JiangLiHuoDongActivity"
+            android:label="奖励活动" />
+        <activity
+            android:name=".activity.JiFenShangChengActivity"
+            android:label="积分商城" />
+        <activity
+            android:name=".activity.CheZhuZhuShouActivity"
+            android:label="车主助手" />
+        <activity
             android:name=".activity.Auth_CheZhuActivity"
             android:label="车主认证" />
         <activity
@@ -118,6 +130,9 @@
         <activity
             android:name=".activity.Auth_ChePaiHaoMaActivity"
             android:label="车牌号码" />
+        <activity
+            android:name=".activity.Auth_CheLiangZhaoPianActivity"
+            android:label="车牌照片" />
         <!--全面屏适配-->
         <meta-data
             android:name="android.max_aspect"
