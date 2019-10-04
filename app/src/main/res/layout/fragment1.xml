@@ -30,6 +30,7 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:id="@+id/btn_right"
             android:layout_width="44dp"
             android:layout_height="match_parent"
             android:padding="11dp"
@@ -38,6 +39,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_xiaoxi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFE9E9"
@@ -137,6 +139,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/txt_zijin"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
@@ -247,6 +250,7 @@
                                     </LinearLayout>
 
                                     <LinearLayout
+                                        android:id="@+id/ll_pingfen"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -256,6 +260,7 @@
                                         android:paddingBottom="14dp">
 
                                         <TextView
+                                            android:id="@+id/txt_pingfen"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:drawableRight="@mipmap/ic_next_black"
@@ -407,9 +412,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="12dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/yuanjiao_5_lanse1"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/btn_lanse"
                         android:gravity="center"
                         android:padding="14dp"
                         android:text="开始接单"
@@ -421,8 +427,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:paddingBottom="20dp"
                         android:lineSpacingExtra="6dp"
-                        android:padding="14dp"
                         android:text="接单功能已关闭\n请设置接单模式后点击开始接单"
                         android:textColor="@color/black2" />
 

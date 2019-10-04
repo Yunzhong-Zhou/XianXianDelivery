@@ -89,7 +89,19 @@
             android:label="扫一扫" />
 
 
-
+        <!--首页-->
+        <activity
+            android:name=".activity.NoticeDetailActivity"
+            android:label="公告详情" />
+        <activity
+            android:name=".activity.ScoreDetailActivity"
+            android:label="评分详情" />
+        <activity
+            android:name=".activity.CapitalStatisticsActivity"
+            android:label="资金统计" />
+        <activity
+            android:name=".activity.TakeCashActivity"
+            android:label="提现" />
         <!--个人中心-->
         <activity
             android:name=".activity.ChangePasswordActivity"

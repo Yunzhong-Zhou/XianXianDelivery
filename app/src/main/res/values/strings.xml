@@ -4,6 +4,8 @@
     <string name="paizhao">拍照</string>
     <string name="xiangce">相册</string>
     <string name="tiaoguo">跳过</string>
+    <string name="quanbutixian"><u>全部提现</u></string>
+
 
     <!--系统提示-->
     <string name="app_prompt">提示</string>
@@ -206,4 +208,5 @@
     <string name="forgetpassword_h7">请输入相同的密码</string>
     <string name="forgetpassword_h8">重置密码成功</string>
     <string name="forgetpassword_h9">正在重置密码，请稍后...</string>
+
 </resources>

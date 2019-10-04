@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:lineSpacingExtra="4dp"
+        android:padding="15dp"
+        android:text="        为了更好提升消费者的物流评价体验，淘宝网将把原有店铺评分中买家评价时和物流有关的“卖家的发货速度，物流发货的速度，送件人员的态度”三项评价整合为一项，新的物流评价项名称为“物流服务质量”。该项评分需要消费者对于物流配送整体的服务质量打分。“物流服务质量”将会替换“卖家发货速度”在前台显示。
+　　\n1. 提升自身的发货速度和包装质量;
+　　\n2. 选择物流运输及配送速度更快的快递公司;
+　　\n3. 选择运输及中转更为规范、送货服务更好的快递公司，保障用户收到的包裹完好无损;" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@mipmap/ic_down_black"
+            android:paddingLeft="15dp"
+            android:paddingTop="12dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="12dp"
+            android:text="评分记录" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/xian" />
+
+        <com.transport.xianxian.view.LoadingLayout
+            android:id="@+id/loading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.liaoinstan.springview.widget.SpringView
+                android:id="@+id/springView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.liaoinstan.springview.widget.SpringView>
+        </com.transport.xianxian.view.LoadingLayout>
+    </LinearLayout>
+
+</LinearLayout>

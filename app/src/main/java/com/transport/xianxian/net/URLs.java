@@ -184,9 +184,21 @@ public class URLs {
      */
     public static final String DirectMember = "/api/member/direct-recommend";
     /**
-     * 资讯
+     * 公告详情
      */
-    public static final String Notice = "/api/article/notice";
+    public static final String NoticeDetail = "/api/article/notice";
+    /**
+     * 评分详情
+     */
+    public static final String ScoreDetail = "/api/article/notice";
+    /**
+     * 钱包
+     */
+    public static final String Wallet = "/api/article/notice";
+    /**
+     * 资金统计
+     */
+    public static final String CapitalStatistics = "/api/article/notice";
     /**
      * 帮助列表
      */

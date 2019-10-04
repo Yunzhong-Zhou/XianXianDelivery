@@ -1,16 +1,14 @@
 package com.transport.xianxian.activity;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
-import com.transport.xianxian.model.WalletModel;
+import com.transport.xianxian.model.ScoreDetailModel;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
-import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -22,17 +20,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * Created by zyz on 2019-10-02.
+ * Created by zyz on 2019-10-03.
+ * 评分详情
  */
-public class WalletActivity extends BaseActivity {
+public class ScoreDetailActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<WalletModel> list = new ArrayList<>();
-    CommonAdapter<WalletModel> mAdapter;
-
+    List<ScoreDetailModel> list = new ArrayList<>();
+    CommonAdapter<ScoreDetailModel> mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wallet);
+        setContentView(R.layout.activity_scoredetail);
     }
 
     @Override
@@ -41,36 +39,23 @@ public class WalletActivity extends BaseActivity {
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-//                Request("?token=" + localUserInfo.getToken());
+                Request("?token=" + localUserInfo.getToken());
             }
 
             @Override
             public void onLoadmore() {
             }
         });
-        recyclerView = findViewByID_My(R.id.recyclerView);
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(WalletActivity.this);
-        recyclerView.setLayoutManager(mLinearLayoutManager);
-    }
 
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-        switch (v.getId()) {
-            case R.id.txt_tixian:
-                //提现
-                CommonUtil.gotoActivity(WalletActivity.this,TakeCashActivity.class);
-                break;
-            default:
-                break;
-        }
+        recyclerView = findViewByID_My(R.id.recyclerView);
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(ScoreDetailActivity.this);
+        recyclerView.setLayoutManager(mLinearLayoutManager);
     }
 
     @Override
     protected void initData() {
         requestServer();
     }
-
     @Override
     public void requestServer() {
         super.requestServer();
@@ -80,9 +65,8 @@ public class WalletActivity extends BaseActivity {
         String string = "?token=" + localUserInfo.getToken();
         Request(string);
     }
-
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(WalletActivity.this, URLs.Wallet + string, new OkHttpClientManager.ResultCallback<WalletModel>() {
+        OkHttpClientManager.getAsyn(ScoreDetailActivity.this, URLs.ScoreDetail + string, new OkHttpClientManager.ResultCallback<ScoreDetailModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                showErrorPage();
@@ -93,15 +77,15 @@ public class WalletActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(WalletModel response) {
+            public void onResponse(ScoreDetailModel response) {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>公告详情" + response);
 //                list = response.;
-                mAdapter = new CommonAdapter<WalletModel>
-                        (WalletActivity.this, R.layout.item_wallet, list) {
+                mAdapter = new CommonAdapter<ScoreDetailModel>
+                        (ScoreDetailActivity.this, R.layout.item_scoredetail, list) {
                     @Override
-                    protected void convert(ViewHolder holder, WalletModel model, int position) {
+                    protected void convert(ViewHolder holder, ScoreDetailModel model, int position) {
                         /*holder.setText(R.id.textView1, model.getMember_nickname());
                         holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
                         holder.setText(R.id.textView3, model.getShow_created_at());
@@ -121,9 +105,8 @@ public class WalletActivity extends BaseActivity {
             }
         });
     }
-
     @Override
     protected void updateView() {
-        titleView.setTitle("钱包");
+        titleView.setTitle("评分详情");
     }
 }

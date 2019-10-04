@@ -174,54 +174,24 @@
                             android:layout_height="0.5dp"
                             android:layout_marginTop="14dp"
                             android:background="@color/xian" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
-                            android:text="资产统计"
-                            android:textColor="@color/black1" />
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="12dp"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="总收入："
-                                android:textColor="@color/black1"
-                                android:textSize="12sp" />
+                                android:text="今日收入"
+                                android:textColor="@color/black1" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="¥ 0"
-                                android:textColor="@color/black1" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="总提现："
-                                android:textColor="@color/black1"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="¥ 0"
-                                android:textColor="@color/black1" />
+                                android:textColor="@color/red" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -241,7 +211,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableRight="@mipmap/ic_down_black"
-                            android:text="明细" />
+                            android:text="今日明细" />
 
                         <View
                             android:layout_width="match_parent"

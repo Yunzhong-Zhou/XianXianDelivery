@@ -217,7 +217,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
                     }
                     cursor.close();*/
 
-                   Uri uri = data.getData();
+                    Uri uri = data.getData();
                     //处理得到的url
                     ContentResolver cr = this.getContentResolver();
                     Cursor cursor = null;
@@ -266,13 +266,13 @@ public class CaptureActivity extends BaseActivity implements Callback {
                             Result result = scanningImage(photo_path);
                             // String result = decode(photo_path);
                             if (result == null) {
-                                Looper.prepare();
-                                myToast(getString(R.string.zxing_h26));
-                                Looper.loop();
                                 mProgress.dismiss();
+                                Looper.prepare();
+                                myToast(getString(R.string.zxing_h28));
+                                Looper.loop();
                             } else {
                                 mProgress.dismiss();
-                                MyLogger.i(">>>>扫码：>>>>"+result.toString());
+                                MyLogger.i(">>>>扫码：>>>>" + result.toString());
                                 // Log.i("123result", result.getText());
                                 // 数据返回
                                 Intent resultIntent = new Intent();
@@ -381,6 +381,10 @@ public class CaptureActivity extends BaseActivity implements Callback {
     @Override
     protected void onDestroy() {
         inactivityTimer.shutdown();
+        if (mProgress != null) {
+            mProgress.dismiss();
+        }
+
         super.onDestroy();
     }
 
