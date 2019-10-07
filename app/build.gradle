@@ -44,9 +44,12 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    implementation 'com.google.android.material:material:1.0.0'
     //recyclerView封装
     implementation 'com.zhy:base-rvadapter:3.0.3'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+
 
     //网络请求、解析
     implementation 'com.google.code.gson:gson:2.8.5'

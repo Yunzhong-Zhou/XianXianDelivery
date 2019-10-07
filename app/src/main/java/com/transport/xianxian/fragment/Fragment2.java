@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cy.cyflowlayoutlibrary.FlowLayout;
+import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
@@ -16,6 +18,11 @@ import com.transport.xianxian.model.Fragment2Model;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.MyLogger;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,14 +34,15 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class Fragment2 extends BaseFragment {
     private RecyclerView recyclerView;
-   /* List<InformationModel.NoticeBean> list1 = new ArrayList<>();
-    CommonAdapter<InformationModel.NoticeBean> adapter1;
+    List<Fragment2Model> list1 = new ArrayList<>();
+    CommonAdapter<Fragment2Model> mAdapter1;
 
-    List<InformationModel.HelpBean> list2 = new ArrayList<>();
-    CommonAdapter<InformationModel.HelpBean> adapter2;*/
+    List<Fragment2Model> list2 = new ArrayList<>();
+    CommonAdapter<Fragment2Model> mAdapter2;
 
-    //    List<InformationModel.BusinessNewsBean> list2 = new ArrayList<>();
-//    CommonAdapter<InformationModel.BusinessNewsBean> adapter2;
+    List<Fragment2Model> list3 = new ArrayList<>();
+    CommonAdapter<Fragment2Model> mAdapter3;
+
     private LinearLayout linearLayout1, linearLayout2, linearLayout3;
     private TextView textView1, textView2, textView3;
     private View view1, view2, view3;
@@ -227,6 +235,58 @@ public class Fragment2 extends BaseFragment {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>订单" + response);
+
+                mAdapter1 = new CommonAdapter<Fragment2Model>
+                        (getActivity(), R.layout.item_fragment2, list1) {
+                    @Override
+                    protected void convert(ViewHolder holder, Fragment2Model model, int position) {
+                        /*holder.setText(R.id.textView1, model.getMember_nickname());
+                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
+                        holder.setText(R.id.textView3, model.getShow_created_at());
+                        ImageView imageView1 = holder.getView(R.id.imageView1);
+                        if (!model.getMember_head().equals(""))
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getMember_head())
+                                    .centerCrop()
+//                                    .placeholder(R.mipmap.headimg)//加载站位图
+//                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+                        else
+                            imageView1.setImageResource(R.mipmap.headimg);*/
+
+                        //标签
+                        FlowLayoutAdapter<String> flowLayoutAdapter;
+                        List<String> list = new ArrayList<>();
+                        list.add("专车");
+                        list.add("专车");
+                        list.add("专车");
+                        flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                            @Override
+                            public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+//                                holder.setText(R.id.tv,bean);
+                                TextView tv = holder.getView(R.id.tv);
+                                tv.setText(bean);
+                                /*if (position == 0){
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
+                                }else {
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                                }*/
+                            }
+
+                            @Override
+                            public void onItemClick(int position, String bean) {
+
+                                showToast("点击" + position);
+                            }
+
+                            @Override
+                            public int getItemLayoutID(int position, String bean) {
+                                return R.layout.item_flowlayout;
+                            }
+                        };
+                        ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
+                    }
+                };
             }
         });
     }
