@@ -3,6 +3,7 @@ package com.transport.xianxian.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -10,7 +11,9 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
+import com.transport.xianxian.adapter.JiFenLieBiao_GridViewAdapter;
 import com.transport.xianxian.base.BaseActivity;
+import com.transport.xianxian.model.JiFenLieBiaoModel;
 import com.transport.xianxian.model.JiFenMingXiModel;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
@@ -25,21 +28,29 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.transport.xianxian.net.OkHttpClientManager.HOST;
+
 /**
- * Created by zyz on 2019-10-02.
+ * Created by zyz on 2019-10-08.
+ * 商品列表
  */
-public class JiFenShangChengActivity extends BaseActivity {
+public class JiFenLieBiaoActivity extends BaseActivity {
+    int type = 1;
     Banner banner;
     List<String> images = new ArrayList<>();
+
+    GridView gridView;
+    List<JiFenLieBiaoModel> list = new ArrayList<>();
+    JiFenLieBiao_GridViewAdapter gridViewAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jifenshangcheng);
+        setContentView(R.layout.activity_jifenliebiao);
     }
 
     @Override
     protected void initView() {
-
         images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
         images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
         images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
@@ -71,42 +82,32 @@ public class JiFenShangChengActivity extends BaseActivity {
 
             }
         });
+
+        gridView = findViewByID_My(R.id.gridView);
+        for (int i = 0; i < 10; i++) {
+            list.add(new JiFenLieBiaoModel());
+        }
+        gridViewAdapter = new JiFenLieBiao_GridViewAdapter(this, list);
+        gridView.setAdapter(gridViewAdapter);
     }
 
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
-            case R.id.tv_detail:
-                //积分明细
-                CommonUtil.gotoActivity(this,JiFenMingXiActivity.class,false);
+        switch (v.getId()) {
+            case R.id.tv_jilu:
+                //兑换记录
+                CommonUtil.gotoActivity(this, DuiHuanListActivity.class, false);
                 break;
-            case R.id.linearLayout1:
-                //兑好礼
-                Bundle bundle1 = new Bundle();
-                bundle1.putInt("type",1);
-                CommonUtil.gotoActivityWithData(this,JiFenLieBiaoActivity.class,bundle1,false);
-                break;
-            case R.id.linearLayout2:
-                //兑加油
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt("type",2);
-                CommonUtil.gotoActivityWithData(this,JiFenLieBiaoActivity.class,bundle2,false);
-                break;
-            case R.id.linearLayout3:
-                //兑话费
-                Bundle bundle3 = new Bundle();
-                bundle3.putInt("type",3);
-                CommonUtil.gotoActivityWithData(this,JiFenLieBiaoActivity.class,bundle3,false);
-                break;
-
         }
     }
 
     @Override
     protected void initData() {
+        type = getIntent().getIntExtra("type", 1);
         requestServer();
     }
+
     @Override
     public void requestServer() {
         super.requestServer();
@@ -133,14 +134,24 @@ public class JiFenShangChengActivity extends BaseActivity {
             public void onResponse(final JiFenMingXiModel response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>积分商城" + response);
+                MyLogger.i(">>>>>>>>>商品列表" + response);
+
             }
         });
     }
 
     @Override
     protected void updateView() {
-        titleView.setTitle("积分商城");
+        titleView.setTitle("商品列表");
+        titleView.showRightTextview("积分规则", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
+                CommonUtil.gotoActivityWithData(JiFenLieBiaoActivity.this, WebContentActivity.class, bundle, false);
+
+            }
+        });
     }
 
     @Override
@@ -170,7 +181,7 @@ public class JiFenShangChengActivity extends BaseActivity {
             //Glide 加载图片简单用法
             Glide.with(context)
                     .load(path)
-                    .apply(RequestOptions.bitmapTransform(new RoundedCorners( 20)))
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
                     .into(imageView);
 
             //Picasso 加载图片简单用法

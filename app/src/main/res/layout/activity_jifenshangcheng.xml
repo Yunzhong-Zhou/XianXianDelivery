@@ -63,38 +63,46 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:drawableRight="@mipmap/ic_next_black"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:text="查看明细"
                 android:textColor="@color/black3"
                 android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
 
-    <ImageView
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/bg_jifenshangcheng" />
+        app:indicator_drawable_selected="@drawable/yuanxing_lanse"
+        app:indicator_margin="5dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/yuanjiao_5_baise"
         android:orientation="horizontal">
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout1"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="23dp"
@@ -113,12 +121,18 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:layout_marginBottom="30dp"
+            android:paddingTop="23dp"
+            android:paddingBottom="30dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -135,11 +149,16 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout3"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="23dp"
@@ -158,6 +177,10 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 

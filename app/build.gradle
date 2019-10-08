@@ -65,9 +65,11 @@ dependencies {
 
     //图片圆角
     implementation 'com.joooonho:selectableroundedimageview:1.0.1'
-
     //图片点击放大
     implementation 'com.bm.photoview:library:1.4.1'
+
+    //banner
+    implementation 'com.youth.banner:banner:1.4.10'
 
     //沉浸式
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'

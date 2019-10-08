@@ -136,9 +136,9 @@ public class URLs {
      */
     public static final String WalletAddress = "/api/member/set-wallet-addr";
     /**
-     * 账户详情1(我的余额进入)
+     * 积分明细
      */
-    public static final String AccountDetail2 = "/api/member/account";
+    public static final String JiFenMingXi = "/api/member/account";
     /**
      * 账户详情2(我的区块进入)
      */
