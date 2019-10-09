@@ -31,10 +31,15 @@
         android:background="@color/white"
         android:orientation="horizontal">
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout1"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="38dp"
@@ -53,8 +58,13 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
-
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -75,11 +85,15 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
-
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout3"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="38dp"
@@ -98,6 +112,10 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 
