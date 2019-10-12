@@ -1,6 +1,7 @@
 package com.transport.xianxian.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
@@ -8,6 +9,7 @@ import com.transport.xianxian.base.BaseActivity;
 import com.transport.xianxian.model.JiangLiListModel;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
+import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -37,6 +39,16 @@ public class JiangLiListActivity extends BaseActivity{
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.ll_shangcheng:
+                CommonUtil.gotoActivity(this,JiFenShangChengActivity.class,false);
+                break;
+        }
     }
 
     @Override

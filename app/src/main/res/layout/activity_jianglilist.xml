@@ -67,6 +67,8 @@
             android:layout_width="10dp"
             android:layout_height="0dp"/>
         <LinearLayout
+            android:id="@+id/ll_shangcheng"
+            android:onClick="onClick"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_weight="1"

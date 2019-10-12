@@ -112,6 +112,9 @@
             android:name=".activity.JiangLiHuoDongActivity"
             android:label="奖励活动" />
         <activity
+            android:name=".activity.JiangLiListActivity"
+            android:label="奖励记录" />
+        <activity
             android:name=".activity.JiFenShangChengActivity"
             android:label="积分商城" />
         <activity

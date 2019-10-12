@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
@@ -27,8 +26,6 @@ import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
-
-import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
 
 /**
  * Created by fafukeji01 on 2016/1/6.
@@ -90,7 +87,7 @@ public class Fragment3 extends BaseFragment {
         imageView1 = findViewByID_My(R.id.imageView1);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
-        textView1.setText(localUserInfo.getUserName());
+        /*textView1.setText(localUserInfo.getUserName());
         textView2.setText(localUserInfo.getPhonenumber());
         if (!localUserInfo.getUserImage().equals(""))
             Glide.with(getActivity())
@@ -100,7 +97,7 @@ public class Fragment3 extends BaseFragment {
 //                    .error(R.mipmap.headimg)//加载失败
                     .into(imageView1);//加载图片
         else
-            imageView1.setImageResource(R.mipmap.headimg);
+            imageView1.setImageResource(R.mipmap.headimg);*/
 
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
