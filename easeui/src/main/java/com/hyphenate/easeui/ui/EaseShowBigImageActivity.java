@@ -13,10 +13,17 @@
  */
 package com.hyphenate.easeui.ui;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.hyphenate.EMCallBack;
 import com.hyphenate.EMError;
@@ -29,18 +36,7 @@ import com.hyphenate.easeui.widget.photoview.EasePhotoView;
 import com.hyphenate.util.EMLog;
 import com.hyphenate.util.ImageUtils;
 
-import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ProgressBar;
-import android.widget.Toast;
+import java.io.File;
 
 /**
  * download and show original image
@@ -105,7 +101,7 @@ public class EaseShowBigImageActivity extends EaseBaseActivity {
 	/**
 	 * download image
 	 * 
-	 * @param remoteFilePath
+	 * @param
 	 */
 	@SuppressLint("NewApi")
 	private void downloadImage(final String msgId) {
