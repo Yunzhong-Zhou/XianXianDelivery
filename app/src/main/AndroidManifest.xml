@@ -86,7 +86,7 @@
             android:name=".activity.Registered2Activity"
             android:label="注册1" />
         <activity
-            android:name=".activity.Registered1Activity"
+            android:name=".activity.RegisteredActivity"
             android:label="注册1" />
         <activity
             android:name=".activity.WebContentActivity"

@@ -34,7 +34,7 @@ import static com.transport.xianxian.net.OkHttpClientManager.HOST;
  * 注册
  */
 
-public class Registered1Activity extends BaseActivity {
+public class RegisteredActivity extends BaseActivity {
     private TextView textView1, textView2, textView4;
     private EditText editText1, editText2, editText3, editText4;
 
@@ -48,7 +48,7 @@ public class Registered1Activity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registered1);
+        setContentView(R.layout.activity_registered);
        /* mImmersionBar.reset()
                 .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
                 .init();*/
@@ -65,21 +65,6 @@ public class Registered1Activity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        /*String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
-        RequestSmsCodeList(string3);//手机号国家代码集合
-
-        textView.setText("+" + localUserInfo.getMobile_State_Code());
-
-        if (!localUserInfo.getCountry_IMG().equals(""))
-            Glide.with(Registered1Activity.this)
-                    .load(IMGHOST + localUserInfo.getCountry_IMG())
-                    .centerCrop()
-//                    .placeholder(R.mipmap.ic_guoqi)//加载站位图
-//                    .error(R.mipmap.ic_guoqi)//加载失败
-                    .into(title_right);//加载图片
-        else
-            title_right.setImageResource(R.mipmap.ic_guoqi);*/
     }
 
     @Override
@@ -127,12 +112,12 @@ public class Registered1Activity extends BaseActivity {
                 //用户注册协议
                 Bundle bundle = new Bundle();
                 bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
-                CommonUtil.gotoActivityWithData(Registered1Activity.this, WebContentActivity.class, bundle, false);
+                CommonUtil.gotoActivityWithData(RegisteredActivity.this, WebContentActivity.class, bundle, false);
 
                 break;
             case R.id.textView2:
                 //确认注册
-//                MyLogger.i(">>>>>>" + CommonUtil.isRealMachine() + CommonUtil.getIMEI(Registered1Activity.this));
+//                MyLogger.i(">>>>>>" + CommonUtil.isRealMachine() + CommonUtil.getIMEI(RegisteredActivity.this));
 //                if (CommonUtil.isRealMachine()){
                 //是真机
                 if (match()) {
@@ -144,7 +129,7 @@ public class Registered1Activity extends BaseActivity {
                     params.put("code", code);//手机验证码
 //                    params.put("nickname", nickname);//昵称
 //                    params.put("invite_code", num);//邀请码
-                    params.put("uuid", CommonUtil.getIMEI(Registered1Activity.this));//IMEI
+                    params.put("uuid", CommonUtil.getIMEI(RegisteredActivity.this));//IMEI
                     params.put("register_addr", register_addr);//注册地址
 //                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                     RequestRegistered(params);//注册
@@ -226,7 +211,7 @@ public class Registered1Activity extends BaseActivity {
                             dialog.dismiss();
                         }
                     });
-            AlertDialog.Builder builder = new AlertDialog.Builder(Registered1Activity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(RegisteredActivity.this);
             builder.setMessage(getString(R.string.registered_position_hint));
             builder.setTitle(getString(R.string.app_prompt));
             builder.setPositiveButton(getString(R.string.app_confirm), new DialogInterface.OnClickListener() {
@@ -253,7 +238,7 @@ public class Registered1Activity extends BaseActivity {
 
     //注册
     private void RequestRegistered(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(Registered1Activity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(RegisteredActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -273,7 +258,7 @@ public class Registered1Activity extends BaseActivity {
                     public void onClick(View view) {
                         Bundle bundle1 = new Bundle();
                         bundle1.putString("mobile",phonenum);
-                        CommonUtil.gotoActivityWithData(Registered1Activity.this,
+                        CommonUtil.gotoActivityWithData(RegisteredActivity.this,
                                 RecordVideoActivity.class,bundle1);
                         dialog.dismiss();
                     }
@@ -313,7 +298,7 @@ public class Registered1Activity extends BaseActivity {
                                         Bundle bundle = new Bundle();
 //                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
                                         bundle.putInt("isShowAd", 1);
-                                        CommonUtil.gotoActivityWithFinishOtherAllAndData(Registered1Activity.this, MainActivity.class, bundle, true);
+                                        CommonUtil.gotoActivityWithFinishOtherAllAndData(RegisteredActivity.this, MainActivity.class, bundle, true);
 
                                     }
                                 });

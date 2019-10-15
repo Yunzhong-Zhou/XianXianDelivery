@@ -51,7 +51,7 @@ public class Registered2Activity extends BaseActivity {
         textView.setText("+" + localUserInfo.getMobile_State_Code());
 
         if (!localUserInfo.getCountry_IMG().equals(""))
-            Glide.with(Registered1Activity.this)
+            Glide.with(RegisteredActivity.this)
                     .load(IMGHOST + localUserInfo.getCountry_IMG())
                     .centerCrop()
 //                    .placeholder(R.mipmap.ic_guoqi)//加载站位图
@@ -108,9 +108,9 @@ public class Registered2Activity extends BaseActivity {
                 break;
             case R.id.textView2:
                 //下一步
-                if (match())
-                    CommonUtil.gotoActivity(this, Registered1Activity.class);
-                break;
+                /*if (match())
+                    CommonUtil.gotoActivity(this, RegisteredActivity.class);
+                break;*/
 
             case R.id.imageView1:
                 //勾选协议
@@ -169,7 +169,7 @@ public class Registered2Activity extends BaseActivity {
                     public void onClick(View view) {
                         Bundle bundle1 = new Bundle();
                         bundle1.putString("mobile",phonenum);
-                        CommonUtil.gotoActivityWithData(Registered1Activity.this,
+                        CommonUtil.gotoActivityWithData(RegisteredActivity.this,
                                 RecordVideoActivity.class,bundle1);
                         dialog.dismiss();
                     }

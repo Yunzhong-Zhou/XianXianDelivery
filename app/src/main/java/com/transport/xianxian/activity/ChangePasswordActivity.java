@@ -63,7 +63,7 @@ public class ChangePasswordActivity extends BaseActivity {
         textView.setText("+" + localUserInfo.getMobile_State_Code());
 
         if (!localUserInfo.getCountry_IMG().equals(""))
-            Glide.with(Registered1Activity.this)
+            Glide.with(RegisteredActivity.this)
                     .load(IMGHOST + localUserInfo.getCountry_IMG())
                     .centerCrop()
 //                    .placeholder(R.mipmap.ic_guoqi)//加载站位图
@@ -117,7 +117,7 @@ public class ChangePasswordActivity extends BaseActivity {
                 break;
             case R.id.textView2:
                 //确认注册
-//                MyLogger.i(">>>>>>" + CommonUtil.isRealMachine() + CommonUtil.getIMEI(Registered1Activity.this));
+//                MyLogger.i(">>>>>>" + CommonUtil.isRealMachine() + CommonUtil.getIMEI(RegisteredActivity.this));
 //                if (CommonUtil.isRealMachine()){
                 //是真机
                 if (match()) {
@@ -198,7 +198,7 @@ public class ChangePasswordActivity extends BaseActivity {
                             dialog.dismiss();
                         }
                     });
-            AlertDialog.Builder builder = new AlertDialog.Builder(Registered1Activity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(RegisteredActivity.this);
             builder.setMessage(getString(R.string.registered_position_hint));
             builder.setTitle(getString(R.string.app_prompt));
             builder.setPositiveButton(getString(R.string.app_confirm), new DialogInterface.OnClickListener() {
@@ -245,7 +245,7 @@ public class ChangePasswordActivity extends BaseActivity {
                     public void onClick(View view) {
                         Bundle bundle1 = new Bundle();
                         bundle1.putString("mobile",phonenum);
-                        CommonUtil.gotoActivityWithData(Registered1Activity.this,
+                        CommonUtil.gotoActivityWithData(RegisteredActivity.this,
                                 RecordVideoActivity.class,bundle1);
                         dialog.dismiss();
                     }

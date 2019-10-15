@@ -153,7 +153,7 @@ public class LoginActivity extends BaseActivity {
                 //注册
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("open_id", "");
-                CommonUtil.gotoActivityWithData(LoginActivity.this, Registered1Activity.class, bundle1, false);
+                CommonUtil.gotoActivityWithData(LoginActivity.this, RegisteredActivity.class, bundle1, false);
                 break;
             case R.id.textView4:
                 //协议
