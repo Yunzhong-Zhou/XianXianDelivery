@@ -165,8 +165,6 @@
             android:name=".activity.Auth_CheLiangZhaoPianActivity"
             android:label="车牌照片" />
 
-
-
         <activity
             android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
             android:screenOrientation="portrait"

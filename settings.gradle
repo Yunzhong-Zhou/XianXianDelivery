@@ -1,2 +1,2 @@
-include ':app', ':zbarcode'
+include ':app', ':zbarcode', ':easeui'
 rootProject.name='XianXianTransport'
