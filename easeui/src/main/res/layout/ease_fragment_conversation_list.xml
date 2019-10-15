@@ -11,9 +11,11 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    hyphenate:titleBarTitle="@string/session"
+		hyphenate:titleBarLeftImage="@drawable/ic_left_white"
 	    />
     
-    <include layout="@layout/ease_search_bar" />
+    <include layout="@layout/ease_search_bar"
+		android:visibility="gone"/>
     
     <FrameLayout
         android:layout_width="match_parent"

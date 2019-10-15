@@ -9,11 +9,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.activity.Auth_CheZhuActivity;
 import com.transport.xianxian.activity.ChangePasswordActivity;
+import com.transport.xianxian.activity.ChatMainActivity;
 import com.transport.xianxian.activity.CheZhuZhuShouActivity;
 import com.transport.xianxian.activity.JiFenShangChengActivity;
 import com.transport.xianxian.activity.JiangLiHuoDongActivity;
@@ -182,7 +185,11 @@ public class Fragment3 extends BaseFragment {
         switch (v.getId()) {
             case R.id.linearLayout1:
                 //个人资料
-//                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class);
+                //                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class);
+                //跳转聊天
+                CommonUtil.gotoActivity(getActivity(), ChatMainActivity.class);
+
+
                 break;
             case R.id.linearLayout2:
                 //车主认证
@@ -224,7 +231,26 @@ public class Fragment3 extends BaseFragment {
                                 localUserInfo.setWalletaddr("");
                                 localUserInfo.setEmail("");
                                 localUserInfo.setUserImage("");
-                                CommonUtil.gotoActivityWithFinishOtherAll(getActivity(), LoginActivity.class, true);
+
+                                //环信退出登录
+                                EMClient.getInstance().logout(false, new EMCallBack() {
+
+                                    @Override
+                                    public void onSuccess() {
+                                        CommonUtil.gotoActivityWithFinishOtherAll(getActivity(), LoginActivity.class, true);
+                                    }
+
+                                    @Override
+                                    public void onProgress(int progress, String status) {
+
+                                    }
+
+                                    @Override
+                                    public void onError(int code, String error) {
+
+                                    }
+                                });
+
                             }
                         }, new View.OnClickListener() {
                             @Override

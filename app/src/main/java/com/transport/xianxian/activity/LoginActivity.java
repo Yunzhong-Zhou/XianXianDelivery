@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cy.dialog.BaseDialog;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.maning.updatelibrary.InstallUtils;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
@@ -222,7 +224,30 @@ public class LoginActivity extends BaseActivity {
 //                        localUserInfo.setUserImage(jObj1.getString("head"));
 
                 hideProgress();
-                CommonUtil.gotoActivityWithFinishOtherAll(LoginActivity.this, MainActivity.class, true);
+
+                //环信登录
+                EMClient.getInstance().login(phonenum, "123456", new EMCallBack() {
+
+                    @Override
+                    public void onSuccess() {
+                        CommonUtil.gotoActivityWithFinishOtherAll(LoginActivity.this, MainActivity.class, true);
+                    }
+
+                    @Override
+                    public void onProgress(int progress, String status) {
+
+                    }
+
+                    @Override
+                    public void onError(int code, String error) {
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+
+                                MyLogger.i(">>>>>>>环信登录失败：>" + error);
+                            }
+                        });
+                    }
+                });
 
             }
         }, true);
@@ -241,7 +266,7 @@ public class LoginActivity extends BaseActivity {
             return false;
         }
 
-        if (!isgouxuan){
+        if (!isgouxuan) {
             myToast("登录请勾选同意遵守《用户协议》");
             return false;
         }
