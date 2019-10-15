@@ -29,6 +29,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    //环信
+    useLibrary 'org.apache.http.legacy'
+    //自3.6.0开始需要java8的支持
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 repositories{
@@ -122,4 +132,12 @@ dependencies {
 
     //zxing 二维码框架
     implementation 'com.google.zxing:core:3.4.0'
+
+
+    //环信
+/*//    api 'com.android.support:appcompat-v7:28.0.0-alpha1'
+    implementation 'com.google.android.gms:play-services-base:11.4.0'
+    implementation 'com.google.firebase:firebase-messaging:11.4.0'
+//    api 'com.hyphenate:hyphenate-sdk:3.6.1'
+    api 'com.hyphenate:hyphenate-sdk-lite:3.6.1'//不包含音视频通话的sdk*/
 }
