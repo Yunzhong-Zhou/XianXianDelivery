@@ -70,6 +70,7 @@ public class MainActivity extends BaseActivity {
             Manifest.permission.VIBRATE*/
     };
     private PermissionsChecker mPermissionsChecker; // 权限检测器
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +91,7 @@ public class MainActivity extends BaseActivity {
 //                .setImgSize(50,50)//设置ICON图片的尺寸
 //                .setFontSize(8)//设置文字的尺寸
 //                .setTabPadding(4,6,10)//设置ICON图片与上部分割线的间隔、图片与文字的间隔、文字与底部的间隔
-                .setChangeColor(getResources().getColor(R.color.blue),getResources().getColor(R.color.black1))//设置选中的颜色、未选中的颜色
+                .setChangeColor(getResources().getColor(R.color.blue), getResources().getColor(R.color.black1))//设置选中的颜色、未选中的颜色
                 .addTabItem(getString(R.string.fragment1), R.mipmap.tab1_1, R.mipmap.tab1_0, Fragment1.class)//设置文字、选中图片、未选中图片、fragment
                 .addTabItem(getString(R.string.fragment2), R.mipmap.tab2_1, R.mipmap.tab2_0, Fragment2.class)//设置文字、选中图片、未选中图片、fragment
                 .addTabItem(getString(R.string.fragment3), R.mipmap.tab3_1, R.mipmap.tab3_0, Fragment3.class)//设置文字、选中图片、未选中图片、fragment
@@ -184,6 +185,7 @@ public class MainActivity extends BaseActivity {
     protected void updateView() {
         titleView.setVisibility(View.GONE);
     }
+
     /**
      * 双击退出函数
      */
@@ -227,6 +229,7 @@ public class MainActivity extends BaseActivity {
         if (mPermissionsChecker.lacksPermissions(PERMISSIONS)) {
             startPermissionsActivity();
         }
+
     }
 
     private void startPermissionsActivity() {
@@ -241,6 +244,7 @@ public class MainActivity extends BaseActivity {
             finish();
         }
     }
+
     private void RequestUpgrade(String string) {
         OkHttpClientManager.getAsyn(MainActivity.this, URLs.Upgrade + string, new OkHttpClientManager.ResultCallback<UpgradeModel>() {
             @Override

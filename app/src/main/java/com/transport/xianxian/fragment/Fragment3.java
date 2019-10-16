@@ -70,9 +70,9 @@ public class Fragment3 extends BaseFragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if (MainActivity.item == 2) {
+        /*if (MainActivity.item == 2) {
             requestServer();
-        }
+        }*/
     }
 
     @Override
@@ -165,9 +165,8 @@ public class Fragment3 extends BaseFragment {
     public void requestServer() {
         super.requestServer();
 //        this.showLoadingPage();
-
-//        showProgress(true, getString(R.string.app_loading));
-//        requestCenter("?token=" + localUserInfo.getToken());
+        showProgress(true, getString(R.string.app_loading));
+        requestCenter("?token=" + localUserInfo.getToken());
     }
 
     @Override
@@ -178,7 +177,6 @@ public class Fragment3 extends BaseFragment {
                 //                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class);
                 //跳转聊天
                 CommonUtil.gotoActivity(getActivity(), ChatMainActivity.class);
-
                 break;
             case R.id.linearLayout2:
                 //车主认证

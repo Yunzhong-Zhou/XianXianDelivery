@@ -225,13 +225,11 @@ public class LoginActivity extends BaseActivity {
                 //保存姓名
 //                    localUserInfo.setUserName(jObj1.getString("name"));
 
-                hideProgress();
-
                 //环信登录
                 EMClient.getInstance().login(phonenum, "123456", new EMCallBack() {
-
                     @Override
                     public void onSuccess() {
+                        hideProgress();
                         CommonUtil.gotoActivityWithFinishOtherAll(LoginActivity.this, MainActivity.class, true);
                     }
 
@@ -244,7 +242,8 @@ public class LoginActivity extends BaseActivity {
                     public void onError(int code, String error) {
                         runOnUiThread(new Runnable() {
                             public void run() {
-                                MyLogger.i(">>>>>>>环信登录失败：>" + error);
+                                hideProgress();
+                                myToast("环信登录失败："+error);
                             }
                         });
                     }

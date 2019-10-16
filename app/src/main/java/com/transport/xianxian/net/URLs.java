@@ -130,7 +130,7 @@ public class URLs {
     /**
      * 修改密码
      */
-    public static final String ChangePassword = "/api/driver/reset-password";
+    public static final String ChangePassword = "/api/driver/center/reset-password";
     /**
      * 钱包地址（get）
      */
@@ -194,7 +194,7 @@ public class URLs {
     /**
      * 钱包
      */
-    public static final String Wallet = "/api/article/notice";
+    public static final String Wallet = "/api/driver/center/tmoney";
     /**
      * 资金统计
      */
