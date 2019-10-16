@@ -1,7 +1,10 @@
 package com.hyphenate.easeui.ui;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -16,7 +19,6 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMVideoMessageBody;
 import com.hyphenate.easeui.R;
-import com.hyphenate.easeui.model.EaseCompat;
 import com.hyphenate.util.EMLog;
 
 import java.io.File;
@@ -66,8 +68,18 @@ public class EaseShowVideoActivity extends EaseBaseActivity{
 	 */
 	private void showLocalVideo(String localPath){
 		Intent intent = new Intent(Intent.ACTION_VIEW);
-		intent.setDataAndType(EaseCompat.getUriForFile(this, new File(localPath)),
-				"video/mp4");
+
+		// 置入一个不设防的VmPolicy（不设置的话 7.0以上一调用拍照功能就崩溃了）
+		// 还有一种方式：manifest中加入provider然后修改intent代码
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+			StrictMode.setVmPolicy(builder.build());
+		}
+		intent.setDataAndType(
+//				EaseCompat.getUriForFile(this, new File(localPath))
+				Uri.fromFile(new File(localPath))
+				, "video/mp4");
+
 		// 注意添加该flag,用于Android7.0以上设备获取相册文件权限.
 		intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 		startActivity(intent);

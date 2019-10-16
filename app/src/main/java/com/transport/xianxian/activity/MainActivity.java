@@ -1,5 +1,6 @@
 package com.transport.xianxian.activity;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -55,10 +56,10 @@ public class MainActivity extends BaseActivity {
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             //定位
             android.Manifest.permission.ACCESS_FINE_LOCATION,
-            android.Manifest.permission.ACCESS_COARSE_LOCATION
-
-            /*Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.VIBRATE*/
+            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+            //录音权限
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.VIBRATE
 
             /*Manifest.permission.INTERNET,
             Manifest.permission.ACCESS_NETWORK_STATE,

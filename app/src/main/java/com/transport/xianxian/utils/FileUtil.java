@@ -378,7 +378,13 @@ public class FileUtil {
         return null;
     }
 
-
+    public static Uri getUriForFile(Context context, File file) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return FileProvider.getUriForFile(context, context.getPackageName() + ".fileProvider", file);
+        } else {
+            return Uri.fromFile(file);
+        }
+    }
     /**
      * 截取图片存到本地
      */

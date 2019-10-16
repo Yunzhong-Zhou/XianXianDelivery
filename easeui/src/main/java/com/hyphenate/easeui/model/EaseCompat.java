@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.StrictMode;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.view.WindowManager;
@@ -37,7 +38,14 @@ public class EaseCompat {
         /* get MimeType */
         String type = FileUtils.getMIMEType(f);
         /* get uri */
-        Uri uri = getUriForFile(context, f);
+        // 置入一个不设防的VmPolicy（不设置的话 7.0以上一调用拍照功能就崩溃了）
+        // 还有一种方式：manifest中加入provider然后修改intent代码
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());
+        }
+//        Uri uri = getUriForFile(context, f);
+        Uri uri = Uri.fromFile(f);
         openFile(uri, type, context);
     }
 
@@ -58,6 +66,7 @@ public class EaseCompat {
 
     public static Uri getUriForFile(Context context, File file) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//            return MyProvider.getUriForFile(context, context.getPackageName() + ".fileProvider", file);
             return FileProvider.getUriForFile(context, context.getPackageName() + ".fileProvider", file);
         } else {
             return Uri.fromFile(file);

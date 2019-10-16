@@ -35,8 +35,15 @@
         path="." />
 
 
-    <external-path path="Android/data/com.transport.xianxian/" name="files_root" />
-    <external-path path="." name="external_storage_root" />
+    <!--<external-path
+        name="files_root"
+        path="Android/data/com.transport.xianxian/" />
+    <external-path
+        name="files_root"
+        path="Android/data/com.hyphenate.easeui/" />-->
+    <external-path
+        name="external_storage_root"
+        path="." />
 
     <!--升级-->
     <external-cache-path
