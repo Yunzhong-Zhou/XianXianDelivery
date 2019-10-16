@@ -74,8 +74,8 @@ public class OkHttpClientManager {
 //    public static String HOST = "http://192.168.0.200";
 
     //测试地址
-    public static String IMGHOST = "http://cz.usdtcai.com";//图片地址
-    public static String HOST = "http://cz.usdtcai.com";//接口地址
+    public static String IMGHOST = "http://wuliu.zhenyongkj.com";//图片地址
+    public static String HOST = "http://wuliu.zhenyongkj.com";//接口地址
 
     //正式地址
 //    public static String IMGHOST = "http://www.top-up.site";//图片地址

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
+import com.cy.dialog.BaseDialog;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
@@ -29,6 +30,7 @@ import com.transport.xianxian.utils.MyLogger;
 import com.transport.xianxian.zxing.CaptureActivity;
 import com.transport.xianxian.zxing.Constant;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
@@ -52,7 +54,8 @@ public class Fragment1 extends BaseFragment {
 
     ImageView btn_right;
     LinearLayout ll_xiaoxi, ll_pingfen;
-    TextView txt_zijin;
+    TextView tv_zijintongji, tv_type, tv_distance, tv_temperature, tv_timestart, tv_timestop;
+    int i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -104,11 +107,78 @@ public class Fragment1 extends BaseFragment {
         btn_right.setOnClickListener(this);
         ll_xiaoxi = findViewByID_My(R.id.ll_xiaoxi);
         ll_xiaoxi.setOnClickListener(this);
-        txt_zijin = findViewByID_My(R.id.txt_zijin);
-        txt_zijin.setOnClickListener(this);
+        tv_zijintongji = findViewByID_My(R.id.tv_zijintongji);
+        tv_zijintongji.setOnClickListener(this);
         ll_pingfen = findViewByID_My(R.id.ll_pingfen);
         ll_pingfen.setOnClickListener(this);
 
+        tv_type = findViewByID_My(R.id.tv_type);
+        tv_type.setOnClickListener(this);
+        tv_distance = findViewByID_My(R.id.tv_distance);
+        tv_distance.setOnClickListener(this);
+        tv_temperature = findViewByID_My(R.id.tv_temperature);
+        tv_temperature.setOnClickListener(this);
+        tv_timestart = findViewByID_My(R.id.tv_timestart);
+        tv_timestart.setOnClickListener(this);
+        tv_timestop = findViewByID_My(R.id.tv_timestop);
+        tv_timestop.setOnClickListener(this);
+
+        for (int i = 0; i < 10; i++) {
+            list.add(new Fragment1Model());
+        }
+        mAdapter = new CommonAdapter<Fragment1Model>
+                (getActivity(), R.layout.item_fragment1, list) {
+            @Override
+            protected void convert(ViewHolder holder, Fragment1Model model, int position) {
+                        /*holder.setText(R.id.textView1, model.getMember_nickname());
+                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
+                        holder.setText(R.id.textView3, model.getShow_created_at());
+                        ImageView imageView1 = holder.getView(R.id.imageView1);
+                        if (!model.getMember_head().equals(""))
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getMember_head())
+                                    .centerCrop()
+//                                    .placeholder(R.mipmap.headimg)//加载站位图
+//                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+                        else
+                            imageView1.setImageResource(R.mipmap.headimg);*/
+
+                //标签
+                FlowLayoutAdapter<String> flowLayoutAdapter;
+                List<String> list = new ArrayList<>();
+                list.add("专车");
+                list.add("6吨");
+                list.add("15-20℃恒温");
+                flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                    @Override
+                    public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+//                                holder.setText(R.id.tv,bean);
+                        TextView tv = holder.getView(R.id.tv);
+                        tv.setText(bean);
+                        if (position == 0) {
+                            tv.setTextColor(getResources().getColor(R.color.white));
+                            tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
+                        } else {
+                            tv.setTextColor(getResources().getColor(R.color.black1));
+                            tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                        }
+                    }
+
+                    @Override
+                    public void onItemClick(int position, String bean) {
+//                        showToast("点击" + position);
+                    }
+
+                    @Override
+                    public int getItemLayoutID(int position, String bean) {
+                        return R.layout.item_flowlayout;
+                    }
+                };
+                ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
+            }
+        };
+        recyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -134,57 +204,7 @@ public class Fragment1 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>首页" + response);
 
-                mAdapter = new CommonAdapter<Fragment1Model>
-                        (getActivity(), R.layout.item_fragment1, list) {
-                    @Override
-                    protected void convert(ViewHolder holder, Fragment1Model model, int position) {
-                        /*holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
-                        holder.setText(R.id.textView3, model.getShow_created_at());
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);*/
 
-                        //标签
-                        FlowLayoutAdapter<String> flowLayoutAdapter;
-                        List<String> list = new ArrayList<>();
-                        list.add("专车");
-                        list.add("专车");
-                        list.add("专车");
-                        flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
-                            @Override
-                            public void bindDataToView(ViewHolder holder, int position, String bean) {
-//                                holder.setText(R.id.tv,bean);
-                                TextView tv = holder.getView(R.id.tv);
-                                tv.setText(bean);
-                                if (position == 0){
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                                }else {
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
-                                }
-                            }
-
-                            @Override
-                            public void onItemClick(int position, String bean) {
-
-                                showToast("点击" + position);
-                            }
-
-                            @Override
-                            public int getItemLayoutID(int position, String bean) {
-                                return R.layout.item_flowlayout;
-                            }
-                        };
-                        ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
-                    }
-                };
             }
         });
     }
@@ -200,7 +220,7 @@ public class Fragment1 extends BaseFragment {
                 //公告详情
                 CommonUtil.gotoActivity(getActivity(), NoticeDetailActivity.class);
                 break;
-            case R.id.txt_zijin:
+            case R.id.tv_zijintongji:
                 //资金统计
                 CommonUtil.gotoActivity(getActivity(), CapitalStatisticsActivity.class);
                 break;
@@ -209,6 +229,309 @@ public class Fragment1 extends BaseFragment {
                 CommonUtil.gotoActivity(getActivity(), ScoreDetailActivity.class);
                 break;
 
+            case R.id.tv_type:
+                //订单类型
+                BaseDialog dialog1 = new BaseDialog(getActivity());
+                dialog1.contentView(R.layout.dialog_list)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView title = dialog1.findViewById(R.id.textView1);
+                title.setText("订单类型");
+                RecyclerView rv = dialog1.findViewById(R.id.recyclerView);
+                LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
+                rv.setLayoutManager(mLinearLayoutManager);
+
+                List<String> mStringList = new ArrayList<>();
+                mStringList.add("不限");
+                mStringList.add("专车");
+                mStringList.add("顺风车");
+
+                CommonAdapter<String> adapter = new CommonAdapter<String>
+                        (getActivity(), R.layout.item_dialog_list, mStringList) {
+                    @Override
+                    protected void convert(ViewHolder holder, String model, int position) {
+                        TextView tv = holder.getView(R.id.textView);
+                        ImageView iv = holder.getView(R.id.imageView);
+                        tv.setText(model);
+                        if (position == i1) {
+                            tv.setTextColor(getResources().getColor(R.color.blue));
+                            iv.setImageResource(R.mipmap.ic_xuanzhong);
+                        } else {
+                            tv.setTextColor(getResources().getColor(R.color.black1));
+                            iv.setImageResource(R.mipmap.ic_weixuan);
+                        }
+                    }
+                };
+                adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        i1 = i;
+                        adapter.notifyDataSetChanged();
+                        tv_type.setText(mStringList.get(i));
+                        dialog1.dismiss();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv.setAdapter(adapter);
+                dialog1.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog1.dismiss();
+                    }
+                });
+                break;
+            case R.id.tv_distance:
+                //距离筛选
+                BaseDialog dialog2 = new BaseDialog(getActivity());
+                dialog2.contentView(R.layout.dialog_list)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView title2 = dialog2.findViewById(R.id.textView1);
+                title2.setText("距离筛选");
+                RecyclerView rv2 = dialog2.findViewById(R.id.recyclerView);
+                LinearLayoutManager mLinearLayoutManager2 = new LinearLayoutManager(getActivity());
+                rv2.setLayoutManager(mLinearLayoutManager2);
+
+                List<String> mStringList2 = new ArrayList<>();
+                mStringList2.add("不限");
+                mStringList2.add("市内");
+                mStringList2.add("长途");
+
+                CommonAdapter<String> adapter2 = new CommonAdapter<String>
+                        (getActivity(), R.layout.item_dialog_list, mStringList2) {
+                    @Override
+                    protected void convert(ViewHolder holder, String model, int position) {
+                        TextView tv = holder.getView(R.id.textView);
+                        ImageView iv = holder.getView(R.id.imageView);
+                        tv.setText(model);
+                        if (position == i2) {
+                            tv.setTextColor(getResources().getColor(R.color.blue));
+                            iv.setImageResource(R.mipmap.ic_xuanzhong);
+                        } else {
+                            tv.setTextColor(getResources().getColor(R.color.black1));
+                            iv.setImageResource(R.mipmap.ic_weixuan);
+                        }
+                    }
+                };
+                adapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        i2 = i;
+                        adapter2.notifyDataSetChanged();
+                        tv_distance.setText(mStringList2.get(i));
+                        dialog2.dismiss();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv2.setAdapter(adapter2);
+                dialog2.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog2.dismiss();
+                    }
+                });
+                break;
+            case R.id.tv_temperature:
+                //温层选择
+                BaseDialog dialog3 = new BaseDialog(getActivity());
+                dialog3.contentView(R.layout.dialog_list)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView title3 = dialog3.findViewById(R.id.textView1);
+                title3.setText("温层选择");
+                RecyclerView rv3 = dialog3.findViewById(R.id.recyclerView);
+                LinearLayoutManager mLinearLayoutManager3 = new LinearLayoutManager(getActivity());
+                rv3.setLayoutManager(mLinearLayoutManager3);
+
+                List<String> mStringList3 = new ArrayList<>();
+                mStringList3.add("不限");
+                mStringList3.add("-18℃~-2℃");
+                mStringList3.add("+2℃~+10℃");
+                mStringList3.add("+15℃~+20℃");
+                CommonAdapter<String> adapter3 = new CommonAdapter<String>
+                        (getActivity(), R.layout.item_dialog_list, mStringList3) {
+                    @Override
+                    protected void convert(ViewHolder holder, String model, int position) {
+                        TextView tv = holder.getView(R.id.textView);
+                        ImageView iv = holder.getView(R.id.imageView);
+                        tv.setText(model);
+                        if (position == i3) {
+                            tv.setTextColor(getResources().getColor(R.color.blue));
+                            iv.setImageResource(R.mipmap.ic_xuanzhong);
+                        } else {
+                            tv.setTextColor(getResources().getColor(R.color.black1));
+                            iv.setImageResource(R.mipmap.ic_weixuan);
+                        }
+                    }
+                };
+                adapter3.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        i3 = i;
+                        adapter3.notifyDataSetChanged();
+                        tv_temperature.setText(mStringList3.get(i));
+                        dialog3.dismiss();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv3.setAdapter(adapter3);
+                dialog3.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog3.dismiss();
+                    }
+                });
+                break;
+            case R.id.tv_timestart:
+                //接单时间起
+                BaseDialog dialog4 = new BaseDialog(getActivity());
+                dialog4.contentView(R.layout.dialog_list)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView title4 = dialog4.findViewById(R.id.textView1);
+                title4.setText("接单时间起");
+                RecyclerView rv4 = dialog4.findViewById(R.id.recyclerView);
+                LinearLayoutManager mLinearLayoutManager4 = new LinearLayoutManager(getActivity());
+                rv4.setLayoutManager(mLinearLayoutManager4);
+
+                List<String> mStringList4 = new ArrayList<>();
+                mStringList4.add("现在");
+                mStringList4.add("11:00");
+                mStringList4.add("12:00");
+                mStringList4.add("13:00");
+                mStringList4.add("14:00");
+                mStringList4.add("15:00");
+                mStringList4.add("16:00");
+
+                CommonAdapter<String> adapter4 = new CommonAdapter<String>
+                        (getActivity(), R.layout.item_dialog_list, mStringList4) {
+                    @Override
+                    protected void convert(ViewHolder holder, String model, int position) {
+                        TextView tv = holder.getView(R.id.textView);
+                        ImageView iv = holder.getView(R.id.imageView);
+                        tv.setText(model);
+                        if (position == i4) {
+                            tv.setTextColor(getResources().getColor(R.color.blue));
+                            iv.setImageResource(R.mipmap.ic_xuanzhong);
+                        } else {
+                            tv.setTextColor(getResources().getColor(R.color.black1));
+                            iv.setImageResource(R.mipmap.ic_weixuan);
+                        }
+                    }
+                };
+                adapter4.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        i4 = i;
+                        adapter4.notifyDataSetChanged();
+                        tv_timestart.setText(mStringList4.get(i));
+                        dialog4.dismiss();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv4.setAdapter(adapter4);
+                dialog4.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog4.dismiss();
+                    }
+                });
+                break;
+            case R.id.tv_timestop:
+                //接单时间止
+                BaseDialog dialog5 = new BaseDialog(getActivity());
+                dialog5.contentView(R.layout.dialog_list)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView title5 = dialog5.findViewById(R.id.textView1);
+                title5.setText("接单时间止");
+                RecyclerView rv5 = dialog5.findViewById(R.id.recyclerView);
+                LinearLayoutManager mLinearLayoutManager5 = new LinearLayoutManager(getActivity());
+                rv5.setLayoutManager(mLinearLayoutManager5);
+
+                List<String> mStringList5 = new ArrayList<>();
+                mStringList5.add("现在");
+                mStringList5.add("21:00");
+                mStringList5.add("22:00");
+                mStringList5.add("23:00");
+                mStringList5.add("24:00");
+                mStringList5.add("次日1:00");
+                mStringList5.add("次日2:00");
+
+                CommonAdapter<String> adapter5 = new CommonAdapter<String>
+                        (getActivity(), R.layout.item_dialog_list, mStringList5) {
+                    @Override
+                    protected void convert(ViewHolder holder, String model, int position) {
+                        TextView tv = holder.getView(R.id.textView);
+                        ImageView iv = holder.getView(R.id.imageView);
+                        tv.setText(model);
+                        if (position == i5) {
+                            tv.setTextColor(getResources().getColor(R.color.blue));
+                            iv.setImageResource(R.mipmap.ic_xuanzhong);
+                        } else {
+                            tv.setTextColor(getResources().getColor(R.color.black1));
+                            iv.setImageResource(R.mipmap.ic_weixuan);
+                        }
+                    }
+                };
+                adapter5.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        i5 = i;
+                        adapter5.notifyDataSetChanged();
+                        tv_timestop.setText(mStringList5.get(i));
+                        dialog5.dismiss();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv5.setAdapter(adapter5);
+                dialog5.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog5.dismiss();
+                    }
+                });
+                break;
         }
     }
 
