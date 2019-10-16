@@ -21,7 +21,7 @@ public class URLs {
     /**
      * 登录
      */
-    public static final String Login = "/api/member/login";
+    public static final String Login = "/api/driver/login";
     /**
      * 一键登录
      */
@@ -33,11 +33,11 @@ public class URLs {
     /**
      * 重置密码
      */
-    public static final String ForgetPassword = "/api/member/reset-password";
+    public static final String ForgetPassword = "/api/driver/forget-password";
     /**
      * 注册
      */
-    public static final String Registered = "/api/member/register";
+    public static final String Registered = "/api/driver/register";
 
     /**
      * 注册-极验
@@ -114,11 +114,11 @@ public class URLs {
     /**
      * 我的主页
      */
-    public static final String Center = "/api/member/center";
+    public static final String Center = "/api/driver/center/index";
     /**
      * 个人信息
      */
-    public static final String Info = "/api/member/get-info";
+    public static final String Info = "/api/driver/center/index";
     /**
      * 修改信息
      */
@@ -130,7 +130,7 @@ public class URLs {
     /**
      * 修改密码
      */
-    public static final String ChangePassword = "/api/member/update-password";
+    public static final String ChangePassword = "/api/driver/reset-password";
     /**
      * 钱包地址（get）
      */

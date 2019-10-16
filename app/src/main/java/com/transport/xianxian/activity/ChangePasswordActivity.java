@@ -225,7 +225,7 @@ public class ChangePasswordActivity extends BaseActivity {
 
     //注册
     private void RequestRegistered(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(ChangePasswordActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(ChangePasswordActivity.this, URLs.ChangePassword, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();

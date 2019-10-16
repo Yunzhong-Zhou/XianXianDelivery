@@ -138,16 +138,16 @@ public class LoginActivity extends BaseActivity {
 
             case R.id.textView2:
                 //确认登录
-                /*if (match()) {
-                    textView3.setClickable(false);
+                if (match()) {
+                    textView2.setClickable(false);
                     this.showProgress(true, getString(R.string.login_h7));
                     params.put("uuid", CommonUtil.getIMEI(LoginActivity.this));//IMEI
                     params.put("mobile", phonenum);
                     params.put("password", password);
 //                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                     RequestLogin(params);//登录
-                }*/
-                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
+                }
+//                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
                 break;
             case R.id.textView3:
                 //注册
@@ -179,7 +179,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onError(final Request request, String info, Exception e) {
                 hideProgress();
-                textView3.setClickable(true);
+                textView2.setClickable(true);
 //                myToast("密码错误，请重新输入");
                 if (!info.equals("")) {
                     myToast(info);
@@ -189,7 +189,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onResponse(final LoginModel response) {
                 MyLogger.i(">>>>>>>>>登录" + response);
-                textView3.setClickable(true);
+                textView2.setClickable(true);
 //                localUserInfo.setTime(System.currentTimeMillis() + "");
 
                 //保存Token
@@ -201,9 +201,12 @@ public class LoginActivity extends BaseActivity {
 //                            String mobile = jObj1.getString("mobile");
                 localUserInfo.setPhoneNumber(response.getMobile());
 //                            localUserInfo.setPhoneNumber(phonenum);
-                //保存用户昵称
-//                            String nickname = jObj1.getString("nickname");
+
+                /*//保存用户昵称
+//              String nickname = jObj1.getString("nickname");
                 localUserInfo.setNickname(response.getNickname());
+                //保存头像
+                localUserInfo.setUserImage(response.getHead());*/
 
                 //是否为商户
 //                    localUserInfo.setMerchant(response.getMerchant() + "");
@@ -220,8 +223,7 @@ public class LoginActivity extends BaseActivity {
 //                        localUserInfo.setEmail(email);
                 //保存姓名
 //                    localUserInfo.setUserName(jObj1.getString("name"));
-                //保存头像
-//                        localUserInfo.setUserImage(jObj1.getString("head"));
+
 
                 hideProgress();
 
@@ -242,7 +244,6 @@ public class LoginActivity extends BaseActivity {
                     public void onError(int code, String error) {
                         runOnUiThread(new Runnable() {
                             public void run() {
-
                                 MyLogger.i(">>>>>>>环信登录失败：>" + error);
                             }
                         });
@@ -250,7 +251,7 @@ public class LoginActivity extends BaseActivity {
                 });
 
             }
-        }, true);
+        }, false);
 
     }
 

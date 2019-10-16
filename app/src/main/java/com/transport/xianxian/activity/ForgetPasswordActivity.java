@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
@@ -67,23 +66,20 @@ public class ForgetPasswordActivity extends BaseActivity {
                 //发送验证码
                 phonenum = editText1.getText().toString().trim();
                 if (TextUtils.isEmpty(phonenum)) {
-                    Toast.makeText(this, getString(R.string.forgetpassword_h1), Toast.LENGTH_SHORT).show();
+                    myToast(getString(R.string.forgetpassword_h1));
                 } else {
-                        /*String string = "?mobile=" + phonenum +
-                                "&type=" + "2" +
-                                "&mobile_state_code=" + mobile_state_code;*/
                     textView1.setClickable(false);
                     this.showProgress(true, getString(R.string.app_sendcode_hint1));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("mobile", phonenum);
                     params.put("type", "2");
-                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                     RequestCode(params);//获取验证码
                 }
                 break;
             case R.id.textView2:
                 //确认
                 if (match()) {
+                    textView2.setClickable(false);
                     this.showProgress(true, getString(R.string.forgetpassword_h9));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("mobile", phonenum);//手机号
@@ -148,7 +144,7 @@ public class ForgetPasswordActivity extends BaseActivity {
                 myToast(getString(R.string.app_sendcode_hint));
 
             }
-        }, true);
+        }, false);
 
     }
 
@@ -156,6 +152,7 @@ public class ForgetPasswordActivity extends BaseActivity {
         OkHttpClientManager.postAsyn(ForgetPasswordActivity.this, URLs.ForgetPassword, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
+                textView2.setClickable(true);
                 hideProgress();
                 if (!info.equals("")) {
                     showToast(info);
@@ -164,12 +161,13 @@ public class ForgetPasswordActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response) {
+                textView2.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>重置密码" + response);
                 myToast(getString(R.string.forgetpassword_h8));
                 finish();
             }
-        }, true);
+        }, false);
 
     }
 

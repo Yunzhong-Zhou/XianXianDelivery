@@ -9,14 +9,17 @@ import android.widget.TextView;
 
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
+import com.hyphenate.easeui.EaseConstant;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
+import com.transport.xianxian.activity.ChatActivity;
 import com.transport.xianxian.activity.MainActivity;
 import com.transport.xianxian.base.BaseFragment;
 import com.transport.xianxian.model.Fragment2Model;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
+import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -120,7 +123,7 @@ public class Fragment2 extends BaseFragment {
         view2 = findViewByID_My(R.id.view2);
         view3 = findViewByID_My(R.id.view3);
 
-        
+
         for (int i = 0; i < 10; i++) {
             list1.add(new Fragment2Model());
         }
@@ -172,7 +175,18 @@ public class Fragment2 extends BaseFragment {
                         return R.layout.item_flowlayout;
                     }
                 };
-                ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
+                ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter);
+                ((FlowLayout) holder.getView(R.id.flowLayout2)).setAdapter(flowLayoutAdapter);
+
+                //去聊天
+                holder.getView(R.id.iv_xinxi).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString(EaseConstant.EXTRA_USER_ID, "18306043086");
+                        CommonUtil.gotoActivityWithData(getActivity(), ChatActivity.class, bundle, false);
+                    }
+                });
             }
         };
 

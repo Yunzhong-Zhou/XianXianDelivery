@@ -36,13 +36,13 @@ public class AES {
     private SecretKeyFactory keyfactory = null;
     private SecretKey sk = null;
     private SecretKeySpec skforAES = null;
-    private static String ivParameter = "RvfEF4COWrchBVzj";// 密钥默认偏移，可更改
+    private static String ivParameter = "RvfEF4COWrchBVgj";// 密钥默认偏移，可更改
     // private byte[] iv = { 0xA, 1, 0xB, 5, 4, 0xF, 7, 9, 0x17, 3, 1, 6, 8,
     // 0xC,
     // 0xD, 91 };
     private byte[] iv = ivParameter.getBytes();
     private IvParameterSpec IV;
-    String sKey = "jlL0uVKeGXOTTSGC";// key必须为16位，可更改为自己的key
+    String sKey = "jlL0uVKeGXOTTSFC";// key必须为16位，可更改为自己的key
 
     public AES() {
         try {

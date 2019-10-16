@@ -1,13 +1,13 @@
 package com.transport.xianxian.activity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
@@ -45,6 +45,8 @@ public class RegisteredActivity extends BaseActivity {
 
     String register_agreement = "";
 
+    private TimeCount time;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,12 +77,15 @@ public class RegisteredActivity extends BaseActivity {
         editText4 = findViewByID_My(R.id.editText4);
 
         imageView1 = findViewByID_My(R.id.imageView1);
+
+        textView1 = findViewByID_My(R.id.textView1);
+        textView2 = findViewByID_My(R.id.textView2);
     }
 
     @Override
     protected void initData() {
 //        request(captchaURL);
-
+        time = new TimeCount(60000, 1000);//构造CountDownTimer对象
     }
 
 
@@ -91,14 +96,15 @@ public class RegisteredActivity extends BaseActivity {
                 //发送验证码
                 phonenum = editText1.getText().toString().trim();
                 if (TextUtils.isEmpty(phonenum)) {
-                    Toast.makeText(this, getString(R.string.registered_h1), Toast.LENGTH_SHORT).show();
+                    myToast(getString(R.string.registered_h1));
                 } else {
-                    /*showProgress(true, "正在获取短信验证码...");
+                    showProgress(true, "正在获取短信验证码...");
+                    textView1.setClickable(false);
                     HashMap<String, String> params = new HashMap<>();
                     params.put("mobile", phonenum);
                     params.put("type", "1");
 //                    params.put("code", piccode);
-                    RequestCode(params);//获取验证码*/
+                    RequestCode(params);//获取验证码
 
                     /*showProgress(true, "正在生成图形验证码...");
                     HashMap<String, String> params = new HashMap<>();
@@ -235,7 +241,28 @@ public class RegisteredActivity extends BaseActivity {
 
         return true;
     }
+    private void RequestCode(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(this, URLs.Code, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                textView1.setClickable(true);
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
 
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                textView1.setClickable(true);
+                MyLogger.i(">>>>>>>>>验证码" + response);
+                time.start();//开始计时
+                myToast(getString(R.string.app_sendcode_hint));
+            }
+        },false);
+
+    }
     //注册
     private void RequestRegistered(Map<String, String> params) {
         OkHttpClientManager.postAsyn(RegisteredActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
@@ -275,16 +302,13 @@ public class RegisteredActivity extends BaseActivity {
                     localUserInfo.setToken(token);
                     //保存用户id
                     final String id = jObj1.getString("id");
-
+                    localUserInfo.setUserId(id);
                     //保存电话号码
                     String mobile = jObj1.getString("mobile");
                     localUserInfo.setPhoneNumber(mobile);
-                    localUserInfo.setPhoneNumber(phonenum);
-                    //保存用户昵称
+                    /*//保存用户昵称
                     String nickname = jObj1.getString("nickname");
-                    localUserInfo.setNickname(nickname);
-
-                    localUserInfo.setUserId(id);
+                    localUserInfo.setNickname(nickname);*/
 
                     //环信注册
                     new Thread(new Runnable() {
@@ -354,7 +378,7 @@ public class RegisteredActivity extends BaseActivity {
                 }
 
             }
-        }, true);
+        },false);
 
     }
 
@@ -371,7 +395,24 @@ public class RegisteredActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);//继续执行父类其他点击事件
     }*/
 
+    //获取验证码倒计时
+    class TimeCount extends CountDownTimer {
+        public TimeCount(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+        }
 
+        @Override
+        public void onFinish() {//计时完毕时触发
+            textView1.setText(getString(R.string.app_reacquirecode));
+            textView1.setClickable(true);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+            textView1.setClickable(false);
+            textView1.setText(millisUntilFinished / 1000 + getString(R.string.app_codethen));
+        }
+    }
     /**
      * ********************************************定位**********************************************
      */

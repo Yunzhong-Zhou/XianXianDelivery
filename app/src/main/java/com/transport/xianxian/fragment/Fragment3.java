@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.liaoinstan.springview.widget.SpringView;
@@ -29,6 +30,8 @@ import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
+
+import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
 
 /**
  * Created by fafukeji01 on 2016/1/6.
@@ -90,7 +93,7 @@ public class Fragment3 extends BaseFragment {
         imageView1 = findViewByID_My(R.id.imageView1);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
-        /*textView1.setText(localUserInfo.getUserName());
+        textView1.setText(localUserInfo.getNickname());
         textView2.setText(localUserInfo.getPhonenumber());
         if (!localUserInfo.getUserImage().equals(""))
             Glide.with(getActivity())
@@ -100,7 +103,7 @@ public class Fragment3 extends BaseFragment {
 //                    .error(R.mipmap.headimg)//加载失败
                     .into(imageView1);//加载图片
         else
-            imageView1.setImageResource(R.mipmap.headimg);*/
+            imageView1.setImageResource(R.mipmap.headimg);
 
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
@@ -139,8 +142,9 @@ public class Fragment3 extends BaseFragment {
             @Override
             public void onResponse(Fragment3Model response) {
                 MyLogger.i(">>>>>>>>>我的" + response);
-                /*//昵称
-                textView1.setText(response.getMobile());
+                //昵称
+                textView1.setText(response.getNickname());
+                localUserInfo.setNickname(response.getNickname());
                 //头像
                 localUserInfo.setUserImage(response.getHead());
                 if (!response.getHead().equals(""))
@@ -151,20 +155,6 @@ public class Fragment3 extends BaseFragment {
                             .into(imageView1);//加载图片
                 else
                     imageView1.setImageResource(R.mipmap.headimg);
-
-                if (!response.getBank_card_account().equals("")){
-                    textView3.setVisibility(View.VISIBLE);
-                    textView4.setVisibility(View.VISIBLE);
-                    textView5.setVisibility(View.GONE);
-
-                    textView2.setText(response.getBank_title());
-                    textView3.setText(response.getBank_card_proceeds_name());
-                    textView4.setText(response.getBank_card_account());
-                }else {
-                    textView3.setVisibility(View.GONE);
-                    textView4.setVisibility(View.GONE);
-                    textView5.setVisibility(View.VISIBLE);
-                }*/
 
                 hideProgress();
             }
@@ -188,7 +178,6 @@ public class Fragment3 extends BaseFragment {
                 //                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class);
                 //跳转聊天
                 CommonUtil.gotoActivity(getActivity(), ChatMainActivity.class);
-
 
                 break;
             case R.id.linearLayout2:
