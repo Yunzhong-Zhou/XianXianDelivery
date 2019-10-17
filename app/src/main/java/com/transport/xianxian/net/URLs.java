@@ -56,7 +56,7 @@ public class URLs {
     /**
      * 算力
      */
-    public static final String Fragment1= "/api/withdrawal/create";
+    public static final String Fragment1= "/api/driver/index";
     /**
      * 算力
      */
@@ -66,7 +66,7 @@ public class URLs {
     /**
      * 区块
      */
-    public static final String Fragment2 = "/api/top-up/create";
+    public static final String Fragment2 = "/api/driver/index";
     /**
      * 购买算力
      */
@@ -136,9 +136,21 @@ public class URLs {
      */
     public static final String WalletAddress = "/api/member/set-wallet-addr";
     /**
+     * 积分商城
+     */
+    public static final String JiFenShangCheng = "/api/goods/index";
+    /**
+     * 积分列表
+     */
+    public static final String JiFenLieBiao = "/api/goods/search";
+    /**
+     * 兑换记录
+     */
+    public static final String DuiHuanJiLu = "/api/goods/exchange-search";
+    /**
      * 积分明细
      */
-    public static final String JiFenMingXi = "/api/member/account";
+    public static final String JiFenMingXi = "/api/goods/tscore-search";
     /**
      * 账户详情2(我的区块进入)
      */

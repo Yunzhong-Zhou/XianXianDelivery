@@ -2,6 +2,7 @@ package com.transport.xianxian.activity;
 
 import android.os.Bundle;
 
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
@@ -22,9 +23,11 @@ import androidx.recyclerview.widget.RecyclerView;
  * Created by zyz on 2019-10-08.
  */
 public class JiFenMingXiActivity extends BaseActivity {
+    int page = 1;
     private RecyclerView recyclerView;
     List<JiFenMingXiModel> list = new ArrayList<>();
     CommonAdapter<JiFenMingXiModel> mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,26 @@ public class JiFenMingXiActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        setSpringViewMore(true);//不需要加载更多
+        springView.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                page = 1;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                Request(string);
+            }
+
+            @Override
+            public void onLoadmore() {
+                page++;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                Request(string);
+            }
+        });
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
@@ -48,10 +71,11 @@ public class JiFenMingXiActivity extends BaseActivity {
         super.requestServer();
 //        this.showLoadingPage();
 
-//        showProgress(true, getString(R.string.app_loading));
-
-        /*String string = "?token=" + localUserInfo.getToken();
-        Request(string);*/
+        showProgress(true, getString(R.string.app_loading));
+        String string = "?page=" + page//当前页号
+                + "&count=" + "10"//页面行数
+                + "&token=" + localUserInfo.getToken();
+        Request(string);
     }
 
     private void Request(String string) {
@@ -69,7 +93,7 @@ public class JiFenMingXiActivity extends BaseActivity {
             public void onResponse(final JiFenMingXiModel response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>订单" + response);
+                MyLogger.i(">>>>>>>>>积分明细" + response);
 
                 mAdapter = new CommonAdapter<JiFenMingXiModel>
                         (JiFenMingXiActivity.this, R.layout.item_jifenmingxi, list) {

@@ -414,6 +414,7 @@
                     //开始接单
 
                     <TextView
+                        android:id="@+id/tv_kaishijiedan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"

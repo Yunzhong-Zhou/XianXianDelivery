@@ -9,12 +9,12 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.adapter.JiFenLieBiao_GridViewAdapter;
 import com.transport.xianxian.base.BaseActivity;
 import com.transport.xianxian.model.JiFenLieBiaoModel;
-import com.transport.xianxian.model.JiFenMingXiModel;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
@@ -40,8 +40,12 @@ public class JiFenLieBiaoActivity extends BaseActivity {
     List<String> images = new ArrayList<>();
 
     GridView gridView;
-    List<JiFenLieBiaoModel> list = new ArrayList<>();
+    List<JiFenLieBiaoModel.GoodsDataBean> list = new ArrayList<>();
     JiFenLieBiao_GridViewAdapter gridViewAdapter;
+
+    JiFenLieBiaoModel model;
+
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,44 +55,28 @@ public class JiFenLieBiaoActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
-        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
-        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
-        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
-
-        banner = findViewByID_My(R.id.banner);
-        //设置banner样式
-        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
-        //设置指示器位置（当banner模式中有指示器时）
-        banner.setIndicatorGravity(BannerConfig.CENTER);
-        //设置图片加载器
-        banner.setImageLoader(new GlideImageLoader());
-        //设置图片集合
-        banner.setImages(images);
-        //设置banner动画效果
-        banner.setBannerAnimation(Transformer.DepthPage);
-        //设置标题集合（当banner样式有显示title时）
-//        banner.setBannerTitles(titles);
-        //设置自动轮播，默认为true
-        banner.isAutoPlay(true);
-        //设置轮播时间
-        banner.setDelayTime(1500);
-        //banner设置方法全部调用完毕时最后调用
-        banner.start();
-
-        banner.setOnBannerListener(new OnBannerListener() {
+        setSpringViewMore(true);//不需要加载更多
+        springView.setListener(new SpringView.OnFreshListener() {
             @Override
-            public void OnBannerClick(int position) {
+            public void onRefresh() {
+                page = 1;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                Request(string);
+            }
 
+            @Override
+            public void onLoadmore() {
+                page++;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                Request(string);
             }
         });
-
+        banner = findViewByID_My(R.id.banner);
         gridView = findViewByID_My(R.id.gridView);
-        for (int i = 0; i < 10; i++) {
-            list.add(new JiFenLieBiaoModel());
-        }
-        gridViewAdapter = new JiFenLieBiao_GridViewAdapter(this, list);
-        gridView.setAdapter(gridViewAdapter);
     }
 
     @Override
@@ -112,15 +100,15 @@ public class JiFenLieBiaoActivity extends BaseActivity {
     public void requestServer() {
         super.requestServer();
 //        this.showLoadingPage();
-
-//        showProgress(true, getString(R.string.app_loading));
-
-        /*String string = "?token=" + localUserInfo.getToken();
-        Request(string);*/
+        showProgress(true, getString(R.string.app_loading));
+        String string = "?page=" + page//当前页号
+                + "&count=" + "10"//页面行数
+                + "&token=" + localUserInfo.getToken();
+        Request(string);
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.JiFenMingXi + string, new OkHttpClientManager.ResultCallback<JiFenMingXiModel>() {
+        OkHttpClientManager.getAsyn(this, URLs.JiFenLieBiao + string, new OkHttpClientManager.ResultCallback<JiFenLieBiaoModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -131,11 +119,44 @@ public class JiFenLieBiaoActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(final JiFenMingXiModel response) {
+            public void onResponse(final JiFenLieBiaoModel response) {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>商品列表" + response);
 
+                images.clear();
+                for (int i = 0; i < response.getBanner().size(); i++) {
+                    images.add(response.getBanner().get(i).getUrl());
+                }
+                //设置banner样式
+                banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+                //设置指示器位置（当banner模式中有指示器时）
+                banner.setIndicatorGravity(BannerConfig.CENTER);
+                //设置图片加载器
+                banner.setImageLoader(new GlideImageLoader());
+                //设置图片集合
+                banner.setImages(images);
+                //设置banner动画效果
+                banner.setBannerAnimation(Transformer.DepthPage);
+                //设置标题集合（当banner样式有显示title时）
+//        banner.setBannerTitles(titles);
+                //设置自动轮播，默认为true
+                banner.isAutoPlay(true);
+                //设置轮播时间
+                banner.setDelayTime(1500);
+                //banner设置方法全部调用完毕时最后调用
+                banner.start();
+
+                banner.setOnBannerListener(new OnBannerListener() {
+                    @Override
+                    public void OnBannerClick(int position) {
+
+                    }
+                });
+
+                list = response.getGoods_data();
+                gridViewAdapter = new JiFenLieBiao_GridViewAdapter(JiFenLieBiaoActivity.this, list);
+                gridView.setAdapter(gridViewAdapter);
             }
         });
     }

@@ -54,7 +54,7 @@ public class Fragment1 extends BaseFragment {
 
     ImageView btn_right;
     LinearLayout ll_xiaoxi, ll_pingfen;
-    TextView tv_zijintongji, tv_type, tv_distance, tv_temperature, tv_timestart, tv_timestop;
+    TextView tv_zijintongji, tv_type, tv_distance, tv_temperature, tv_timestart, tv_timestop,tv_kaishijiedan;
     int i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0;
 
     @Override
@@ -122,69 +122,14 @@ public class Fragment1 extends BaseFragment {
         tv_timestart.setOnClickListener(this);
         tv_timestop = findViewByID_My(R.id.tv_timestop);
         tv_timestop.setOnClickListener(this);
+        tv_kaishijiedan = findViewByID_My(R.id.tv_kaishijiedan);
+        tv_kaishijiedan.setOnClickListener(this);
 
-        for (int i = 0; i < 10; i++) {
-            list.add(new Fragment1Model());
-        }
-        mAdapter = new CommonAdapter<Fragment1Model>
-                (getActivity(), R.layout.item_fragment1, list) {
-            @Override
-            protected void convert(ViewHolder holder, Fragment1Model model, int position) {
-                        /*holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
-                        holder.setText(R.id.textView3, model.getShow_created_at());
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);*/
-
-                //标签
-                FlowLayoutAdapter<String> flowLayoutAdapter;
-                List<String> list = new ArrayList<>();
-                list.add("专车");
-                list.add("6吨");
-                list.add("15-20℃恒温");
-                flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
-                    @Override
-                    public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
-//                                holder.setText(R.id.tv,bean);
-                        TextView tv = holder.getView(R.id.tv);
-                        tv.setText(bean);
-                        if (position == 0) {
-                            tv.setTextColor(getResources().getColor(R.color.white));
-                            tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                        } else {
-                            tv.setTextColor(getResources().getColor(R.color.black1));
-                            tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
-                        }
-                    }
-
-                    @Override
-                    public void onItemClick(int position, String bean) {
-//                        showToast("点击" + position);
-                    }
-
-                    @Override
-                    public int getItemLayoutID(int position, String bean) {
-                        return R.layout.item_flowlayout;
-                    }
-                };
-                ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
-            }
-        };
-        recyclerView.setAdapter(mAdapter);
     }
 
     @Override
     protected void initData() {
-//        requestServer();
-
+        requestServer();
     }
 
     private void Request(String string) {
@@ -204,7 +149,62 @@ public class Fragment1 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>首页" + response);
 
+                for (int i = 0; i < 10; i++) {
+                    list.add(new Fragment1Model());
+                }
+                mAdapter = new CommonAdapter<Fragment1Model>
+                        (getActivity(), R.layout.item_fragment1, list) {
+                    @Override
+                    protected void convert(ViewHolder holder, Fragment1Model model, int position) {
+                        /*holder.setText(R.id.textView1, model.getMember_nickname());
+                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
+                        holder.setText(R.id.textView3, model.getShow_created_at());
+                        ImageView imageView1 = holder.getView(R.id.imageView1);
+                        if (!model.getMember_head().equals(""))
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getMember_head())
+                                    .centerCrop()
+//                                    .placeholder(R.mipmap.headimg)//加载站位图
+//                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+                        else
+                            imageView1.setImageResource(R.mipmap.headimg);*/
 
+                        //标签
+                        FlowLayoutAdapter<String> flowLayoutAdapter;
+                        List<String> list = new ArrayList<>();
+                        list.add("专车");
+                        list.add("6吨");
+                        list.add("15-20℃恒温");
+                        flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                            @Override
+                            public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+//                                holder.setText(R.id.tv,bean);
+                                TextView tv = holder.getView(R.id.tv);
+                                tv.setText(bean);
+                                if (position == 0) {
+                                    tv.setTextColor(getResources().getColor(R.color.white));
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
+                                } else {
+                                    tv.setTextColor(getResources().getColor(R.color.black1));
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                                }
+                            }
+
+                            @Override
+                            public void onItemClick(int position, String bean) {
+//                        showToast("点击" + position);
+                            }
+
+                            @Override
+                            public int getItemLayoutID(int position, String bean) {
+                                return R.layout.item_flowlayout;
+                            }
+                        };
+                        ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
+                    }
+                };
+                recyclerView.setAdapter(mAdapter);
             }
         });
     }
@@ -228,7 +228,10 @@ public class Fragment1 extends BaseFragment {
                 //评分详情
                 CommonUtil.gotoActivity(getActivity(), ScoreDetailActivity.class);
                 break;
+            case R.id.tv_kaishijiedan:
+                //开始接单
 
+                break;
             case R.id.tv_type:
                 //订单类型
                 BaseDialog dialog1 = new BaseDialog(getActivity());
@@ -559,9 +562,9 @@ public class Fragment1 extends BaseFragment {
     public void requestServer() {
         super.requestServer();
 //        this.showLoadingPage();
-       /* showProgress(true, getString(R.string.app_loading));
+        showProgress(true, getString(R.string.app_loading));
         String string = "?token=" + localUserInfo.getToken();
-        Request(string);*/
+        Request(string);
     }
 
     @Override

@@ -36,6 +36,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * 订单
  */
 public class Fragment2 extends BaseFragment {
+    int page = 1;
     private RecyclerView recyclerView;
     List<Fragment2Model> list1 = new ArrayList<>();
     CommonAdapter<Fragment2Model> mAdapter1;
@@ -91,15 +92,24 @@ public class Fragment2 extends BaseFragment {
     @Override
     protected void initView(View view) {
         //刷新
-        setSpringViewMore(false);//不需要加载更多
+        setSpringViewMore(true);//不需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                Request("?token=" + localUserInfo.getToken());
+                page = 1;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                Request(string);
             }
 
             @Override
             public void onLoadmore() {
+                page++;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                Request(string);
             }
         });
 
@@ -285,10 +295,11 @@ public class Fragment2 extends BaseFragment {
         super.requestServer();
 //        this.showLoadingPage();
 
-//        showProgress(true, getString(R.string.app_loading));
-
-        /*String string = "?token=" + localUserInfo.getToken();
-        Request(string);*/
+        showProgress(true, getString(R.string.app_loading));
+        String string = "?page=" + page//当前页号
+                + "&count=" + "10"//页面行数
+                + "&token=" + localUserInfo.getToken();
+        Request(string);
     }
 
     private void Request(String string) {

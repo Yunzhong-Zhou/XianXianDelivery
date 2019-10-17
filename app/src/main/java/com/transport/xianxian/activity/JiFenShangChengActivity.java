@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
@@ -11,7 +12,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
-import com.transport.xianxian.model.JiFenMingXiModel;
+import com.transport.xianxian.model.JiFenShangChengModel;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
@@ -25,12 +26,19 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
+
 /**
  * Created by zyz on 2019-10-02.
  */
 public class JiFenShangChengActivity extends BaseActivity {
     Banner banner;
     List<String> images = new ArrayList<>();
+    JiFenShangChengModel model;
+
+    ImageView imageView1;
+    TextView textView1, textView2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,66 +46,45 @@ public class JiFenShangChengActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        requestServer();
+    }
+
+    @Override
     protected void initView() {
-
-        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
-        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
-        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
-        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
-
         banner = findViewByID_My(R.id.banner);
-        //设置banner样式
-        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
-        //设置指示器位置（当banner模式中有指示器时）
-        banner.setIndicatorGravity(BannerConfig.CENTER);
-        //设置图片加载器
-        banner.setImageLoader(new GlideImageLoader());
-        //设置图片集合
-        banner.setImages(images);
-        //设置banner动画效果
-        banner.setBannerAnimation(Transformer.DepthPage);
-        //设置标题集合（当banner样式有显示title时）
-//        banner.setBannerTitles(titles);
-        //设置自动轮播，默认为true
-        banner.isAutoPlay(true);
-        //设置轮播时间
-        banner.setDelayTime(1500);
-        //banner设置方法全部调用完毕时最后调用
-        banner.start();
+        imageView1 = findViewByID_My(R.id.imageView1);
+        textView1 = findViewByID_My(R.id.textView1);
+        textView2 = findViewByID_My(R.id.textView2);
 
-        banner.setOnBannerListener(new OnBannerListener() {
-            @Override
-            public void OnBannerClick(int position) {
-
-            }
-        });
     }
 
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_detail:
                 //积分明细
-                CommonUtil.gotoActivity(this,JiFenMingXiActivity.class,false);
+                CommonUtil.gotoActivity(this, JiFenMingXiActivity.class, false);
                 break;
             case R.id.linearLayout1:
                 //兑好礼
                 Bundle bundle1 = new Bundle();
-                bundle1.putInt("type",1);
-                CommonUtil.gotoActivityWithData(this,JiFenLieBiaoActivity.class,bundle1,false);
+                bundle1.putString("type", model.getType().get(0).getType());
+                CommonUtil.gotoActivityWithData(this, JiFenLieBiaoActivity.class, bundle1, false);
                 break;
             case R.id.linearLayout2:
                 //兑加油
                 Bundle bundle2 = new Bundle();
-                bundle2.putInt("type",2);
-                CommonUtil.gotoActivityWithData(this,JiFenLieBiaoActivity.class,bundle2,false);
+                bundle2.putString("type", model.getType().get(1).getType());
+                CommonUtil.gotoActivityWithData(this, JiFenLieBiaoActivity.class, bundle2, false);
                 break;
             case R.id.linearLayout3:
                 //兑话费
                 Bundle bundle3 = new Bundle();
-                bundle3.putInt("type",3);
-                CommonUtil.gotoActivityWithData(this,JiFenLieBiaoActivity.class,bundle3,false);
+                bundle3.putString("type", model.getType().get(2).getType());
+                CommonUtil.gotoActivityWithData(this, JiFenLieBiaoActivity.class, bundle3, false);
                 break;
 
         }
@@ -105,24 +92,23 @@ public class JiFenShangChengActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        requestServer();
+
     }
+
     @Override
     public void requestServer() {
         super.requestServer();
 //        this.showLoadingPage();
 
-//        showProgress(true, getString(R.string.app_loading));
-
-        /*String string = "?token=" + localUserInfo.getToken();
-        Request(string);*/
+        showProgress(true, getString(R.string.app_loading));
+        String string = "?token=" + localUserInfo.getToken();
+        Request(string);
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.JiFenMingXi + string, new OkHttpClientManager.ResultCallback<JiFenMingXiModel>() {
+        OkHttpClientManager.getAsyn(this, URLs.JiFenShangCheng + string, new OkHttpClientManager.ResultCallback<JiFenShangChengModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
                     myToast(info);
@@ -130,10 +116,57 @@ public class JiFenShangChengActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(final JiFenMingXiModel response) {
-                showContentPage();
+            public void onResponse(final JiFenShangChengModel response) {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>积分商城" + response);
+                model = response;
+                if (!response.getHead().equals(""))
+                    Glide.with(JiFenShangChengActivity.this).load(IMGHOST + response.getHead())
+                            .centerCrop()
+//                            .placeholder(R.mipmap.headimg)//加载站位图
+//                            .error(R.mipmap.headimg)//加载失败
+                            .into(imageView1);//加载图片
+
+                textView1.setText(response.getNickname());//昵称
+                textView2.setText(response.getScore());//积分
+
+                //banner
+                /*images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
+                images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
+                images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
+                images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");*/
+                images.clear();
+                for (int i = 0; i < response.getBanner().size(); i++) {
+                    images.add(response.getBanner().get(i).getUrl());
+                }
+                //设置banner样式
+                banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+                //设置指示器位置（当banner模式中有指示器时）
+                banner.setIndicatorGravity(BannerConfig.CENTER);
+                //设置图片加载器
+                banner.setImageLoader(new GlideImageLoader());
+                //设置图片集合
+                banner.setImages(images);
+                //设置banner动画效果
+                banner.setBannerAnimation(Transformer.DepthPage);
+                //设置标题集合（当banner样式有显示title时）
+//        banner.setBannerTitles(titles);
+                //设置自动轮播，默认为true
+                banner.isAutoPlay(true);
+                //设置轮播时间
+                banner.setDelayTime(1500);
+                //banner设置方法全部调用完毕时最后调用
+                banner.start();
+
+                banner.setOnBannerListener(new OnBannerListener() {
+                    @Override
+                    public void OnBannerClick(int position) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("type", response.getBanner().get(position).getType());
+                        CommonUtil.gotoActivityWithData(JiFenShangChengActivity.this, JiFenLieBiaoActivity.class, bundle, false);
+                    }
+                });
+
             }
         });
     }
@@ -170,7 +203,7 @@ public class JiFenShangChengActivity extends BaseActivity {
             //Glide 加载图片简单用法
             Glide.with(context)
                     .load(path)
-                    .apply(RequestOptions.bitmapTransform(new RoundedCorners( 20)))
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
                     .into(imageView);
 
             //Picasso 加载图片简单用法

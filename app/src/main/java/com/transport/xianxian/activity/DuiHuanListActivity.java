@@ -2,6 +2,7 @@ package com.transport.xianxian.activity;
 
 import android.os.Bundle;
 
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
@@ -34,6 +35,18 @@ public class DuiHuanListActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        setSpringViewMore(false);//不需要加载更多
+        springView.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                String string = "?token=" + localUserInfo.getToken();
+                Request(string);
+            }
+
+            @Override
+            public void onLoadmore() {
+            }
+        });
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
@@ -49,14 +62,13 @@ public class DuiHuanListActivity extends BaseActivity {
         super.requestServer();
 //        this.showLoadingPage();
 
-//        showProgress(true, getString(R.string.app_loading));
-
-        /*String string = "?token=" + localUserInfo.getToken();
-        Request(string);*/
+        showProgress(true, getString(R.string.app_loading));
+        String string = "?token=" + localUserInfo.getToken();
+        Request(string);
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.JiFenMingXi + string, new OkHttpClientManager.ResultCallback<DuiHuanListModel>() {
+        OkHttpClientManager.getAsyn(this, URLs.DuiHuanJiLu + string, new OkHttpClientManager.ResultCallback<DuiHuanListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -70,7 +82,7 @@ public class DuiHuanListActivity extends BaseActivity {
             public void onResponse(final DuiHuanListModel response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>订单" + response);
+                MyLogger.i(">>>>>>>>>兑换记录" + response);
 
                 mAdapter = new CommonAdapter<DuiHuanListModel>
                         (DuiHuanListActivity.this, R.layout.item_duihuanlist, list) {

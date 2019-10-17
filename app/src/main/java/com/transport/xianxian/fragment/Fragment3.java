@@ -145,6 +145,7 @@ public class Fragment3 extends BaseFragment {
                 //昵称
                 textView1.setText(response.getNickname());
                 localUserInfo.setNickname(response.getNickname());
+
                 //头像
                 localUserInfo.setUserImage(response.getHead());
                 if (!response.getHead().equals(""))

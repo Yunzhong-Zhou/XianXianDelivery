@@ -28,6 +28,7 @@ public class JiangLiListActivity extends BaseActivity{
     private RecyclerView recyclerView;
     List<JiangLiListModel> list = new ArrayList<>();
     CommonAdapter<JiangLiListModel> mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
