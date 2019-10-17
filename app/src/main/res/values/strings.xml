@@ -75,7 +75,6 @@
     <!--刷新和加载-->
     <string name="app_loading">正在加载...</string>
     <string name="app_loading1">正在提交数据...</string>
-    <string name="app_loading2">正在获取数据...</string>
     <string name="app_loading3">正在设置分享数据...</string>
     <string name="app_nodata">暂无数据</string>
     <string name="app_reload">没有数据</string>

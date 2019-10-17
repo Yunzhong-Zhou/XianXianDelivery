@@ -34,9 +34,10 @@ public class WalletActivity extends BaseActivity {
     ImageView imageView1;
     TextView textView1, textView2, textView3, textView4, textView5, textView6;
 
+    int page = 1;
     private RecyclerView recyclerView;
-    List<WalletModel> list = new ArrayList<>();
-    CommonAdapter<WalletModel> mAdapter;
+    List<WalletModel.TmoneyDataBean> list = new ArrayList<>();
+    CommonAdapter<WalletModel.TmoneyDataBean> mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +47,24 @@ public class WalletActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        setSpringViewMore(false);//不需要加载更多
+        setSpringViewMore(true);//不需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                Request("?token=" + localUserInfo.getToken());
+                page = 1;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                Request(string);
             }
 
             @Override
             public void onLoadmore() {
+                page++;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                RequestMore(string);
             }
         });
         recyclerView = findViewByID_My(R.id.recyclerView);
@@ -79,6 +89,7 @@ public class WalletActivity extends BaseActivity {
                 //提现
                 CommonUtil.gotoActivity(WalletActivity.this, TakeCashActivity.class);
                 break;
+
             default:
                 break;
         }
@@ -95,7 +106,9 @@ public class WalletActivity extends BaseActivity {
 //        this.showLoadingPage();
 
         showProgress(true, getString(R.string.app_loading));
-        String string = "?token=" + localUserInfo.getToken();
+        String string = "?page=" + page//当前页号
+                + "&count=" + "10"//页面行数
+                + "&token=" + localUserInfo.getToken();
         Request(string);
     }
 
@@ -112,7 +125,6 @@ public class WalletActivity extends BaseActivity {
 
             @Override
             public void onResponse(WalletModel response) {
-                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>钱包" + response);
                 textView1.setText(response.getNickname());//昵称
@@ -128,31 +140,64 @@ public class WalletActivity extends BaseActivity {
 //                                    .placeholder(R.mipmap.headimg)//加载站位图
 //                                    .error(R.mipmap.headimg)//加载失败
                             .into(imageView1);//加载图片
+                list = response.getTmoney_data();
+                if (list.size() > 0) {
+                    showContentPage();
+                    mAdapter = new CommonAdapter<WalletModel.TmoneyDataBean>
+                            (WalletActivity.this, R.layout.item_wallet, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, WalletModel.TmoneyDataBean model, int position) {
+                            holder.setText(R.id.textView1, model.getTitle());
+                            holder.setText(R.id.textView2, model.getCreated_at());
+                            TextView tv_money = holder.getView(R.id.textView3);
+                            if (model.getOut_in() == 1) {
+                                tv_money.setTextColor(getResources().getColor(R.color.green));
+                                tv_money.setText("+" + model.getMoney());
+                            } else {
+                                tv_money.setTextColor(getResources().getColor(R.color.red));
+                                tv_money.setText("-" + model.getMoney());
+                            }
+                            holder.setText(R.id.textView3, model.getSn());
+                        }
+                    };
+                    recyclerView.setAdapter(mAdapter);
+                } else {
+                    showEmptyPage();
+                }
 
-//                list = response.;
-
-                mAdapter = new CommonAdapter<WalletModel>
-                        (WalletActivity.this, R.layout.item_wallet, list) {
-                    @Override
-                    protected void convert(ViewHolder holder, WalletModel model, int position) {
-                        /*holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
-                        holder.setText(R.id.textView3, model.getShow_created_at());
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);*/
-
-                    }
-                };
             }
         });
+    }
+
+    private void RequestMore(String string) {
+        OkHttpClientManager.getAsyn(WalletActivity.this, URLs.Wallet + string, new OkHttpClientManager.ResultCallback<WalletModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(WalletModel response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
+
+                List<WalletModel.TmoneyDataBean> list1 = new ArrayList<>();
+                list1 = response.getTmoney_data();
+                if (list1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                } else {
+                    list.addAll(list1);
+                    mAdapter.notifyDataSetChanged();
+                }
+
+            }
+        });
+
     }
 
     @Override

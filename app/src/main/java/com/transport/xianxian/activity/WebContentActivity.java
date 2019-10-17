@@ -33,7 +33,7 @@ public class WebContentActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        showProgress(true, getString(R.string.app_loading2));
+        showProgress(true, getString(R.string.app_loading));
         webView = (WebView) findViewById(R.id.webView);
         String url = getIntent().getStringExtra("url");
         MyLogger.i(">>>>>>url" + url);

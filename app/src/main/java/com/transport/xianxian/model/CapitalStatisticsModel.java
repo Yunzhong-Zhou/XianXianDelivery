@@ -4,18 +4,16 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by zyz on 2019-10-03.
+ * Created by zyz on 2019-10-17.
  */
-public class WalletModel implements Serializable {
+public class CapitalStatisticsModel implements Serializable {
     /**
+     * tmoney_data : [{"id":1,"type":1,"out_in":2,"title":"货主付款","sn":"20191016","money":"100.00","remark":"货主付款","created_at":"2019-10-16 13:58:53"},{"id":2,"type":2,"out_in":2,"title":"货主付款","sn":"20191016","money":"1000.00","remark":"货主付款","created_at":"2019-10-16 14:08:47"}]
      * nickname : 15823629471
      * head :
      * money : 0
      * wait_money : 0
      * frozen_money : 0
-     * total_money : 0
-     * withdrawal_money : 0
-     * tmoney_data : [{"id":1,"type":1,"out_in":2,"title":"货主付款","sn":"20191016","money":"100.00","remark":"货主付款","created_at":"2019-10-16 13:58:53"},{"id":2,"type":2,"out_in":2,"title":"货主付款","sn":"20191016","money":"1000.00","remark":"货主付款","created_at":"2019-10-16 14:08:47"}]
      */
 
     private String nickname;
@@ -23,8 +21,8 @@ public class WalletModel implements Serializable {
     private String money;
     private String wait_money;
     private String frozen_money;
-    private String total_money;
-    private String withdrawal_money;
+    private String today_money;
+
     private List<TmoneyDataBean> tmoney_data;
 
     public String getNickname() {
@@ -67,20 +65,12 @@ public class WalletModel implements Serializable {
         this.frozen_money = frozen_money;
     }
 
-    public String getTotal_money() {
-        return total_money;
+    public String getToday_money() {
+        return today_money;
     }
 
-    public void setTotal_money(String total_money) {
-        this.total_money = total_money;
-    }
-
-    public String getWithdrawal_money() {
-        return withdrawal_money;
-    }
-
-    public void setWithdrawal_money(String withdrawal_money) {
-        this.withdrawal_money = withdrawal_money;
+    public void setToday_money(String today_money) {
+        this.today_money = today_money;
     }
 
     public List<TmoneyDataBean> getTmoney_data() {
@@ -104,7 +94,7 @@ public class WalletModel implements Serializable {
          */
 
         private String id;
-        private String type;
+        private int type;
         private int out_in;
         private String title;
         private String sn;
@@ -120,11 +110,11 @@ public class WalletModel implements Serializable {
             this.id = id;
         }
 
-        public String getType() {
+        public int getType() {
             return type;
         }
 
-        public void setType(String type) {
+        public void setType(int type) {
             this.type = type;
         }
 

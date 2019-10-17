@@ -149,9 +149,9 @@ public class Fragment1 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>首页" + response);
 
-                for (int i = 0; i < 10; i++) {
+                /*for (int i = 0; i < 10; i++) {
                     list.add(new Fragment1Model());
-                }
+                }*/
                 mAdapter = new CommonAdapter<Fragment1Model>
                         (getActivity(), R.layout.item_fragment1, list) {
                     @Override

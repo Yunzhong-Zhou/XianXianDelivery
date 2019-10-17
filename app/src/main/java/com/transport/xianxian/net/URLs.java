@@ -210,7 +210,7 @@ public class URLs {
     /**
      * 资金统计
      */
-    public static final String CapitalStatistics = "/api/article/notice";
+    public static final String CapitalStatistics = "/api/driver/tmoney-today";
     /**
      * 帮助列表
      */
