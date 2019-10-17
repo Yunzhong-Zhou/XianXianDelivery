@@ -33,7 +33,7 @@ public class ChatActivity extends EaseBaseActivity {
         super.onDestroy();
         activityInstance = null;
     }
-    
+
     @Override
     protected void onNewIntent(Intent intent) {
         // enter to chat activity when click notification bar, here make sure only one chat activiy

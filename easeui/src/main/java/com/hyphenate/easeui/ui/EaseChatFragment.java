@@ -625,8 +625,16 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        hideKeyboard();//隐藏软键盘
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
+
+
 
         if (groupListener != null) {
             EMClient.getInstance().groupManager().removeGroupChangeListener(groupListener);
