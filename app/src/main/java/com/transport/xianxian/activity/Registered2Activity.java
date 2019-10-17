@@ -1,13 +1,28 @@
 package com.transport.xianxian.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.hyphenate.EMError;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
+import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
+import com.transport.xianxian.net.OkHttpClientManager;
+import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
+import com.transport.xianxian.utils.MyLogger;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.transport.xianxian.net.OkHttpClientManager.HOST;
 
@@ -18,8 +33,9 @@ import static com.transport.xianxian.net.OkHttpClientManager.HOST;
  */
 
 public class Registered2Activity extends BaseActivity {
+    //    String
     private EditText editText1, editText2, editText3;
-
+    private TextView textView2;
     private ImageView imageView1;
     boolean isgouxuan = true;
 
@@ -27,38 +43,12 @@ public class Registered2Activity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered2);
-       /* mImmersionBar.reset()
-                .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
-                .init();*/
-//        findViewByID_My(R.id.headview).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
-
-        /*// 定位初始化
-        mLocationClient = new LocationClient(getApplicationContext());
-        //声明LocationClient类
-        mLocationClient.registerLocationListener(myListener);
-        initLocation();
-        mLocationClient.start();*/
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        /*String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
-        RequestSmsCodeList(string3);//手机号国家代码集合
-
-        textView.setText("+" + localUserInfo.getMobile_State_Code());
-
-        if (!localUserInfo.getCountry_IMG().equals(""))
-            Glide.with(RegisteredActivity.this)
-                    .load(IMGHOST + localUserInfo.getCountry_IMG())
-                    .centerCrop()
-//                    .placeholder(R.mipmap.ic_guoqi)//加载站位图
-//                    .error(R.mipmap.ic_guoqi)//加载失败
-                    .into(title_right);//加载图片
-        else
-            title_right.setImageResource(R.mipmap.ic_guoqi);*/
     }
 
     @Override
@@ -66,7 +56,7 @@ public class Registered2Activity extends BaseActivity {
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
         editText3 = findViewByID_My(R.id.editText3);
-
+        textView2 = findViewByID_My(R.id.textView2);
         imageView1 = findViewByID_My(R.id.imageView1);
 
         /*//失去焦点时触发
@@ -102,16 +92,22 @@ public class Registered2Activity extends BaseActivity {
             case R.id.textView4:
                 //用户注册协议
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
+                bundle.putString("url", HOST + "/api/driver/article/gvrp");
                 CommonUtil.gotoActivityWithData(Registered2Activity.this, WebContentActivity.class, bundle, false);
 
                 break;
             case R.id.textView2:
                 //下一步
-                /*if (match())
-                    CommonUtil.gotoActivity(this, RegisteredActivity.class);
-                break;*/
-
+                if (match()) {
+                    textView2.setClickable(false);
+                    showProgress(true, getString(R.string.registered_h14));
+                    HashMap<String, String> params = new HashMap<>();
+//                    params.put("nickname", nickname);//昵称
+//                    params.put("invite_code", num);//邀请码
+//                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                    RequestRegistered(params);//注册
+                }
+                break;
             case R.id.imageView1:
                 //勾选协议
                 isgouxuan = !isgouxuan;
@@ -148,12 +144,12 @@ public class Registered2Activity extends BaseActivity {
     }
 
     //注册
-    /*private void RequestRegistered(Map<String, String> params) {
+    private void RequestRegistered(Map<String, String> params) {
         OkHttpClientManager.postAsyn(Registered2Activity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
-                textView3.setClickable(true);
+                textView2.setClickable(true);
                 if (!info.equals("")) {
                     showToast(info);
                 }
@@ -162,20 +158,8 @@ public class Registered2Activity extends BaseActivity {
             @Override
             public void onResponse(final String response) {
                 MyLogger.i(">>>>>>>>>注册" + response);
-                textView3.setClickable(true);
+                textView2.setClickable(true);
 //                localUserInfo.setTime(System.currentTimeMillis() + "");
-                *//*showToast("该账户尚未激活，请完成人脸识别后进行操作", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Bundle bundle1 = new Bundle();
-                        bundle1.putString("mobile",phonenum);
-                        CommonUtil.gotoActivityWithData(RegisteredActivity.this,
-                                RecordVideoActivity.class,bundle1);
-                        dialog.dismiss();
-                    }
-                });
-                hideProgress();*//*
-                hideProgress();
                 JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
@@ -186,21 +170,76 @@ public class Registered2Activity extends BaseActivity {
                     localUserInfo.setToken(token);
                     //保存用户id
                     final String id = jObj1.getString("id");
-
+                    localUserInfo.setUserId(id);
                     //保存电话号码
                     String mobile = jObj1.getString("mobile");
                     localUserInfo.setPhoneNumber(mobile);
-                    localUserInfo.setPhoneNumber(phonenum);
-                    //保存用户昵称
+                    /*//保存用户昵称
                     String nickname = jObj1.getString("nickname");
-                    localUserInfo.setNickname(nickname);
+                    localUserInfo.setNickname(nickname);*/
 
-                    localUserInfo.setUserId(id);
+                    //环信注册
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                EMClient.getInstance().createAccount(mobile, "123456");
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        hideProgress();
+                                        Bundle bundle = new Bundle();
+                                        bundle.putInt("isShowAd", 1);
+                                        CommonUtil.gotoActivityWithFinishOtherAllAndData(
+                                                Registered2Activity.this, MainActivity.class,
+                                                bundle, true);
+                                    }
+                                });
+                            } catch (final HyphenateException e) {
+                                e.printStackTrace();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        hideProgress();
+                                        /**
+                                         * 关于错误码可以参考官方api详细说明
+                                         * http://www.easemob.com/apidoc/android/chat3.0/classcom_1_1hyphenate_1_1_e_m_error.html
+                                         */
+                                        int errorCode = e.getErrorCode();
+                                        String message = e.getMessage();
+                                        Log.d("lzan13", String.format("sign up - errorCode:%d, errorMsg:%s", errorCode, e.getMessage()));
+                                        switch (errorCode) {
+                                            // 网络错误
+                                            case EMError.NETWORK_ERROR:
+                                                MyLogger.i("网络错误 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            // 用户已存在
+                                            case EMError.USER_ALREADY_EXIST:
+                                                MyLogger.i("用户已存在 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            // 参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册
+                                            case EMError.USER_ILLEGAL_ARGUMENT:
+                                                MyLogger.i("参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            // 服务器未知错误
+                                            case EMError.SERVER_UNKNOWN_ERROR:
+                                                MyLogger.i("服务器未知错误 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            case EMError.USER_REG_FAILED:
+                                                MyLogger.i("账户注册失败 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            default:
+                                                MyLogger.i("ml_sign_up_failed code: " + errorCode + ", message:" + message);
+                                                break;
+                                        }
+                                    }
+                                });
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
 
-                    Bundle bundle = new Bundle();
-//                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
-                    bundle.putInt("isShowAd", 1);
-                    CommonUtil.gotoActivityWithFinishOtherAllAndData(Registered2Activity.this, MainActivity.class, bundle, true);
 
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
@@ -209,9 +248,9 @@ public class Registered2Activity extends BaseActivity {
                 }
 
             }
-        }, true);
+        }, false);
 
-    }*/
+    }
 
     @Override
     protected void updateView() {

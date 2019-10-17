@@ -147,7 +147,7 @@
                 android:background="@drawable/btn_lanse"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="注册"
+                android:text="下一步"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 

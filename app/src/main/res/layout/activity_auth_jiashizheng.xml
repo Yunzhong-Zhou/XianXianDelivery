@@ -17,8 +17,11 @@
 
             <ImageView
                 android:id="@+id/imageView1"
+                android:onClick="onClick"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@drawable/yuanjiao_5_baise"
+                android:scaleType="fitXY"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout1"
@@ -50,8 +53,11 @@
 
             <ImageView
                 android:id="@+id/imageView2"
+                android:onClick="onClick"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@drawable/yuanjiao_5_baise"
+                android:scaleType="fitXY"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout2"

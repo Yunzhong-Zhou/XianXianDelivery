@@ -3,15 +3,11 @@ package com.transport.xianxian.activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hyphenate.EMError;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.exceptions.HyphenateException;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
@@ -19,9 +15,6 @@ import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -117,7 +110,7 @@ public class RegisteredActivity extends BaseActivity {
             case R.id.textView4:
                 //用户注册协议
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
+                bundle.putString("url", HOST + "/api/driver/article/gvrp");
                 CommonUtil.gotoActivityWithData(RegisteredActivity.this, WebContentActivity.class, bundle, false);
 
                 break;
@@ -128,7 +121,7 @@ public class RegisteredActivity extends BaseActivity {
                 //是真机
                 if (match()) {
                     textView2.setClickable(false);
-                    showProgress(true, getString(R.string.registered_h14));
+                    showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("mobile", phonenum);//手机号
                     params.put("password", password1);//密码（不能小于6位数）
@@ -279,104 +272,8 @@ public class RegisteredActivity extends BaseActivity {
             public void onResponse(final String response) {
                 MyLogger.i(">>>>>>>>>注册" + response);
                 textView2.setClickable(true);
-//                localUserInfo.setTime(System.currentTimeMillis() + "");
-                /*showToast("该账户尚未激活，请完成人脸识别后进行操作", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Bundle bundle1 = new Bundle();
-                        bundle1.putString("mobile",phonenum);
-                        CommonUtil.gotoActivityWithData(RegisteredActivity.this,
-                                RecordVideoActivity.class,bundle1);
-                        dialog.dismiss();
-                    }
-                });
-                hideProgress();*/
-                hideProgress();
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-
-                    JSONObject jObj1 = jObj.getJSONObject("data");
-                    //保存Token
-                    String token = jObj1.getString("fresh_token");
-                    localUserInfo.setToken(token);
-                    //保存用户id
-                    final String id = jObj1.getString("id");
-                    localUserInfo.setUserId(id);
-                    //保存电话号码
-                    String mobile = jObj1.getString("mobile");
-                    localUserInfo.setPhoneNumber(mobile);
-                    /*//保存用户昵称
-                    String nickname = jObj1.getString("nickname");
-                    localUserInfo.setNickname(nickname);*/
-
-                    //环信注册
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                EMClient.getInstance().createAccount(phonenum, "123456");
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Bundle bundle = new Bundle();
-//                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
-                                        bundle.putInt("isShowAd", 1);
-                                        CommonUtil.gotoActivityWithFinishOtherAllAndData(RegisteredActivity.this, MainActivity.class, bundle, true);
-
-                                    }
-                                });
-                            } catch (final HyphenateException e) {
-                                e.printStackTrace();
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        /**
-                                         * 关于错误码可以参考官方api详细说明
-                                         * http://www.easemob.com/apidoc/android/chat3.0/classcom_1_1hyphenate_1_1_e_m_error.html
-                                         */
-                                        int errorCode = e.getErrorCode();
-                                        String message = e.getMessage();
-                                        Log.d("lzan13", String.format("sign up - errorCode:%d, errorMsg:%s", errorCode, e.getMessage()));
-                                        switch (errorCode) {
-                                            // 网络错误
-                                            case EMError.NETWORK_ERROR:
-                                                MyLogger.i("网络错误 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            // 用户已存在
-                                            case EMError.USER_ALREADY_EXIST:
-                                                MyLogger.i("用户已存在 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            // 参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册
-                                            case EMError.USER_ILLEGAL_ARGUMENT:
-                                                MyLogger.i("参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            // 服务器未知错误
-                                            case EMError.SERVER_UNKNOWN_ERROR:
-                                                MyLogger.i("服务器未知错误 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            case EMError.USER_REG_FAILED:
-                                                MyLogger.i("账户注册失败 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            default:
-                                                MyLogger.i("ml_sign_up_failed code: " + errorCode + ", message:" + message);
-                                                break;
-                                        }
-                                    }
-                                });
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }).start();
-
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-
-                }
-
+                //下一步
+                CommonUtil.gotoActivity(RegisteredActivity.this,Registered2Activity.class,false);
             }
         },false);
 
@@ -386,14 +283,6 @@ public class RegisteredActivity extends BaseActivity {
     protected void updateView() {
         titleView.setTitle("注册");
     }
-
-    /*//屏蔽返回键
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK)
-            return true;//不执行父类点击事件
-        return super.onKeyDown(keyCode, event);//继续执行父类其他点击事件
-    }*/
 
     //获取验证码倒计时
     class TimeCount extends CountDownTimer {

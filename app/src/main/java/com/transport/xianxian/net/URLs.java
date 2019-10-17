@@ -151,14 +151,12 @@ public class URLs {
      * 积分明细
      */
     public static final String JiFenMingXi = "/api/goods/tscore-search";
+
+
     /**
-     * 账户详情2(我的区块进入)
+     * 车主认证
      */
-    public static final String AccountDetail1 = "/api/member/account2";
-    /**
-     * 我的充值
-     */
-    public static final String MyRecharge = "/api/top-up/record";
+    public static final String Auth_CheZhu = "/api/driver/center/identification";
     /**
      * 充值详情
      */

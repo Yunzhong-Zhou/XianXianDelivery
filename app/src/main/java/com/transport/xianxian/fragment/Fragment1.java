@@ -124,7 +124,6 @@ public class Fragment1 extends BaseFragment {
         tv_timestop.setOnClickListener(this);
         tv_kaishijiedan = findViewByID_My(R.id.tv_kaishijiedan);
         tv_kaishijiedan.setOnClickListener(this);
-
     }
 
     @Override

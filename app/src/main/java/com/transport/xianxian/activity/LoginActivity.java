@@ -159,7 +159,7 @@ public class LoginActivity extends BaseActivity {
             case R.id.textView4:
                 //协议
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
+                bundle.putString("url", HOST + "/api/driver/article/gvrp");
                 CommonUtil.gotoActivityWithData(LoginActivity.this, WebContentActivity.class, bundle, false);
                 break;
 
@@ -192,6 +192,17 @@ public class LoginActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>登录" + response);
                 textView2.setClickable(true);
 //                localUserInfo.setTime(System.currentTimeMillis() + "");
+                    /*showToast("该账户尚未激活，请完成人脸识别后进行操作", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putString("mobile",phonenum);
+                        CommonUtil.gotoActivityWithData(RegisteredActivity.this,
+                                RecordVideoActivity.class,bundle1);
+                        dialog.dismiss();
+                    }
+                });
+                hideProgress();*/
 
                 //保存Token
 //                            String token = jObj1.getString("fresh_token");
@@ -202,28 +213,6 @@ public class LoginActivity extends BaseActivity {
 //                            String mobile = jObj1.getString("mobile");
                 localUserInfo.setPhoneNumber(response.getMobile());
 //                            localUserInfo.setPhoneNumber(phonenum);
-
-                /*//保存用户昵称
-//              String nickname = jObj1.getString("nickname");
-                localUserInfo.setNickname(response.getNickname());
-                //保存头像
-                localUserInfo.setUserImage(response.getHead());*/
-
-                //是否为商户
-//                    localUserInfo.setMerchant(response.getMerchant() + "");
-                //是否开通支付
-//                    localUserInfo.setPay(response.getPay() + "");
-                //是否开通收款
-//                    localUserInfo.setGather(response.getGather() + "");
-
-                //保存钱包地址
-//                        String walletaddr = jObj1.getString("wallet_addr");
-//                        localUserInfo.setWalletaddr(walletaddr);
-                //保存邮箱
-//                        String email = jObj1.getString("email");
-//                        localUserInfo.setEmail(email);
-                //保存姓名
-//                    localUserInfo.setUserName(jObj1.getString("name"));
 
                 //环信登录
                 EMClient.getInstance().login(phonenum, "123456", new EMCallBack() {
