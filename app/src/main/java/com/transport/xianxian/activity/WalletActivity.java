@@ -173,6 +173,7 @@ public class WalletActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(WalletActivity.this, URLs.Wallet + string, new OkHttpClientManager.ResultCallback<WalletModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
+                page--;
                 showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
@@ -184,11 +185,12 @@ public class WalletActivity extends BaseActivity {
             public void onResponse(WalletModel response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
+                MyLogger.i(">>>>>>>>>钱包更多" + response);
 
                 List<WalletModel.TmoneyDataBean> list1 = new ArrayList<>();
                 list1 = response.getTmoney_data();
                 if (list1.size() == 0) {
+                    page--;
                     myToast(getString(R.string.app_nomore));
                 } else {
                     list.addAll(list1);

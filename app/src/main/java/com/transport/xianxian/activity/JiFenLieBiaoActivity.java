@@ -25,6 +25,8 @@ import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +74,7 @@ public class JiFenLieBiaoActivity extends BaseActivity {
                 String string = "?page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
-                Request(string);
+                RequestMore(string);
             }
         });
         banner = findViewByID_My(R.id.banner);
@@ -160,7 +162,37 @@ public class JiFenLieBiaoActivity extends BaseActivity {
             }
         });
     }
+    private void RequestMore(String string) {
+        OkHttpClientManager.getAsyn(this, URLs.JiFenLieBiao + string, new OkHttpClientManager.ResultCallback<JiFenLieBiaoModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                page--;
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
 
+            @Override
+            public void onResponse(JiFenLieBiaoModel response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>商品列表更多" + response);
+                JSONObject jObj;
+                List<JiFenLieBiaoModel.GoodsDataBean> list1 = new ArrayList<>();
+                list1 = response.getGoods_data();
+                if (list1.size() == 0) {
+                    page--;
+                    myToast(getString(R.string.app_nomore));
+                } else {
+                    list.addAll(list1);
+                    gridViewAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+
+    }
     @Override
     protected void updateView() {
         titleView.setTitle("商品列表");
@@ -168,7 +200,7 @@ public class JiFenLieBiaoActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
+                bundle.putString("url", HOST + "/api/goods/tscore-rule");
                 CommonUtil.gotoActivityWithData(JiFenLieBiaoActivity.this, WebContentActivity.class, bundle, false);
 
             }

@@ -168,6 +168,7 @@ public class CapitalStatisticsActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(CapitalStatisticsActivity.this, URLs.CapitalStatistics + string, new OkHttpClientManager.ResultCallback<CapitalStatisticsModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
+                page--;
                 showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
@@ -184,6 +185,7 @@ public class CapitalStatisticsActivity extends BaseActivity {
                 List<CapitalStatisticsModel.TmoneyDataBean> list1 = new ArrayList<>();
                 list1 = response.getTmoney_data();
                 if (list1.size() == 0) {
+                    page--;
                     myToast(getString(R.string.app_nomore));
                 } else {
                     list.addAll(list1);

@@ -151,7 +151,10 @@ public class URLs {
      * 积分明细
      */
     public static final String JiFenMingXi = "/api/goods/tscore-search";
-
+    /**
+     * 奖励记录
+     */
+    public static final String JiangLiList = "/api/goods/tscore-search";
 
     /**
      * 车主认证
@@ -196,7 +199,7 @@ public class URLs {
     /**
      * 公告详情
      */
-    public static final String NoticeDetail = "/api/article/notice";
+    public static final String NoticeDetail = "/api/driver/notice";
     /**
      * 评分详情
      */

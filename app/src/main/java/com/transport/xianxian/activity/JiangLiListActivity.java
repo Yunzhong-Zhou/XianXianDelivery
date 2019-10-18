@@ -3,6 +3,8 @@ package com.transport.xianxian.activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.alibaba.fastjson.JSON;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
@@ -13,6 +15,10 @@ import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * 奖励记录
  */
 public class JiangLiListActivity extends BaseActivity{
+    int page = 1;
     private RecyclerView recyclerView;
     List<JiangLiListModel> list = new ArrayList<>();
     CommonAdapter<JiangLiListModel> mAdapter;
@@ -37,6 +44,26 @@ public class JiangLiListActivity extends BaseActivity{
 
     @Override
     protected void initView() {
+        setSpringViewMore(true);//不需要加载更多
+        springView.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                page = 1;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                Request(string);
+            }
+
+            @Override
+            public void onLoadmore() {
+                page++;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                RequestMore(string);
+            }
+        });
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
@@ -62,14 +89,15 @@ public class JiangLiListActivity extends BaseActivity{
         super.requestServer();
 //        this.showLoadingPage();
 
-//        showProgress(true, getString(R.string.app_loading));
-
-        /*String string = "?token=" + localUserInfo.getToken();
-        Request(string);*/
+        showProgress(true, getString(R.string.app_loading));
+        String string = "?page=" + page//当前页号
+                + "&count=" + "10"//页面行数
+                + "&token=" + localUserInfo.getToken();
+        Request(string);
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.JiFenMingXi + string, new OkHttpClientManager.ResultCallback<JiangLiListModel>() {
+        OkHttpClientManager.getAsyn(this, URLs.JiangLiList + string, new OkHttpClientManager.ResultCallback<JiangLiListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -83,7 +111,7 @@ public class JiangLiListActivity extends BaseActivity{
             public void onResponse(final JiangLiListModel response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>订单" + response);
+                MyLogger.i(">>>>>>>>>奖励记录" + response);
 
                 mAdapter = new CommonAdapter<JiangLiListModel>
                         (JiangLiListActivity.this, R.layout.item_jifenmingxi, list) {
@@ -106,6 +134,45 @@ public class JiangLiListActivity extends BaseActivity{
                 };
             }
         });
+    }
+    private void RequestMore(String string) {
+        OkHttpClientManager.getAsyn(this, URLs.JiFenMingXi + string, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                page--;
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>奖励记录更多" + response);
+                JSONObject jObj;
+                List<JiangLiListModel> list1 = new ArrayList<>();
+                try {
+                    jObj = new JSONObject(response);
+                    JSONArray jsonArray = jObj.getJSONArray("data");
+                    list1 = JSON.parseArray(jsonArray.toString(), JiangLiListModel.class);
+                    if (list1.size() == 0) {
+                        page--;
+                        myToast(getString(R.string.app_nomore));
+                    } else {
+                        list.addAll(list1);
+                        mAdapter.notifyDataSetChanged();
+                    }
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     @Override
