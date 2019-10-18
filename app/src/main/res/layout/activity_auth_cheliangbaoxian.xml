@@ -20,6 +20,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/editText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -34,6 +35,7 @@
                 android:background="@color/xian" />
 
             <EditText
+                android:id="@+id/editText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -48,6 +50,7 @@
                 android:background="@color/xian" />
 
             <EditText
+                android:id="@+id/editText3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -62,6 +65,7 @@
                 android:background="@color/xian" />
 
             <EditText
+                android:id="@+id/editText4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -87,7 +91,9 @@
                     android:text="保单开始时间"
                     android:textColor="@color/black1" />
 
-                <EditText
+                <TextView
+                    android:id="@+id/textView1"
+                    android:onClick="onClick"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
@@ -117,14 +123,16 @@
                     android:text="保单到期时间"
                     android:textColor="@color/black1" />
 
-                <EditText
+                <TextView
+                    android:id="@+id/textView2"
+                    android:onClick="onClick"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_weight="1"
                     android:background="@drawable/yuanjiaobiankuang_5_huise"
                     android:drawableRight="@mipmap/ic_rili"
-                    android:hint="请选择到期开始时间"
+                    android:hint="请选择保单到期时间"
                     android:padding="12dp"
                     android:textColor="@color/black1"
                     android:textColorHint="@color/black3" />
@@ -167,7 +175,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"

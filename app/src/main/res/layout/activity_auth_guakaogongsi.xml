@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:drawableTop="@mipmap/ic_auth_xiangji"
                 android:drawablePadding="14dp"
-                android:text="上传从业资格证"
+                android:text="上传告知书照片"
                 android:textColor="@color/black3"
                 android:textSize="14sp" />
         </LinearLayout>

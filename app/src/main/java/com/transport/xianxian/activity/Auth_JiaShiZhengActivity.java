@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
@@ -31,6 +32,7 @@ import java.util.HashMap;
 
 import id.zelory.compressor.Compressor;
 
+import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
 import static com.transport.xianxian.utils.ChooseImages_zyz.REQUEST_CODE_CAPTURE_CAMEIA;
 import static com.transport.xianxian.utils.ChooseImages_zyz.REQUEST_CODE_PICK_IMAGE;
 
@@ -48,6 +50,7 @@ public class Auth_JiaShiZhengActivity extends BaseActivity {
     LinearLayout linearLayout1, linearLayout2;
 
     TextView textView1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,7 @@ public class Auth_JiaShiZhengActivity extends BaseActivity {
 
         textView1 = findViewByID_My(R.id.textView1);
     }
+
     @Override
     public void onClick(View v) {
         super.onClick(v);
@@ -113,6 +117,7 @@ public class Auth_JiaShiZhengActivity extends BaseActivity {
 
         }
     }
+
     private void RequestUpData(String[] fileKeys, File[] files, HashMap<String, String> params) {
         OkHttpClientManager.postAsyn(this, URLs.Auth_CheZhu, fileKeys, files, params,
                 new OkHttpClientManager.ResultCallback<String>() {
@@ -134,10 +139,12 @@ public class Auth_JiaShiZhengActivity extends BaseActivity {
                 }, false);
 
     }
+
     @Override
     protected void initData() {
         requestServer();
     }
+
     @Override
     public void requestServer() {
         super.requestServer();
@@ -163,20 +170,33 @@ public class Auth_JiaShiZhengActivity extends BaseActivity {
                     public void onResponse(final Auth_JiaShiZhengModel response) {
                         hideProgress();
                         MyLogger.i(">>>>>>>>>车主认证-驾驶证及行驶证认证" + response);
-                        if (!response.getLicense_driver_image().equals("")){
+                        if (!response.getLicense_driver_image().equals("")) {
                             imageView1.setVisibility(View.VISIBLE);
                             linearLayout1.setVisibility(View.GONE);
-                        }else {
+                            Glide.with(Auth_JiaShiZhengActivity.this)
+                                    .load(IMGHOST + response.getLicense_driver_image())
+                                    .centerCrop()
+//                    .placeholder(R.mipmap.headimg)//加载站位图
+//                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+                        } else {
                             imageView1.setVisibility(View.GONE);
                             linearLayout1.setVisibility(View.VISIBLE);
                         }
-                        if (!response.getLicense_vehicle_image().equals("")){
+                        if (!response.getLicense_vehicle_image().equals("")) {
                             imageView2.setVisibility(View.VISIBLE);
                             linearLayout2.setVisibility(View.GONE);
-                        }else {
+                            Glide.with(Auth_JiaShiZhengActivity.this)
+                                    .load(IMGHOST + response.getLicense_vehicle_image())
+                                    .centerCrop()
+//                    .placeholder(R.mipmap.headimg)//加载站位图
+//                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView2);//加载图片
+                        } else {
                             imageView2.setVisibility(View.GONE);
                             linearLayout2.setVisibility(View.VISIBLE);
                         }
+
 
                     }
                 });
@@ -189,6 +209,7 @@ public class Auth_JiaShiZhengActivity extends BaseActivity {
         }
         return true;
     }
+
     @Override
     protected void updateView() {
         titleView.setTitle("驾驶证及行驶证认证");

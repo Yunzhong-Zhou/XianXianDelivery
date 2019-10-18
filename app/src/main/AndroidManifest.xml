@@ -7,9 +7,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!--8.0安装需要的权限-->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <!--读写权限-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 写外置存储。如果开发者使用了离线地图，并且数据写在外置存储区域，则需要申请该权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--读取手机信息-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!--打电话-->
@@ -29,21 +30,33 @@
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <!-- Optional for location -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!--用于申请调用A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <!-- 极光推送 -->
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!--用于获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--用于申请获取蓝牙信息进行室内定位-->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 
     <!-- 环信 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
 
     <application
         android:name=".MyApplication"
@@ -175,7 +188,8 @@
             android:label="聊天页面" />
         <activity
             android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="地图定位"/>
 
         <activity
             android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
@@ -206,6 +220,16 @@
             </intent-filter>
         </receiver>
 
+        <!--高德地图-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="e3109ed74f26a203f73d288d7e412b1d"/>
+        <!--定位-->
+        <service
+            android:name=".service.LocationService"
+            android:enabled="true"
+            android:exported="true" />
+        <service android:name="com.amap.api.location.APSService"/>
         <!-- 百度地图所需的service -->
         <service
             android:name="com.baidu.location.f"
@@ -213,7 +237,7 @@
             android:process=":remote" />
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="3ecea51f560650b1ed8a4b99808f52e8" />
+            android:value="06UoorWn5QH6G36nvcm5jQo2GKPxfNTw" />
 
         <!--全面屏适配-->
         <meta-data

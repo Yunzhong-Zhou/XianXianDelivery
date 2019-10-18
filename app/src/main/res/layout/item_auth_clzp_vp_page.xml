@@ -5,6 +5,7 @@
     android:gravity="center"
     android:orientation="horizontal">
     <ImageView
+        android:id="@+id/iv"
         android:layout_width="136dp"
         android:layout_height="82dp"
         android:src="@color/blue"/>

@@ -18,11 +18,12 @@ android {
         }
 
         manifestPlaceholders = [
-                JPUSH_PKGNAME : applicationId,
+                JPUSH_PKGNAME: applicationId,
                 JPUSH_APPKEY : "ba95d1496721e1aa9aff3e91", //JPush 上注册的包名对应的 Appkey.
-                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
 
+        // 避免"64K 引用限制"
         multiDexEnabled true
     }
     buildTypes {
@@ -43,8 +44,8 @@ android {
 
 }
 
-repositories{
-    flatDir{
+repositories {
+    flatDir {
         dirs 'libs'
     }
 }
@@ -132,6 +133,9 @@ dependencies {
     //城市联动选择
     implementation 'liji.library.dev:citypickerview:4.1.1'
 
+    //时间选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.8'
+
     //zxing 二维码框架
     implementation 'com.google.zxing:core:3.4.0'
 
@@ -146,4 +150,11 @@ dependencies {
 
     //百度地图
 //    implementation files('libs/BaiduLBS_Android.jar')
+
+    //高德地图
+//    implementation 'com.amap.api:3dmap:latest.integration'//3D地图
+    implementation 'com.amap.api:map2d:latest.integration'//2D地图
+    implementation 'com.amap.api:navi-3dmap:latest.integration'//导航
+//    implementation 'com.amap.api:search:latest.integration'//搜索
+    implementation 'com.amap.api:location:latest.integration'//定位
 }

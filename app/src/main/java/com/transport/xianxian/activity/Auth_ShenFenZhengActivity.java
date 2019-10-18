@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
@@ -31,6 +32,7 @@ import java.util.HashMap;
 
 import id.zelory.compressor.Compressor;
 
+import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
 import static com.transport.xianxian.utils.ChooseImages_zyz.REQUEST_CODE_CAPTURE_CAMEIA;
 import static com.transport.xianxian.utils.ChooseImages_zyz.REQUEST_CODE_PICK_IMAGE;
 
@@ -172,6 +174,12 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
                         if (!response.getIdentity_front_image().equals("")){
                             imageView1.setVisibility(View.VISIBLE);
                             linearLayout1.setVisibility(View.GONE);
+                            Glide.with(Auth_ShenFenZhengActivity.this)
+                                    .load(IMGHOST + response.getIdentity_front_image())
+                                    .centerCrop()
+//                    .placeholder(R.mipmap.headimg)//加载站位图
+//                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
                         }else {
                             imageView1.setVisibility(View.GONE);
                             linearLayout1.setVisibility(View.VISIBLE);
@@ -179,6 +187,12 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
                         if (!response.getIdentity_reverse_image().equals("")){
                             imageView2.setVisibility(View.VISIBLE);
                             linearLayout2.setVisibility(View.GONE);
+                            Glide.with(Auth_ShenFenZhengActivity.this)
+                                    .load(IMGHOST + response.getIdentity_reverse_image())
+                                    .centerCrop()
+//                    .placeholder(R.mipmap.headimg)//加载站位图
+//                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView2);//加载图片
                         }else {
                             imageView2.setVisibility(View.GONE);
                             linearLayout2.setVisibility(View.VISIBLE);

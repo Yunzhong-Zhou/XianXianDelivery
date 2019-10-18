@@ -502,8 +502,14 @@ public class CommonUtil {
     }
 
 
-    //时间转时间戳
+    public static String getTime(Date date) {//可根据需要自行截取数据显示
+        Log.d("getTime()", "choice date millis: " + date.getTime());
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
+    }
 
+
+    //时间转时间戳
     /**
      * 调此方法输入所要转换的时间输入例如（"2014-06-14 16-09-00"）返回时间戳
      *

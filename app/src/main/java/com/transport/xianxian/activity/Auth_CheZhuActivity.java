@@ -258,7 +258,7 @@ public class Auth_CheZhuActivity extends BaseActivity {
                                 break;
                         }
                         //车辆照片
-                        switch (response.getIs_car_number()) {
+                        switch (response.getIs_car_image()) {
                             case 1:
                                 imageView9.setImageResource(R.color.transparent);
                                 break;
