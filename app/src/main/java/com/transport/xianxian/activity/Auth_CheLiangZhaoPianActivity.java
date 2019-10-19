@@ -50,10 +50,11 @@ import static com.transport.xianxian.utils.ChooseImages_zyz.REQUEST_CODE_PICK_IM
  * 车辆照片
  */
 public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
+    boolean isfrist = true;
     int item = 0;
     RecyclerView recyclerView;
-    List<String> stringList = new ArrayList<>();
-    CommonAdapter<String> mStringAdapter;
+    List<Auth_CheLiangZhaoPianModel.CarTypeListBean> stringList = new ArrayList<>();
+    CommonAdapter<Auth_CheLiangZhaoPianModel.CarTypeListBean> mStringAdapter;
 
     ViewPager viewPager;
     private ArrayList<View> pageViews = new ArrayList<>();
@@ -63,8 +64,8 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
     ArrayList<String> listFileNames = new ArrayList<>();
     ArrayList<File> listFiles = new ArrayList<>();
     String type = "";
-    ImageView imageView1, imageView2,imageView3,imageView4;
-    LinearLayout linearLayout1, linearLayout2,linearLayout3,linearLayout4;
+    ImageView imageView1, imageView2, imageView3, imageView4;
+    LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4;
 
     TextView textView1;
 
@@ -88,65 +89,9 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
 
         recyclerView = findViewByID_My(R.id.recyclerView);
         viewPager = findViewByID_My(R.id.viewPager);
-        stringList.add("小型面包车");
-        stringList.add("大型面包车");
-        stringList.add("小货车");
-        stringList.add("中型货车");
-        stringList.add("大型货车");
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
-        mStringAdapter = new CommonAdapter<String>
-                (Auth_CheLiangZhaoPianActivity.this, R.layout.item_auth_cheliangzhaopian_tv, stringList) {
-            @Override
-            protected void convert(ViewHolder holder, String model, int position) {
-                TextView tv1 = holder.getView(R.id.tv1);
-                TextView tv2 = holder.getView(R.id.tv2);
-                LinearLayout ll = holder.getView(R.id.ll);
-                tv1.setText(model);
-                tv2.setText(model);
-                if (item == position) {
-                    ll.setVisibility(View.VISIBLE);
-                    tv1.setVisibility(View.GONE);
-                } else {
-                    ll.setVisibility(View.GONE);
-                    tv1.setVisibility(View.VISIBLE);
-                }
-
-            }
-        };
-        mStringAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                item = i;
-                ChangeUI();
-            }
-
-            @Override
-            public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                return false;
-            }
-        });
-        recyclerView.setAdapter(mStringAdapter);
-
-        pageViews = new ArrayList<View>();
-        for (int i = 0; i < stringList.size(); i++) {
-            pageViews.add(inflater.inflate(R.layout.item_auth_clzp_vp_page, null));
-        }
-        for (int i = 0; i < pageViews.size(); i++) {
-            ImageView iv = (ImageView) pageViews.get(i).findViewById(R.id.iv);
-            TextView tv1 = pageViews.get(i).findViewById(R.id.tv1);
-            TextView tv2 = pageViews.get(i).findViewById(R.id.tv2);
-            TextView tv3 = pageViews.get(i).findViewById(R.id.tv3);
-
-            tv1.setText(stringList.get(i));
-            tv2.setText(stringList.get(i));
-            tv3.setText(stringList.get(i));
-        }
-        mPageAdapter = new GuidePageAdapter();
-        viewPager.setAdapter(mPageAdapter);
-        viewPager.setOnPageChangeListener(new GuidePageChangeListener());
-
 
     }
 
@@ -161,7 +106,7 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
                 }
                 break;
             case R.id.iv_right:
-                if (item < stringList.size()-1) {
+                if (item < stringList.size() - 1) {
                     item++;
                     ChangeUI();
                 }
@@ -218,7 +163,7 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
                 break;
             case R.id.textView1:
                 //提交
-                if (match()) {
+                if (match() && stringList.size() > 0) {
                     showProgress(false, getString(R.string.app_loading1));
                     String[] filenames = new String[]{};
                     File[] files = new File[]{};
@@ -227,7 +172,7 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
                         files = listFiles.toArray(new File[i]);
                     }
                     HashMap<String, String> params = new HashMap<>();
-                    params.put("type", "post_car_image");
+                    params.put("car_type_id", stringList.get(item).getId() + "");
                     params.put("token", localUserInfo.getToken());
                     RequestUpData(filenames, files, params);//
                 }
@@ -236,6 +181,7 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
                 break;
         }
     }
+
     private void RequestUpData(String[] fileKeys, File[] files, HashMap<String, String> params) {
         OkHttpClientManager.postAsyn(this, URLs.Auth_CheZhu, fileKeys, files, params,
                 new OkHttpClientManager.ResultCallback<String>() {
@@ -257,14 +203,14 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
                 }, false);
 
     }
-    private void ChangeUI(){
-        //设置viewPager切换
-        viewPager.setCurrentItem(item);
-        mPageAdapter.notifyDataSetChanged();
+
+    private void ChangeUI() {
         //recyclerView切换
         recyclerView.scrollToPosition(item);
         mStringAdapter.notifyDataSetChanged();
-
+        //设置viewPager切换
+        viewPager.setCurrentItem(item);
+        mPageAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -297,6 +243,79 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
                     public void onResponse(final Auth_CheLiangZhaoPianModel response) {
                         hideProgress();
                         MyLogger.i(">>>>>>>>>车主认证-驾驶证及行驶证认证" + response);
+
+                        stringList = response.getCar_type_list();
+                        //车型描述
+                        pageViews = new ArrayList<View>();
+                        for (int i = 0; i < stringList.size(); i++) {
+                            //第一次
+                            if (isfrist){
+                                if (response.getCar_type_id().equals(stringList.get(i).getId())) {
+                                    item = i;
+                                    isfrist = false;
+                                }
+                            }
+                            pageViews.add(inflater.inflate(R.layout.item_auth_clzp_vp_page, null));
+                        }
+                        for (int i = 0; i < pageViews.size(); i++) {
+                            ImageView iv = (ImageView) pageViews.get(i).findViewById(R.id.iv);
+                            TextView tv1 = pageViews.get(i).findViewById(R.id.tv1);
+                            TextView tv2 = pageViews.get(i).findViewById(R.id.tv2);
+                            TextView tv3 = pageViews.get(i).findViewById(R.id.tv3);
+                            tv1.setText("长宽高：" + stringList.get(i).getWeight());
+                            tv2.setText("载重：" + stringList.get(i).getSize());
+                            tv3.setText("承载体积：" + stringList.get(i).getBulk());
+                            if (!stringList.get(i).getImage().equals(""))
+                                Glide.with(Auth_CheLiangZhaoPianActivity.this)
+                                        .load(IMGHOST + stringList.get(i).getImage())
+                                        .centerCrop()
+//                                    .placeholder(R.mipmap.headimg)//加载站位图
+//                                    .error(R.mipmap.headimg)//加载失败
+                                        .into(iv);//加载图片
+                        }
+
+                        mPageAdapter = new GuidePageAdapter();
+                        viewPager.setAdapter(mPageAdapter);
+                        viewPager.setOnPageChangeListener(new GuidePageChangeListener());
+                        //车型
+                        mStringAdapter = new CommonAdapter<Auth_CheLiangZhaoPianModel.CarTypeListBean>
+                                (Auth_CheLiangZhaoPianActivity.this, R.layout.item_auth_cheliangzhaopian_tv, stringList) {
+                            @Override
+                            protected void convert(ViewHolder holder, Auth_CheLiangZhaoPianModel.CarTypeListBean model, int position) {
+                                TextView tv1 = holder.getView(R.id.tv1);
+                                TextView tv2 = holder.getView(R.id.tv2);
+                                LinearLayout ll = holder.getView(R.id.ll);
+                                tv1.setText(model.getType_text());
+                                tv2.setText(model.getType_text());
+
+                                if (item == position) {
+                                    ll.setVisibility(View.VISIBLE);
+                                    tv1.setVisibility(View.GONE);
+                                } else {
+                                    ll.setVisibility(View.GONE);
+                                    tv1.setVisibility(View.VISIBLE);
+                                }
+
+                            }
+                        };
+                        mStringAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                                item = i;
+                                ChangeUI();
+                            }
+
+                            @Override
+                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                                return false;
+                            }
+                        });
+
+                        recyclerView.setAdapter(mStringAdapter);
+
+                        ChangeUI();
+
+                        //车辆照片
                         if (!response.getCar_image_front().equals("")) {
                             imageView1.setVisibility(View.VISIBLE);
                             linearLayout1.setVisibility(View.GONE);
@@ -362,6 +381,7 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
         }
         return true;
     }
+
     @Override
     protected void updateView() {
         titleView.setTitle("车辆照片");
@@ -448,6 +468,7 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
         }
 
     }
+
     /**
      * *****************************************GuidePageAdapter********************************************
      */
@@ -549,7 +570,6 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
         @Override
         public void onPageSelected(int position) {
             // TODO Auto-generated method stub
-
 
             setCurrentPos(position);
 

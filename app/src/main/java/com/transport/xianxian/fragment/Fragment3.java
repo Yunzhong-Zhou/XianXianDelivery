@@ -92,6 +92,7 @@ public class Fragment3 extends BaseFragment {
         });
         imageView1 = findViewByID_My(R.id.imageView1);
         textView1 = findViewByID_My(R.id.textView1);
+        textView1.setOnClickListener(this);
         textView2 = findViewByID_My(R.id.textView2);
         textView1.setText(localUserInfo.getNickname());
         textView2.setText(localUserInfo.getPhonenumber());
@@ -173,6 +174,10 @@ public class Fragment3 extends BaseFragment {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.textView1:
+                //修改昵称
+
+                break;
             case R.id.linearLayout1:
                 //个人资料
                 //                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class);
@@ -211,33 +216,8 @@ public class Fragment3 extends BaseFragment {
                             @Override
                             public void onClick(View v) {
                                 dialog.dismiss();
-                                localUserInfo.setUserId("");
-                                localUserInfo.setUserName("");
-                                localUserInfo.setToken("");
-                                localUserInfo.setPhoneNumber("");
-                                localUserInfo.setNickname("");
-                                localUserInfo.setWalletaddr("");
-                                localUserInfo.setEmail("");
-                                localUserInfo.setUserImage("");
-
-                                //环信退出登录
-                                EMClient.getInstance().logout(false, new EMCallBack() {
-
-                                    @Override
-                                    public void onSuccess() {
-                                        CommonUtil.gotoActivityWithFinishOtherAll(getActivity(), LoginActivity.class, true);
-                                    }
-
-                                    @Override
-                                    public void onProgress(int progress, String status) {
-
-                                    }
-
-                                    @Override
-                                    public void onError(int code, String error) {
-
-                                    }
-                                });
+                                showProgress(true, "正在注销登录，请稍候...");
+                                requestOut("?token=" + localUserInfo.getToken());
 
                             }
                         }, new View.OnClickListener() {
@@ -249,7 +229,49 @@ public class Fragment3 extends BaseFragment {
                 break;
         }
     }
+    private void requestOut(String string) {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.Out + string, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
 
+            @Override
+            public void onResponse(String response) {
+                MyLogger.i(">>>>>>>>>退出" + response);
+                hideProgress();
+                localUserInfo.setUserId("");
+                localUserInfo.setUserName("");
+                localUserInfo.setToken("");
+                localUserInfo.setPhoneNumber("");
+                localUserInfo.setNickname("");
+                localUserInfo.setWalletaddr("");
+                localUserInfo.setEmail("");
+                localUserInfo.setUserImage("");
+                //环信退出登录
+                EMClient.getInstance().logout(false, new EMCallBack() {
+
+                    @Override
+                    public void onSuccess() {
+                        CommonUtil.gotoActivityWithFinishOtherAll(getActivity(), LoginActivity.class, true);
+                    }
+
+                    @Override
+                    public void onProgress(int progress, String status) {
+
+                    }
+
+                    @Override
+                    public void onError(int code, String error) {
+
+                    }
+                });
+            }
+        });
+    }
     @Override
     protected void updateView() {
 

@@ -159,7 +159,7 @@ public class LoginActivity extends BaseActivity {
             case R.id.textView4:
                 //协议
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/api/driver/article/gvrp");
+                bundle.putString("url", HOST + "/api/driver/article/login");
                 CommonUtil.gotoActivityWithData(LoginActivity.this, WebContentActivity.class, bundle, false);
                 break;
 
@@ -192,52 +192,49 @@ public class LoginActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>登录" + response);
                 textView2.setClickable(true);
 //                localUserInfo.setTime(System.currentTimeMillis() + "");
-                    /*showToast("该账户尚未激活，请完成人脸识别后进行操作", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Bundle bundle1 = new Bundle();
-                        bundle1.putString("mobile",phonenum);
-                        CommonUtil.gotoActivityWithData(RegisteredActivity.this,
-                                RecordVideoActivity.class,bundle1);
-                        dialog.dismiss();
-                    }
-                });
-                hideProgress();*/
-
                 //保存Token
-//                            String token = jObj1.getString("fresh_token");
                 localUserInfo.setToken(response.getFresh_token());
-//                            String id = jObj1.getString("id");
-                localUserInfo.setUserId(response.getId());
                 //保存电话号码
-//                            String mobile = jObj1.getString("mobile");
                 localUserInfo.setPhoneNumber(response.getMobile());
-//                            localUserInfo.setPhoneNumber(phonenum);
+                if (response.getIdentity() == 1) {//登录通过
+                    //环信登录-为了登录成功，先退出登录
+                    EMClient.getInstance().logout(false);
+                    EMClient.getInstance().login(response.getHx_username(), "123456", new EMCallBack() {
+                        @Override
+                        public void onSuccess() {
+                            hideProgress();
+                            //保存id
+                            localUserInfo.setUserId(response.getId());
+                            CommonUtil.gotoActivityWithFinishOtherAll(LoginActivity.this, MainActivity.class, true);
+                        }
 
-                //环信登录
-                EMClient.getInstance().login(phonenum, "123456", new EMCallBack() {
-                    @Override
-                    public void onSuccess() {
-                        hideProgress();
-                        CommonUtil.gotoActivityWithFinishOtherAll(LoginActivity.this, MainActivity.class, true);
-                    }
+                        @Override
+                        public void onProgress(int progress, String status) {
+                        }
 
-                    @Override
-                    public void onProgress(int progress, String status) {
-
-                    }
-
-                    @Override
-                    public void onError(int code, String error) {
-                        runOnUiThread(new Runnable() {
-                            public void run() {
-                                hideProgress();
-                                myToast("环信登录失败："+error);
-                            }
-                        });
-                    }
-                });
-
+                        @Override
+                        public void onError(int code, String error) {
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    hideProgress();
+                                    MyLogger.i("环信登录失败：" + error);
+                                    myToast("环信登录失败：" + error);
+                                }
+                            });
+                        }
+                    });
+                } else {//未完善资料
+                    hideProgress();
+                    showToast("该账户尚未完善资料，前往完善资料", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("id",response.getId());
+                            CommonUtil.gotoActivity(LoginActivity.this, Registered2Activity.class, false);
+                        }
+                    });
+                }
             }
         }, false);
 

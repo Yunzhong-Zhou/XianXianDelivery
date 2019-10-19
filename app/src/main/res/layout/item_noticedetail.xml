@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
@@ -24,17 +25,19 @@
         android:background="@color/xian" />
 
     <TextView
+        android:id="@+id/tv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lineSpacingExtra="4dp"
         android:paddingLeft="16dp"
         android:paddingTop="14dp"
         android:paddingRight="16dp"
-        android:text="提醒\n提醒"
+        android:text="提醒"
         android:textColor="@color/black2"
         android:textSize="15sp" />
 
     <TextView
+        android:id="@+id/tv3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"

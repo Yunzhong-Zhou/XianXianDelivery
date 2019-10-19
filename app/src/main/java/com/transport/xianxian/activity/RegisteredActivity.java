@@ -3,11 +3,15 @@ package com.transport.xianxian.activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hyphenate.EMError;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
@@ -15,6 +19,9 @@ import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,8 +42,6 @@ public class RegisteredActivity extends BaseActivity {
     boolean isgouxuan = true;
 
     String phonenum = "", password1 = "", password2 = "", code = "", num = "", nickname = "", register_addr = "";
-
-    String register_agreement = "";
 
     private TimeCount time;
 
@@ -234,6 +239,7 @@ public class RegisteredActivity extends BaseActivity {
 
         return true;
     }
+
     private void RequestCode(Map<String, String> params) {
         OkHttpClientManager.postAsyn(this, URLs.Code, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -253,9 +259,10 @@ public class RegisteredActivity extends BaseActivity {
                 time.start();//开始计时
                 myToast(getString(R.string.app_sendcode_hint));
             }
-        },false);
+        }, false);
 
     }
+
     //注册
     private void RequestRegistered(Map<String, String> params) {
         OkHttpClientManager.postAsyn(RegisteredActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
@@ -273,9 +280,96 @@ public class RegisteredActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>注册" + response);
                 textView2.setClickable(true);
                 //下一步
-                CommonUtil.gotoActivity(RegisteredActivity.this,Registered2Activity.class,false);
+
+                //                localUserInfo.setTime(System.currentTimeMillis() + "");
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+
+                    JSONObject jObj1 = jObj.getJSONObject("data");
+                    //保存Token
+                    String token = jObj1.getString("fresh_token");
+                    localUserInfo.setToken(token);
+                    //保存用户id
+                    String id = jObj1.getString("id");
+//                    localUserInfo.setUserId(id);
+                    //保存电话号码
+                    String mobile = jObj1.getString("mobile");
+                    localUserInfo.setPhoneNumber(mobile);
+                    /*//保存用户昵称
+                    String nickname = jObj1.getString("nickname");
+                    localUserInfo.setNickname(nickname);*/
+
+                    //环信注册
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                EMClient.getInstance().createAccount(jObj1.getString("hx_username"), "123456");
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        hideProgress();
+                                        //去完善信息
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("id", id);
+                                        CommonUtil.gotoActivityWithData(RegisteredActivity.this, Registered2Activity.class, bundle, true);
+                                    }
+                                });
+                            } catch (final HyphenateException e) {
+                                e.printStackTrace();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        hideProgress();
+                                        /**
+                                         * 关于错误码可以参考官方api详细说明
+                                         * http://www.easemob.com/apidoc/android/chat3.0/classcom_1_1hyphenate_1_1_e_m_error.html
+                                         */
+                                        int errorCode = e.getErrorCode();
+                                        String message = e.getMessage();
+                                        Log.d("lzan13", String.format("sign up - errorCode:%d, errorMsg:%s", errorCode, e.getMessage()));
+                                        switch (errorCode) {
+                                            // 网络错误
+                                            case EMError.NETWORK_ERROR:
+                                                MyLogger.i("网络错误 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            // 用户已存在
+                                            case EMError.USER_ALREADY_EXIST:
+                                                MyLogger.i("用户已存在 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            // 参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册
+                                            case EMError.USER_ILLEGAL_ARGUMENT:
+                                                MyLogger.i("参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            // 服务器未知错误
+                                            case EMError.SERVER_UNKNOWN_ERROR:
+                                                MyLogger.i("服务器未知错误 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            case EMError.USER_REG_FAILED:
+                                                MyLogger.i("账户注册失败 code: " + errorCode + ", message:" + message);
+                                                break;
+                                            default:
+                                                MyLogger.i("ml_sign_up_failed code: " + errorCode + ", message:" + message);
+                                                break;
+                                        }
+                                    }
+                                });
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
+
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+
+                }
+
             }
-        },false);
+        }, false);
 
     }
 

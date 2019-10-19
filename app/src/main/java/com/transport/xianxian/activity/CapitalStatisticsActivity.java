@@ -124,10 +124,10 @@ public class CapitalStatisticsActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>资金统计" + response);
                 textView1.setText(response.getNickname());//昵称
-                textView2.setText(response.getMoney());//账户余额
-                textView3.setText(response.getWait_money());//未完成收入
-                textView4.setText(response.getFrozen_money());//冻结
-                textView5.setText(response.getToday_money());//今日收入
+                textView2.setText("¥ "+response.getMoney());//账户余额
+                textView3.setText("¥ "+response.getWait_money());//未完成收入
+                textView4.setText("¥ "+response.getFrozen_money());//冻结
+                textView5.setText("¥ "+response.getToday_money());//今日收入
                 if (!response.getHead().equals(""))
                     Glide.with(CapitalStatisticsActivity.this)
                             .load(IMGHOST + response.getHead())
@@ -152,7 +152,7 @@ public class CapitalStatisticsActivity extends BaseActivity {
                                 tv_money.setTextColor(getResources().getColor(R.color.red));
                                 tv_money.setText("-" + model.getMoney());
                             }
-                            holder.setText(R.id.textView3, model.getSn());
+                            holder.setText(R.id.textView4, model.getSn());
 
                         }
                     };

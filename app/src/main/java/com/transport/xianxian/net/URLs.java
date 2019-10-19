@@ -38,7 +38,10 @@ public class URLs {
      * 注册
      */
     public static final String Registered = "/api/driver/register";
-
+    /**
+     * 注册2
+     */
+    public static final String Registered2= "/api/driver/identity";
     /**
      * 注册-极验
      */
@@ -116,6 +119,10 @@ public class URLs {
      */
     public static final String Center = "/api/driver/center/index";
     /**
+     * 退出
+     */
+    public static final String Out = "/api/driver/logout";
+    /**
      * 个人信息
      */
     public static final String Info = "/api/driver/center/index";
@@ -154,7 +161,7 @@ public class URLs {
     /**
      * 奖励记录
      */
-    public static final String JiangLiList = "/api/goods/tscore-search";
+    public static final String JiangLiList = "/api/driver/center/award";
 
     /**
      * 车主认证
@@ -199,11 +206,11 @@ public class URLs {
     /**
      * 公告详情
      */
-    public static final String NoticeDetail = "/api/driver/notice";
+    public static final String NoticeDetail = "/api/driver/message";
     /**
      * 评分详情
      */
-    public static final String ScoreDetail = "/api/article/notice";
+    public static final String ScoreDetail = "/api/driver/tcomment";
     /**
      * 钱包
      */

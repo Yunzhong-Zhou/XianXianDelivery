@@ -1,15 +1,13 @@
 package com.transport.xianxian.activity;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hyphenate.EMError;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.exceptions.HyphenateException;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
@@ -17,9 +15,6 @@ import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +28,8 @@ import static com.transport.xianxian.net.OkHttpClientManager.HOST;
  */
 
 public class Registered2Activity extends BaseActivity {
-    //    String
+    String id = "";
+    String identity_name = "", identity_number = "";
     private EditText editText1, editText2, editText3;
     private TextView textView2;
     private ImageView imageView1;
@@ -44,6 +40,7 @@ public class Registered2Activity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered2);
 
+        setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
     }
 
     @Override
@@ -82,7 +79,7 @@ public class Registered2Activity extends BaseActivity {
     @Override
     protected void initData() {
 //        request(captchaURL);
-
+        id = getIntent().getStringExtra("id");
     }
 
 
@@ -94,7 +91,6 @@ public class Registered2Activity extends BaseActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("url", HOST + "/api/driver/article/gvrp");
                 CommonUtil.gotoActivityWithData(Registered2Activity.this, WebContentActivity.class, bundle, false);
-
                 break;
             case R.id.textView2:
                 //下一步
@@ -102,9 +98,9 @@ public class Registered2Activity extends BaseActivity {
                     textView2.setClickable(false);
                     showProgress(true, getString(R.string.registered_h14));
                     HashMap<String, String> params = new HashMap<>();
-//                    params.put("nickname", nickname);//昵称
-//                    params.put("invite_code", num);//邀请码
-//                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                    params.put("token", localUserInfo.getToken());//token
+                    params.put("identity_name", identity_name);
+                    params.put("identity_number", identity_number);
                     RequestRegistered(params);//注册
                 }
                 break;
@@ -120,21 +116,23 @@ public class Registered2Activity extends BaseActivity {
     }
 
     private boolean match() {
-        /*phonenum = editText1.getText().toString().trim();
-        if (TextUtils.isEmpty(phonenum)) {
-            myToast(getString(R.string.registered_h1));
+        String name1 = editText1.getText().toString().trim();
+        if (TextUtils.isEmpty(name1)) {
+            myToast("请输入姓");
             return false;
         }
-        code = editText2.getText().toString().trim();
-        if (TextUtils.isEmpty(code)) {
-            myToast(getString(R.string.registered_h2));
+        String name2 = editText2.getText().toString().trim();
+        if (TextUtils.isEmpty(name2)) {
+            myToast("请输入名");
             return false;
         }
-        password1 = editText3.getText().toString().trim();
-        if (TextUtils.isEmpty(password1)) {
-            myToast(getString(R.string.registered_h3));
+        identity_name = name1 + name2;
+
+        identity_number = editText3.getText().toString().trim();
+        if (TextUtils.isEmpty(identity_number)) {
+            myToast("请输入身份证号码");
             return false;
-        }*/
+        }
 
         if (!isgouxuan) {
             myToast("注册请勾选同意遵守《用户注册协议》");
@@ -145,7 +143,7 @@ public class Registered2Activity extends BaseActivity {
 
     //注册
     private void RequestRegistered(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(Registered2Activity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(Registered2Activity.this, URLs.Registered2, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -157,96 +155,14 @@ public class Registered2Activity extends BaseActivity {
 
             @Override
             public void onResponse(final String response) {
-                MyLogger.i(">>>>>>>>>注册" + response);
+                MyLogger.i(">>>>>>>>>注册2" + response);
                 textView2.setClickable(true);
-//                localUserInfo.setTime(System.currentTimeMillis() + "");
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-
-                    JSONObject jObj1 = jObj.getJSONObject("data");
-                    //保存Token
-                    String token = jObj1.getString("fresh_token");
-                    localUserInfo.setToken(token);
-                    //保存用户id
-                    final String id = jObj1.getString("id");
-                    localUserInfo.setUserId(id);
-                    //保存电话号码
-                    String mobile = jObj1.getString("mobile");
-                    localUserInfo.setPhoneNumber(mobile);
-                    /*//保存用户昵称
-                    String nickname = jObj1.getString("nickname");
-                    localUserInfo.setNickname(nickname);*/
-
-                    //环信注册
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                EMClient.getInstance().createAccount(mobile, "123456");
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        hideProgress();
-                                        Bundle bundle = new Bundle();
-                                        bundle.putInt("isShowAd", 1);
-                                        CommonUtil.gotoActivityWithFinishOtherAllAndData(
-                                                Registered2Activity.this, MainActivity.class,
-                                                bundle, true);
-                                    }
-                                });
-                            } catch (final HyphenateException e) {
-                                e.printStackTrace();
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        hideProgress();
-                                        /**
-                                         * 关于错误码可以参考官方api详细说明
-                                         * http://www.easemob.com/apidoc/android/chat3.0/classcom_1_1hyphenate_1_1_e_m_error.html
-                                         */
-                                        int errorCode = e.getErrorCode();
-                                        String message = e.getMessage();
-                                        Log.d("lzan13", String.format("sign up - errorCode:%d, errorMsg:%s", errorCode, e.getMessage()));
-                                        switch (errorCode) {
-                                            // 网络错误
-                                            case EMError.NETWORK_ERROR:
-                                                MyLogger.i("网络错误 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            // 用户已存在
-                                            case EMError.USER_ALREADY_EXIST:
-                                                MyLogger.i("用户已存在 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            // 参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册
-                                            case EMError.USER_ILLEGAL_ARGUMENT:
-                                                MyLogger.i("参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            // 服务器未知错误
-                                            case EMError.SERVER_UNKNOWN_ERROR:
-                                                MyLogger.i("服务器未知错误 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            case EMError.USER_REG_FAILED:
-                                                MyLogger.i("账户注册失败 code: " + errorCode + ", message:" + message);
-                                                break;
-                                            default:
-                                                MyLogger.i("ml_sign_up_failed code: " + errorCode + ", message:" + message);
-                                                break;
-                                        }
-                                    }
-                                });
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }).start();
-
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-
-                }
-
+                localUserInfo.setUserId(id);
+                Bundle bundle = new Bundle();
+                bundle.putInt("isShowAd", 1);
+                CommonUtil.gotoActivityWithFinishOtherAllAndData(
+                        Registered2Activity.this, MainActivity.class,
+                        bundle, true);
             }
         }, false);
 
@@ -255,5 +171,14 @@ public class Registered2Activity extends BaseActivity {
     @Override
     protected void updateView() {
         titleView.setTitle("注册");
+        titleView.hideLeftBtn();
+    }
+
+    //屏蔽返回键
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+            return true;//不执行父类点击事件
+        return super.onKeyDown(keyCode, event);//继续执行父类其他点击事件
     }
 }

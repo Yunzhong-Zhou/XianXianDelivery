@@ -49,4 +49,10 @@
         <attr name="label_text" format="string" />
         <attr name="label_text_size" format="float" />
     </declare-styleable>
+
+    <declare-styleable name="RollingView">
+        <attr name="rv_textSize" format="dimension"/>
+        <attr name="rv_textColor" format="color|reference"/>
+    </declare-styleable>
+
 </resources>

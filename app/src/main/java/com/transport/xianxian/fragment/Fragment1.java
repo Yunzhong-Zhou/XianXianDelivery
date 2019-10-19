@@ -31,6 +31,7 @@ import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
+import com.transport.xianxian.view.RollingView;
 import com.transport.xianxian.zxing.CaptureActivity;
 import com.transport.xianxian.zxing.Constant;
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -57,10 +58,12 @@ public class Fragment1 extends BaseFragment {
     private RecyclerView recyclerView;
     List<Fragment1Model> list = new ArrayList<>();
     CommonAdapter<Fragment1Model> mAdapter;
+    RollingView rollingView;//消息滚动
 
     ImageView btn_right;
     LinearLayout ll_xiaoxi, ll_pingfen;
-    TextView tv_zijintongji, tv_type, tv_distance, tv_temperature, tv_timestart, tv_timestop, tv_kaishijiedan;
+    TextView tv_zijintongji, tv_type, tv_distance, tv_temperature, tv_timestart, tv_timestop,
+            tv_kaishijiedan,tv_hint;
     int i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0;
 
     Boolean isStartJieDan = false;//是否开始接单
@@ -152,11 +155,16 @@ public class Fragment1 extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        rollingView.resume();
         if (MainActivity.item == 0) {
             requestServer();
         }
     }
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        rollingView.pause();
+    }
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
@@ -191,6 +199,30 @@ public class Fragment1 extends BaseFragment {
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLinearLayoutManager);
 
+        rollingView = findViewByID_My(R.id.rollingView);
+
+        // 初始化号外列表
+        List<String> haowaiArray = new ArrayList<>();
+        haowaiArray.add("[母婴天地] 买尿不湿送婴儿手口湿巾");
+        haowaiArray.add("[利民商店] 满100免费配送");
+        haowaiArray.add("[果之家] 泰国金枕榴莲8元/kg");
+        haowaiArray.add("[户外运动] 户外运动专业装备搜集");
+        haowaiArray.add("[天天特价] 只要9.9还包邮");
+        haowaiArray.add("[尖端潮品] 折叠电动车");
+        haowaiArray.add("[黑科技] 智能VR带你装13");
+        haowaiArray.add("[旅行必备] 太阳能充电宝-永不断电");
+        // 绑定数据
+        rollingView.setPageSize(1);
+        rollingView.setClickColor(0xff888888);
+//        rollingView.setLeftDrawable(R.drawable.drawable_red_dot);
+        rollingView.setRollingText(haowaiArray);
+        rollingView.setOnItemClickListener(new RollingView.onItemClickListener() {
+            @Override
+            public void onItemClick(TextView v) {
+
+            }
+        });
+
         btn_right = findViewByID_My(R.id.btn_right);
         btn_right.setOnClickListener(this);
         ll_xiaoxi = findViewByID_My(R.id.ll_xiaoxi);
@@ -212,6 +244,7 @@ public class Fragment1 extends BaseFragment {
         tv_timestop.setOnClickListener(this);
         tv_kaishijiedan = findViewByID_My(R.id.tv_kaishijiedan);
         tv_kaishijiedan.setOnClickListener(this);
+        tv_hint = findViewByID_My(R.id.tv_hint);
     }
 
     @Override
@@ -322,6 +355,7 @@ public class Fragment1 extends BaseFragment {
                     //点击开始接单
                     tv_kaishijiedan.setBackgroundResource(R.drawable.btn_huise);
                     tv_kaishijiedan.setText("关闭接单");
+                    tv_hint.setVisibility(View.GONE);
                     if (mLocationClient != null) {
                         //设置场景模式后最好调用一次stop，再调用start以保证场景模式生效
                         mLocationClient.stopLocation();
@@ -332,6 +366,7 @@ public class Fragment1 extends BaseFragment {
                     //点击关闭接单
                     tv_kaishijiedan.setBackgroundResource(R.drawable.btn_lanse);
                     tv_kaishijiedan.setText("开始接单");
+                    tv_hint.setVisibility(View.VISIBLE);
                     if (mLocationClient != null)
                         mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
 //                    stopAlarm();

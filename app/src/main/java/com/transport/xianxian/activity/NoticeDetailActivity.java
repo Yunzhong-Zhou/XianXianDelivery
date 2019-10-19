@@ -108,16 +108,9 @@ public class NoticeDetailActivity extends BaseActivity {
                                 (NoticeDetailActivity.this, R.layout.item_noticedetail, list) {
                             @Override
                             protected void convert(ViewHolder holder, NoticeDetailModel model, int position) {
-                                /*holder.setText(R.id.tv1, model.getTitle());
-                                holder.setText(R.id.tv2, model.getCreated_at());
-                                TextView tv3 = holder.getView(R.id.tv3);
-                                if (model.getOut_in() == 1) {
-                                    tv3.setTextColor(getResources().getColor(R.color.green));
-                                    tv3.setText("+" + model.getScore());
-                                } else {
-                                    tv3.setTextColor(getResources().getColor(R.color.red));
-                                    tv3.setText("-" + model.getScore());
-                                }*/
+                                holder.setText(R.id.tv1, model.getTitle());
+                                holder.setText(R.id.tv2, model.getContent());
+                                holder.setText(R.id.tv3, model.getCreated_at());
                             }
                         };
                         recyclerView.setAdapter(mAdapter);

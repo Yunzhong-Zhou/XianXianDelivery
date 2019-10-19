@@ -1,6 +1,7 @@
 package com.transport.xianxian.activity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.liaoinstan.springview.widget.SpringView;
@@ -84,7 +85,7 @@ public class ScoreDetailActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(ScoreDetailActivity.this, URLs.ScoreDetail + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-//                showErrorPage();
+                showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
                     myToast(info);
@@ -93,7 +94,7 @@ public class ScoreDetailActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response) {
-//                showContentPage();
+                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>评分" + response);
                 JSONObject jObj;
@@ -106,16 +107,16 @@ public class ScoreDetailActivity extends BaseActivity {
                                 (ScoreDetailActivity.this, R.layout.item_scoredetail, list) {
                             @Override
                             protected void convert(ViewHolder holder, ScoreDetailModel model, int position) {
-                                /*holder.setText(R.id.tv1, model.getTitle());
+                                holder.setText(R.id.tv1, model.getTitle());
                                 holder.setText(R.id.tv2, model.getCreated_at());
                                 TextView tv3 = holder.getView(R.id.tv3);
                                 if (model.getOut_in() == 1) {
-                                    tv3.setTextColor(getResources().getColor(R.color.green));
-                                    tv3.setText("+" + model.getScore());
+//                                    tv3.setTextColor(getResources().getColor(R.color.green));
+                                    tv3.setText("+" + model.getScore()+"分");
                                 } else {
-                                    tv3.setTextColor(getResources().getColor(R.color.red));
-                                    tv3.setText("-" + model.getScore());
-                                }*/
+//                                    tv3.setTextColor(getResources().getColor(R.color.red));
+                                    tv3.setText("-" + model.getScore()+"分");
+                                }
                             }
                         };
                         recyclerView.setAdapter(mAdapter);
