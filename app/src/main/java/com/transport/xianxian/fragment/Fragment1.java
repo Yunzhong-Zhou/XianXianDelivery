@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import com.transport.xianxian.activity.MainActivity;
 import com.transport.xianxian.activity.NoticeDetailActivity;
 import com.transport.xianxian.activity.ScoreDetailActivity;
 import com.transport.xianxian.base.BaseFragment;
+import com.transport.xianxian.model.Fragment1ListModel;
 import com.transport.xianxian.model.Fragment1Model;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
@@ -39,7 +41,9 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -55,15 +59,17 @@ import static com.superrtc.ContextUtils.getApplicationContext;
  */
 
 public class Fragment1 extends BaseFragment {
+    String indent_use_type = "", distance = "", temperature = "", time_start = "", time_end = "";
+    Fragment1Model model;
     private RecyclerView recyclerView;
-    List<Fragment1Model> list = new ArrayList<>();
-    CommonAdapter<Fragment1Model> mAdapter;
+    List<Fragment1ListModel> list = new ArrayList<>();
+    CommonAdapter<Fragment1ListModel> mAdapter;
     RollingView rollingView;//消息滚动
 
     ImageView btn_right;
     LinearLayout ll_xiaoxi, ll_pingfen;
     TextView tv_zijintongji, tv_type, tv_distance, tv_temperature, tv_timestart, tv_timestop,
-            tv_kaishijiedan,tv_hint;
+            tv_kaishijiedan, tv_hint;
     int i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0;
 
     Boolean isStartJieDan = false;//是否开始接单
@@ -71,6 +77,8 @@ public class Fragment1 extends BaseFragment {
     //定位
     //声明AMapLocationClient类对象
     private AMapLocationClient mLocationClient = null;
+
+    TimeCount time1 = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -130,15 +138,28 @@ public class Fragment1 extends BaseFragment {
                         Date date = new Date(amapLocation.getTime());
                         df.format(date);*/
                         MyLogger.i(">>>>>>>>>>定位信息：\n纬度：" + aMapLocation.getLatitude()
-                                + "\n经度:" + aMapLocation.getAccuracy()
-                                + "\n地址:" + aMapLocation.getAddress()
-                        );
+                                + "\n经度:" + aMapLocation.getLongitude()
+                                + "\n地址:" + aMapLocation.getAddress());
+                        if (mLocationClient != null)
+                            mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
+                        Map<String, String> params = new HashMap<>();
+                        params.put("token", localUserInfo.getToken());
+                        params.put("addr", aMapLocation.getAddress() + "");
+                        params.put("lat", aMapLocation.getLatitude() + "");
+                        params.put("lng", aMapLocation.getLongitude() + "");
+                        params.put("indent_use_type", indent_use_type);
+                        params.put("distance", distance);
+                        params.put("temperature", temperature);
+                        params.put("time_start", time_start);
+                        params.put("time_end", time_end);
+                        RequestList(params);
+
                     } else {
                         //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
                         MyLogger.e("定位失败：", "location Error, ErrCode:"
                                 + aMapLocation.getErrorCode() + ", errInfo:"
                                 + aMapLocation.getErrorInfo());
-                        myToast(""+aMapLocation.getErrorInfo());
+                        myToast("" + aMapLocation.getErrorInfo());
                     }
                 }
             }
@@ -160,11 +181,13 @@ public class Fragment1 extends BaseFragment {
             requestServer();
         }
     }
+
     @Override
     public void onPause() {
         super.onPause();
         rollingView.pause();
     }
+
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
@@ -199,29 +222,8 @@ public class Fragment1 extends BaseFragment {
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLinearLayoutManager);
 
+        //公告消息
         rollingView = findViewByID_My(R.id.rollingView);
-
-        // 初始化号外列表
-        List<String> haowaiArray = new ArrayList<>();
-        haowaiArray.add("[母婴天地] 买尿不湿送婴儿手口湿巾");
-        haowaiArray.add("[利民商店] 满100免费配送");
-        haowaiArray.add("[果之家] 泰国金枕榴莲8元/kg");
-        haowaiArray.add("[户外运动] 户外运动专业装备搜集");
-        haowaiArray.add("[天天特价] 只要9.9还包邮");
-        haowaiArray.add("[尖端潮品] 折叠电动车");
-        haowaiArray.add("[黑科技] 智能VR带你装13");
-        haowaiArray.add("[旅行必备] 太阳能充电宝-永不断电");
-        // 绑定数据
-        rollingView.setPageSize(1);
-        rollingView.setClickColor(0xff888888);
-//        rollingView.setLeftDrawable(R.drawable.drawable_red_dot);
-        rollingView.setRollingText(haowaiArray);
-        rollingView.setOnItemClickListener(new RollingView.onItemClickListener() {
-            @Override
-            public void onItemClick(TextView v) {
-
-            }
-        });
 
         btn_right = findViewByID_My(R.id.btn_right);
         btn_right.setOnClickListener(this);
@@ -268,14 +270,67 @@ public class Fragment1 extends BaseFragment {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>首页" + response);
+                model = response;
+                //倒计时
+                if (response.getFresh_second() > 0) {
+                    if (isStartJieDan)
+                        startTime();//开始倒计时
+                }
 
-                /*for (int i = 0; i < 10; i++) {
-                    list.add(new Fragment1Model());
-                }*/
-                mAdapter = new CommonAdapter<Fragment1Model>
+                // 公告消息
+                List<String> xiaoxiArray = new ArrayList<>();
+                for (int i = 0; i < response.getNotice_list().size(); i++) {
+                    xiaoxiArray.add(response.getNotice_list().get(i).getTitle());
+                }
+                rollingView.setPageSize(1);
+                rollingView.setClickColor(0xff888888);
+//        rollingView.setLeftDrawable(R.drawable.drawable_red_dot);
+                rollingView.setRollingText(xiaoxiArray);// 绑定数据
+                rollingView.setOnItemClickListener(new RollingView.onItemClickListener() {
+                    @Override
+                    public void onItemClick(TextView v) {
+//                        MyLogger.i(">>>>"+v.getText());
+                        CommonUtil.gotoActivity(getActivity(), NoticeDetailActivity.class);
+                    }
+                });
+
+                //订单类型
+                indent_use_type = response.getIndent_use_type_list().get(0).getVal()+"";
+                //距离
+                distance = response.getDistance_list().get(0).getVal()+"";
+                //温度
+                temperature = response.getTemperature_list().get(0).getVal()+"";
+                //开始
+                time_start = response.getTime_start_list().get(0).getVal()+"";
+                //结束
+                time_end = response.getTime_end_list().get(0).getVal()+"";
+            }
+        });
+    }
+
+    private void RequestList(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(getActivity(), URLs.Fragment1List, params, new OkHttpClientManager.ResultCallback<Fragment1ListModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(Fragment1ListModel response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>接单列表" + response);
+                for (int i = 0; i < 10; i++) {
+                    list.add(new Fragment1ListModel());
+                }
+                mAdapter = new CommonAdapter<Fragment1ListModel>
                         (getActivity(), R.layout.item_fragment1, list) {
                     @Override
-                    protected void convert(ViewHolder holder, Fragment1Model model, int position) {
+                    protected void convert(ViewHolder holder, Fragment1ListModel model, int position) {
                         /*holder.setText(R.id.textView1, model.getMember_nickname());
                         holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
                         holder.setText(R.id.textView3, model.getShow_created_at());
@@ -326,7 +381,7 @@ public class Fragment1 extends BaseFragment {
                 };
                 recyclerView.setAdapter(mAdapter);
             }
-        });
+        }, false);
     }
 
     @Override
@@ -369,6 +424,11 @@ public class Fragment1 extends BaseFragment {
                     tv_hint.setVisibility(View.VISIBLE);
                     if (mLocationClient != null)
                         mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
+
+                    //关闭计时器
+                    if (time1 != null) {
+                        time1.cancel();
+                    }
 //                    stopAlarm();
                 }
                 break;
@@ -389,10 +449,9 @@ public class Fragment1 extends BaseFragment {
                 rv.setLayoutManager(mLinearLayoutManager);
 
                 List<String> mStringList = new ArrayList<>();
-                mStringList.add("不限");
-                mStringList.add("专车");
-                mStringList.add("顺风车");
-
+                for (int i = 0; i < model.getIndent_use_type_list().size(); i++) {
+                    mStringList.add(model.getIndent_use_type_list().get(i).getVal());
+                }
                 CommonAdapter<String> adapter = new CommonAdapter<String>
                         (getActivity(), R.layout.item_dialog_list, mStringList) {
                     @Override
@@ -413,6 +472,7 @@ public class Fragment1 extends BaseFragment {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                         i1 = i;
+                        indent_use_type = model.getIndent_use_type_list().get(i).getKey() + "";
                         adapter.notifyDataSetChanged();
                         tv_type.setText(mStringList.get(i));
                         dialog1.dismiss();
@@ -448,9 +508,9 @@ public class Fragment1 extends BaseFragment {
                 rv2.setLayoutManager(mLinearLayoutManager2);
 
                 List<String> mStringList2 = new ArrayList<>();
-                mStringList2.add("不限");
-                mStringList2.add("市内");
-                mStringList2.add("长途");
+                for (int i = 0; i < model.getDistance_list().size(); i++) {
+                    mStringList2.add(model.getDistance_list().get(i).getVal());
+                }
 
                 CommonAdapter<String> adapter2 = new CommonAdapter<String>
                         (getActivity(), R.layout.item_dialog_list, mStringList2) {
@@ -472,6 +532,7 @@ public class Fragment1 extends BaseFragment {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                         i2 = i;
+                        distance = model.getDistance_list().get(i).getKey() + "";
                         adapter2.notifyDataSetChanged();
                         tv_distance.setText(mStringList2.get(i));
                         dialog2.dismiss();
@@ -507,10 +568,10 @@ public class Fragment1 extends BaseFragment {
                 rv3.setLayoutManager(mLinearLayoutManager3);
 
                 List<String> mStringList3 = new ArrayList<>();
-                mStringList3.add("不限");
-                mStringList3.add("-18℃~-2℃");
-                mStringList3.add("+2℃~+10℃");
-                mStringList3.add("+15℃~+20℃");
+                for (int i = 0; i < model.getTemperature_list().size(); i++) {
+                    mStringList3.add(model.getTemperature_list().get(i).getVal());
+                }
+
                 CommonAdapter<String> adapter3 = new CommonAdapter<String>
                         (getActivity(), R.layout.item_dialog_list, mStringList3) {
                     @Override
@@ -531,6 +592,7 @@ public class Fragment1 extends BaseFragment {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                         i3 = i;
+                        temperature = model.getTemperature_list().get(i).getKey() + "";
                         adapter3.notifyDataSetChanged();
                         tv_temperature.setText(mStringList3.get(i));
                         dialog3.dismiss();
@@ -566,13 +628,9 @@ public class Fragment1 extends BaseFragment {
                 rv4.setLayoutManager(mLinearLayoutManager4);
 
                 List<String> mStringList4 = new ArrayList<>();
-                mStringList4.add("现在");
-                mStringList4.add("11:00");
-                mStringList4.add("12:00");
-                mStringList4.add("13:00");
-                mStringList4.add("14:00");
-                mStringList4.add("15:00");
-                mStringList4.add("16:00");
+                for (int i = 0; i < model.getTime_start_list().size(); i++) {
+                    mStringList4.add(model.getTime_start_list().get(i).getVal());
+                }
 
                 CommonAdapter<String> adapter4 = new CommonAdapter<String>
                         (getActivity(), R.layout.item_dialog_list, mStringList4) {
@@ -594,6 +652,7 @@ public class Fragment1 extends BaseFragment {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                         i4 = i;
+                        time_start = model.getTime_start_list().get(i).getKey() + "";
                         adapter4.notifyDataSetChanged();
                         tv_timestart.setText(mStringList4.get(i));
                         dialog4.dismiss();
@@ -629,13 +688,9 @@ public class Fragment1 extends BaseFragment {
                 rv5.setLayoutManager(mLinearLayoutManager5);
 
                 List<String> mStringList5 = new ArrayList<>();
-                mStringList5.add("现在");
-                mStringList5.add("21:00");
-                mStringList5.add("22:00");
-                mStringList5.add("23:00");
-                mStringList5.add("24:00");
-                mStringList5.add("次日1:00");
-                mStringList5.add("次日2:00");
+                for (int i = 0; i < model.getTime_end_list().size(); i++) {
+                    mStringList5.add(model.getTime_end_list().get(i).getVal());
+                }
 
                 CommonAdapter<String> adapter5 = new CommonAdapter<String>
                         (getActivity(), R.layout.item_dialog_list, mStringList5) {
@@ -657,6 +712,7 @@ public class Fragment1 extends BaseFragment {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                         i5 = i;
+                        time_end = model.getTime_end_list().get(i).getKey() + "";
                         adapter5.notifyDataSetChanged();
                         tv_timestop.setText(mStringList5.get(i));
                         dialog5.dismiss();
@@ -705,6 +761,85 @@ public class Fragment1 extends BaseFragment {
         showProgress(true, getString(R.string.app_loading));
         String string = "?token=" + localUserInfo.getToken();
         Request(string);
+    }
+
+
+    private void startTime() {
+        MyLogger.i(">>>>>>" + (model.getFresh_second() * 1000));
+        if (time1 != null) {
+            time1.cancel();
+        }
+        time1 = new TimeCount(model.getFresh_second() * 1000, 1000);//构造CountDownTimer对象
+        time1.start();//开始计时
+    }
+
+    class TimeCount extends CountDownTimer {
+        //        TextView textView;
+        public TimeCount(long millisInFuture, long countDownInterval
+//                , TextView textView
+        ) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+//            this.textView = textView;
+        }
+
+        @Override
+        public void onFinish() {//计时完毕时触发
+//            textView.setText("0s");
+            if (MainActivity.item == 0) {
+                if (mLocationClient != null) {
+                    //设置场景模式后最好调用一次stop，再调用start以保证场景模式生效
+                    mLocationClient.stopLocation();
+                    mLocationClient.startLocation();
+                }
+
+                /*dialog.contentView(R.layout.dialog_gifimg)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+
+                GifImageView gifImageView = (GifImageView) dialog.findViewById(R.id.imageView);
+//                gifImageView.setScaleType(ImageView.ScaleType.CENTER);
+                GifLoadOneTimeGif.loadOneTimeGif(getActivity(), R.mipmap.gifimg, gifImageView, 1, new GifLoadOneTimeGif.GifListener() {
+                    @Override
+                    public void gifPlayComplete() {
+                        dialog.dismiss();
+                        showProgress(true, getString(R.string.fragment3_h23));
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("token", localUserInfo.getToken());
+                        request(params);
+                    }
+                });
+
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });*/
+
+                /*if (time2 != null) {
+                    time2.cancel();
+                }
+                time2 = new TimeCount2(6 * 1000, 1000,);//构造CountDownTimer对象
+                time2.start();//开始计时
+                TextView textView2 = dialog.findViewById(R.id.textView2);
+                textView2.setText(getString(R.string.fragment3_h23));
+                TextView textView3 = dialog.findViewById(R.id.textView3);*/
+
+            }
+
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+//            textView.setText(CommonUtil.timedate3(millisUntilFinished) + "s");//秒计时
+//            textView.setText(CommonUtil.timedate4(millisUntilFinished, getActivity()));//时分秒倒计时
+
+        }
+
     }
 
     @Override

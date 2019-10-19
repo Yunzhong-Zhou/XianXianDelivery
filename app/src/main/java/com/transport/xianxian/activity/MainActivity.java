@@ -41,7 +41,7 @@ import androidx.appcompat.app.AlertDialog;
 
 public class MainActivity extends BaseActivity {
     public static BottomTabBar mBottomTabBar;
-    public static int item = 1;
+    public static int item = 0;
     int isShowAd = 0;//是否显示弹窗
     //更新
     UpgradeModel model_up;

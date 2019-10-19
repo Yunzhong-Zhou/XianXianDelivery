@@ -63,7 +63,7 @@ public class URLs {
     /**
      * 算力
      */
-    public static final String SuanLiList= "/api/invest/record";
+    public static final String Fragment1List= "/api/driver/tindent/set";
 
     //区块
     /**
