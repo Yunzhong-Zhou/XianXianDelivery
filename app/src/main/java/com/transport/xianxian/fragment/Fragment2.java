@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
 import com.hyphenate.easeui.EaseConstant;
@@ -16,13 +17,19 @@ import com.transport.xianxian.R;
 import com.transport.xianxian.activity.ChatActivity;
 import com.transport.xianxian.activity.MainActivity;
 import com.transport.xianxian.base.BaseFragment;
-import com.transport.xianxian.model.Fragment2Model;
+import com.transport.xianxian.model.Fragment2Model1;
+import com.transport.xianxian.model.Fragment2Model2;
+import com.transport.xianxian.model.Fragment2Model3;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,21 +43,20 @@ import androidx.recyclerview.widget.RecyclerView;
  * 订单
  */
 public class Fragment2 extends BaseFragment {
-    int page = 1;
+    int page1 = 1,page2 = 1,page3 = 1, status = 1;
     private RecyclerView recyclerView;
-    List<Fragment2Model> list1 = new ArrayList<>();
-    CommonAdapter<Fragment2Model> mAdapter1;
+    List<Fragment2Model1> list1 = new ArrayList<>();
+    CommonAdapter<Fragment2Model1> mAdapter1;
 
-    List<Fragment2Model> list2 = new ArrayList<>();
-    CommonAdapter<Fragment2Model> mAdapter2;
+    List<Fragment2Model2> list2 = new ArrayList<>();
+    CommonAdapter<Fragment2Model2> mAdapter2;
 
-    List<Fragment2Model> list3 = new ArrayList<>();
-    CommonAdapter<Fragment2Model> mAdapter3;
+    List<Fragment2Model3> list3 = new ArrayList<>();
+    CommonAdapter<Fragment2Model3> mAdapter3;
 
     private LinearLayout linearLayout1, linearLayout2, linearLayout3;
     private TextView textView1, textView2, textView3;
     private View view1, view2, view3;
-    int type = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -96,20 +102,60 @@ public class Fragment2 extends BaseFragment {
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                page = 1;
-                String string = "?page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
-                        + "&token=" + localUserInfo.getToken();
+                String string = "";
+                switch (status){
+                    case 1:
+                        page1 = 1;
+                        string = "?page=" + page1//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                    case 2:
+                        page2 = 1;
+                        string = "?page=" + page2//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                    case 3:
+                        page3 = 1;
+                        string = "?page=" + page3//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                }
                 Request(string);
             }
 
             @Override
             public void onLoadmore() {
-                page++;
-                String string = "?page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
-                        + "&token=" + localUserInfo.getToken();
-                Request(string);
+                String string = "";
+                switch (status){
+                    case 1:
+                        page1++;
+                        string = "?page=" + page1//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                    case 2:
+                        page2++;
+                        string = "?page=" + page2//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                    case 3:
+                        page3++;
+                        string = "?page=" + page3//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                }
+                RequestMore(string);
             }
         });
 
@@ -133,75 +179,6 @@ public class Fragment2 extends BaseFragment {
         view2 = findViewByID_My(R.id.view2);
         view3 = findViewByID_My(R.id.view3);
 
-
-        for (int i = 0; i < 10; i++) {
-            list1.add(new Fragment2Model());
-        }
-        mAdapter1 = new CommonAdapter<Fragment2Model>
-                (getActivity(), R.layout.item_fragment2, list1) {
-            @Override
-            protected void convert(ViewHolder holder, Fragment2Model model, int position) {
-                        /*holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
-                        holder.setText(R.id.textView3, model.getShow_created_at());
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);*/
-
-                //标签
-                FlowLayoutAdapter<String> flowLayoutAdapter;
-                List<String> list = new ArrayList<>();
-                list.add("专车");
-                list.add("6吨");
-                list.add("15-20℃恒温");
-                flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
-                    @Override
-                    public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
-//                                holder.setText(R.id.tv,bean);
-                        TextView tv = holder.getView(R.id.tv);
-                        tv.setText(bean);
-                                /*if (position == 0){
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                                }else {
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
-                                }*/
-                    }
-
-                    @Override
-                    public void onItemClick(int position, String bean) {
-
-//                                showToast("点击" + position);
-                    }
-
-                    @Override
-                    public int getItemLayoutID(int position, String bean) {
-                        return R.layout.item_flowlayout;
-                    }
-                };
-                ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter);
-                ((FlowLayout) holder.getView(R.id.flowLayout2)).setAdapter(flowLayoutAdapter);
-
-                //去聊天
-                holder.getView(R.id.iv_xinxi).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString(EaseConstant.EXTRA_USER_ID, "18306043086");
-                        CommonUtil.gotoActivityWithData(getActivity(), ChatActivity.class, bundle, false);
-                    }
-                });
-            }
-        };
-
-        recyclerView.setAdapter(mAdapter1);
-
     }
 
     @Override
@@ -214,22 +191,22 @@ public class Fragment2 extends BaseFragment {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.linearLayout1:
-                type = 1;
+                status = 1;
                 changeUI();
                 break;
             case R.id.linearLayout2:
-                type = 2;
+                status = 2;
                 changeUI();
                 break;
             case R.id.linearLayout3:
-                type = 3;
+                status = 3;
                 changeUI();
                 break;
         }
     }
 
     private void changeUI() {
-        switch (type) {
+        switch (status) {
             case 1:
                 textView1.setTextColor(getResources().getColor(R.color.blue));
                 textView2.setTextColor(getResources().getColor(R.color.black2));
@@ -237,11 +214,10 @@ public class Fragment2 extends BaseFragment {
                 view1.setVisibility(View.VISIBLE);
                 view2.setVisibility(View.INVISIBLE);
                 view3.setVisibility(View.INVISIBLE);
-
                 /*if (list1.size() > 0) {
                     showContentPage();
-                    recyclerView.setAdapter(adapter1);
-                    adapter1.notifyDataSetChanged();
+                    recyclerView.setAdapter(mAdapter1);
+                    mAdapter1.notifyDataSetChanged();
                 } else {
                     showEmptyPage();//空数据
                 }*/
@@ -282,7 +258,7 @@ public class Fragment2 extends BaseFragment {
             default:
                 break;
         }
-
+        requestServer();
     }
 
     @Override
@@ -296,17 +272,39 @@ public class Fragment2 extends BaseFragment {
 //        this.showLoadingPage();
 
         showProgress(true, getString(R.string.app_loading));
-        String string = "?page=" + page//当前页号
-                + "&count=" + "10"//页面行数
-                + "&token=" + localUserInfo.getToken();
+        String string = "";
+        switch (status){
+            case 1:
+                page1 = 1;
+                string = "?page=" + page1//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&status=" + status//1进行中2已完成3已取消
+                        + "&token=" + localUserInfo.getToken();
+                break;
+            case 2:
+                page2 = 1;
+                string = "?page=" + page2//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&status=" + status//1进行中2已完成3已取消
+                        + "&token=" + localUserInfo.getToken();
+                break;
+            case 3:
+                page3 = 1;
+                string = "?page=" + page3//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&status=" + status//1进行中2已完成3已取消
+                        + "&token=" + localUserInfo.getToken();
+                break;
+        }
         Request(string);
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment2 + string, new OkHttpClientManager.ResultCallback<Fragment2Model>() {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment2 + string,
+                new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-//                showErrorPage();
+                showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
                     myToast(info);
@@ -314,13 +312,326 @@ public class Fragment2 extends BaseFragment {
             }
 
             @Override
-            public void onResponse(final Fragment2Model response) {
-//                showContentPage();
+            public void onResponse(String response) {
+                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>订单" + response);
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    JSONArray jsonArray = jObj.getJSONArray("data");
+                    switch (status){
+                        case 1:
+                            /**
+                            * *************************进行中**************************************
+                            * */
+                            list1 = JSON.parseArray(jsonArray.toString(), Fragment2Model1.class);
+                            if (list1.size() > 0) {
+                                mAdapter1 = new CommonAdapter<Fragment2Model1>
+                                        (getActivity(), R.layout.item_fragment2_1, list1) {
+                                    @Override
+                                    protected void convert(ViewHolder holder, Fragment2Model1 model, int position) {
+                        /*holder.setText(R.id.textView1, model.getMember_nickname());
+                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
+                        holder.setText(R.id.textView3, model.getShow_created_at());
+                        ImageView imageView1 = holder.getView(R.id.imageView1);
+                        if (!model.getMember_head().equals(""))
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getMember_head())
+                                    .centerCrop()
+//                                    .placeholder(R.mipmap.headimg)//加载站位图
+//                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+                        else
+                            imageView1.setImageResource(R.mipmap.headimg);*/
+
+                                        //标签
+                                        FlowLayoutAdapter<String> flowLayoutAdapter;
+                                        List<String> list = new ArrayList<>();
+                                        list.add("专车");
+                                        list.add("6吨");
+                                        list.add("15-20℃恒温");
+                                        flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                                            @Override
+                                            public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+//                                holder.setText(R.id.tv,bean);
+                                                TextView tv = holder.getView(R.id.tv);
+                                                tv.setText(bean);
+                                /*if (position == 0){
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
+                                }else {
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                                }*/
+                                            }
+
+                                            @Override
+                                            public void onItemClick(int position, String bean) {
+
+//                                showToast("点击" + position);
+                                            }
+
+                                            @Override
+                                            public int getItemLayoutID(int position, String bean) {
+                                                return R.layout.item_flowlayout;
+                                            }
+                                        };
+                                        ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter);
+                                        ((FlowLayout) holder.getView(R.id.flowLayout2)).setAdapter(flowLayoutAdapter);
+
+                                        //去聊天
+                                        holder.getView(R.id.iv_xinxi).setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                Bundle bundle = new Bundle();
+                                                bundle.putString(EaseConstant.EXTRA_USER_ID, "18306043086");
+                                                CommonUtil.gotoActivityWithData(getActivity(), ChatActivity.class, bundle, false);
+                                            }
+                                        });
+                                    }
+                                };
+
+                                recyclerView.setAdapter(mAdapter1);
+                            } else {
+                                showEmptyPage();//空数据
+                            }
+                            break;
+                        case 2:
+                            /**
+                             * *************************已完成**************************************
+                             * */
+                            list2 = JSON.parseArray(jsonArray.toString(), Fragment2Model2.class);
+                            if (list2.size() > 0) {
+                                mAdapter2 = new CommonAdapter<Fragment2Model2>
+                                        (getActivity(), R.layout.item_fragment2_1, list2) {
+                                    @Override
+                                    protected void convert(ViewHolder holder, Fragment2Model2 model, int position) {
+                        /*holder.setText(R.id.textView1, model.getMember_nickname());
+                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
+                        holder.setText(R.id.textView3, model.getShow_created_at());
+                        ImageView imageView1 = holder.getView(R.id.imageView1);
+                        if (!model.getMember_head().equals(""))
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getMember_head())
+                                    .centerCrop()
+//                                    .placeholder(R.mipmap.headimg)//加载站位图
+//                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+                        else
+                            imageView1.setImageResource(R.mipmap.headimg);*/
+
+                                        //标签
+                                        FlowLayoutAdapter<String> flowLayoutAdapter;
+                                        List<String> list = new ArrayList<>();
+                                        list.add("专车");
+                                        list.add("6吨");
+                                        list.add("15-20℃恒温");
+                                        flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                                            @Override
+                                            public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+//                                holder.setText(R.id.tv,bean);
+                                                TextView tv = holder.getView(R.id.tv);
+                                                tv.setText(bean);
+                                /*if (position == 0){
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
+                                }else {
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                                }*/
+                                            }
+
+                                            @Override
+                                            public void onItemClick(int position, String bean) {
+
+//                                showToast("点击" + position);
+                                            }
+
+                                            @Override
+                                            public int getItemLayoutID(int position, String bean) {
+                                                return R.layout.item_flowlayout;
+                                            }
+                                        };
+                                        ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter);
+                                        ((FlowLayout) holder.getView(R.id.flowLayout2)).setAdapter(flowLayoutAdapter);
+
+                                        //去聊天
+                                        holder.getView(R.id.iv_xinxi).setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                Bundle bundle = new Bundle();
+                                                bundle.putString(EaseConstant.EXTRA_USER_ID, "18306043086");
+                                                CommonUtil.gotoActivityWithData(getActivity(), ChatActivity.class, bundle, false);
+                                            }
+                                        });
+                                    }
+                                };
+
+                                recyclerView.setAdapter(mAdapter2);
+                            } else {
+                                showEmptyPage();//空数据
+                            }
+                            break;
+                        case 3:
+                            /**
+                             * *************************已取消**************************************
+                             * */
+                            list3 = JSON.parseArray(jsonArray.toString(), Fragment2Model3.class);
+                            if (list3.size() > 0) {
+                                mAdapter3 = new CommonAdapter<Fragment2Model3>
+                                        (getActivity(), R.layout.item_fragment2_1, list3) {
+                                    @Override
+                                    protected void convert(ViewHolder holder, Fragment2Model3 model, int position) {
+                        /*holder.setText(R.id.textView1, model.getMember_nickname());
+                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
+                        holder.setText(R.id.textView3, model.getShow_created_at());
+                        ImageView imageView1 = holder.getView(R.id.imageView1);
+                        if (!model.getMember_head().equals(""))
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getMember_head())
+                                    .centerCrop()
+//                                    .placeholder(R.mipmap.headimg)//加载站位图
+//                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+                        else
+                            imageView1.setImageResource(R.mipmap.headimg);*/
+
+                                        //标签
+                                        FlowLayoutAdapter<String> flowLayoutAdapter;
+                                        List<String> list = new ArrayList<>();
+                                        list.add("专车");
+                                        list.add("6吨");
+                                        list.add("15-20℃恒温");
+                                        flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                                            @Override
+                                            public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+//                                holder.setText(R.id.tv,bean);
+                                                TextView tv = holder.getView(R.id.tv);
+                                                tv.setText(bean);
+                                /*if (position == 0){
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
+                                }else {
+                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                                }*/
+                                            }
+
+                                            @Override
+                                            public void onItemClick(int position, String bean) {
+
+//                                showToast("点击" + position);
+                                            }
+
+                                            @Override
+                                            public int getItemLayoutID(int position, String bean) {
+                                                return R.layout.item_flowlayout;
+                                            }
+                                        };
+                                        ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter);
+                                        ((FlowLayout) holder.getView(R.id.flowLayout2)).setAdapter(flowLayoutAdapter);
+
+                                        //去聊天
+                                        holder.getView(R.id.iv_xinxi).setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                Bundle bundle = new Bundle();
+                                                bundle.putString(EaseConstant.EXTRA_USER_ID, "18306043086");
+                                                CommonUtil.gotoActivityWithData(getActivity(), ChatActivity.class, bundle, false);
+                                            }
+                                        });
+                                    }
+                                };
+
+                                recyclerView.setAdapter(mAdapter3);
+                            } else {
+                                showEmptyPage();//空数据
+                            }
+                            break;
+                    }
+
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void RequestMore(String string) {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment2 + string, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                switch (status){
+                    case 1:
+                        page1--;
+                        break;
+                    case 2:
+                        page2--;
+                        break;
+                    case 3:
+                        page3--;
+                        break;
+                }
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>订单列表更多" + response);
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    JSONArray jsonArray = jObj.getJSONArray("data");
+                    switch (status) {
+                        case 1:
+                            List<Fragment2Model1> list1_1 = new ArrayList<>();
+                            list1_1 = JSON.parseArray(jsonArray.toString(), Fragment2Model1.class);
+                            if (list1_1.size() == 0) {
+                                page1--;
+                                myToast(getString(R.string.app_nomore));
+                            } else {
+                                list1.addAll(list1_1);
+                                mAdapter1.notifyDataSetChanged();
+                            }
+                            break;
+                        case 2:
+                            List<Fragment2Model2> list2_1 = new ArrayList<>();
+                            list2_1 = JSON.parseArray(jsonArray.toString(), Fragment2Model2.class);
+                            if (list2_1.size() == 0) {
+                                page2--;
+                                myToast(getString(R.string.app_nomore));
+                            } else {
+                                list2.addAll(list2_1);
+                                mAdapter2.notifyDataSetChanged();
+                            }
+                            break;
+                        case 3:
+                            List<Fragment2Model3> list3_1 = new ArrayList<>();
+                            list3_1 = JSON.parseArray(jsonArray.toString(), Fragment2Model3.class);
+                            if (list3_1.size() == 0) {
+                                page3--;
+                                myToast(getString(R.string.app_nomore));
+                            } else {
+                                list3.addAll(list3_1);
+                                mAdapter3.notifyDataSetChanged();
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
 
             }
         });
+
     }
 
 }

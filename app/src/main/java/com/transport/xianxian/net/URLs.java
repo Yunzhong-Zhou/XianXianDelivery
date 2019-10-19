@@ -55,21 +55,19 @@ public class URLs {
      */
     public static final String Verified = "/api/member/certification";
 
-    //算力
     /**
-     * 算力
+     * 首页
      */
     public static final String Fragment1= "/api/driver/index";
     /**
-     * 算力
+     * 接单列表
      */
     public static final String Fragment1List= "/api/driver/tindent/set";
 
-    //区块
     /**
-     * 区块
+     * 订单
      */
-    public static final String Fragment2 = "/api/driver/index";
+    public static final String Fragment2 = "/api/driver/tindent/search";
     /**
      * 购买算力
      */
@@ -78,40 +76,6 @@ public class URLs {
      * 购买区块
      */
     public static final String BuyQuKuai = "/api/block/create";
-    //首页
-    /**
-     * 首页
-     */
-    public static final String Fragment3 = "/api/like-game/index";
-    /**
-     * 游戏参与（加密）
-     */
-    public static final String Game_Add = "/api/like-game-participation/create";
-    /**
-     * 往期列表
-     */
-    public static final String PastList = "/api/like-game/history";
-    /**
-     * 排行榜
-     */
-    public static final String Leaderboard = "/api/like-game/rank";
-    /**
-     * 详情
-     */
-    public static final String GameDetail = "/api/like-game/detail";
-    //充值
-    /**
-     * 充值
-     */
-    public static final String Fragment4 = "/api/top-up/create";
-    /**
-     * 银行卡设置
-     */
-    public static final String Collection = "/api/member/set-proceeds";
-    /**
-     * 银行卡设置_验证码
-     */
-    public static final String Collection_code = "/api/sms-code/send-code";
 
     // 用户模块
     /**

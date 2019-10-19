@@ -16,6 +16,7 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.bumptech.glide.Glide;
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
 import com.cy.dialog.BaseDialog;
@@ -51,6 +52,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static com.superrtc.ContextUtils.getApplicationContext;
+import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
 
 
 /**
@@ -59,12 +61,17 @@ import static com.superrtc.ContextUtils.getApplicationContext;
  */
 
 public class Fragment1 extends BaseFragment {
+    ImageView imageView1;
+    TextView textView1,textView2,textView3,textView4,textView5,textView6;
+
     String indent_use_type = "", distance = "", temperature = "", time_start = "", time_end = "";
     Fragment1Model model;
     private RecyclerView recyclerView;
     List<Fragment1ListModel> list = new ArrayList<>();
     CommonAdapter<Fragment1ListModel> mAdapter;
+
     RollingView rollingView;//消息滚动
+    List<String> xiaoxiArray = new ArrayList<>();
 
     ImageView btn_right;
     LinearLayout ll_xiaoxi, ll_pingfen;
@@ -73,11 +80,9 @@ public class Fragment1 extends BaseFragment {
     int i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0;
 
     Boolean isStartJieDan = false;//是否开始接单
-
     //定位
     //声明AMapLocationClient类对象
     private AMapLocationClient mLocationClient = null;
-
     TimeCount time1 = null;
 
     @Override
@@ -247,6 +252,15 @@ public class Fragment1 extends BaseFragment {
         tv_kaishijiedan = findViewByID_My(R.id.tv_kaishijiedan);
         tv_kaishijiedan.setOnClickListener(this);
         tv_hint = findViewByID_My(R.id.tv_hint);
+
+        imageView1 = findViewByID_My(R.id.imageView1);
+        textView1 = findViewByID_My(R.id.textView1);
+        textView2 = findViewByID_My(R.id.textView2);
+        textView3 = findViewByID_My(R.id.textView3);
+        textView4 = findViewByID_My(R.id.textView4);
+        textView5 = findViewByID_My(R.id.textView5);
+        textView6 = findViewByID_My(R.id.textView6);
+
     }
 
     @Override
@@ -270,6 +284,21 @@ public class Fragment1 extends BaseFragment {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>首页" + response);
+                textView1.setText(response.getNickname());//昵称
+                textView2.setText("¥ "+response.getMoney());//今日流水
+                textView3.setText(response.getMoney());//账户余额
+                textView4.setText(response.getOnline_time());//在线时长
+                textView5.setText(response.getIndent_count());//今日单量
+                textView6.setText(response.getComment_score());//当前评分
+                if (!response.getHead().equals(""))
+                    Glide.with(getActivity())
+                            .load(IMGHOST + response.getHead())
+                            .centerCrop()
+//                    .placeholder(R.mipmap.headimg)//加载站位图
+//                    .error(R.mipmap.headimg)//加载失败
+                            .into(imageView1);//加载图片
+
+
                 model = response;
                 //倒计时
                 if (response.getFresh_second() > 0) {
@@ -278,7 +307,7 @@ public class Fragment1 extends BaseFragment {
                 }
 
                 // 公告消息
-                List<String> xiaoxiArray = new ArrayList<>();
+                xiaoxiArray.clear();
                 for (int i = 0; i < response.getNotice_list().size(); i++) {
                     xiaoxiArray.add(response.getNotice_list().get(i).getTitle());
                 }
@@ -324,9 +353,6 @@ public class Fragment1 extends BaseFragment {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>接单列表" + response);
-                for (int i = 0; i < 10; i++) {
-                    list.add(new Fragment1ListModel());
-                }
                 mAdapter = new CommonAdapter<Fragment1ListModel>
                         (getActivity(), R.layout.item_fragment1, list) {
                     @Override
@@ -742,11 +768,8 @@ public class Fragment1 extends BaseFragment {
             return;
         }
         // 二维码扫码
-        /*Intent intent = new Intent(getActivity(), CaptureActivity.class);
-        startActivityForResult(intent, Constant.REQ_QR_CODE);*/
-
-        Intent intent1 = new Intent(getActivity(), CaptureActivity.class);
-        startActivityForResult(intent1, Constant.REQ_QR_CODE);
+        Intent intent = new Intent(getActivity(), CaptureActivity.class);
+        startActivityForResult(intent, Constant.REQ_QR_CODE);
     }
 
     @Override
@@ -791,53 +814,13 @@ public class Fragment1 extends BaseFragment {
                     mLocationClient.stopLocation();
                     mLocationClient.startLocation();
                 }
-
-                /*dialog.contentView(R.layout.dialog_gifimg)
-                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                ViewGroup.LayoutParams.WRAP_CONTENT))
-                        .animType(BaseDialog.AnimInType.CENTER)
-                        .canceledOnTouchOutside(true)
-                        .dimAmount(0.8f)
-                        .show();
-
-                GifImageView gifImageView = (GifImageView) dialog.findViewById(R.id.imageView);
-//                gifImageView.setScaleType(ImageView.ScaleType.CENTER);
-                GifLoadOneTimeGif.loadOneTimeGif(getActivity(), R.mipmap.gifimg, gifImageView, 1, new GifLoadOneTimeGif.GifListener() {
-                    @Override
-                    public void gifPlayComplete() {
-                        dialog.dismiss();
-                        showProgress(true, getString(R.string.fragment3_h23));
-                        HashMap<String, String> params = new HashMap<>();
-                        params.put("token", localUserInfo.getToken());
-                        request(params);
-                    }
-                });
-
-                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });*/
-
-                /*if (time2 != null) {
-                    time2.cancel();
-                }
-                time2 = new TimeCount2(6 * 1000, 1000,);//构造CountDownTimer对象
-                time2.start();//开始计时
-                TextView textView2 = dialog.findViewById(R.id.textView2);
-                textView2.setText(getString(R.string.fragment3_h23));
-                TextView textView3 = dialog.findViewById(R.id.textView3);*/
-
             }
-
         }
 
         @Override
         public void onTick(long millisUntilFinished) {//计时过程显示
 //            textView.setText(CommonUtil.timedate3(millisUntilFinished) + "s");//秒计时
 //            textView.setText(CommonUtil.timedate4(millisUntilFinished, getActivity()));//时分秒倒计时
-
         }
 
     }

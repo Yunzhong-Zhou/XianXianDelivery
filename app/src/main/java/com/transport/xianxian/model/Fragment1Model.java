@@ -44,7 +44,7 @@ public class Fragment1Model {
     private String lat;
     private String lng;
     private String addr;
-    private int indent_use_type;
+    private String indent_use_type;
     private String distance;
     private String temperature;
     private String time_start;
@@ -146,11 +146,11 @@ public class Fragment1Model {
         this.addr = addr;
     }
 
-    public int getIndent_use_type() {
+    public String getIndent_use_type() {
         return indent_use_type;
     }
 
-    public void setIndent_use_type(int indent_use_type) {
+    public void setIndent_use_type(String indent_use_type) {
         this.indent_use_type = indent_use_type;
     }
 
