@@ -133,6 +133,9 @@
 
         <!--个人中心-->
         <activity
+            android:name=".activity.MyProfileActivity"
+            android:label="修改头像/电话" />
+        <activity
             android:name=".activity.ChangePasswordActivity"
             android:label="修改密码" />
         <activity

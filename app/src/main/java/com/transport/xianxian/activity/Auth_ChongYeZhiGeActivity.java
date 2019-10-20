@@ -20,7 +20,7 @@ import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
-import com.transport.xianxian.utils.ChooseImages_zyz;
+import com.transport.xianxian.utils.MyChooseImages;
 import com.transport.xianxian.utils.FileUtil;
 import com.transport.xianxian.utils.MyLogger;
 
@@ -32,8 +32,8 @@ import java.util.HashMap;
 import id.zelory.compressor.Compressor;
 
 import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
-import static com.transport.xianxian.utils.ChooseImages_zyz.REQUEST_CODE_CAPTURE_CAMEIA;
-import static com.transport.xianxian.utils.ChooseImages_zyz.REQUEST_CODE_PICK_IMAGE;
+import static com.transport.xianxian.utils.MyChooseImages.REQUEST_CODE_CAPTURE_CAMEIA;
+import static com.transport.xianxian.utils.MyChooseImages.REQUEST_CODE_PICK_IMAGE;
 
 /**
  * Created by zyz on 2019-10-01.
@@ -74,7 +74,7 @@ public class Auth_ChongYeZhiGeActivity extends BaseActivity {
                         listFiles.remove(i);
                     }
                 }
-                ChooseImages_zyz.showPhotoDialog(this);
+                MyChooseImages.showPhotoDialog(this);
                 break;
             case R.id.textView1:
                 //提交
@@ -189,7 +189,7 @@ public class Auth_ChongYeZhiGeActivity extends BaseActivity {
                 case REQUEST_CODE_CAPTURE_CAMEIA:
                     //相机
                     uri = Uri.parse("");
-                    uri = Uri.fromFile(new File(ChooseImages_zyz.imagepath));
+                    uri = Uri.fromFile(new File(MyChooseImages.imagepath));
                     imagePath = uri.getPath();
                     break;
                 case REQUEST_CODE_PICK_IMAGE:

@@ -39,6 +39,7 @@ public class ChatMainActivity extends EaseBaseActivity {
         super.onCreate(arg0);
         setContentView(R.layout.activity_chatmain);
 
+
         unreadLabel = (TextView) findViewById(R.id.unread_msg_number);
         mTabs = new Button[3];
         mTabs[0] = (Button) findViewById(R.id.btn_conversation);

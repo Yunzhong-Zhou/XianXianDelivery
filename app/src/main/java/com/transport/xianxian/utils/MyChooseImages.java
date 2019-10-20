@@ -22,7 +22,7 @@ import java.io.File;
  * Created by ling on 2015/8/24.
  * description:选择图片，通过拍照或者图片文件
  */
-public class ChooseImages_zyz {
+public class MyChooseImages {
     public static final int REQUEST_CODE_CAPTURE_CAMEIA = 1;// 拍照
     public static final int REQUEST_CODE_PICK_IMAGE = 2;// 从相册中选择
 
