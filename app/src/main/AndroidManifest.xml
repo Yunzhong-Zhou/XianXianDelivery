@@ -122,6 +122,15 @@
         <activity
             android:name=".activity.TakeCashActivity"
             android:label="提现" />
+
+        <!--订单-->
+        <activity
+            android:name=".activity.AddSurchargeActivity"
+            android:label="添加附加费" />
+        <activity
+            android:name=".activity.ZhuanDanActivity"
+            android:label="转单二维码" />
+
         <!--个人中心-->
         <activity
             android:name=".activity.ChangePasswordActivity"
