@@ -87,9 +87,9 @@ public class URLs {
      */
     public static final String Out = "/api/driver/logout";
     /**
-     * 个人信息
+     * 修改手机号
      */
-    public static final String Info = "/api/driver/center/index";
+    public static final String ChangePhone = "/api/driver/center/bind-mobile";
     /**
      * 修改信息
      */

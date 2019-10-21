@@ -223,7 +223,6 @@ public class Fragment3 extends BaseFragment {
             case R.id.linearLayout1:
                 //个人资料
                 CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class);
-
                 break;
             case R.id.linearLayout2:
                 //车主认证
