@@ -331,9 +331,11 @@ public class Fragment3 extends BaseFragment {
 
             @Override
             public void onResponse(String response) {
+                hideProgress();
                 MyLogger.i(">>>>>>>>>修改昵称" + response);
                 myToast("修改昵称成功");
                 localUserInfo.setNickname(string);
+                textView1.setText(string);
             }
         }, false);
 

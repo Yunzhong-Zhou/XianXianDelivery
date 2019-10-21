@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/yuanjiao_5_baise"
+        android:layout_margin="12dp" >
+
+    </LinearLayout>
 
 
 </LinearLayout>

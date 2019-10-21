@@ -93,7 +93,7 @@ public class URLs {
     /**
      * 修改信息
      */
-    public static final String ChangeProfile = "/api/driver/update";
+    public static final String ChangeProfile = "/api/driver/center/update";
     /**
      * 设置交易密码
      */
