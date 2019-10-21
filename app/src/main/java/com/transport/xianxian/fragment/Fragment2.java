@@ -357,6 +357,24 @@ public class Fragment2 extends BaseFragment {
                                                 holder.setText(R.id.textView11, "" + model.getPrice() + "元");//起步价
                                                 holder.setText(R.id.textView12, "" + model.getPrice() + "元");//里程费
 
+                                                //地址列表
+                                                LinearLayout ll_add = holder.getView(R.id.ll_add);
+                                                ll_add.removeAllViews();
+                                                for (int i = 0; i < model.getGoods_desc().size(); i++) {
+                                                    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                                                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                                    LayoutInflater inflater = LayoutInflater.from(getActivity());
+                                                    View view = inflater.inflate(R.layout.item_add_fragment2_1, null, false);
+                                                    view.setLayoutParams(lp);
+                                                    //实例化子页面的控件
+                                                    /*TextView textView_1 = (TextView) view.findViewById(R.id.textView_1);
+                                                    TextView editText_1 = (TextView) view.findViewById(R.id.editText_1);
+                                                    EditText editText_2 = (EditText) view.findViewById(R.id.editText_2);
+                                                    ImageView iv_delete = (ImageView) view.findViewById(R.id.iv_delete);*/
+
+                                                    ll_add.addView(view);
+                                                }
+
                                                 //客户要求
                                                 FlowLayoutAdapter<String> flowLayoutAdapter1;
                                                 List<String> tagList1 = new ArrayList<>();
@@ -368,16 +386,10 @@ public class Fragment2 extends BaseFragment {
                                                     public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
                                                         TextView tv = holder.getView(R.id.tv);
                                                         tv.setText(bean);
-                                /*if (position == 0){
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                                }else {
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
-                                }*/
                                                     }
 
                                                     @Override
                                                     public void onItemClick(int position, String bean) {
-//                                showToast("点击" + position);
                                                     }
 
                                                     @Override
@@ -398,16 +410,10 @@ public class Fragment2 extends BaseFragment {
                                                     public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
                                                         TextView tv = holder.getView(R.id.tv);
                                                         tv.setText(bean);
-                                /*if (position == 0){
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                                }else {
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
-                                }*/
                                                     }
 
                                                     @Override
                                                     public void onItemClick(int position, String bean) {
-//                                showToast("点击" + position);
                                                     }
 
                                                     @Override
@@ -496,7 +502,7 @@ public class Fragment2 extends BaseFragment {
                                     list2 = JSON.parseArray(jsonArray.toString(), Fragment2Model2.class);
                                     if (list2.size() > 0) {
                                         mAdapter2 = new CommonAdapter<Fragment2Model2>
-                                                (getActivity(), R.layout.item_fragment2_1, list2) {
+                                                (getActivity(), R.layout.item_fragment2_2, list2) {
                                             @Override
                                             protected void convert(ViewHolder holder, Fragment2Model2 model, int position) {
                         /*holder.setText(R.id.textView1, model.getMember_nickname());
@@ -570,7 +576,7 @@ public class Fragment2 extends BaseFragment {
                                     list3 = JSON.parseArray(jsonArray.toString(), Fragment2Model3.class);
                                     if (list3.size() > 0) {
                                         mAdapter3 = new CommonAdapter<Fragment2Model3>
-                                                (getActivity(), R.layout.item_fragment2_1, list3) {
+                                                (getActivity(), R.layout.item_fragment2_3, list3) {
                                             @Override
                                             protected void convert(ViewHolder holder, Fragment2Model3 model, int position) {
                         /*holder.setText(R.id.textView1, model.getMember_nickname());

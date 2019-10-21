@@ -219,13 +219,108 @@
         android:textSize="11sp" />
 
     //地址列表
-
     <LinearLayout
-        android:id="@+id/ll_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@drawable/yuanxing_lanse"
+                android:gravity="center"
+                android:text="起"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="35dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="-10dp"
+                android:layout_weight="1"
+                android:background="@drawable/shuxian_huise"
+                android:layerType="software" />
+
+            <TextView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@drawable/yuanxing_juse"
+                android:gravity="center"
+                android:text="终"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="2"
+                android:text="广东省深圳市南山区蛇口沿山路与工业六路交界创业园A栋01室" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="泛娱科技"
+                    android:textColor="@color/black3"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="距您7.5km"
+                    android:textColor="@color/black3"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:minLines="2"
+                android:text="广东省深圳市南山区蛇口沿山路与工业六路交界创业园A栋01室" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="泛娱科技"
+                    android:textColor="@color/black3"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="距您7.5km"
+                    android:textColor="@color/black3"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
