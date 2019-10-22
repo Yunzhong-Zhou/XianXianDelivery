@@ -20,6 +20,7 @@ import com.transport.xianxian.R;
 import com.transport.xianxian.activity.AddSurchargeActivity;
 import com.transport.xianxian.activity.ChatActivity;
 import com.transport.xianxian.activity.MainActivity;
+import com.transport.xianxian.activity.MapNavigationActivity;
 import com.transport.xianxian.activity.ZhuanDanActivity;
 import com.transport.xianxian.base.BaseFragment;
 import com.transport.xianxian.model.Fragment2Model1;
@@ -372,6 +373,15 @@ public class Fragment2 extends BaseFragment {
                                                     EditText editText_2 = (EditText) view.findViewById(R.id.editText_2);
                                                     ImageView iv_delete = (ImageView) view.findViewById(R.id.iv_delete);*/
 
+                                                    TextView tv_daohang = view.findViewById(R.id.tv_daohang);
+                                                    tv_daohang.setOnClickListener(new View.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(View v) {
+                                                            Bundle bundle = new Bundle();
+                                                            bundle.putString("id", model.getId());
+                                                            CommonUtil.gotoActivityWithData(getActivity(), MapNavigationActivity.class, bundle, false);
+                                                        }
+                                                    });
                                                     ll_add.addView(view);
                                                 }
 

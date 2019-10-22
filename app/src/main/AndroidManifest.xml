@@ -130,7 +130,9 @@
         <activity
             android:name=".activity.ZhuanDanActivity"
             android:label="转单二维码" />
-
+        <activity
+            android:name=".activity.MapNavigationActivity"
+            android:label="地图导航（去装货、去卸货、）" />
         <!--个人中心-->
         <activity
             android:name=".activity.MyProfileActivity"
