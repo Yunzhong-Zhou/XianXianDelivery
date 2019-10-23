@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -41,6 +42,10 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,9 +67,10 @@ import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
 
 public class Fragment1 extends BaseFragment {
     ImageView imageView1;
-    TextView textView1,textView2,textView3,textView4,textView5,textView6;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6;
 
-    String indent_use_type = "", distance = "", temperature = "", time_start = "", time_end = "";
+    String indent_use_type = "", distance = "", temperature = "", time_start = "", time_end = "",
+            addr = "", lat = "", lng = "";
     Fragment1Model model;
     private RecyclerView recyclerView;
     List<Fragment1ListModel> list = new ArrayList<>();
@@ -147,17 +153,10 @@ public class Fragment1 extends BaseFragment {
                                 + "\n地址:" + aMapLocation.getAddress());
                         if (mLocationClient != null)
                             mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
-                        Map<String, String> params = new HashMap<>();
-                        params.put("token", localUserInfo.getToken());
-                        params.put("addr", aMapLocation.getAddress() + "");
-                        params.put("lat", aMapLocation.getLatitude() + "");
-                        params.put("lng", aMapLocation.getLongitude() + "");
-                        params.put("indent_use_type", indent_use_type);
-                        params.put("distance", distance);
-                        params.put("temperature", temperature);
-                        params.put("time_start", time_start);
-                        params.put("time_end", time_end);
-                        RequestList(params);
+                        addr = aMapLocation.getAddress() + "";
+                        lat = aMapLocation.getLatitude() + "";
+                        lng = aMapLocation.getLongitude() + "";
+                        requestlist();//请求数据
 
                     } else {
                         //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
@@ -204,6 +203,9 @@ public class Fragment1 extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (time1 != null) {
+            time1.cancel();
+        }
         if (mLocationClient != null)
             mLocationClient.onDestroy();//销毁定位客户端，同时销毁本地定位服务。
     }
@@ -284,8 +286,9 @@ public class Fragment1 extends BaseFragment {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>首页" + response);
+                model = response;
                 textView1.setText(response.getNickname());//昵称
-                textView2.setText("¥ "+response.getMoney());//今日流水
+                textView2.setText("¥ " + response.getMoney());//今日流水
                 textView3.setText(response.getMoney());//账户余额
                 textView4.setText(response.getOnline_time());//在线时长
                 textView5.setText(response.getIndent_count());//今日单量
@@ -298,8 +301,6 @@ public class Fragment1 extends BaseFragment {
 //                    .error(R.mipmap.headimg)//加载失败
                             .into(imageView1);//加载图片
 
-
-                model = response;
                 //倒计时
                 if (response.getFresh_second() > 0) {
                     if (isStartJieDan)
@@ -324,21 +325,21 @@ public class Fragment1 extends BaseFragment {
                 });
 
                 //订单类型
-                indent_use_type = response.getIndent_use_type_list().get(0).getVal()+"";
+                indent_use_type = response.getIndent_use_type_list().get(0).getKey() + "";
                 //距离
-                distance = response.getDistance_list().get(0).getVal()+"";
+                distance = response.getDistance_list().get(0).getKey() + "";
                 //温度
-                temperature = response.getTemperature_list().get(0).getVal()+"";
+                temperature = response.getTemperature_list().get(0).getKey() + "";
                 //开始
-                time_start = response.getTime_start_list().get(0).getVal()+"";
+                time_start = response.getTime_start_list().get(0).getKey() + "";
                 //结束
-                time_end = response.getTime_end_list().get(0).getVal()+"";
+                time_end = response.getTime_end_list().get(0).getKey() + "";
             }
         });
     }
 
     private void RequestList(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(getActivity(), URLs.Fragment1List, params, new OkHttpClientManager.ResultCallback<Fragment1ListModel>() {
+        OkHttpClientManager.postAsyn(getActivity(), URLs.Fragment1List, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -349,14 +350,29 @@ public class Fragment1 extends BaseFragment {
             }
 
             @Override
-            public void onResponse(Fragment1ListModel response) {
+            public void onResponse(String response) {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>接单列表" + response);
-                mAdapter = new CommonAdapter<Fragment1ListModel>
-                        (getActivity(), R.layout.item_fragment1, list) {
-                    @Override
-                    protected void convert(ViewHolder holder, Fragment1ListModel model, int position) {
+
+                JSONObject jObj;
+//                List<Fragment1ListModel> list1 = new ArrayList<>();
+                try {
+                    jObj = new JSONObject(response);
+                    JSONArray jsonArray = jObj.getJSONArray("data");
+                    list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
+                    MyLogger.i(">>>>>>>" + list.size());
+                    /*if (list.size() == 0) {
+//                        myToast(getString(R.string.app_nomore));
+                    } else {
+
+                    }*/
+//                        list.addAll(list1);
+                    //初始化列表
+                    mAdapter = new CommonAdapter<Fragment1ListModel>
+                            (getActivity(), R.layout.item_fragment1, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, Fragment1ListModel model, int position) {
                         /*holder.setText(R.id.textView1, model.getMember_nickname());
                         holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
                         holder.setText(R.id.textView3, model.getShow_created_at());
@@ -371,41 +387,52 @@ public class Fragment1 extends BaseFragment {
                         else
                             imageView1.setImageResource(R.mipmap.headimg);*/
 
-                        //标签
-                        FlowLayoutAdapter<String> flowLayoutAdapter;
-                        List<String> list = new ArrayList<>();
-                        list.add("专车");
-                        list.add("6吨");
-                        list.add("15-20℃恒温");
-                        flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
-                            @Override
-                            public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+                            //标签
+                            FlowLayoutAdapter<String> flowLayoutAdapter;
+                            List<String> list = new ArrayList<>();
+                            list.add("专车");
+                            list.add("6吨");
+                            list.add("15-20℃恒温");
+                            flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                                @Override
+                                public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
 //                                holder.setText(R.id.tv,bean);
-                                TextView tv = holder.getView(R.id.tv);
-                                tv.setText(bean);
-                                if (position == 0) {
-                                    tv.setTextColor(getResources().getColor(R.color.white));
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                                } else {
-                                    tv.setTextColor(getResources().getColor(R.color.black1));
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                                    TextView tv = holder.getView(R.id.tv);
+                                    tv.setText(bean);
+                                    if (position == 0) {
+                                        tv.setTextColor(getResources().getColor(R.color.white));
+                                        tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
+                                    } else {
+                                        tv.setTextColor(getResources().getColor(R.color.black1));
+                                        tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onItemClick(int position, String bean) {
+                                @Override
+                                public void onItemClick(int position, String bean) {
 //                        showToast("点击" + position);
-                            }
+                                }
 
-                            @Override
-                            public int getItemLayoutID(int position, String bean) {
-                                return R.layout.item_flowlayout;
-                            }
-                        };
-                        ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
-                    }
-                };
-                recyclerView.setAdapter(mAdapter);
+                                @Override
+                                public int getItemLayoutID(int position, String bean) {
+                                    return R.layout.item_flowlayout;
+                                }
+                            };
+                            ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
+                        }
+                    };
+                    recyclerView.setAdapter(mAdapter);
+                    mAdapter.notifyDataSetChanged();
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                //倒计时
+                if (model.getFresh_second() > 0) {
+                    if (isStartJieDan)
+                        startTime();//开始倒计时
+                }
             }
         }, false);
     }
@@ -437,17 +464,22 @@ public class Fragment1 extends BaseFragment {
                     tv_kaishijiedan.setBackgroundResource(R.drawable.btn_huise);
                     tv_kaishijiedan.setText("关闭接单");
                     tv_hint.setVisibility(View.GONE);
+
+                    //开始定位-请求数据-开始计时
                     if (mLocationClient != null) {
                         //设置场景模式后最好调用一次stop，再调用start以保证场景模式生效
                         mLocationClient.stopLocation();
                         mLocationClient.startLocation();
                     }
+
 //                    startAlarm();
                 } else {
                     //点击关闭接单
                     tv_kaishijiedan.setBackgroundResource(R.drawable.btn_lanse);
                     tv_kaishijiedan.setText("开始接单");
                     tv_hint.setVisibility(View.VISIBLE);
+
+                    //停止定位
                     if (mLocationClient != null)
                         mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
 
@@ -455,6 +487,14 @@ public class Fragment1 extends BaseFragment {
                     if (time1 != null) {
                         time1.cancel();
                     }
+
+                    //清空列表数据
+                    if (list.size() > 0) {
+                        list.clear();
+                        recyclerView.removeAllViews();
+
+                    }
+
 //                    stopAlarm();
                 }
                 break;
@@ -501,6 +541,7 @@ public class Fragment1 extends BaseFragment {
                         indent_use_type = model.getIndent_use_type_list().get(i).getKey() + "";
                         adapter.notifyDataSetChanged();
                         tv_type.setText(mStringList.get(i));
+                        requestlist();
                         dialog1.dismiss();
                     }
 
@@ -561,6 +602,7 @@ public class Fragment1 extends BaseFragment {
                         distance = model.getDistance_list().get(i).getKey() + "";
                         adapter2.notifyDataSetChanged();
                         tv_distance.setText(mStringList2.get(i));
+                        requestlist();
                         dialog2.dismiss();
                     }
 
@@ -621,6 +663,7 @@ public class Fragment1 extends BaseFragment {
                         temperature = model.getTemperature_list().get(i).getKey() + "";
                         adapter3.notifyDataSetChanged();
                         tv_temperature.setText(mStringList3.get(i));
+                        requestlist();
                         dialog3.dismiss();
                     }
 
@@ -681,6 +724,7 @@ public class Fragment1 extends BaseFragment {
                         time_start = model.getTime_start_list().get(i).getKey() + "";
                         adapter4.notifyDataSetChanged();
                         tv_timestart.setText(mStringList4.get(i));
+                        requestlist();
                         dialog4.dismiss();
                     }
 
@@ -741,6 +785,7 @@ public class Fragment1 extends BaseFragment {
                         time_end = model.getTime_end_list().get(i).getKey() + "";
                         adapter5.notifyDataSetChanged();
                         tv_timestop.setText(mStringList5.get(i));
+                        requestlist();
                         dialog5.dismiss();
                     }
 
@@ -786,6 +831,23 @@ public class Fragment1 extends BaseFragment {
         Request(string);
     }
 
+    //获取接单列表
+    private void requestlist() {
+        Map<String, String> params = new HashMap<>();
+        params.put("token", localUserInfo.getToken());
+        params.put("addr", addr);
+        params.put("lat", lat);
+        params.put("lng", lng);
+        params.put("indent_use_type", indent_use_type);
+        params.put("distance", distance);
+        params.put("temperature", temperature);
+        params.put("time_start", time_start);
+        params.put("time_end", time_end);
+        if (isStartJieDan) {
+            RequestList(params);
+        }
+
+    }
 
     private void startTime() {
         MyLogger.i(">>>>>>" + (model.getFresh_second() * 1000));
@@ -808,6 +870,7 @@ public class Fragment1 extends BaseFragment {
         @Override
         public void onFinish() {//计时完毕时触发
 //            textView.setText("0s");
+//            MyLogger.i(">>>>>>>>计时完毕，刷新订单");
             if (MainActivity.item == 0) {
                 if (mLocationClient != null) {
                     //设置场景模式后最好调用一次stop，再调用start以保证场景模式生效
@@ -815,10 +878,12 @@ public class Fragment1 extends BaseFragment {
                     mLocationClient.startLocation();
                 }
             }
+
         }
 
         @Override
         public void onTick(long millisUntilFinished) {//计时过程显示
+
 //            textView.setText(CommonUtil.timedate3(millisUntilFinished) + "s");//秒计时
 //            textView.setText(CommonUtil.timedate4(millisUntilFinished, getActivity()));//时分秒倒计时
         }

@@ -261,7 +261,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
 
     @Override
     public void onNaviCancel() {
-//        finish();
+        finish();
 
     }
 

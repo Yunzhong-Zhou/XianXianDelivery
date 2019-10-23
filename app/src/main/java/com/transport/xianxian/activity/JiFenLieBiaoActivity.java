@@ -25,8 +25,6 @@ import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -179,7 +177,6 @@ public class JiFenLieBiaoActivity extends BaseActivity {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>商品列表更多" + response);
-                JSONObject jObj;
                 List<JiFenLieBiaoModel.GoodsDataBean> list1 = new ArrayList<>();
                 list1 = response.getGoods_data();
                 if (list1.size() == 0) {
