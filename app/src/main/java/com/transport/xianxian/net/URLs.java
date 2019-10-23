@@ -63,6 +63,10 @@ public class URLs {
      * 接单列表
      */
     public static final String Fragment1List= "/api/driver/tindent/set";
+    /**
+     * 订单详情
+     */
+    public static final String OrderDetails= "/api/driver/tindent/detail";
 
     /**
      * 订单

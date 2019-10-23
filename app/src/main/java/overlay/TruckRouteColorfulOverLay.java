@@ -107,7 +107,7 @@ public class TruckRouteColorfulOverLay extends RouteOverlay {
                 endMarker.remove();
                 endMarker = null;
             }
-            addStartAndEndMarker();
+//            addStartAndEndMarker();
             addThroughPointMarker();
             if (isColorfulline && tmcs.size()>0 ) {
             	colorWayUpdate(tmcs);
@@ -218,7 +218,7 @@ public class TruckRouteColorfulOverLay extends RouteOverlay {
   }
     
     /**
-     * @param
+     * @param step
      * @param latLng
      */
     private void addLimitMarker(TruckStep step, LatLng latLng) {
