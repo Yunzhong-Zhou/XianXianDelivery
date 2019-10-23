@@ -122,7 +122,9 @@
         <activity
             android:name=".activity.TakeCashActivity"
             android:label="提现" />
-
+        <activity
+            android:name=".activity.OrderDetailsActivity"
+            android:label="订单详情" />
         <!--订单-->
         <activity
             android:name=".activity.AddSurchargeActivity"

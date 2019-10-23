@@ -27,6 +27,7 @@ import com.transport.xianxian.R;
 import com.transport.xianxian.activity.CapitalStatisticsActivity;
 import com.transport.xianxian.activity.MainActivity;
 import com.transport.xianxian.activity.NoticeDetailActivity;
+import com.transport.xianxian.activity.OrderDetailsActivity;
 import com.transport.xianxian.activity.ScoreDetailActivity;
 import com.transport.xianxian.base.BaseFragment;
 import com.transport.xianxian.model.Fragment1ListModel;
@@ -373,27 +374,18 @@ public class Fragment1 extends BaseFragment {
                             (getActivity(), R.layout.item_fragment1, list) {
                         @Override
                         protected void convert(ViewHolder holder, Fragment1ListModel model, int position) {
-                        /*holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
-                        holder.setText(R.id.textView3, model.getShow_created_at());
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);*/
-
+                            holder.setText(R.id.tv1, model.getNow_state() +"  "+ model.getNow_state_action());
+                            holder.setText(R.id.tv2, model.getRemark());
+                            holder.setText(R.id.tv3, model.getRemark());//备注
+                            holder.setText(R.id.tv4, model.getCreated_at()+"发布");//发布时间
+                            holder.setText(R.id.tv5, "¥ "+model.getPrice());//金额
                             //标签
                             FlowLayoutAdapter<String> flowLayoutAdapter;
-                            List<String> list = new ArrayList<>();
-                            list.add("专车");
-                            list.add("6吨");
-                            list.add("15-20℃恒温");
-                            flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                            List<String> stringList = new ArrayList<>();
+                            for (int i = 0; i < model.getTag().size(); i++) {
+                                stringList.add(model.getTag().get(i).getVal());
+                            }
+                            flowLayoutAdapter = new FlowLayoutAdapter<String>(stringList) {
                                 @Override
                                 public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
 //                                holder.setText(R.id.tv,bean);
@@ -419,8 +411,24 @@ public class Fragment1 extends BaseFragment {
                                 }
                             };
                             ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
+
+                            //送货地址
+
                         }
                     };
+                    mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("id",list.get(i).getId());
+                            CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class,bundle);
+                        }
+
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            return false;
+                        }
+                    });
                     recyclerView.setAdapter(mAdapter);
                     mAdapter.notifyDataSetChanged();
 

@@ -387,11 +387,11 @@ public class Fragment2 extends BaseFragment {
 
                                                 //客户要求
                                                 FlowLayoutAdapter<String> flowLayoutAdapter1;
-                                                List<String> tagList1 = new ArrayList<>();
+                                                /*List<String> tagList1 = new ArrayList<>();
                                                 for (int i = 0; i < model.getTag().size(); i++) {
                                                     tagList1.add(model.getTag().get(i));
-                                                }
-                                                flowLayoutAdapter1 = new FlowLayoutAdapter<String>(tagList1) {
+                                                }*/
+                                                flowLayoutAdapter1 = new FlowLayoutAdapter<String>(model.getTag()) {
                                                     @Override
                                                     public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
                                                         TextView tv = holder.getView(R.id.tv);
@@ -411,11 +411,11 @@ public class Fragment2 extends BaseFragment {
 
                                                 //货物描述
                                                 FlowLayoutAdapter<String> flowLayoutAdapter2;
-                                                List<String> tagList2 = new ArrayList<>();
+                                                /*List<String> tagList2 = new ArrayList<>();
                                                 for (int i = 0; i < model.getGoods_desc().size(); i++) {
                                                     tagList2.add(model.getGoods_desc().get(i));
-                                                }
-                                                flowLayoutAdapter2 = new FlowLayoutAdapter<String>(tagList2) {
+                                                }*/
+                                                flowLayoutAdapter2 = new FlowLayoutAdapter<String>(model.getGoods_desc()) {
                                                     @Override
                                                     public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
                                                         TextView tv = holder.getView(R.id.tv);
