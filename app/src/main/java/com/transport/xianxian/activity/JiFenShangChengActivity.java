@@ -71,19 +71,19 @@ public class JiFenShangChengActivity extends BaseActivity {
             case R.id.linearLayout1:
                 //兑好礼
                 Bundle bundle1 = new Bundle();
-                bundle1.putString("type", model.getType().get(0).getType());
+                bundle1.putString("type", model.getType().get(0).getVal());
                 CommonUtil.gotoActivityWithData(this, JiFenLieBiaoActivity.class, bundle1, false);
                 break;
             case R.id.linearLayout2:
                 //兑加油
                 Bundle bundle2 = new Bundle();
-                bundle2.putString("type", model.getType().get(1).getType());
+                bundle2.putString("type", model.getType().get(1).getVal());
                 CommonUtil.gotoActivityWithData(this, JiFenLieBiaoActivity.class, bundle2, false);
                 break;
             case R.id.linearLayout3:
                 //兑话费
                 Bundle bundle3 = new Bundle();
-                bundle3.putString("type", model.getType().get(2).getType());
+                bundle3.putString("type", model.getType().get(2).getVal());
                 CommonUtil.gotoActivityWithData(this, JiFenLieBiaoActivity.class, bundle3, false);
                 break;
 
@@ -128,7 +128,7 @@ public class JiFenShangChengActivity extends BaseActivity {
                             .into(imageView1);//加载图片
 
                 textView1.setText(response.getNickname());//昵称
-                textView2.setText(response.getScore());//积分
+                textView2.setText(response.getScore()+"");//积分
 
                 //banner
                 /*images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");

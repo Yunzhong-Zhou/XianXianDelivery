@@ -17,6 +17,8 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.amap.api.location.CoordinateConverter;
+import com.amap.api.location.DPoint;
 import com.bumptech.glide.Glide;
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
@@ -71,7 +73,8 @@ public class Fragment1 extends BaseFragment {
     TextView textView1, textView2, textView3, textView4, textView5, textView6;
 
     String indent_use_type = "", distance = "", temperature = "", time_start = "", time_end = "",
-            addr = "", lat = "", lng = "";
+            addr = "";
+    double lat = 0, lng = 0, juli = 0;
     Fragment1Model model;
     private RecyclerView recyclerView;
     List<Fragment1ListModel> list = new ArrayList<>();
@@ -91,6 +94,9 @@ public class Fragment1 extends BaseFragment {
     //声明AMapLocationClient类对象
     private AMapLocationClient mLocationClient = null;
     TimeCount time1 = null;
+
+    private DPoint mStartPoint = null;
+    private DPoint mEndPoint = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -155,8 +161,8 @@ public class Fragment1 extends BaseFragment {
                         if (mLocationClient != null)
                             mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
                         addr = aMapLocation.getAddress() + "";
-                        lat = aMapLocation.getLatitude() + "";
-                        lng = aMapLocation.getLongitude() + "";
+                        lat = aMapLocation.getLatitude();
+                        lng = aMapLocation.getLongitude();
                         requestlist();//请求数据
 
                     } else {
@@ -374,11 +380,11 @@ public class Fragment1 extends BaseFragment {
                             (getActivity(), R.layout.item_fragment1, list) {
                         @Override
                         protected void convert(ViewHolder holder, Fragment1ListModel model, int position) {
-                            holder.setText(R.id.tv1, model.getNow_state() +"  "+ model.getNow_state_action());
+                            holder.setText(R.id.tv1, model.getNow_state() + "  " + model.getNow_state_action());
                             holder.setText(R.id.tv2, model.getRemark());
                             holder.setText(R.id.tv3, model.getRemark());//备注
-                            holder.setText(R.id.tv4, model.getCreated_at()+"发布");//发布时间
-                            holder.setText(R.id.tv5, "¥ "+model.getPrice());//金额
+                            holder.setText(R.id.tv4, model.getCreated_at() + " 发布");//发布时间
+                            holder.setText(R.id.tv5, "¥ " + model.getPrice());//金额
                             //标签
                             FlowLayoutAdapter<String> flowLayoutAdapter;
                             List<String> stringList = new ArrayList<>();
@@ -413,15 +419,37 @@ public class Fragment1 extends BaseFragment {
                             ((FlowLayout) holder.getView(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
 
                             //送货地址
+                            for (int i = 0; i < model.getAddr_list().size(); i++) {
+                                if (i == 0) {
+                                    holder.setText(R.id.tv_addr1, model.getAddr_list().get(i).getAddr());
+                                    holder.setText(R.id.tv_title1, model.getAddr_list().get(i).getAddr_detail());
+                                    if (lat != 0 && lng != 0) {
+                                        mStartPoint = new DPoint(lat, lng);//起点
+                                        mEndPoint = new DPoint(Double.valueOf(model.getAddr_list().get(i).getLat()), Double.valueOf(model.getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
+                                        juli = CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint);
+                                        holder.setText(R.id.tv_juli1, "距您" + juli + "m");
+                                    }
+                                }
+                                if (i == model.getAddr_list().size() - 1) {
+                                    holder.setText(R.id.tv_addr2, model.getAddr_list().get(i).getAddr());
+                                    holder.setText(R.id.tv_title2, model.getAddr_list().get(i).getAddr_detail());
 
+                                    if (lat != 0 && lng != 0) {
+                                        mStartPoint = new DPoint(lat, lng);//起点
+                                        mEndPoint = new DPoint(Double.valueOf(model.getAddr_list().get(i).getLat()), Double.valueOf(model.getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
+                                        juli = CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint);
+                                        holder.setText(R.id.tv_juli2, "距您" + juli + "m");
+                                    }
+                                }
+                            }
                         }
                     };
                     mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                             Bundle bundle = new Bundle();
-                            bundle.putString("id",list.get(i).getId());
-                            CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class,bundle);
+                            bundle.putString("id", list.get(i).getId());
+                            CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class, bundle);
                         }
 
                         @Override
@@ -844,8 +872,8 @@ public class Fragment1 extends BaseFragment {
         Map<String, String> params = new HashMap<>();
         params.put("token", localUserInfo.getToken());
         params.put("addr", addr);
-        params.put("lat", lat);
-        params.put("lng", lng);
+        params.put("lat", lat + "");
+        params.put("lng", lng + "");
         params.put("indent_use_type", indent_use_type);
         params.put("distance", distance);
         params.put("temperature", temperature);

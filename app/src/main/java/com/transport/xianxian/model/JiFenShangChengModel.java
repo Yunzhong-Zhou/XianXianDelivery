@@ -8,18 +8,18 @@ import java.util.List;
  */
 public class JiFenShangChengModel implements Serializable {
     /**
-     * nickname : 18306043086
-     * head :
-     * mobile : 18306043086
-     * score :
+     * nickname : ajglja
+     * head : /upload/head/2019-10-24/f45094af06e9db38cf7c34b5894133b3.jpg
+     * mobile : 15823629471
+     * score : 0
      * banner : [{"url":"a.jpg","type":"1"},{"url":"a.jpg","type":"2"}]
-     * type : [{"type":"1","title":"兑好礼"},{"type":"2","title":"兑话费"},{"type":"3","title":"兑油费"}]
+     * type : [{"key":1,"val":"兑好礼"},{"key":2,"val":"兑话费"},{"key":3,"val":"兑油费"}]
      */
 
     private String nickname;
     private String head;
     private String mobile;
-    private String score;
+    private int score;
     private List<BannerBean> banner;
     private List<TypeBean> type;
 
@@ -47,11 +47,11 @@ public class JiFenShangChengModel implements Serializable {
         this.mobile = mobile;
     }
 
-    public String getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(int score) {
         this.score = score;
     }
 
@@ -99,27 +99,27 @@ public class JiFenShangChengModel implements Serializable {
 
     public static class TypeBean {
         /**
-         * type : 1
-         * title : 兑好礼
+         * key : 1
+         * val : 兑好礼
          */
 
-        private String type;
-        private String title;
+        private int key;
+        private String val;
 
-        public String getType() {
-            return type;
+        public int getKey() {
+            return key;
         }
 
-        public void setType(String type) {
-            this.type = type;
+        public void setKey(int key) {
+            this.key = key;
         }
 
-        public String getTitle() {
-            return title;
+        public String getVal() {
+            return val;
         }
 
-        public void setTitle(String title) {
-            this.title = title;
+        public void setVal(String val) {
+            this.val = val;
         }
     }
 }

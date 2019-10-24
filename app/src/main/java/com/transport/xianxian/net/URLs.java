@@ -67,6 +67,10 @@ public class URLs {
      * 订单详情
      */
     public static final String OrderDetails= "/api/driver/tindent/detail";
+    /**
+     * 拒绝/接单
+     */
+    public static final String OrderDetails_JieDan= "/api/driver/tindent/create";
 
     /**
      * 订单

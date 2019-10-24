@@ -21,6 +21,7 @@ import com.transport.xianxian.activity.AddSurchargeActivity;
 import com.transport.xianxian.activity.ChatActivity;
 import com.transport.xianxian.activity.MainActivity;
 import com.transport.xianxian.activity.MapNavigationActivity;
+import com.transport.xianxian.activity.OrderDetailsActivity;
 import com.transport.xianxian.activity.ZhuanDanActivity;
 import com.transport.xianxian.base.BaseFragment;
 import com.transport.xianxian.model.Fragment2Model1;
@@ -31,6 +32,7 @@ import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.json.JSONArray;
@@ -499,7 +501,19 @@ public class Fragment2 extends BaseFragment {
                                                 });
                                             }
                                         };
+                                        mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                                            @Override
+                                            public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                                                Bundle bundle = new Bundle();
+                                                bundle.putString("id", list1.get(i).getId());
+                                                CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class, bundle);
+                                            }
 
+                                            @Override
+                                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                                                return false;
+                                            }
+                                        });
                                         recyclerView.setAdapter(mAdapter1);
                                     } else {
                                         showEmptyPage();//空数据
