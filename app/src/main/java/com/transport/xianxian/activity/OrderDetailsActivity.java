@@ -2,10 +2,16 @@ package com.transport.xianxian.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.services.core.LatLonPoint;
@@ -107,7 +113,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 mStartPoint = new LatLonPoint(39.902896, 116.42792);//起点
                 mEndPoint = new LatLonPoint(39.995576, 116.481288);//终点，39.995576,116.481288
                 init();
-                setfromandtoMarker();
+                setfromandtoMarker();//显示标注物
                 searchRouteResult(RouteSearch.TRUCK_AVOID_CONGESTION);//默认避免拥堵
             }
         });
@@ -134,6 +140,14 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
      * 添加覆盖物(起点和终点)
      */
     private void setfromandtoMarker() {
+        //批量添加marker到地图上
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                addMarker(1,"起点","起点地址描述",mStartPoint);
+                addMarker(2,"终点","终点地址描述",mEndPoint);
+            }
+        });
         //显示多个infowindow
         /*ArrayList<MarkerOptions> optionsList = new ArrayList<>();
         MarkerOptions options1 = new MarkerOptions();
@@ -153,7 +167,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 
         aMap.addMarkers(optionsList,true);*/
 
-        //只显示一个infowindow
+        /*//只显示一个infowindow
         aMap.addMarker(new MarkerOptions()
                 .position(AMapUtil.convertToLatLng(mStartPoint))
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.start))
@@ -166,7 +180,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.end))
                 .title("终点")
                 .snippet("终点地址描述")
-        ).showInfoWindow();
+        ).showInfoWindow();*/
     }
 
     /**
@@ -310,4 +324,96 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
             myToast("结果：" + rCode);
         }
     }
+
+    /**
+     * by moos on 2017/11/15
+     * func:添加marker到地图上显示
+     */
+    BitmapDescriptor bitmapDescriptor;
+
+    private void addMarker(int type, String s1, String s2,LatLonPoint point) {
+        MarkerOptions options1 = new MarkerOptions();
+        options1.position(AMapUtil.convertToLatLng(point));
+        customizeMarkerIcon(type, s1, s2, new OnMarkerIconLoadListener() {
+            @Override
+            public void markerIconLoadingFinished(View view) {
+//                bitmapDescriptor = BitmapDescriptorFactory.fromView(view);
+                options1.icon(bitmapDescriptor);
+                aMap.addMarker(options1);
+            }
+        });
+       /* MarkerOptions options2 = new MarkerOptions();
+        options1.position(AMapUtil.convertToLatLng(mEndPoint));
+        customizeMarkerIcon(2,"终点","终点地址描述","卸货点",new OnMarkerIconLoadListener() {
+            @Override
+            public void markerIconLoadingFinished(View view) {
+//                bitmapDescriptor = BitmapDescriptorFactory.fromView(view);
+                options2.icon(bitmapDescriptor);
+                aMap.addMarker(options2);
+            }
+        });*/
+
+    }
+
+    /**
+     * by moos on 2017/11/13
+     * func:定制化marker的图标
+     *
+     * @return
+     */
+    private void customizeMarkerIcon(int type, String s1, String s2, OnMarkerIconLoadListener listener) {
+        final View markerView = LayoutInflater.from(this).inflate(R.layout.marker_bg, null);
+        TextView tv1 = markerView.findViewById(R.id.tv1);
+        TextView tv2 = markerView.findViewById(R.id.tv2);
+        TextView tv3 = markerView.findViewById(R.id.tv3);
+        ImageView iv = markerView.findViewById(R.id.iv);
+
+        tv1.setText(s1);
+        tv2.setText(s2);
+        switch (type) {
+            case 1:
+                //装货地
+                tv3.setText("装货地");
+                tv3.setTextColor(getResources().getColor(R.color.blue));
+                iv.setImageResource(R.mipmap.start);
+                break;
+            case 2:
+                //卸货地
+                tv3.setText("卸货地");
+                tv3.setTextColor(getResources().getColor(R.color.red));
+                iv.setImageResource(R.mipmap.end);
+                break;
+            default:
+                break;
+        }
+        bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(convertViewToBitmap(markerView));
+        listener.markerIconLoadingFinished(markerView);
+
+    }
+
+    /**
+     * by moos on 2017/11/15
+     * func:自定义监听接口,用来marker的icon加载完毕后回调添加marker属性
+     */
+    public interface OnMarkerIconLoadListener {
+        void markerIconLoadingFinished(View view);
+    }
+
+    /**
+     * by mos on 2017.11.13
+     * func:view转bitmap
+     */
+    public static Bitmap convertViewToBitmap(View view) {
+        view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+
+        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+
+        view.buildDrawingCache();
+
+        Bitmap bitmap = view.getDrawingCache();
+
+        return bitmap;
+
+    }
+
 }

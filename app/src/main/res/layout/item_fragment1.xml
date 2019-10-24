@@ -65,7 +65,7 @@
                 android:layout_marginLeft="-10dp"
                 android:layout_marginRight="-10dp"
                 android:layout_weight="1"
-                android:background="@drawable/shuxian_huise"
+                android:background="@drawable/xuxian_huise"
                 android:layerType="software" />
 
             <TextView
