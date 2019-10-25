@@ -316,6 +316,23 @@ public class CommonUtil {
     }
 
     /**
+     * 距离只保留两位小数
+     * @param distance 以米为单位
+     * @return
+     */
+    public static String distanceFormat(double distance) {
+        String str;
+        double value = distance;
+        if (distance >= 1000) {
+            value = value / 1000;
+            str = "km";
+        } else {
+            str = "m";
+        }
+        return String.format("%.2f",value)+str;
+    }
+
+    /**
      * 验证字符串是否为网址
      */
     public static boolean isUrl(String url) {

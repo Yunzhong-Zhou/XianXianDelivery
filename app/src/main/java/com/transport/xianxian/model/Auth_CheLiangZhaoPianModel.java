@@ -8,12 +8,12 @@ import java.util.List;
  */
 public class Auth_CheLiangZhaoPianModel implements Serializable {
     /**
-     * car_type_id :
-     * car_image_front :
-     * car_image_back :
-     * car_image_left :
-     * car_image_right :
-     * car_type_list : [{"id":1,"type":"1","size":"10吨","weight":"1.8米*1.1米*3米","bulk":"25方","image":"","type_text":"小型车"},{"id":2,"type":"2","size":"20吨","weight":"1.8米*1.1米*3米","bulk":"50方","image":"","type_text":"中型车"},{"id":3,"type":"3","size":"50吨","weight":"1.8米*1.1米*3米","bulk":"100方","image":"","type_text":"大型车"}]
+     * car_type_id : 3
+     * car_image_front : f.jpg
+     * car_image_back : f.jpg
+     * car_image_left : f.jpg
+     * car_image_right : f.jpg
+     * car_type_list : [{"id":1,"name":"面包车","size":"2600mm*1000mm*900mm","weight":2,"bulk":3,"image":"1.jpg"},{"id":2,"name":"4.2M","size":"4100mm*1950mm*1800mm","weight":3,"bulk":11,"image":"2.jpg"},{"id":3,"name":"5.6M","size":"5350mm*2250mm*2300mm","weight":5,"bulk":16,"image":"3.jpg"},{"id":5,"name":"7.6M","size":"7450mm*2350mm*2500mm","weight":8,"bulk":38,"image":"/upload/goods/2019-10-24/7568d47d63f3cc50c9890a80dd01047f.png"},{"id":6,"name":"9.6M","size":"9450mm*2450mm*2800mm","weight":12,"bulk":58,"image":""},{"id":7,"name":"15M","size":"12600mm*2550mm*2800mm","weight":25,"bulk":75,"image":""}]
      */
 
     private String car_type_id;
@@ -74,36 +74,34 @@ public class Auth_CheLiangZhaoPianModel implements Serializable {
     public static class CarTypeListBean {
         /**
          * id : 1
-         * type : 1
-         * size : 10吨
-         * weight : 1.8米*1.1米*3米
-         * bulk : 25方
-         * image :
-         * type_text : 小型车
+         * name : 面包车
+         * size : 2600mm*1000mm*900mm
+         * weight : 2
+         * bulk : 3
+         * image : 1.jpg
          */
 
-        private String id;
-        private String type;
+        private int id;
+        private String name;
         private String size;
-        private String weight;
-        private String bulk;
+        private int weight;
+        private int bulk;
         private String image;
-        private String type_text;
 
-        public String getId() {
+        public int getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(int id) {
             this.id = id;
         }
 
-        public String getType() {
-            return type;
+        public String getName() {
+            return name;
         }
 
-        public void setType(String type) {
-            this.type = type;
+        public void setName(String name) {
+            this.name = name;
         }
 
         public String getSize() {
@@ -114,19 +112,19 @@ public class Auth_CheLiangZhaoPianModel implements Serializable {
             this.size = size;
         }
 
-        public String getWeight() {
+        public int getWeight() {
             return weight;
         }
 
-        public void setWeight(String weight) {
+        public void setWeight(int weight) {
             this.weight = weight;
         }
 
-        public String getBulk() {
+        public int getBulk() {
             return bulk;
         }
 
-        public void setBulk(String bulk) {
+        public void setBulk(int bulk) {
             this.bulk = bulk;
         }
 
@@ -136,14 +134,6 @@ public class Auth_CheLiangZhaoPianModel implements Serializable {
 
         public void setImage(String image) {
             this.image = image;
-        }
-
-        public String getType_text() {
-            return type_text;
-        }
-
-        public void setType_text(String type_text) {
-            this.type_text = type_text;
         }
     }
 }

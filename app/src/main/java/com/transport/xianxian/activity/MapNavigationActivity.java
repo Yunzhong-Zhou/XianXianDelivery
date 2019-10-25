@@ -30,9 +30,13 @@ import com.amap.api.navi.model.AimLessModeStat;
 import com.amap.api.navi.model.NaviInfo;
 import com.amap.api.navi.model.NaviLatLng;
 import com.autonavi.tbt.TrafficFacilityInfo;
+import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
 import com.transport.xianxian.model.ErrorInfo;
+import com.transport.xianxian.model.OrderDetailsModel;
+import com.transport.xianxian.net.OkHttpClientManager;
+import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.MyLogger;
 
 import java.util.ArrayList;
@@ -41,32 +45,36 @@ import java.util.List;
 /**
  * Created by zyz on 2019-10-22.
  */
-public class MapNavigationActivity extends BaseActivity implements AMapNaviListener,AMapNaviViewListener {
+public class MapNavigationActivity extends BaseActivity implements AMapNaviListener, AMapNaviViewListener {
+    String id = "";
+    OrderDetailsModel model;
 
     AMapNaviView mAMapNaviView;
     AMapNavi mAMapNavi;
-
     AMapCarInfo aMapCarInfo;//车辆信息
+    List<NaviLatLng> sList = new ArrayList<NaviLatLng>();//开始点
+    List<NaviLatLng> eList = new ArrayList<NaviLatLng>();//结束点
+    List<NaviLatLng> mWayPointList = new ArrayList<NaviLatLng>();//途经点
 
-    List<NaviLatLng> sList = new ArrayList<NaviLatLng>();
-    List<NaviLatLng> eList = new ArrayList<NaviLatLng>();
-    List<NaviLatLng> mWayPointList = new ArrayList<NaviLatLng>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapnavigation);
+        //初始化导航
         mAMapNaviView = (AMapNaviView) findViewById(R.id.navi_view);
         mAMapNaviView.onCreate(savedInstanceState);
-        mAMapNaviView.setAMapNaviViewListener(this);
+        mAMapNaviView.setAMapNaviViewListener(MapNavigationActivity.this);
 
-        aMapCarInfo = getIntent().getParcelableExtra("info");
+//        aMapCarInfo = getIntent().getParcelableExtra("info");
 
         mAMapNavi = AMapNavi.getInstance(getApplicationContext());
-        mAMapNavi.addAMapNaviListener(this);
+        mAMapNavi.addAMapNaviListener(MapNavigationActivity.this);
         mAMapNavi.setUseInnerVoice(true);
 
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -89,6 +97,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         mAMapNavi.stopNavi();
         mAMapNavi.destroy();
     }
+
     @Override
     protected void initView() {
 
@@ -96,27 +105,170 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
 
     @Override
     protected void initData() {
-        if (aMapCarInfo == null) {
-            aMapCarInfo = new AMapCarInfo();
-            aMapCarInfo.setCarType("1");//设置车辆类型，0小车，1货车
+        id = getIntent().getStringExtra("id");
+        requestServer();
 
-            aMapCarInfo.setCarNumber("黑A12222");//设置车辆的车牌号码. 如:京DFZ239,京ABZ239
-            aMapCarInfo.setVehicleSize("1");// * 设置货车的大小
-            aMapCarInfo.setVehicleLoad("100");//设置货车的最大载重，单位：吨。
-            aMapCarInfo.setVehicleWeight("99");//设置货车的载重
-            aMapCarInfo.setVehicleLength("25");//  * 设置货车的最大长度，单位：米。
-            aMapCarInfo.setVehicleWidth("2");//设置货车的最大宽度，单位：米。 如:1.8，1.5等等。
-            aMapCarInfo.setVehicleHeight("4");//设置货车的高度，单位：米。
-            aMapCarInfo.setVehicleAxis("6");//设置货车的轴数
-            aMapCarInfo.setVehicleLoadSwitch(true);//设置车辆的载重是否参与算路
-            aMapCarInfo.setRestriction(true);//设置是否躲避车辆限行。
-        }
-        sList.clear();
-        eList.clear();
-        NaviLatLng mStartLatlng = new NaviLatLng(39.894914, 116.322062);
-        NaviLatLng mEndLatlng = new NaviLatLng(39.903785, 116.423285);
-        sList.add(mStartLatlng);
-        eList.add(mEndLatlng);
+    }
+
+    @Override
+    public void requestServer() {
+        super.requestServer();
+//        this.showLoadingPage();
+        showProgress(true, getString(R.string.app_loading));
+        String string = "?token=" + localUserInfo.getToken()
+                + "&id=" + id;
+        Request(string);
+    }
+
+    private void Request(String string) {
+        OkHttpClientManager.getAsyn(MapNavigationActivity.this, URLs.OrderDetails + string, new OkHttpClientManager.ResultCallback<OrderDetailsModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(OrderDetailsModel response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>订单详情" + response);
+                model = response;
+
+                //货车信息
+                if (aMapCarInfo == null) {
+                    aMapCarInfo = new AMapCarInfo();
+                    aMapCarInfo.setCarType("1");//设置车辆类型，0小车，1货车
+
+                    aMapCarInfo.setCarNumber(model.getTindent().getCar_type_info().getCar_number());//设置车辆的车牌号码. 如:京DFZ239,京ABZ239
+                    aMapCarInfo.setVehicleSize(model.getTindent().getCar_type_info().getVehicle_siz());// * 设置货车的大小
+                    aMapCarInfo.setVehicleLoad(model.getTindent().getCar_type_info().getVehicle_load());//设置货车的最大载重，单位：吨。
+                    aMapCarInfo.setVehicleWeight(model.getTindent().getCar_type_info().getVehicle_weight());//设置货车的载重
+                    aMapCarInfo.setVehicleLength(model.getTindent().getCar_type_info().getVehicle_length());//  * 设置货车的最大长度，单位：米。
+                    aMapCarInfo.setVehicleWidth(model.getTindent().getCar_type_info().getVehicle_width());//设置货车的最大宽度，单位：米。 如:1.8，1.5等等。
+                    aMapCarInfo.setVehicleHeight(model.getTindent().getCar_type_info().getVehicle_height());//设置货车的高度，单位：米。
+                    aMapCarInfo.setVehicleAxis(model.getTindent().getCar_type_info().getVehicle_axis());//设置货车的轴数
+                    aMapCarInfo.setVehicleLoadSwitch(true);//设置车辆的载重是否参与算路
+                    aMapCarInfo.setRestriction(true);//设置是否躲避车辆限行。
+                }
+
+                //开始点
+                /*sList.clear();
+                NaviLatLng mStartLatlng = new NaviLatLng(lat, lng);
+                sList.add(mStartLatlng);*/
+                mWayPointList.clear();
+                for (int i = 0; i < response.getTindent().getAddr_list().size(); i++) {
+                    if (i == (response.getTindent().getAddr_list().size() - 1)) {
+                        //结束点
+                        eList.clear();
+                        NaviLatLng mEndLatlng = new NaviLatLng(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat())
+                                , Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));
+                        eList.add(mEndLatlng);
+                    } else {
+                        //途经点
+                        NaviLatLng mWayLatlng = new NaviLatLng(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat())
+                                , Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));
+                        mWayPointList.add(mWayLatlng);
+                    }
+                }
+                mAMapNavi.setCarInfo(aMapCarInfo);
+
+
+                /*for (int i = 0; i < response.getTindent().getAddr_list().size(); i++) {
+                    pointList.add(new LatLonPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat())
+                            , Double.valueOf(response.getTindent().getAddr_list().get(i).getLng())));//添加标注点
+                    if (i == 0) {
+                        mStartPoint = new LatLonPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat())
+                                , Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//起点
+
+                        tv_addr1.setText(response.getTindent().getAddr_list().get(i).getAddr());
+                        tv_title1.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
+
+                        *//*if (lat != 0 && lng != 0) {
+                            mStartDPoint = new DPoint(lat, lng);//起点
+                            mEndDPoint = new DPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
+                                    Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
+                            juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
+                            tv_juli1.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
+                        }*//*
+                    } else if (i == (model.getTindent().getAddr_list().size() - 1)) {
+                        mEndPoint = new LatLonPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
+                                Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点
+
+                        tv_addr2.setText(response.getTindent().getAddr_list().get(i).getAddr());
+                        tv_title2.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
+                        *//*if (lat != 0 && lng != 0) {
+                            mStartDPoint = new DPoint(lat, lng);//起点
+                            mEndDPoint = new DPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
+                                    Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
+                            juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
+                            tv_juli2.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
+                        }*//*
+                    } else {
+                        //途经点
+
+                    }
+                }
+                setfromandtoMarker();//显示标注物
+                searchRouteResult(RouteSearch.DRIVING_MULTI_STRATEGY_FASTEST_SHORTEST_AVOID_CONGESTION);//默认避免拥堵、设置车辆信息
+
+                if (!response.getTindent().getSend_head().equals(""))
+                    Glide.with(OrderDetailsActivity.this)
+                            .load(IMGHOST + response.getTindent().getSend_head())
+                            .centerCrop()
+//                    .placeholder(R.mipmap.headimg)//加载站位图
+//                    .error(R.mipmap.headimg)//加载失败
+                            .into(imageView1);//加载图片
+                textView1.setText(response.getTindent().getSend_name());//昵称
+                textView2.setText(response.getTindent().getIndustry());//行业
+                textView3.setText("货源单号" + response.getTindent().getSn());//货源单号
+                textView4.setText(response.getTindent().getCreated_at() + " 发布");// 发布
+                textView5.setText(response.getTindent().getNow_state() + " " + response.getTindent().getNow_state_action());// 卸货
+                textView6.setText(response.getTindent().getSend_time());//离装货时间还有0小时
+                textView7.setText(response.getTindent().getRemark());//备注
+                textView8.setText("¥ " + response.getTindent().getPrice());//订单金额
+                textView9.setText(response.getTindent().getPrice_detail().getStart() + "元");//起步价
+                textView10.setText(response.getTindent().getPrice_detail().getMilleage() + "元");//离装货时间还有0小时
+//                textView11.setText(response.getTindent().getSend_time());//描述
+
+                //标签
+                FlowLayoutAdapter<String> flowLayoutAdapter;
+                List<String> stringList = new ArrayList<>();
+                for (int i = 0; i < response.getTindent().getTag().size(); i++) {
+                    stringList.add(response.getTindent().getTag().get(i).getVal());
+                }
+                flowLayoutAdapter = new FlowLayoutAdapter<String>(stringList) {
+                    @Override
+                    public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+//                                holder.setText(R.id.tv,bean);
+                        TextView tv = holder.getView(R.id.tv);
+                        tv.setText(bean);
+                        if (position == 0) {
+                            tv.setTextColor(getResources().getColor(R.color.white));
+                            tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
+                        } else {
+                            tv.setTextColor(getResources().getColor(R.color.black1));
+                            tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                        }
+                    }
+
+                    @Override
+                    public void onItemClick(int position, String bean) {
+//                        showToast("点击" + position);
+                    }
+
+                    @Override
+                    public int getItemLayoutID(int position, String bean) {
+                        return R.layout.item_flowlayout;
+                    }
+                };
+                ((FlowLayout) findViewByID_My(R.id.flowLayout)).setAdapter(flowLayoutAdapter);*/
+
+            }
+        });
     }
 
     @Override
@@ -132,7 +284,6 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
     @Override
     public void onInitNaviSuccess() {
         //初始化成功
-        mAMapNavi.setCarInfo(aMapCarInfo);
         /**
          * 方法: int strategy=mAMapNavi.strategyConvert(congestion, avoidhightspeed, cost, hightspeed, multipleroute); 参数:
          *
@@ -149,23 +300,23 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         try {
             //再次强调，最后一个参数为true时代表多路径，否则代表单路径
             strategy = mAMapNavi.strategyConvert(true, false, false, false, false);
+
+//            strategy = mAMapNavi.strategyConvert(true, false, false, false, true);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        mAMapNavi.calculateDriveRoute(sList, eList, mWayPointList, strategy);
+//        mAMapNavi.calculateDriveRoute(sList, eList, mWayPointList, strategy);//有开始点
+        mAMapNavi.calculateDriveRoute(eList, mWayPointList, strategy);//没开始点
     }
 
     @Override
     public void onCalculateRouteSuccess(int[] ids) {
         //多路径算路成功回调
-
         //设置模拟导航的行车速度
 //        mAMapNavi.setEmulatorNaviSpeed(75);
         mAMapNavi.startNavi(NaviType.EMULATOR);//模拟导航
 //        mAMapNavi.startNavi(NaviType.GPS);//实时导航
-
-
-
         /**
          * 获取当前路线导航限制信息（例如： 限高，限宽）
          */
@@ -208,20 +359,20 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                  * 4: 禁止直行
                  */
                 switch (forbiddenInfo.forbiddenType) {
-                    case NaviForbidType.FORBID_TURN_LEFT :
-                        MyLogger.i( "当前路线有禁止左转");
+                    case NaviForbidType.FORBID_TURN_LEFT:
+                        MyLogger.i("当前路线有禁止左转");
                         break;
-                    case NaviForbidType.FORBID_TURN_RIGHT :
-                        MyLogger.i( "当前路线有禁止右转");
+                    case NaviForbidType.FORBID_TURN_RIGHT:
+                        MyLogger.i("当前路线有禁止右转");
                         break;
-                    case NaviForbidType.FORBID_TURN_LEFT_ROUND :
-                        MyLogger.i( "当前路线有禁止左掉头");
+                    case NaviForbidType.FORBID_TURN_LEFT_ROUND:
+                        MyLogger.i("当前路线有禁止左掉头");
                         break;
-                    case NaviForbidType.FORBID_TURN_RIGHT_ROUND :
-                        MyLogger.i( "当前路线有禁止右掉头");
+                    case NaviForbidType.FORBID_TURN_RIGHT_ROUND:
+                        MyLogger.i("当前路线有禁止右掉头");
                         break;
-                    case NaviForbidType.FORBID_GO_STRAIGHT :
-                        MyLogger.i(  "当前路线有禁止直行");
+                    case NaviForbidType.FORBID_GO_STRAIGHT:
+                        MyLogger.i("当前路线有禁止直行");
                         break;
                     default:
                 }
@@ -231,11 +382,11 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
 
         String limitStr = "有";
         if (limitHeight > 0) {
-            limitStr +=  limitHeight + "处限高，";
+            limitStr += limitHeight + "处限高，";
         }
 
         if (limitWidth > 0) {
-            limitStr +=  limitHeight + "处限宽，";
+            limitStr += limitHeight + "处限宽，";
         }
 
         if (forbiddenCount > 0) {
@@ -254,6 +405,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         }
 
     }
+
     @Override
     public void onNaviSetting() {
         //底部导航设置点击回调

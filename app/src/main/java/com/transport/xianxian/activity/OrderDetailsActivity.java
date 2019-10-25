@@ -24,6 +24,7 @@ import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.TruckPath;
 import com.amap.api.services.route.TruckRouteRestult;
+import com.bumptech.glide.Glide;
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
 import com.hyphenate.easeui.EaseConstant;
@@ -36,9 +37,6 @@ import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +44,8 @@ import java.util.Map;
 
 import overlay.AMapUtil;
 import overlay.TruckRouteColorfulOverLay;
+
+import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
 
 /**
  * Created by zyz on 2019-10-23.
@@ -58,8 +58,9 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     private MapView mapView;
     private RouteSearch mRouteSearch;
     private TruckRouteRestult truckRouteResult;
-    private LatLonPoint mStartPoint = null;
+    private LatLonPoint mStartPoint = null;//起点
     private LatLonPoint mEndPoint = null;//终点，39.995576,116.481288
+    List<LatLonPoint> pointList = new ArrayList<>();//途经点
     private ProgressDialog progDialog = null;// 搜索时进度条
 
     LinearLayout linearLayout1, ll_hint1, ll_hint2;
@@ -114,6 +115,12 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         tv_shouqi = findViewByID_My(R.id.tv_shouqi);
         tv_fanhui = findViewByID_My(R.id.tv_fanhui);
         tv_queren = findViewByID_My(R.id.tv_queren);
+
+        //收起布局
+        ll_hint1.setVisibility(View.GONE);
+        ll_hint2.setVisibility(View.GONE);
+        iv_xiangqing.setVisibility(View.VISIBLE);
+        tv_shouqi.setVisibility(View.GONE);
     }
 
     @Override
@@ -150,51 +157,51 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 hideProgress();
                 MyLogger.i(">>>>>>>>>订单详情" + response);
                 model = response;
-
                 for (int i = 0; i < response.getTindent().getAddr_list().size(); i++) {
+                    pointList.add(new LatLonPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat())
+                            , Double.valueOf(response.getTindent().getAddr_list().get(i).getLng())));//添加标注点
                     if (i == 0) {
-                        if (i == 0) {
-                            mStartPoint = new LatLonPoint(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat())
-                                    , Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));//起点
+                        mStartPoint = new LatLonPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat())
+                                , Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//起点
 
-                            tv_addr1.setText(response.getTindent().getAddr_list().get(i).getAddr());
-                            tv_title1.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
+                        tv_addr1.setText(response.getTindent().getAddr_list().get(i).getAddr());
+                        tv_title1.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
 
-                            if (lat != 0 && lng != 0) {
-                                mStartDPoint = new DPoint(lat, lng);//起点
-                                mEndDPoint = new DPoint(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat()),
-                                        Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
-                                juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
-                                tv_juli1.setText("距您" + juli + "m");
-                            }
-                        }
-                        if (i == model.getTindent().getAddr_list().size() - 1) {
-                            mEndPoint = new LatLonPoint(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat()),
-                                    Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));//终点
+                        /*if (lat != 0 && lng != 0) {
+                            mStartDPoint = new DPoint(lat, lng);//起点
+                            mEndDPoint = new DPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
+                                    Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
+                            juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
+                            tv_juli1.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
+                        }*/
+                    } else if (i == (model.getTindent().getAddr_list().size() - 1)) {
+                        mEndPoint = new LatLonPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
+                                Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点
 
-                            tv_addr2.setText(response.getTindent().getAddr_list().get(i).getAddr());
-                            tv_title2.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
+                        tv_addr2.setText(response.getTindent().getAddr_list().get(i).getAddr());
+                        tv_title2.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
+                        /*if (lat != 0 && lng != 0) {
+                            mStartDPoint = new DPoint(lat, lng);//起点
+                            mEndDPoint = new DPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
+                                    Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
+                            juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
+                            tv_juli2.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
+                        }*/
+                    } else {
+                        //途经点
 
-                            if (lat != 0 && lng != 0) {
-                                mStartDPoint = new DPoint(lat, lng);//起点
-                                mEndDPoint = new DPoint(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat()),
-                                        Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
-                                juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
-                                tv_juli2.setText("距您" + juli + "m");
-                            }
-                        }
                     }
                 }
                 setfromandtoMarker();//显示标注物
-                searchRouteResult(RouteSearch.TRUCK_AVOID_CONGESTION);//默认避免拥堵、设置车辆信息
+                searchRouteResult(RouteSearch.DRIVING_MULTI_STRATEGY_FASTEST_SHORTEST_AVOID_CONGESTION);//默认避免拥堵、设置车辆信息
 
-/*if (!response.getTindent().getHead().equals(""))
+                if (!response.getTindent().getSend_head().equals(""))
                     Glide.with(OrderDetailsActivity.this)
-                            .load(IMGHOST + response.getTindent().getHead())
+                            .load(IMGHOST + response.getTindent().getSend_head())
                             .centerCrop()
 //                    .placeholder(R.mipmap.headimg)//加载站位图
 //                    .error(R.mipmap.headimg)//加载失败
-                            .into(imageView1);//加载图片*/
+                            .into(imageView1);//加载图片
                 textView1.setText(response.getTindent().getSend_name());//昵称
                 textView2.setText(response.getTindent().getIndustry());//行业
                 textView3.setText("货源单号" + response.getTindent().getSn());//货源单号
@@ -336,17 +343,22 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>是否接单" + response);
-                JSONObject jObj;
+                myToast("接单成功");
+                Bundle bundle = new Bundle();
+                bundle.putString("id", id);
+                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
+
+                /*JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
-                    /*JSONArray jsonArray = jObj.getJSONArray("data");
+                    *//*JSONArray jsonArray = jObj.getJSONArray("data");
                     list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
-                    MyLogger.i(">>>>>>>" + list.size());*/
+                    MyLogger.i(">>>>>>>" + list.size());*//*
                     myToast(jObj.getString("msg"));
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }
+                }*/
             }
         }, false);
     }
@@ -366,7 +378,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         }
         MyLocationStyle myLocationStyle;
         myLocationStyle = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
-        myLocationStyle.interval(10 * 1000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
+        myLocationStyle.interval(60 * 1000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_SHOW);//只定位一次。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATE) ;//定位一次，且将视角移动到地图中心点。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_FOLLOW) ;//连续定位、且将视角移动到地图中心点，定位蓝点跟随设备移动。（1秒1次定位）
@@ -397,15 +409,17 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 for (int i = 0; i < model.getTindent().getAddr_list().size(); i++) {
                     if (i == 0) {
                         addMarker(1, model.getTindent().getAddr_list().get(i).getAddr_detail(),
-                                model.getTindent().getAddr_list().get(i).getAddr(), mStartPoint);
-                    }
-                    if (i == model.getTindent().getAddr_list().size() - 1) {
+                                model.getTindent().getAddr_list().get(i).getAddr(), pointList.get(i));//起点
+                    } else if (i == (model.getTindent().getAddr_list().size() - 1)) {
                         addMarker(2, model.getTindent().getAddr_list().get(i).getAddr_detail(),
-                                model.getTindent().getAddr_list().get(i).getAddr(), mEndPoint);
+                                model.getTindent().getAddr_list().get(i).getAddr(), pointList.get(i));//终点
+                    } else {
+                        //途经点
+                        addMarker(3, model.getTindent().getAddr_list().get(i).getAddr_detail(),
+                                model.getTindent().getAddr_list().get(i).getAddr(), pointList.get(i));
                     }
 
                 }
-
             }
         });
         //显示多个infowindow
@@ -459,17 +473,17 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 mStartPoint, mEndPoint);
 
         //设置车辆信息
-        fromAndTo.setPlateNumber("A6BN05");
-        fromAndTo.setPlateProvince("京");
+        fromAndTo.setPlateNumber(model.getTindent().getCar_type_info().getCar_number());//车牌号，如A6BN05
+//        fromAndTo.setPlateProvince("京");
 
         // 第一个参数表示路径规划的起点和终点，第二个参数表示计算路径的模式，第三个参数表示途经点，第四个参数货车大小 必填
-        RouteSearch.TruckRouteQuery query = new RouteSearch.TruckRouteQuery(fromAndTo, mode, null, RouteSearch.TRUCK_SIZE_HEAVY);
+        RouteSearch.TruckRouteQuery query = new RouteSearch.TruckRouteQuery(fromAndTo, mode, pointList, RouteSearch.TRUCK_SIZE_HEAVY);
 
-        query.setTruckAxis(6);
-        query.setTruckHeight(3.9f);
-        query.setTruckWidth(3);
-        query.setTruckLoad(45);
-        query.setTruckWeight(50);
+        query.setTruckAxis(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_axis()));//轴数
+        query.setTruckHeight(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_height()));//高 单位：米
+        query.setTruckWidth(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_weight()));//宽度，单位：米
+        query.setTruckLoad(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_load()));//最大载重，单位：吨
+        query.setTruckWeight(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_weight()));//载重
 
         //异步查询
         mRouteSearch.calculateTruckRouteAsyn(query);
@@ -544,7 +558,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     @Override
     public void onTruckRouteSearched(TruckRouteRestult result, int rCode) {
         dissmissProgressDialog();
-
         //建议通过TruckPath中getRestriction() 判断路线上是否存在限行
         /**
          * 限行结果
@@ -576,6 +589,9 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
             } else {
                 myToast("对不起，没有搜索到相关数据！");
             }
+        } else if (rCode == 1901) {
+            myToast("参数无效");
+
         } else if (rCode == 1904) {
             myToast("搜索失败,请检查网络连接！");
         } else if (rCode == 1002) {
@@ -644,6 +660,10 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 iv.setImageResource(R.mipmap.end);
                 break;
             default:
+                //途经点
+                tv3.setText("途经点");
+                tv3.setTextColor(getResources().getColor(R.color.black1));
+                iv.setImageResource(R.mipmap.end);
                 break;
         }
         bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(convertViewToBitmap(markerView));
@@ -653,9 +673,31 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 
     @Override
     public void onMyLocationChange(Location location) {
+        MyLogger.i(">>>>>>>>我的位置：" + location.getLatitude());
         lat = location.getLatitude();
         lng = location.getLongitude();
-        MyLogger.i(">>>>>>>>我的位置：" + location.getLatitude());
+        if (model != null) {
+            for (int i = 0; i < model.getTindent().getAddr_list().size(); i++) {
+                if (i == 0) {
+                    if (lat != 0 && lng != 0) {
+                        mStartDPoint = new DPoint(lat, lng);//起点
+                        mEndDPoint = new DPoint(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat()),
+                                Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
+                        juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
+                        tv_juli1.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
+                    }
+                } else if (i == (model.getTindent().getAddr_list().size() - 1)) {
+                    if (lat != 0 && lng != 0) {
+                        mStartDPoint = new DPoint(lat, lng);//起点
+                        mEndDPoint = new DPoint(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat()),
+                                Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
+                        juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
+                        tv_juli2.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
+                    }
+                }
+            }
+        }
+
     }
 
     /**
@@ -682,5 +724,4 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         return bitmap;
 
     }
-
 }

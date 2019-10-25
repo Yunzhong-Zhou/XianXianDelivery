@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class OrderDetailsModel implements Serializable {
     /**
-     * tindent : {"id":1,"sn":"2018101511","created_at":"20191018","is_attach_fee":0,"send_time":"3.4小时","compare_time":"早1小时","now_state":"8月8日 12：00 ","now_state_action":"装货","send_name":"赵小姐","send_mobile":"15873232323","industry":"餐饮","hx_username":"餐饮","addr_list":[{"type":2,"number":1,"addr":"广东省创业元10-1","addr_detail":"震勇科技","name":"张追踪","mobile":"18888888888","lat":"111","lng":"23","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"111","lng":"23","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"}],"tag":[{"key":0,"val":"专车"},{"key":1,"val":"6吨"},{"key":2,"val":"恒温"},{"key":3,"val":"5.5方"}],"goods_desc":[{"key":0,"val":"冰鲜"},{"key":1,"val":"总总量"},{"key":2,"val":"体积5.5方"}],"remark":"备注","price":"18000","price_detail":{"start":"10","milleage":"10"}}
+     * tindent : {"id":1,"sn":"2018101511","created_at":"20191018","is_attach_fee":0,"car_type_info":{"car_type_id":"1","car_number":"渝A12222","vehicle_siz":"1","vehicle_load":"100","vehicle_weight":"99","vehicle_length":"25","vehicle_width":"2","vehicle_height":"4","vehicle_axis":"6"},"send_time":"3.4小时","compare_time":"早1小时","now_state":"8月8日 12：00 ","now_state_action":"装货","send_name":"赵小姐","send_mobile":"15873232323","send_head":"a.jpg","industry":"餐饮","hx_username":"15823629472","addr_list":[{"type":2,"number":1,"addr":"重庆市井口","addr_detail":"美丽阳光20-12","name":"黄和","mobile":"18888888888","lat":"29.643795","lng":"106.447151","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.529205","lng":"106.56385","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":3,"addr":"重庆渝中","addr_detail":"重庆天地20-1","name":"小谢","mobile":"15823629474","lat":"29.55033","lng":"106.508395","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"}],"tag":[{"key":0,"val":"专车"},{"key":1,"val":"6吨"},{"key":2,"val":"恒温"},{"key":3,"val":"5.5方"}],"goods_desc":[{"key":0,"val":"冰鲜"},{"key":1,"val":"总总量"},{"key":2,"val":"体积5.5方"}],"remark":"备注","price":"18000","price_detail":{"start":"10","milleage":"10"}}
      */
 
     private TindentBean tindent;
@@ -27,15 +27,17 @@ public class OrderDetailsModel implements Serializable {
          * sn : 2018101511
          * created_at : 20191018
          * is_attach_fee : 0
+         * car_type_info : {"car_type_id":"1","car_number":"渝A12222","vehicle_siz":"1","vehicle_load":"100","vehicle_weight":"99","vehicle_length":"25","vehicle_width":"2","vehicle_height":"4","vehicle_axis":"6"}
          * send_time : 3.4小时
          * compare_time : 早1小时
          * now_state : 8月8日 12：00
          * now_state_action : 装货
          * send_name : 赵小姐
          * send_mobile : 15873232323
+         * send_head : a.jpg
          * industry : 餐饮
-         * hx_username : 餐饮
-         * addr_list : [{"type":2,"number":1,"addr":"广东省创业元10-1","addr_detail":"震勇科技","name":"张追踪","mobile":"18888888888","lat":"111","lng":"23","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"111","lng":"23","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"}]
+         * hx_username : 15823629472
+         * addr_list : [{"type":2,"number":1,"addr":"重庆市井口","addr_detail":"美丽阳光20-12","name":"黄和","mobile":"18888888888","lat":"29.643795","lng":"106.447151","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.529205","lng":"106.56385","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":3,"addr":"重庆渝中","addr_detail":"重庆天地20-1","name":"小谢","mobile":"15823629474","lat":"29.55033","lng":"106.508395","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"}]
          * tag : [{"key":0,"val":"专车"},{"key":1,"val":"6吨"},{"key":2,"val":"恒温"},{"key":3,"val":"5.5方"}]
          * goods_desc : [{"key":0,"val":"冰鲜"},{"key":1,"val":"总总量"},{"key":2,"val":"体积5.5方"}]
          * remark : 备注
@@ -47,12 +49,14 @@ public class OrderDetailsModel implements Serializable {
         private String sn;
         private String created_at;
         private int is_attach_fee;
+        private CarTypeInfoBean car_type_info;
         private String send_time;
         private String compare_time;
         private String now_state;
         private String now_state_action;
         private String send_name;
         private String send_mobile;
+        private String send_head;
         private String industry;
         private String hx_username;
         private String remark;
@@ -92,6 +96,14 @@ public class OrderDetailsModel implements Serializable {
 
         public void setIs_attach_fee(int is_attach_fee) {
             this.is_attach_fee = is_attach_fee;
+        }
+
+        public CarTypeInfoBean getCar_type_info() {
+            return car_type_info;
+        }
+
+        public void setCar_type_info(CarTypeInfoBean car_type_info) {
+            this.car_type_info = car_type_info;
         }
 
         public String getSend_time() {
@@ -140,6 +152,14 @@ public class OrderDetailsModel implements Serializable {
 
         public void setSend_mobile(String send_mobile) {
             this.send_mobile = send_mobile;
+        }
+
+        public String getSend_head() {
+            return send_head;
+        }
+
+        public void setSend_head(String send_head) {
+            this.send_head = send_head;
         }
 
         public String getIndustry() {
@@ -206,6 +226,102 @@ public class OrderDetailsModel implements Serializable {
             this.goods_desc = goods_desc;
         }
 
+        public static class CarTypeInfoBean {
+            /**
+             * car_type_id : 1
+             * car_number : 渝A12222
+             * vehicle_siz : 1
+             * vehicle_load : 100
+             * vehicle_weight : 99
+             * vehicle_length : 25
+             * vehicle_width : 2
+             * vehicle_height : 4
+             * vehicle_axis : 6
+             */
+
+            private String car_type_id;
+            private String car_number;
+            private String vehicle_siz;
+            private String vehicle_load;
+            private String vehicle_weight;
+            private String vehicle_length;
+            private String vehicle_width;
+            private String vehicle_height;
+            private String vehicle_axis;
+
+            public String getCar_type_id() {
+                return car_type_id;
+            }
+
+            public void setCar_type_id(String car_type_id) {
+                this.car_type_id = car_type_id;
+            }
+
+            public String getCar_number() {
+                return car_number;
+            }
+
+            public void setCar_number(String car_number) {
+                this.car_number = car_number;
+            }
+
+            public String getVehicle_siz() {
+                return vehicle_siz;
+            }
+
+            public void setVehicle_siz(String vehicle_siz) {
+                this.vehicle_siz = vehicle_siz;
+            }
+
+            public String getVehicle_load() {
+                return vehicle_load;
+            }
+
+            public void setVehicle_load(String vehicle_load) {
+                this.vehicle_load = vehicle_load;
+            }
+
+            public String getVehicle_weight() {
+                return vehicle_weight;
+            }
+
+            public void setVehicle_weight(String vehicle_weight) {
+                this.vehicle_weight = vehicle_weight;
+            }
+
+            public String getVehicle_length() {
+                return vehicle_length;
+            }
+
+            public void setVehicle_length(String vehicle_length) {
+                this.vehicle_length = vehicle_length;
+            }
+
+            public String getVehicle_width() {
+                return vehicle_width;
+            }
+
+            public void setVehicle_width(String vehicle_width) {
+                this.vehicle_width = vehicle_width;
+            }
+
+            public String getVehicle_height() {
+                return vehicle_height;
+            }
+
+            public void setVehicle_height(String vehicle_height) {
+                this.vehicle_height = vehicle_height;
+            }
+
+            public String getVehicle_axis() {
+                return vehicle_axis;
+            }
+
+            public void setVehicle_axis(String vehicle_axis) {
+                this.vehicle_axis = vehicle_axis;
+            }
+        }
+
         public static class PriceDetailBean {
             /**
              * start : 10
@@ -236,12 +352,12 @@ public class OrderDetailsModel implements Serializable {
             /**
              * type : 2
              * number : 1
-             * addr : 广东省创业元10-1
-             * addr_detail : 震勇科技
-             * name : 张追踪
+             * addr : 重庆市井口
+             * addr_detail : 美丽阳光20-12
+             * name : 黄和
              * mobile : 18888888888
-             * lat : 111
-             * lng : 23
+             * lat : 29.643795
+             * lng : 106.447151
              * arrive_time : 2019-10-23 12:18
              * leave_time : 2019-10-23 12:18
              * mileage : 10000

@@ -12,8 +12,8 @@ public class Fragment1ListModel implements Serializable {
      * sn : 20190917
      * now_state : 8月8日 12：00
      * now_state_action : 装货
-     * addr_list : [{"type":2,"number":1,"addr":"广东省创业元10-1","addr_detail":"震勇科技","name":"张追踪","mobile":"18888888888","lat":"111","lng":"23"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"111","lng":"23"}]
-     * tag : [{"key":1,"val":"专车"},{"key":2,"val":"6吨"},{"key":3,"val":"恒温"},{"key":4,"val":"5.5方"}]
+     * addr_list : [{"type":2,"number":1,"addr":"重庆井口","addr_detail":"美丽阳光20-1","name":"张追踪","mobile":"18888888888","lat":"29.661435","lng":"106.448628"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.524504","lng":"106.579996"}]
+     * tag : ["专车","6吨","恒温","5.5方"]
      * remark : 装车时间有限
      * created_at : 2019-10-17 15:00
      * price : 1800
@@ -27,7 +27,7 @@ public class Fragment1ListModel implements Serializable {
     private String created_at;
     private String price;
     private List<AddrListBean> addr_list;
-    private List<TagBean> tag;
+    private List<String> tag;
 
     public String getId() {
         return id;
@@ -93,11 +93,11 @@ public class Fragment1ListModel implements Serializable {
         this.addr_list = addr_list;
     }
 
-    public List<TagBean> getTag() {
+    public List<String> getTag() {
         return tag;
     }
 
-    public void setTag(List<TagBean> tag) {
+    public void setTag(List<String> tag) {
         this.tag = tag;
     }
 
@@ -105,12 +105,12 @@ public class Fragment1ListModel implements Serializable {
         /**
          * type : 2
          * number : 1
-         * addr : 广东省创业元10-1
-         * addr_detail : 震勇科技
+         * addr : 重庆井口
+         * addr_detail : 美丽阳光20-1
          * name : 张追踪
          * mobile : 18888888888
-         * lat : 111
-         * lng : 23
+         * lat : 29.661435
+         * lng : 106.448628
          */
 
         private int type;
@@ -184,32 +184,6 @@ public class Fragment1ListModel implements Serializable {
 
         public void setLng(String lng) {
             this.lng = lng;
-        }
-    }
-
-    public static class TagBean {
-        /**
-         * key : 1
-         * val : 专车
-         */
-
-        private int key;
-        private String val;
-
-        public int getKey() {
-            return key;
-        }
-
-        public void setKey(int key) {
-            this.key = key;
-        }
-
-        public String getVal() {
-            return val;
-        }
-
-        public void setVal(String val) {
-            this.val = val;
         }
     }
 }

@@ -285,8 +285,8 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
                                 TextView tv1 = holder.getView(R.id.tv1);
                                 TextView tv2 = holder.getView(R.id.tv2);
                                 LinearLayout ll = holder.getView(R.id.ll);
-                                tv1.setText(model.getType_text());
-                                tv2.setText(model.getType_text());
+                                tv1.setText(model.getName());
+                                tv2.setText(model.getName());
 
                                 if (item == position) {
                                     ll.setVisibility(View.VISIBLE);

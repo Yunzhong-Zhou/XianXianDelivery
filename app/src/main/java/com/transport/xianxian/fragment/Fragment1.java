@@ -125,6 +125,7 @@ public class Fragment1 extends BaseFragment {
         option.setHttpTimeOut(30000);
         //是否开启定位缓存机制
         option.setLocationCacheEnable(false);
+
         mLocationClient.setLocationOption(option);
 
         //设置定位回调监听
@@ -274,7 +275,7 @@ public class Fragment1 extends BaseFragment {
 
     @Override
     protected void initData() {
-        requestServer();
+//        requestServer();
     }
 
     private void Request(String string) {
@@ -387,11 +388,11 @@ public class Fragment1 extends BaseFragment {
                             holder.setText(R.id.tv5, "¥ " + model.getPrice());//金额
                             //标签
                             FlowLayoutAdapter<String> flowLayoutAdapter;
-                            List<String> stringList = new ArrayList<>();
+                            /*List<String> stringList = new ArrayList<>();
                             for (int i = 0; i < model.getTag().size(); i++) {
                                 stringList.add(model.getTag().get(i).getVal());
-                            }
-                            flowLayoutAdapter = new FlowLayoutAdapter<String>(stringList) {
+                            }*/
+                            flowLayoutAdapter = new FlowLayoutAdapter<String>(model.getTag()) {
                                 @Override
                                 public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
 //                                holder.setText(R.id.tv,bean);
@@ -427,7 +428,7 @@ public class Fragment1 extends BaseFragment {
                                         mStartPoint = new DPoint(lat, lng);//起点
                                         mEndPoint = new DPoint(Double.valueOf(model.getAddr_list().get(i).getLat()), Double.valueOf(model.getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
                                         juli = CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint);
-                                        holder.setText(R.id.tv_juli1, "距您" + juli + "m");
+                                        holder.setText(R.id.tv_juli1, "距您" + CommonUtil.distanceFormat(juli));
                                     }
                                 }
                                 if (i == model.getAddr_list().size() - 1) {
@@ -438,7 +439,7 @@ public class Fragment1 extends BaseFragment {
                                         mStartPoint = new DPoint(lat, lng);//起点
                                         mEndPoint = new DPoint(Double.valueOf(model.getAddr_list().get(i).getLat()), Double.valueOf(model.getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
                                         juli = CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint);
-                                        holder.setText(R.id.tv_juli2, "距您" + juli + "m");
+                                        holder.setText(R.id.tv_juli2, "距您" + CommonUtil.distanceFormat(juli));
                                     }
                                 }
                             }
@@ -447,6 +448,16 @@ public class Fragment1 extends BaseFragment {
                     mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            //停止刷新数据
+                            //停止定位
+                            if (mLocationClient != null)
+                                mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
+
+                            //关闭计时器
+                            if (time1 != null) {
+                                time1.cancel();
+                            }
+
                             Bundle bundle = new Bundle();
                             bundle.putString("id", list.get(i).getId());
                             CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class, bundle);

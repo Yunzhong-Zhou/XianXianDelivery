@@ -433,7 +433,7 @@
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/btn_lanse"
                     android:gravity="center"
-                    android:padding="14dp"
+                    android:padding="12dp"
                     android:text="开始接单"
                     android:textColor="@color/white"
                     android:textSize="16sp" />

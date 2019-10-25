@@ -18,12 +18,14 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:fillViewport="true"
+            android:layout_margin="10dp"
+            android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:background="@drawable/yuanjiao_5_baise"
                 android:orientation="vertical"
                 android:paddingLeft="10dp"
@@ -423,7 +425,7 @@
                     <TextView
                         android:id="@+id/tv_shouqi"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="42dp"
                         android:layout_gravity="center"
                         android:drawableRight="@mipmap/ic_down_black"
                         android:drawablePadding="5dp"
@@ -449,13 +451,12 @@
             <TextView
                 android:id="@+id/tv_fanhui"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="39dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_juse"
                 android:gravity="center"
                 android:onClick="onClick"
-                android:padding="12dp"
                 android:text="返回列表"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
@@ -463,13 +464,12 @@
             <TextView
                 android:id="@+id/tv_queren"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="39dp"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_lanse"
                 android:gravity="center"
                 android:onClick="onClick"
-                android:padding="12dp"
                 android:text="确认接单"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
