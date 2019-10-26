@@ -508,8 +508,11 @@ public class Fragment2 extends BaseFragment {
                                                 tv_daohang.setOnClickListener(new View.OnClickListener() {
                                                     @Override
                                                     public void onClick(View v) {
+                                                        //去导航
                                                         Bundle bundle = new Bundle();
                                                         bundle.putString("id", model.getId());
+                                                        bundle.putDouble("lat", lat);
+                                                        bundle.putDouble("lng", lng);
                                                         CommonUtil.gotoActivityWithData(getActivity(), MapNavigationActivity.class, bundle, false);
                                                     }
                                                 });

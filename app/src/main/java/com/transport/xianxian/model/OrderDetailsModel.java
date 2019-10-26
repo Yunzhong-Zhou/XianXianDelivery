@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class OrderDetailsModel implements Serializable {
     /**
-     * tindent : {"id":1,"sn":"2018101511","created_at":"20191018","is_attach_fee":0,"car_type_info":{"car_type_id":"1","car_number":"渝A12222","vehicle_siz":"1","vehicle_load":"100","vehicle_weight":"99","vehicle_length":"25","vehicle_width":"2","vehicle_height":"4","vehicle_axis":"6"},"send_time":"3.4小时","compare_time":"早1小时","now_state":"8月8日 12：00 ","now_state_action":"装货","send_name":"赵小姐","send_mobile":"15873232323","send_head":"a.jpg","industry":"餐饮","hx_username":"15823629472","addr_list":[{"type":2,"number":1,"addr":"重庆市井口","addr_detail":"美丽阳光20-12","name":"黄和","mobile":"18888888888","lat":"29.643795","lng":"106.447151","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.529205","lng":"106.56385","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":3,"addr":"重庆渝中","addr_detail":"重庆天地20-1","name":"小谢","mobile":"15823629474","lat":"29.55033","lng":"106.508395","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"}],"tag":[{"key":0,"val":"专车"},{"key":1,"val":"6吨"},{"key":2,"val":"恒温"},{"key":3,"val":"5.5方"}],"goods_desc":[{"key":0,"val":"冰鲜"},{"key":1,"val":"总总量"},{"key":2,"val":"体积5.5方"}],"remark":"备注","price":"18000","price_detail":{"start":"10","milleage":"10"}}
+     * tindent : {"id":1,"sn":"2018101511","created_at":"20191018","is_attach_fee":0,"car_type_info":{"car_type_id":"1","car_number":"渝A12222","vehicle_siz":"1","vehicle_load":"100","vehicle_weight":"99","vehicle_length":"25","vehicle_width":"2","vehicle_height":"4","vehicle_axis":"6"},"send_time":"3.4小时","compare_time":"早1小时","now_state":"8月8日 12：00 ","now_state_action":"装货","send_name":"赵小姐","send_mobile":"15873232323","send_head":"a.jpg","industry":"餐饮","hx_username":"15823629472","addr_list":[{"type":2,"number":1,"addr":"重庆市井口","addr_detail":"美丽阳光20-12","name":"黄和","mobile":"18888888888","lat":"29.643795","lng":"106.447151","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":"1","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.529205","lng":"106.56385","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":"1","status_text":"未到达","other":"搬五楼楼梯"},{"type":1,"number":3,"addr":"重庆渝中","addr_detail":"重庆天地20-1","name":"小谢","mobile":"15823629474","lat":"29.55033","lng":"106.508395","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":"1","status_text":"未到达","other":"搬五楼楼梯"}],"tag":["专车","6吨","恒温","5.5方"],"goods_desc":["冰鲜","总总量","体积5.5方"],"remark":"备注","price":"18000","price_detail":{"start":"10","milleage":"10"},"is_appoint":"1","option_btn":{"status":1,"status_text":"确认接单"}}
      */
 
     private TindentBean tindent;
@@ -37,12 +37,14 @@ public class OrderDetailsModel implements Serializable {
          * send_head : a.jpg
          * industry : 餐饮
          * hx_username : 15823629472
-         * addr_list : [{"type":2,"number":1,"addr":"重庆市井口","addr_detail":"美丽阳光20-12","name":"黄和","mobile":"18888888888","lat":"29.643795","lng":"106.447151","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.529205","lng":"106.56385","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":3,"addr":"重庆渝中","addr_detail":"重庆天地20-1","name":"小谢","mobile":"15823629474","lat":"29.55033","lng":"106.508395","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"}]
-         * tag : [{"key":0,"val":"专车"},{"key":1,"val":"6吨"},{"key":2,"val":"恒温"},{"key":3,"val":"5.5方"}]
-         * goods_desc : [{"key":0,"val":"冰鲜"},{"key":1,"val":"总总量"},{"key":2,"val":"体积5.5方"}]
+         * addr_list : [{"type":2,"number":1,"addr":"重庆市井口","addr_detail":"美丽阳光20-12","name":"黄和","mobile":"18888888888","lat":"29.643795","lng":"106.447151","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":"1","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.529205","lng":"106.56385","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":"1","status_text":"未到达","other":"搬五楼楼梯"},{"type":1,"number":3,"addr":"重庆渝中","addr_detail":"重庆天地20-1","name":"小谢","mobile":"15823629474","lat":"29.55033","lng":"106.508395","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":"1","status_text":"未到达","other":"搬五楼楼梯"}]
+         * tag : ["专车","6吨","恒温","5.5方"]
+         * goods_desc : ["冰鲜","总总量","体积5.5方"]
          * remark : 备注
          * price : 18000
          * price_detail : {"start":"10","milleage":"10"}
+         * is_appoint : 1
+         * option_btn : {"status":1,"status_text":"确认接单"}
          */
 
         private String id;
@@ -62,9 +64,11 @@ public class OrderDetailsModel implements Serializable {
         private String remark;
         private String price;
         private PriceDetailBean price_detail;
+        private String is_appoint;
+        private OptionBtnBean option_btn;
         private List<AddrListBean> addr_list;
-        private List<TagBean> tag;
-        private List<GoodsDescBean> goods_desc;
+        private List<String> tag;
+        private List<String> goods_desc;
 
         public String getId() {
             return id;
@@ -202,6 +206,22 @@ public class OrderDetailsModel implements Serializable {
             this.price_detail = price_detail;
         }
 
+        public String getIs_appoint() {
+            return is_appoint;
+        }
+
+        public void setIs_appoint(String is_appoint) {
+            this.is_appoint = is_appoint;
+        }
+
+        public OptionBtnBean getOption_btn() {
+            return option_btn;
+        }
+
+        public void setOption_btn(OptionBtnBean option_btn) {
+            this.option_btn = option_btn;
+        }
+
         public List<AddrListBean> getAddr_list() {
             return addr_list;
         }
@@ -210,19 +230,19 @@ public class OrderDetailsModel implements Serializable {
             this.addr_list = addr_list;
         }
 
-        public List<TagBean> getTag() {
+        public List<String> getTag() {
             return tag;
         }
 
-        public void setTag(List<TagBean> tag) {
+        public void setTag(List<String> tag) {
             this.tag = tag;
         }
 
-        public List<GoodsDescBean> getGoods_desc() {
+        public List<String> getGoods_desc() {
             return goods_desc;
         }
 
-        public void setGoods_desc(List<GoodsDescBean> goods_desc) {
+        public void setGoods_desc(List<String> goods_desc) {
             this.goods_desc = goods_desc;
         }
 
@@ -348,6 +368,32 @@ public class OrderDetailsModel implements Serializable {
             }
         }
 
+        public static class OptionBtnBean {
+            /**
+             * status : 1
+             * status_text : 确认接单
+             */
+
+            private int status;
+            private String status_text;
+
+            public int getStatus() {
+                return status;
+            }
+
+            public void setStatus(int status) {
+                this.status = status;
+            }
+
+            public String getStatus_text() {
+                return status_text;
+            }
+
+            public void setStatus_text(String status_text) {
+                this.status_text = status_text;
+            }
+        }
+
         public static class AddrListBean {
             /**
              * type : 2
@@ -362,7 +408,7 @@ public class OrderDetailsModel implements Serializable {
              * leave_time : 2019-10-23 12:18
              * mileage : 10000
              * pre_time : 160
-             * statust : 运输中
+             * status : 1
              * status_text : 运输中
              * other : 搬五楼楼梯
              */
@@ -379,7 +425,7 @@ public class OrderDetailsModel implements Serializable {
             private String leave_time;
             private String mileage;
             private String pre_time;
-            private String statust;
+            private String status;
             private String status_text;
             private String other;
 
@@ -479,12 +525,12 @@ public class OrderDetailsModel implements Serializable {
                 this.pre_time = pre_time;
             }
 
-            public String getStatust() {
-                return statust;
+            public String getStatus() {
+                return status;
             }
 
-            public void setStatust(String statust) {
-                this.statust = statust;
+            public void setStatus(String status) {
+                this.status = status;
             }
 
             public String getStatus_text() {
@@ -501,58 +547,6 @@ public class OrderDetailsModel implements Serializable {
 
             public void setOther(String other) {
                 this.other = other;
-            }
-        }
-
-        public static class TagBean {
-            /**
-             * key : 0
-             * val : 专车
-             */
-
-            private int key;
-            private String val;
-
-            public int getKey() {
-                return key;
-            }
-
-            public void setKey(int key) {
-                this.key = key;
-            }
-
-            public String getVal() {
-                return val;
-            }
-
-            public void setVal(String val) {
-                this.val = val;
-            }
-        }
-
-        public static class GoodsDescBean {
-            /**
-             * key : 0
-             * val : 冰鲜
-             */
-
-            private int key;
-            private String val;
-
-            public int getKey() {
-                return key;
-            }
-
-            public void setKey(int key) {
-                this.key = key;
-            }
-
-            public String getVal() {
-                return val;
-            }
-
-            public void setVal(String val) {
-                this.val = val;
             }
         }
     }

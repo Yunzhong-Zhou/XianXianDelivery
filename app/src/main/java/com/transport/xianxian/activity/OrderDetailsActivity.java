@@ -216,11 +216,11 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 
                 //标签
                 FlowLayoutAdapter<String> flowLayoutAdapter;
-                List<String> stringList = new ArrayList<>();
+               /* List<String> stringList = new ArrayList<>();
                 for (int i = 0; i < response.getTindent().getTag().size(); i++) {
                     stringList.add(response.getTindent().getTag().get(i).getVal());
-                }
-                flowLayoutAdapter = new FlowLayoutAdapter<String>(stringList) {
+                }*/
+                flowLayoutAdapter = new FlowLayoutAdapter<String>(response.getTindent().getTag()) {
                     @Override
                     public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
 //                                holder.setText(R.id.tv,bean);
@@ -346,6 +346,8 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 myToast("接单成功");
                 Bundle bundle = new Bundle();
                 bundle.putString("id", id);
+                bundle.putDouble("lat", lat);
+                bundle.putDouble("lng", lng);
                 CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
 
                 /*JSONObject jObj;
