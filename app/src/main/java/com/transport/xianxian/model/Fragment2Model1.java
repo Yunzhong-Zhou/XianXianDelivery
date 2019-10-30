@@ -21,11 +21,11 @@ public class Fragment2Model1 implements Serializable {
      * send_name : 赵小姐
      * send_mobile : 15873232323
      * industry : 餐饮
-     * hx_username : 餐饮
+     * hx_username :
      * send_head : a.jpg
-     * addr_list : [{"type":2,"number":1,"addr":"重庆井口","addr_detail":"美丽阳光10-1","name":"张追踪","mobile":"18888888888","lat":"29.643795","lng":"106.447151","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.529205","lng":"106.56385","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","statust":"运输中","status_text":"运输中","other":"搬五楼楼梯"}]
+     * addr_list : [{"type":2,"number":1,"addr":"重庆井口","addr_detail":"美丽阳光10-1","name":"张追踪","mobile":"18888888888","lat":"29.643795","lng":"106.447151","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":"1","status_text":"运输中","other":"搬五楼楼梯"},{"type":2,"number":1,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.529205","lng":"106.56385","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":1,"status_text":"未到达","other":"搬五楼楼梯"},{"type":2,"number":3,"addr":"重庆渝中","addr_detail":"重庆天地20-1","name":"小谢","mobile":"15823629474","lat":"29.55033","lng":"106.508395","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:28","mileage":"10000","pre_time":"160","status":1,"status_text":"未到达","other":"搬五楼楼梯"}]
      * tag : ["专车","6吨","恒温","5.5方"]
-     * goods_desc : [{"key":0,"val":"冰鲜"},{"key":1,"val":"总总量"},{"key":2,"val":"体积5.5方"}]
+     * goods_desc : ["冰鲜","总总量","体积5.5方"]
      * remark : 备注
      * price : 18000
      * price_detail : {"start":"10","milleage":"10"}
@@ -261,7 +261,7 @@ public class Fragment2Model1 implements Serializable {
          * leave_time : 2019-10-23 12:18
          * mileage : 10000
          * pre_time : 160
-         * statust : 运输中
+         * status : 1
          * status_text : 运输中
          * other : 搬五楼楼梯
          */
@@ -278,9 +278,18 @@ public class Fragment2Model1 implements Serializable {
         private String leave_time;
         private String mileage;
         private String pre_time;
-        private String statust;
+        private int status;
         private String status_text;
         private String other;
+        private int is_show;
+
+        public int getIs_show() {
+            return is_show;
+        }
+
+        public void setIs_show(int is_show) {
+            this.is_show = is_show;
+        }
 
         public int getType() {
             return type;
@@ -378,12 +387,12 @@ public class Fragment2Model1 implements Serializable {
             this.pre_time = pre_time;
         }
 
-        public String getStatust() {
-            return statust;
+        public int getStatus() {
+            return status;
         }
 
-        public void setStatust(String statust) {
-            this.statust = statust;
+        public void setStatus(int status) {
+            this.status = status;
         }
 
         public String getStatus_text() {

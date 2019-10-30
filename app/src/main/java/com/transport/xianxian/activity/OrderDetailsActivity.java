@@ -214,6 +214,15 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 textView10.setText(response.getTindent().getPrice_detail().getMilleage() + "元");//离装货时间还有0小时
 //                textView11.setText(response.getTindent().getSend_time());//描述
 
+                //左边按钮
+                if (response.getTindent().getIs_appoint() == 1){
+                    //平台指派，可以拒绝
+                    tv_fanhui.setText("拒绝此单");
+                    tv_fanhui.setBackgroundResource(R.drawable.btn_huise);
+                }
+                tv_queren.setText(response.getTindent().getOption_btn().getStatus_text());//右边按钮显示
+
+
                 //标签
                 FlowLayoutAdapter<String> flowLayoutAdapter;
                /* List<String> stringList = new ArrayList<>();
@@ -302,27 +311,86 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 
             case R.id.tv_fanhui:
                 //返回列表
-                finish();
+                if (model.getTindent().getIs_appoint() == 1){
+                    //平台指派，可以拒绝
+                    Map<String, String> params = new HashMap<>();
+                    params.put("token", localUserInfo.getToken());
+                    params.put("id", model.getTindent().getId());
+                    params.put("action", "1");//拒单
+                    RequestJieDan(params);
+                }else {
+                    finish();
+                }
+
                 break;
             case R.id.tv_queren:
                 //确认接单
-                showToast("确认接单吗？", "确认", "取消", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                        Map<String, String> params = new HashMap<>();
-                        params.put("token", localUserInfo.getToken());
-                        params.put("id", model.getTindent().getId());
-                        params.put("action", "2");//接单
-                        RequestJieDan(params);
+                switch (tv_queren.getText().toString().trim()){
+                    case "确认接单":
+                        showToast("确认接单吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("id", model.getTindent().getId());
+                                params.put("action", "2");//接单
+                                RequestJieDan(params);
 
-                    }
-                }, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
+                    case "去装货":
+                        Bundle bundle = new Bundle();
+                        bundle.putDouble("lat", lat);
+                        bundle.putDouble("lng", lng);
+                        bundle.putSerializable("OrderDetailsModel", model);
+                        CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
+                        break;
+                    case "确认装货":
+                        showToast("确认装货吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("id", model.getTindent().getId());
+                                params.put("type", "1");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
+                                RequestZhuangHuo(params);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
+                    case "确认卸货":
+                        showToast("确认卸货吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("id", model.getTindent().getId());
+                                params.put("type", "3");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
+                                RequestZhuangHuo(params);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
+                }
+
+
                 break;
         }
     }
@@ -343,12 +411,50 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>是否接单" + response);
-                myToast("接单成功");
+                myToast("确认成功");
                 Bundle bundle = new Bundle();
-                bundle.putString("id", id);
                 bundle.putDouble("lat", lat);
                 bundle.putDouble("lng", lng);
+                bundle.putSerializable("OrderDetailsModel", model);
                 CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
+
+                /*JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    *//*JSONArray jsonArray = jObj.getJSONArray("data");
+                    list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
+                    MyLogger.i(">>>>>>>" + list.size());*//*
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }*/
+            }
+        }, false);
+    }
+    private void RequestZhuangHuo(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>司机-确认装货/卸货/发送附加费/附加费收取确认/转单确认" + response);
+                myToast("确认成功");
+                requestServer();
+                /*Bundle bundle = new Bundle();
+                bundle.putDouble("lat", lat);
+                bundle.putDouble("lng", lng);
+                bundle.putSerializable("OrderDetailsModel", model);
+                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);*/
 
                 /*JSONObject jObj;
                 try {

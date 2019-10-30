@@ -52,7 +52,9 @@ import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
 
@@ -168,23 +170,25 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         NaviLatLng mStartLatlng = new NaviLatLng(lat, lng);
         sList.add(mStartLatlng);
         //地址信息
-        mWayPointList.clear();
-        eList.clear();
-        for (int i = 0; i < model.getTindent().getAddr_list().size(); i++) {
+
+        eList.clear();//结束点
+        mWayPointList.clear();//途经点
+        /*for (int i = 0; i < model.getTindent().getAddr_list().size(); i++) {
             if (i == (model.getTindent().getAddr_list().size() - 1)) {
                 //结束点
                 NaviLatLng mEndLatlng = new NaviLatLng(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat())
                         , Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));
                 eList.add(mEndLatlng);
-
             } else {
                 //途经点
                 NaviLatLng mWayLatlng = new NaviLatLng(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat())
                         , Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));
                 mWayPointList.add(mWayLatlng);
             }
-        }
-
+        }*/
+        NaviLatLng mEndLatlng = new NaviLatLng(Double.valueOf(model.getTindent().getNext_addr().getLat())
+                , Double.valueOf(model.getTindent().getNext_addr().getLng()));
+        eList.add(mEndLatlng);
 
         if (!model.getTindent().getSend_head().equals("")) {
             Glide.with(MapNavigationActivity.this)
@@ -214,12 +218,16 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         textView9.setText(model.getTindent().getPrice_detail().getStart() + "元");//起步价
         textView10.setText(model.getTindent().getPrice_detail().getMilleage() + "元");//离装货时间还有0小时
 //                textView11.setText(response.getTindent().getSend_time());//描述
+        //左边按钮
+        if (model.getTindent().getIs_appoint() == 1) {
+            //平台指派，可以拒绝
+            tv_fanhui.setText("取消订单");
+            tv_fanhui.setBackgroundResource(R.drawable.btn_huise);
+        }
+        tv_queren.setText(model.getTindent().getOption_btn().getStatus_text());//右边按钮显示
+
         //标签
         FlowLayoutAdapter<String> flowLayoutAdapter;
-                /*List<String> stringList = new ArrayList<>();
-                for (int i = 0; i < response.getTindent().getTag().size(); i++) {
-                    stringList.add(response.getTindent().getTag().get(i).getVal());
-                }*/
         flowLayoutAdapter = new FlowLayoutAdapter<String>(model.getTindent().getTag()) {
             @Override
             public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
@@ -337,29 +345,94 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                 break;
             case R.id.tv_fanhui:
                 //取消订单
-//                finish();
+                /*if (model.getTindent().getIs_appoint() == 1){
+                    //平台指派，可以拒绝
+                    Map<String, String> params = new HashMap<>();
+                    params.put("token", localUserInfo.getToken());
+                    params.put("id", model.getTindent().getId());
+                    params.put("action", "1");//拒单
+                    RequestJieDan(params);
+                }else {
+                    finish();
+                }*/
+
                 break;
             case R.id.tv_queren:
-                /*//确认接单
-                showToast("确认接单吗？", "确认", "取消", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                        Map<String, String> params = new HashMap<>();
-                        params.put("token", localUserInfo.getToken());
-                        params.put("id", model.getTindent().getId());
-                        params.put("action", "2");//接单
-                        RequestJieDan(params);
-
-                    }
-                }, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });*/
+                //确认接单
+                switch (tv_queren.getText().toString().trim()) {
+                    case "确认装货":
+                        showToast("确认装货吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("id", model.getTindent().getId());
+                                params.put("type", "1");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
+                                RequestZhuangHuo(params);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
+                    case "确认卸货":
+                        showToast("确认卸货吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("id", model.getTindent().getId());
+                                params.put("type", "3");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
+                                RequestZhuangHuo(params);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
+                }
                 break;
         }
+    }
+
+
+    private void RequestZhuangHuo(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(MapNavigationActivity.this, URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>司机-确认装货/卸货/发送附加费/附加费收取确认/转单确认" + response);
+                myToast("确认成功");
+                requestServer();
+                /*JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    *//*JSONArray jsonArray = jObj.getJSONArray("data");
+                    list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
+                    MyLogger.i(">>>>>>>" + list.size());*//*
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }*/
+            }
+        }, false);
     }
 
     @Override

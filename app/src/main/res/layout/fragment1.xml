@@ -53,9 +53,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/yuanjiaobiankuang_3_hongse_baidi"
             android:paddingLeft="7dp"
-            android:paddingTop="4dp"
+            android:paddingTop="2dp"
             android:paddingRight="7dp"
-            android:paddingBottom="4dp"
+            android:paddingBottom="2dp"
             android:text="消息"
             android:textColor="@color/red"
             android:textSize="12sp" />
@@ -156,9 +156,9 @@
                                 android:drawableRight="@mipmap/ic_next_black"
                                 android:gravity="center"
                                 android:paddingLeft="8dp"
-                                android:paddingTop="4dp"
+                                android:paddingTop="2dp"
                                 android:paddingRight="8dp"
-                                android:paddingBottom="4dp"
+                                android:paddingBottom="2dp"
                                 android:text="资金统计"
                                 android:textColor="@color/blue"
                                 android:textSize="12sp" />

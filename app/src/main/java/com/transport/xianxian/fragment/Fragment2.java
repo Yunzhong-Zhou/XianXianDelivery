@@ -493,10 +493,10 @@ public class Fragment2 extends BaseFragment {
                                                     tv1.setText("终");
                                                     tv1.setBackgroundResource(R.drawable.yuanxing_juse);
                                                 } else {
-                                                    tv1.setText(i + 1);
+                                                    tv1.setText("" + i);
                                                     tv1.setBackgroundResource(R.drawable.yuanxing_huise);
                                                 }
-                                                tv2.setText(model.getAddr_list().get(i).getArrive_time() + model.getAddr_list().get(i).getStatust());//time 装货
+                                                tv2.setText(model.getAddr_list().get(i).getArrive_time() + " " + model.getAddr_list().get(i).getStatus_text());//time 装货
                                                 tv3.setText("估计用时：" + model.getAddr_list().get(i).getPre_time() + "分钟");//估计用时：
                                                 tv4.setText(model.getAddr_list().get(i).getAddr());//地址
                                                 tv5.setText(model.getAddr_list().get(i).getAddr_detail());//地址详情
@@ -504,7 +504,6 @@ public class Fragment2 extends BaseFragment {
 //                                                    juli = CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint);
                                                 tv6.setText("送货路程" + CommonUtil.distanceFormat(CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint)));//送货路程
                                                 tv7.setText(model.getAddr_list().get(i).getOther());//备注
-
                                                 TextView tv_daohang = view.findViewById(R.id.tv_daohang);
                                                 tv_daohang.setOnClickListener(new View.OnClickListener() {
                                                     @Override
@@ -522,6 +521,60 @@ public class Fragment2 extends BaseFragment {
                                                         CommonUtil.gotoActivityWithData(getActivity(), MapNavigationActivity1.class, bundle, false);*/
                                                     }
                                                 });
+
+                                                if (model.getAddr_list().get(i).getIs_show() == 1){
+                                                    iv1.setVisibility(View.VISIBLE);
+                                                    tv_daohang.setVisibility(View.VISIBLE);
+                                                }else {
+                                                    iv1.setVisibility(View.GONE);
+                                                    tv_daohang.setVisibility(View.GONE);
+                                                }
+                                                /*if (model.getAddr_list().get(i).getType() == 1) {//装货点
+                                                    switch (model.getAddr_list().get(i).getStatus()) {
+                                                        case 1:
+                                                            //前往装货
+                                                        case 4:
+                                                            //开始运输
+                                                            iv1.setVisibility(View.GONE);
+                                                            tv_daohang.setVisibility(View.GONE);
+                                                            break;
+                                                        case 2:
+                                                            //开始装货
+                                                        case 3:
+                                                            //装货完成
+                                                            iv1.setVisibility(View.VISIBLE);
+                                                            tv_daohang.setVisibility(View.VISIBLE);
+                                                            break;
+                                                        default:
+                                                            iv1.setVisibility(View.GONE);
+                                                            tv_daohang.setVisibility(View.GONE);
+                                                            break;
+
+                                                    }
+                                                } else if (model.getAddr_list().get(i).getType() == 2) {//卸货点
+                                                    switch (model.getAddr_list().get(i).getStatus()) {
+                                                        case 1:
+                                                            //未到达
+
+                                                            break;
+                                                        case 2:
+                                                            //运输中
+                                                            break;
+                                                        case 3:
+                                                            //已到达
+                                                            break;
+                                                        case 4:
+                                                            //已开始卸货
+                                                            break;
+                                                        case 5:
+                                                            //卸货完成
+                                                            break;
+                                                        case 6:
+                                                            //已离开
+                                                            break;
+                                                    }
+                                                }*/
+
                                                 ll_add.addView(view);
                                             }
 
