@@ -977,9 +977,12 @@ public class Fragment1 extends BaseFragment {
                 Bundle bundle = data.getExtras();
                 String scanResult = bundle.getString(Constant.INTENT_EXTRA_KEY_QR_SCAN);
                 MyLogger.i(">>>扫码返回>>>>" + scanResult);
+                //点击转单-掉接口1-生成二维码
+                //扫码-掉接口2-跳转到订单详情
                 if (scanResult != null && !scanResult.equals("")) {
-                    Bundle bundle1 = new Bundle();
-                    bundle1.putString("id", scanResult);
+
+//                    Bundle bundle1 = new Bundle();
+//                    bundle1.putString("id", scanResult);
 //                    CommonUtil.gotoActivityWithData(QRCodeActivity.this, ScavengingPaymentActivity.class, bundle1, true);
                 }
             }

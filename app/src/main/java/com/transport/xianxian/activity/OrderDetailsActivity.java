@@ -82,6 +82,43 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         init();
     }
 
+    /**
+     * 方法必须重写
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapView.onResume();
+        requestServer();
+    }
+
+    /**
+     * 方法必须重写
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    /**
+     * 方法必须重写
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapView.onSaveInstanceState(outState);
+    }
+
+    /**
+     * 方法必须重写
+     */
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
     @Override
     protected void initView() {
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
@@ -126,8 +163,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     @Override
     protected void initData() {
         id = getIntent().getStringExtra("id");
-        requestServer();
-
     }
 
     @Override
@@ -313,11 +348,22 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 //返回列表
                 if (model.getTindent().getIs_appoint() == 1){
                     //平台指派，可以拒绝
-                    Map<String, String> params = new HashMap<>();
-                    params.put("token", localUserInfo.getToken());
-                    params.put("id", model.getTindent().getId());
-                    params.put("action", "1");//拒单
-                    RequestJieDan(params);
+                    showToast("确认拒绝此单吗？", "确认", "取消", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            Map<String, String> params = new HashMap<>();
+                            params.put("token", localUserInfo.getToken());
+                            params.put("id", model.getTindent().getId());
+                            params.put("action", "1");//拒单
+                            RequestJieDan(params);
+                        }
+                    }, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                 }else {
                     finish();
                 }
@@ -618,42 +664,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         if (progDialog != null) {
             progDialog.dismiss();
         }
-    }
-
-    /**
-     * 方法必须重写
-     */
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mapView.onResume();
-    }
-
-    /**
-     * 方法必须重写
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mapView.onPause();
-    }
-
-    /**
-     * 方法必须重写
-     */
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapView.onSaveInstanceState(outState);
-    }
-
-    /**
-     * 方法必须重写
-     */
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mapView.onDestroy();
     }
 
 

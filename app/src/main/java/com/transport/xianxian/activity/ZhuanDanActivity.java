@@ -1,13 +1,18 @@
 package com.transport.xianxian.activity;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
-import com.transport.xianxian.utils.ZxingUtils;
+import com.transport.xianxian.net.OkHttpClientManager;
+import com.transport.xianxian.net.URLs;
+import com.transport.xianxian.utils.MyLogger;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by zyz on 2019-10-20.
@@ -37,9 +42,49 @@ public class ZhuanDanActivity extends BaseActivity {
     @Override
     protected void initData() {
         id = getIntent().getStringExtra("id");
-        //生成二维码
+
+        showProgress(true, getString(R.string.app_loading));
+        Map<String, String> params = new HashMap<>();
+        params.put("token", localUserInfo.getToken());
+        params.put("id", id);
+        params.put("type", "5");//转单确认
+        RequestZhuanDan(params);
+
+    }
+    private void RequestZhuanDan(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(ZhuanDanActivity.this, URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>司机-转单确认" + response);
+                myToast("确认成功");
+
+                /*//生成二维码
         Bitmap mBitmap = ZxingUtils.createQRCodeBitmap(id, 480, 480);
-        imageView1.setImageBitmap(mBitmap);
+        imageView1.setImageBitmap(mBitmap);*/
+                /*JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    *//*JSONArray jsonArray = jObj.getJSONArray("data");
+                    list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
+                    MyLogger.i(">>>>>>>" + list.size());*//*
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }*/
+            }
+        }, false);
     }
 
     @Override

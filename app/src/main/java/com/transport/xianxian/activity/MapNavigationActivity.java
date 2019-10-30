@@ -254,6 +254,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
             }
         };
         ((FlowLayout) findViewByID_My(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
+
 //        requestServer();
 
     }
@@ -344,7 +345,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                 CommonUtil.gotoActivityWithData(MapNavigationActivity.this, AddSurchargeActivity.class, bundle, false);
                 break;
             case R.id.tv_fanhui:
-                //取消订单
+                //取消订单or转派订单
                 /*if (model.getTindent().getIs_appoint() == 1){
                     //平台指派，可以拒绝
                     Map<String, String> params = new HashMap<>();
@@ -419,7 +420,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                 hideProgress();
                 MyLogger.i(">>>>>>>>>司机-确认装货/卸货/发送附加费/附加费收取确认/转单确认" + response);
                 myToast("确认成功");
-                requestServer();
+                finish();
                 /*JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
@@ -504,9 +505,9 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         hideProgress();
         //多路径算路成功回调
         //设置模拟导航的行车速度
-//        mAMapNavi.setEmulatorNaviSpeed(75);
-//        mAMapNavi.startNavi(NaviType.EMULATOR);//模拟导航
-        mAMapNavi.startNavi(NaviType.GPS);//实时导航
+        mAMapNavi.setEmulatorNaviSpeed(200);//模拟速度
+        mAMapNavi.startNavi(NaviType.EMULATOR);//模拟导航
+//        mAMapNavi.startNavi(NaviType.GPS);//实时导航
         /**
          * 获取当前路线导航限制信息（例如： 限高，限宽）
          */
@@ -671,7 +672,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
     @Override
     public void onLocationChange(AMapNaviLocation aMapNaviLocation) {
         //当GPS位置有更新时的回调函数
-        MyLogger.i(">>>>>>>>>GPS位置" + aMapNaviLocation.getCoord().getLatitude());
+//        MyLogger.i(">>>>>>>>>GPS位置" + aMapNaviLocation.getCoord().getLatitude());
 
     }
 
@@ -693,6 +694,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
     @Override
     public void onArriveDestination() {
         //到达目的地后回调函数。
+
     }
 
     @Override
@@ -729,6 +731,13 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
     public void onNaviInfoUpdate(NaviInfo naviInfo) {
 //        MyLogger.i(">>>>>>>>距目的地剩余距离:"+naviInfo.getPathRetainDistance());
 //        MyLogger.i(">>>>>>>>距目的地剩余时间:"+naviInfo.getPathRetainTime());
+        if (naviInfo.getPathRetainDistance() <100){
+            if (tv_queren.getText().toString().trim().equals("去装货")){
+                tv_queren.setText("确认装货");
+            }else if (tv_queren.getText().toString().trim().equals("去卸货")){
+                tv_queren.setText("确认卸货");
+            }
+        }
     }
 
     @Override

@@ -11,9 +11,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
+import com.transport.xianxian.model.GuideModel;
+import com.transport.xianxian.net.OkHttpClientManager;
+import com.transport.xianxian.net.URLs;
+import com.transport.xianxian.utils.MyLogger;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -48,6 +56,8 @@ public class GuideActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
+    LayoutInflater inflater;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +77,7 @@ public class GuideActivity extends Activity {
 
 
         //将要分页显示的View装入数组中
-        LayoutInflater inflater = getLayoutInflater();
+        inflater = getLayoutInflater();
         //从指定的XML文件加载视图
         viewPics = (ViewGroup) inflater.inflate(R.layout.activity_guide, null);
 
@@ -75,79 +85,91 @@ public class GuideActivity extends Activity {
         viewPoints = (ViewGroup) viewPics.findViewById(R.id.viewGroup);
         viewPager = (ViewPager) viewPics.findViewById(R.id.guidePages);
 
+        Map<String, String> params = new HashMap<>();
+        Request(params);
 
-
-
-
-        //全面屏 1080*2160 mipmap-h642dp-port-xxhdpi
-//        int[] images = {R.mipmap.background1, R.mipmap.background2, R.mipmap.background3};
-        int[] images = {};
-
-        pageViews = new ArrayList<View>();
-        for (int i = 0; i < images.length; i++) {
-            pageViews.add(inflater.inflate(R.layout.viewpager_page, null));
-        }
-        for (int i = 0; i < images.length; i++) {
-            ImageView imageView = (ImageView) pageViews.get(i).findViewById(R.id.imageView);
-            imageView.setImageResource(images[i]);
-//            Glide.with(GuideActivity.this).load(imageUrlList.get(i)).fitCenter().into(imageView);//加载图片
-        }
-
-        //创建imageviews数组，大小是要显示的图片的数量
-        imageViews = new ImageView[pageViews.size()];
-
-        //添加小圆点的图片
-        for (int i = 0; i < pageViews.size(); i++) {
-            imageView = new ImageView(GuideActivity.this);
-            //设置小圆点imageview的参数
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(60, 60));//创建一个宽高均为20 的布局
-
-            //将小圆点layout添加到数组中
-            imageViews[i] = imageView;
-            //默认选中的是第一张图片，此时第一个小圆点是选中状态，其他不是
-            if (i == 0) {
-                imageViews[i].setBackgroundResource(R.mipmap.xuanzhong);
-            } else {
-                imageViews[i].setBackgroundResource(R.mipmap.weixuan);
+    }
+    private void Request(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(this, URLs.Guide, params, new OkHttpClientManager.ResultCallback<GuideModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+               /* hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }*/
             }
 
-            //将imageviews添加到小圆点视图组
-            viewPoints.addView(imageViews[i]);
-        }
-
-        //显示滑动图片的视图
-        setContentView(viewPics);
-
-        //设置viewpager的适配器和监听事件
-        viewPager.setAdapter(new GuidePageAdapter());
-        viewPager.setOnPageChangeListener(new GuidePageChangeListener());
-
-        //跳过
-        findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (isfirst) {
-                    isfirst = !isfirst;
-                    //设置已经引导
-                    setGuided();
-                    //跳转
-                    Intent mIntent = new Intent();
-                    mIntent.setClass(GuideActivity.this, LoginActivity.class);
-//                    mIntent.setClass(GuideActivity.this, MainActivity.class);
-                    mIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(mIntent);
-                    finish();
+            public void onResponse(GuideModel response) {
+                MyLogger.i(">>>>>>>引导页");
+                //全面屏 1080*2160 mipmap-h642dp-port-xxhdpi
+//        int[] images = {R.mipmap.background1, R.mipmap.background2, R.mipmap.background3};
+//                int[] images = {};
+
+                pageViews = new ArrayList<View>();
+                for (int i = 0; i < response.getApp_banner_list().size(); i++) {
+                    pageViews.add(inflater.inflate(R.layout.viewpager_page, null));
                 }
+                for (int i = 0; i < pageViews.size(); i++) {
+                    ImageView imageView = (ImageView) pageViews.get(i).findViewById(R.id.imageView);
+//                    imageView.setImageResource(images[i]);
+                    Glide.with(GuideActivity.this)
+                            .load(response.getApp_banner_list().get(i).getImage())
+                            .fitCenter()
+                            .into(imageView);//加载图片
+                }
+                //创建imageviews数组，大小是要显示的图片的数量
+                imageViews = new ImageView[pageViews.size()];
+
+                //添加小圆点的图片
+                for (int i = 0; i < pageViews.size(); i++) {
+                    imageView = new ImageView(GuideActivity.this);
+                    //设置小圆点imageview的参数
+                    imageView.setScaleType(ImageView.ScaleType.CENTER);
+                    imageView.setLayoutParams(new ViewGroup.LayoutParams(60, 60));//创建一个宽高均为20 的布局
+
+                    //将小圆点layout添加到数组中
+                    imageViews[i] = imageView;
+                    //默认选中的是第一张图片，此时第一个小圆点是选中状态，其他不是
+                    if (i == 0) {
+                        imageViews[i].setBackgroundResource(R.mipmap.xuanzhong);
+                    } else {
+                        imageViews[i].setBackgroundResource(R.mipmap.weixuan);
+                    }
+
+                    //将imageviews添加到小圆点视图组
+                    viewPoints.addView(imageViews[i]);
+                }
+
+                //显示滑动图片的视图
+                setContentView(viewPics);
+
+                //设置viewpager的适配器和监听事件
+                viewPager.setAdapter(new GuidePageAdapter());
+                viewPager.setOnPageChangeListener(new GuidePageChangeListener());
+
+                //跳过
+                findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (isfirst) {
+                            isfirst = !isfirst;
+                            //设置已经引导
+                            setGuided();
+                            //跳转
+                            Intent mIntent = new Intent();
+                            mIntent.setClass(GuideActivity.this, LoginActivity.class);
+//                    mIntent.setClass(GuideActivity.this, MainActivity.class);
+                            mIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(mIntent);
+                            finish();
+                        }
+                    }
+                });
             }
         });
     }
-
-    /*private Button.OnClickListener Button_OnClickListener = new Button.OnClickListener() {
-        public void onClick(View v) {
-
-        }
-    };*/
 
     private static final String SHAREDPREFERENCES_NAME = "my_pref";
     private static final String KEY_GUIDE_ACTIVITY = "guide_activity";

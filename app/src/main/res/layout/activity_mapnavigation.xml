@@ -120,7 +120,6 @@
                     android:id="@+id/ll_hint2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
                     android:gravity="center_vertical"
                     android:orientation="vertical">
 

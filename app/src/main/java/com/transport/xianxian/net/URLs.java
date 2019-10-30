@@ -15,6 +15,10 @@ public class URLs {
      */
     public static final String Upgrade = "/api/article/sys-upgrade";
     /**
+     * 引导页
+     */
+    public static final String Guide = "/api/app-banner/index";
+    /**
      * 发送验证码
      */
     public static final String Code = "/api/sms-code/send-code";

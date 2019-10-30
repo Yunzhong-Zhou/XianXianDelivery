@@ -638,9 +638,20 @@ public class Fragment2 extends BaseFragment {
                                             holder.getView(R.id.tv_zhuandan).setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {
-                                                    Bundle bundle = new Bundle();
-                                                    bundle.putString("id", model.getId());
-                                                    CommonUtil.gotoActivityWithData(getActivity(), ZhuanDanActivity.class, bundle, false);
+                                                    showToast("确认转单吗？", "确认", "取消", new View.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(View v) {
+                                                            dialog.dismiss();
+                                                            Bundle bundle = new Bundle();
+                                                            bundle.putString("id", model.getId());
+                                                            CommonUtil.gotoActivityWithData(getActivity(), ZhuanDanActivity.class, bundle, false);
+                                                        }
+                                                    }, new View.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(View v) {
+                                                            dialog.dismiss();
+                                                        }
+                                                    });
                                                 }
                                             });
                                             //去聊天
