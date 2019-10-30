@@ -237,6 +237,9 @@
         </receiver>
 
         <!--高德地图-->
+        <activity android:name="com.amap.api.navi.AmapRouteActivity"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize" /> <!--导航组件-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="e3109ed74f26a203f73d288d7e412b1d"/>

@@ -21,7 +21,7 @@ public class OrderDetailsModel implements Serializable {
         this.tindent = tindent;
     }
 
-    public static class TindentBean {
+    public static class TindentBean implements Serializable{
         /**
          * id : 1
          * sn : 2018101511
@@ -246,7 +246,7 @@ public class OrderDetailsModel implements Serializable {
             this.goods_desc = goods_desc;
         }
 
-        public static class CarTypeInfoBean {
+        public static class CarTypeInfoBean implements Serializable{
             /**
              * car_type_id : 1
              * car_number : 渝A12222
@@ -342,7 +342,7 @@ public class OrderDetailsModel implements Serializable {
             }
         }
 
-        public static class PriceDetailBean {
+        public static class PriceDetailBean implements Serializable{
             /**
              * start : 10
              * milleage : 10
@@ -368,7 +368,7 @@ public class OrderDetailsModel implements Serializable {
             }
         }
 
-        public static class OptionBtnBean {
+        public static class OptionBtnBean implements Serializable{
             /**
              * status : 1
              * status_text : 确认接单
@@ -394,7 +394,7 @@ public class OrderDetailsModel implements Serializable {
             }
         }
 
-        public static class AddrListBean {
+        public static class AddrListBean implements Serializable{
             /**
              * type : 2
              * number : 1

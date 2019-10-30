@@ -562,9 +562,12 @@ public class Fragment1 extends BaseFragment {
                 rv.setLayoutManager(mLinearLayoutManager);
 
                 List<String> mStringList = new ArrayList<>();
-                for (int i = 0; i < model.getIndent_use_type_list().size(); i++) {
-                    mStringList.add(model.getIndent_use_type_list().get(i).getVal());
+                if (model != null) {
+                    for (int i = 0; i < model.getIndent_use_type_list().size(); i++) {
+                        mStringList.add(model.getIndent_use_type_list().get(i).getVal());
+                    }
                 }
+
                 CommonAdapter<String> adapter = new CommonAdapter<String>
                         (getActivity(), R.layout.item_dialog_list, mStringList) {
                     @Override
@@ -622,8 +625,10 @@ public class Fragment1 extends BaseFragment {
                 rv2.setLayoutManager(mLinearLayoutManager2);
 
                 List<String> mStringList2 = new ArrayList<>();
-                for (int i = 0; i < model.getDistance_list().size(); i++) {
-                    mStringList2.add(model.getDistance_list().get(i).getVal());
+                if (model != null) {
+                    for (int i = 0; i < model.getDistance_list().size(); i++) {
+                        mStringList2.add(model.getDistance_list().get(i).getVal());
+                    }
                 }
 
                 CommonAdapter<String> adapter2 = new CommonAdapter<String>
@@ -683,8 +688,10 @@ public class Fragment1 extends BaseFragment {
                 rv3.setLayoutManager(mLinearLayoutManager3);
 
                 List<String> mStringList3 = new ArrayList<>();
-                for (int i = 0; i < model.getTemperature_list().size(); i++) {
-                    mStringList3.add(model.getTemperature_list().get(i).getVal());
+                if (model != null) {
+                    for (int i = 0; i < model.getTemperature_list().size(); i++) {
+                        mStringList3.add(model.getTemperature_list().get(i).getVal());
+                    }
                 }
 
                 CommonAdapter<String> adapter3 = new CommonAdapter<String>
@@ -744,8 +751,10 @@ public class Fragment1 extends BaseFragment {
                 rv4.setLayoutManager(mLinearLayoutManager4);
 
                 List<String> mStringList4 = new ArrayList<>();
-                for (int i = 0; i < model.getTime_start_list().size(); i++) {
-                    mStringList4.add(model.getTime_start_list().get(i).getVal());
+                if (model != null) {
+                    for (int i = 0; i < model.getTime_start_list().size(); i++) {
+                        mStringList4.add(model.getTime_start_list().get(i).getVal());
+                    }
                 }
 
                 CommonAdapter<String> adapter4 = new CommonAdapter<String>
@@ -805,10 +814,11 @@ public class Fragment1 extends BaseFragment {
                 rv5.setLayoutManager(mLinearLayoutManager5);
 
                 List<String> mStringList5 = new ArrayList<>();
-                for (int i = 0; i < model.getTime_end_list().size(); i++) {
-                    mStringList5.add(model.getTime_end_list().get(i).getVal());
+                if (model != null) {
+                    for (int i = 0; i < model.getTime_end_list().size(); i++) {
+                        mStringList5.add(model.getTime_end_list().get(i).getVal());
+                    }
                 }
-
                 CommonAdapter<String> adapter5 = new CommonAdapter<String>
                         (getActivity(), R.layout.item_dialog_list, mStringList5) {
                     @Override

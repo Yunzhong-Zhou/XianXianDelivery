@@ -76,6 +76,9 @@ public class GuideActivity extends Activity {
         viewPager = (ViewPager) viewPics.findViewById(R.id.guidePages);
 
 
+
+
+
         //全面屏 1080*2160 mipmap-h642dp-port-xxhdpi
 //        int[] images = {R.mipmap.background1, R.mipmap.background2, R.mipmap.background3};
         int[] images = {};

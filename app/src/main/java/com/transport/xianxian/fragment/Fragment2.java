@@ -34,6 +34,7 @@ import com.transport.xianxian.base.BaseFragment;
 import com.transport.xianxian.model.Fragment2Model1;
 import com.transport.xianxian.model.Fragment2Model2;
 import com.transport.xianxian.model.Fragment2Model3;
+import com.transport.xianxian.model.OrderDetailsModel;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
@@ -101,7 +102,7 @@ public class Fragment2 extends BaseFragment {
         //设置setOnceLocationLatest(boolean b)接口为true，启动定位时SDK会返回最近3s内精度最高的一次定位结果。如果设置其为true，setOnceLocation(boolean b)接口也会被设置为true，反之不会，默认为false。
         option.setOnceLocationLatest(true);
         //设置定位间隔,单位毫秒,默认为2000ms，最低1000ms。
-        option.setInterval(5*1000);
+        option.setInterval(5 * 1000);
         //设置是否返回地址信息（默认返回地址信息）
         option.setNeedAddress(true);
         //设置是否允许模拟位置,默认为true，允许模拟位置
@@ -508,12 +509,17 @@ public class Fragment2 extends BaseFragment {
                                                 tv_daohang.setOnClickListener(new View.OnClickListener() {
                                                     @Override
                                                     public void onClick(View v) {
-                                                        //去导航
-                                                        Bundle bundle = new Bundle();
+                                                        //去导航-先请求详情数据
+                                                        showProgress(true, "正在获取导航数据...");
+                                                        String string = "?token=" + localUserInfo.getToken()
+                                                                + "&id=" + model.getId();
+                                                        RequestDetail(string);
+
+                                                        /*Bundle bundle = new Bundle();
                                                         bundle.putString("id", model.getId());
                                                         bundle.putDouble("lat", lat);
                                                         bundle.putDouble("lng", lng);
-                                                        CommonUtil.gotoActivityWithData(getActivity(), MapNavigationActivity.class, bundle, false);
+                                                        CommonUtil.gotoActivityWithData(getActivity(), MapNavigationActivity1.class, bundle, false);*/
                                                     }
                                                 });
                                                 ll_add.addView(view);
@@ -876,6 +882,31 @@ public class Fragment2 extends BaseFragment {
             }
         });
 
+    }
+
+    private void RequestDetail(String string) {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.OrderDetails + string, new OkHttpClientManager.ResultCallback<OrderDetailsModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(OrderDetailsModel response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>订单详情" + response);
+                Bundle bundle = new Bundle();
+                bundle.putDouble("lat", lat);
+                bundle.putDouble("lng", lng);
+                bundle.putSerializable("OrderDetailsModel", response);
+                CommonUtil.gotoActivityWithData(getActivity(), MapNavigationActivity.class, bundle, false);
+            }
+        });
     }
 
 }

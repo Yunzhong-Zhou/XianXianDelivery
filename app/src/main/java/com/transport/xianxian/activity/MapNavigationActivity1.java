@@ -12,10 +12,16 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amap.api.location.DPoint;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Poi;
 import com.amap.api.navi.AMapNavi;
 import com.amap.api.navi.AMapNaviListener;
 import com.amap.api.navi.AMapNaviView;
 import com.amap.api.navi.AMapNaviViewListener;
+import com.amap.api.navi.AmapNaviPage;
+import com.amap.api.navi.AmapNaviParams;
+import com.amap.api.navi.AmapNaviType;
 import com.amap.api.navi.enums.NaviForbidType;
 import com.amap.api.navi.enums.NaviLimitType;
 import com.amap.api.navi.enums.NaviType;
@@ -59,7 +65,8 @@ import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
 /**
  * Created by zyz on 2019-10-22.
  */
-public class MapNavigationActivity extends BaseActivity implements AMapNaviListener, AMapNaviViewListener {
+public class MapNavigationActivity1 extends BaseActivity implements AMapNaviListener, AMapNaviViewListener {
+    String id = "";
     OrderDetailsModel model;
 
     AMapNaviView mAMapNaviView;
@@ -75,7 +82,9 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
     TextView textView1, textView1_2, textView2, textView2_2, textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10, textView11,
             tv_shouqi, tv_fanhui, tv_queren, tv_fujiafei;
 
-    double lat = 0, lng = 0;
+    double lat = 0, lng = 0, juli = 0;
+    private DPoint mStartDPoint = null;
+    private DPoint mEndDPoint = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,13 +93,13 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
 
         mAMapNaviView = (AMapNaviView) findViewById(R.id.navi_view);
         mAMapNaviView.onCreate(savedInstanceState);
-        mAMapNaviView.setAMapNaviViewListener(MapNavigationActivity.this);
+        mAMapNaviView.setAMapNaviViewListener(MapNavigationActivity1.this);
 
         aMapCarInfo = getIntent().getParcelableExtra("info");
 
         //初始化导航
         mAMapNavi = AMapNavi.getInstance(getApplicationContext());
-        mAMapNavi.addAMapNaviListener(MapNavigationActivity.this);
+        mAMapNavi.addAMapNaviListener(MapNavigationActivity1.this);
         mAMapNavi.setUseInnerVoice(true);
 
     }
@@ -159,94 +168,15 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
 
     @Override
     protected void initData() {
-        showProgress(true, "定位中，正在搜索路线...");
-        model = (OrderDetailsModel) getIntent().getSerializableExtra("OrderDetailsModel");
+        id = getIntent().getStringExtra("id");
         lat = getIntent().getDoubleExtra("lat", 0);
         lng = getIntent().getDoubleExtra("lng", 0);
+
         //开始点
         sList.clear();
         NaviLatLng mStartLatlng = new NaviLatLng(lat, lng);
         sList.add(mStartLatlng);
-        //地址信息
-        mWayPointList.clear();
-        eList.clear();
-        for (int i = 0; i < model.getTindent().getAddr_list().size(); i++) {
-            if (i == (model.getTindent().getAddr_list().size() - 1)) {
-                //结束点
-                NaviLatLng mEndLatlng = new NaviLatLng(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat())
-                        , Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));
-                eList.add(mEndLatlng);
-
-            } else {
-                //途经点
-                NaviLatLng mWayLatlng = new NaviLatLng(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat())
-                        , Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));
-                mWayPointList.add(mWayLatlng);
-            }
-        }
-
-
-        if (!model.getTindent().getSend_head().equals("")) {
-            Glide.with(MapNavigationActivity.this)
-                    .load(IMGHOST + model.getTindent().getSend_head())
-                    .centerCrop()
-//                    .placeholder(R.mipmap.headimg)//加载站位图
-//                    .error(R.mipmap.headimg)//加载失败
-                    .into(imageView1);//加载图片
-            Glide.with(MapNavigationActivity.this)
-                    .load(IMGHOST + model.getTindent().getSend_head())
-                    .centerCrop()
-//                    .placeholder(R.mipmap.headimg)//加载站位图
-//                    .error(R.mipmap.headimg)//加载失败
-                    .into(imageView1_2);//加载图片
-        }
-        textView1.setText(model.getTindent().getSend_name());//昵称
-        textView2.setText(model.getTindent().getIndustry());//行业
-        textView1_2.setText(model.getTindent().getSend_name());//昵称
-        textView2_2.setText(model.getTindent().getIndustry());//行业
-
-        textView3.setText("货源单号" + model.getTindent().getSn());//货源单号
-        textView4.setText(model.getTindent().getCreated_at() + " 发布");// 发布
-        textView5.setText(model.getTindent().getNow_state_action());// 卸货
-        textView6.setText(model.getTindent().getNow_state() + " " + model.getTindent().getNow_state_action());//time 卸货
-        textView7.setText(model.getTindent().getRemark());//备注
-        textView8.setText("¥ " + model.getTindent().getPrice());//订单金额
-        textView9.setText(model.getTindent().getPrice_detail().getStart() + "元");//起步价
-        textView10.setText(model.getTindent().getPrice_detail().getMilleage() + "元");//离装货时间还有0小时
-//                textView11.setText(response.getTindent().getSend_time());//描述
-        //标签
-        FlowLayoutAdapter<String> flowLayoutAdapter;
-                /*List<String> stringList = new ArrayList<>();
-                for (int i = 0; i < response.getTindent().getTag().size(); i++) {
-                    stringList.add(response.getTindent().getTag().get(i).getVal());
-                }*/
-        flowLayoutAdapter = new FlowLayoutAdapter<String>(model.getTindent().getTag()) {
-            @Override
-            public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
-//                                holder.setText(R.id.tv,bean);
-                TextView tv = holder.getView(R.id.tv);
-                tv.setText(bean);
-                if (position == 0) {
-                    tv.setTextColor(getResources().getColor(R.color.white));
-                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                } else {
-                    tv.setTextColor(getResources().getColor(R.color.black1));
-                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
-                }
-            }
-
-            @Override
-            public void onItemClick(int position, String bean) {
-//                        showToast("点击" + position);
-            }
-
-            @Override
-            public int getItemLayoutID(int position, String bean) {
-                return R.layout.item_flowlayout;
-            }
-        };
-        ((FlowLayout) findViewByID_My(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
-//        requestServer();
+        requestServer();
 
     }
 
@@ -255,14 +185,14 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         super.requestServer();
 //        this.showLoadingPage();
         showProgress(true, getString(R.string.app_loading));
-
-        /*String string = "?token=" + localUserInfo.getToken()
+//        showProgress(true, "定位中，正在搜索路线...");
+        String string = "?token=" + localUserInfo.getToken()
                 + "&id=" + id;
-        Request(string);*/
+        Request(string);
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(MapNavigationActivity.this, URLs.OrderDetails + string, new OkHttpClientManager.ResultCallback<OrderDetailsModel>() {
+        OkHttpClientManager.getAsyn(MapNavigationActivity1.this, URLs.OrderDetails + string, new OkHttpClientManager.ResultCallback<OrderDetailsModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                showErrorPage();
@@ -278,6 +208,120 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                 hideProgress();
                 MyLogger.i(">>>>>>>>>订单详情" + response);
                 model = response;
+
+                //货车信息
+                if (aMapCarInfo == null) {
+                    aMapCarInfo = new AMapCarInfo();
+                    aMapCarInfo.setCarType("1");//设置车辆类型，0小车，1货车
+
+                    aMapCarInfo.setCarNumber(model.getTindent().getCar_type_info().getCar_number());//设置车辆的车牌号码. 如:京DFZ239,京ABZ239
+                    aMapCarInfo.setVehicleSize(model.getTindent().getCar_type_info().getVehicle_siz());// * 设置货车的大小
+                    aMapCarInfo.setVehicleLoad(model.getTindent().getCar_type_info().getVehicle_load());//设置货车的最大载重，单位：吨。
+                    aMapCarInfo.setVehicleWeight(model.getTindent().getCar_type_info().getVehicle_weight());//设置货车的载重
+                    aMapCarInfo.setVehicleLength(model.getTindent().getCar_type_info().getVehicle_length());//  * 设置货车的最大长度，单位：米。
+                    aMapCarInfo.setVehicleWidth(model.getTindent().getCar_type_info().getVehicle_width());//设置货车的最大宽度，单位：米。 如:1.8，1.5等等。
+                    aMapCarInfo.setVehicleHeight(model.getTindent().getCar_type_info().getVehicle_height());//设置货车的高度，单位：米。
+                    aMapCarInfo.setVehicleAxis(model.getTindent().getCar_type_info().getVehicle_axis());//设置货车的轴数
+                    aMapCarInfo.setVehicleLoadSwitch(true);//设置车辆的载重是否参与算路
+                    aMapCarInfo.setRestriction(true);//设置是否躲避车辆限行。
+                }
+                aMapCarInfo.setVehicleLoadSwitch(true);
+                aMapCarInfo.setCarType("1");
+                mAMapNavi.setCarInfo(aMapCarInfo);
+                //地址信息
+                mWayPointList.clear();
+                eList.clear();
+                Poi end = null;
+                List<Poi> wayList = new ArrayList();//途径点目前最多支持3个。
+                for (int i = 0; i < model.getTindent().getAddr_list().size(); i++) {
+                    if (i == (model.getTindent().getAddr_list().size() - 1)) {
+                        //结束点
+                        NaviLatLng mEndLatlng = new NaviLatLng(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat())
+                                , Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));
+                        eList.add(mEndLatlng);
+
+
+                        end = new Poi("", new LatLng(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat()),
+                                Double.valueOf(model.getTindent().getAddr_list().get(i).getLng())), "");
+
+                    } else {
+                        //途经点
+                        NaviLatLng mWayLatlng = new NaviLatLng(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat())
+                                , Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));
+                        mWayPointList.add(mWayLatlng);
+
+
+                        wayList.add(new Poi("", new LatLng(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat())
+                                , Double.valueOf(model.getTindent().getAddr_list().get(i).getLng())), ""));
+
+                    }
+                }
+
+                Poi start = new Poi("", new LatLng(lat, lng), "");
+                //启动导航组件
+                AmapNaviPage.getInstance().showRouteActivity(MapNavigationActivity1.this, new AmapNaviParams(start, wayList, end, AmapNaviType.DRIVER), null);
+
+                if (!response.getTindent().getSend_head().equals("")) {
+                    Glide.with(MapNavigationActivity1.this)
+                            .load(IMGHOST + response.getTindent().getSend_head())
+                            .centerCrop()
+//                    .placeholder(R.mipmap.headimg)//加载站位图
+//                    .error(R.mipmap.headimg)//加载失败
+                            .into(imageView1);//加载图片
+                    Glide.with(MapNavigationActivity1.this)
+                            .load(IMGHOST + response.getTindent().getSend_head())
+                            .centerCrop()
+//                    .placeholder(R.mipmap.headimg)//加载站位图
+//                    .error(R.mipmap.headimg)//加载失败
+                            .into(imageView1_2);//加载图片
+                }
+                textView1.setText(response.getTindent().getSend_name());//昵称
+                textView2.setText(response.getTindent().getIndustry());//行业
+                textView1_2.setText(response.getTindent().getSend_name());//昵称
+                textView2_2.setText(response.getTindent().getIndustry());//行业
+
+                textView3.setText("货源单号" + response.getTindent().getSn());//货源单号
+                textView4.setText(response.getTindent().getCreated_at() + " 发布");// 发布
+                textView5.setText(response.getTindent().getNow_state_action());// 卸货
+                textView6.setText(response.getTindent().getNow_state() + " " + response.getTindent().getNow_state_action());//time 卸货
+                textView7.setText(response.getTindent().getRemark());//备注
+                textView8.setText("¥ " + response.getTindent().getPrice());//订单金额
+                textView9.setText(response.getTindent().getPrice_detail().getStart() + "元");//起步价
+                textView10.setText(response.getTindent().getPrice_detail().getMilleage() + "元");//离装货时间还有0小时
+//                textView11.setText(response.getTindent().getSend_time());//描述
+
+                //标签
+                FlowLayoutAdapter<String> flowLayoutAdapter;
+                /*List<String> stringList = new ArrayList<>();
+                for (int i = 0; i < response.getTindent().getTag().size(); i++) {
+                    stringList.add(response.getTindent().getTag().get(i).getVal());
+                }*/
+                flowLayoutAdapter = new FlowLayoutAdapter<String>(response.getTindent().getTag()) {
+                    @Override
+                    public void bindDataToView(ViewHolder holder, int position, String bean) {
+//                                holder.setText(R.id.tv,bean);
+                        TextView tv = holder.getView(R.id.tv);
+                        tv.setText(bean);
+                        if (position == 0) {
+                            tv.setTextColor(getResources().getColor(R.color.white));
+                            tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
+                        } else {
+                            tv.setTextColor(getResources().getColor(R.color.black1));
+                            tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
+                        }
+                    }
+
+                    @Override
+                    public void onItemClick(int position, String bean) {
+//                        showToast("点击" + position);
+                    }
+
+                    @Override
+                    public int getItemLayoutID(int position, String bean) {
+                        return R.layout.item_flowlayout;
+                    }
+                };
+                ((FlowLayout) findViewByID_My(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
 
             }
         });
@@ -333,7 +377,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                 //附加费
                 Bundle bundle = new Bundle();
                 bundle.putString("id", model.getTindent().getId());
-                CommonUtil.gotoActivityWithData(MapNavigationActivity.this, AddSurchargeActivity.class, bundle, false);
+                CommonUtil.gotoActivityWithData(MapNavigationActivity1.this, AddSurchargeActivity.class, bundle, false);
                 break;
             case R.id.tv_fanhui:
                 //取消订单
@@ -376,25 +420,6 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
     public void onInitNaviSuccess() {
         //初始化成功
 //        mAMapNavi.startGPS();
-        //货车信息
-        if (aMapCarInfo == null) {
-            aMapCarInfo = new AMapCarInfo();
-            aMapCarInfo.setCarType("1");//设置车辆类型，0小车，1货车
-
-            aMapCarInfo.setCarNumber(model.getTindent().getCar_type_info().getCar_number());//设置车辆的车牌号码. 如:京DFZ239,京ABZ239
-            aMapCarInfo.setVehicleSize(model.getTindent().getCar_type_info().getVehicle_siz());// * 设置货车的大小
-            aMapCarInfo.setVehicleLoad(model.getTindent().getCar_type_info().getVehicle_load());//设置货车的最大载重，单位：吨。
-            aMapCarInfo.setVehicleWeight(model.getTindent().getCar_type_info().getVehicle_weight());//设置货车的载重
-            aMapCarInfo.setVehicleLength(model.getTindent().getCar_type_info().getVehicle_length());//  * 设置货车的最大长度，单位：米。
-            aMapCarInfo.setVehicleWidth(model.getTindent().getCar_type_info().getVehicle_width());//设置货车的最大宽度，单位：米。 如:1.8，1.5等等。
-            aMapCarInfo.setVehicleHeight(model.getTindent().getCar_type_info().getVehicle_height());//设置货车的高度，单位：米。
-            aMapCarInfo.setVehicleAxis(model.getTindent().getCar_type_info().getVehicle_axis());//设置货车的轴数
-            aMapCarInfo.setVehicleLoadSwitch(true);//设置车辆的载重是否参与算路
-            aMapCarInfo.setRestriction(true);//设置是否躲避车辆限行。
-        }
-        aMapCarInfo.setVehicleLoadSwitch(true);
-        aMapCarInfo.setCarType("1");
-        mAMapNavi.setCarInfo(aMapCarInfo);
         /**
          * 方法: int strategy=mAMapNavi.strategyConvert(congestion, avoidhightspeed, cost, hightspeed, multipleroute); 参数:
          *
@@ -428,7 +453,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
     @Override
     public void onCalculateRouteSuccess(int[] ids) {
         MyLogger.i(">>>>>开始导航>>>>>>onCalculateRouteSuccess");
-        hideProgress();
+//        hideProgress();
         //多路径算路成功回调
         //设置模拟导航的行车速度
 //        mAMapNavi.setEmulatorNaviSpeed(75);
