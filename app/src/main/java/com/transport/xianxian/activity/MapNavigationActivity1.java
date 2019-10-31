@@ -80,7 +80,7 @@ public class MapNavigationActivity1 extends BaseActivity implements AMapNaviList
     LinearLayout linearLayout1, ll_hint1, ll_hint2;
     ImageView imageView1, imageView1_2, iv_xinxi, iv_xinxi_2, iv_dianhua, iv_dianhua_2;
     TextView textView1, textView1_2, textView2, textView2_2, textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10, textView11,
-            tv_shouqi, tv_fanhui, tv_queren, tv_fujiafei;
+            tv_shouqi, tv_left, tv_right, tv_fujiafei;
 
     double lat = 0, lng = 0, juli = 0;
     private DPoint mStartDPoint = null;
@@ -155,8 +155,8 @@ public class MapNavigationActivity1 extends BaseActivity implements AMapNaviList
         textView11 = findViewByID_My(R.id.textView11);
 
         tv_shouqi = findViewByID_My(R.id.tv_shouqi);
-        tv_fanhui = findViewByID_My(R.id.tv_fanhui);
-        tv_queren = findViewByID_My(R.id.tv_queren);
+        tv_left = findViewByID_My(R.id.tv_left);
+        tv_right = findViewByID_My(R.id.tv_right);
         tv_fujiafei = findViewByID_My(R.id.tv_fujiafei);
 
         scrollView = findViewByID_My(R.id.scrollView);
@@ -379,11 +379,11 @@ public class MapNavigationActivity1 extends BaseActivity implements AMapNaviList
                 bundle.putString("id", model.getTindent().getId());
                 CommonUtil.gotoActivityWithData(MapNavigationActivity1.this, AddSurchargeActivity.class, bundle, false);
                 break;
-            case R.id.tv_fanhui:
+            case R.id.tv_left:
                 //取消订单
 //                finish();
                 break;
-            case R.id.tv_queren:
+            case R.id.tv_right:
                 /*//确认接单
                 showToast("确认接单吗？", "确认", "取消", new View.OnClickListener() {
                     @Override

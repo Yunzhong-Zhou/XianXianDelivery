@@ -50,6 +50,16 @@ public class OrderDetailsModel implements Serializable {
 
         private String id;
         private String sn;
+        private int status;
+
+        public int getStatus() {
+            return status;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
+
         private String created_at;
         private int is_attach_fee;
         private CarTypeInfoBean car_type_info;
@@ -412,6 +422,15 @@ public class OrderDetailsModel implements Serializable {
 
             private String lat;
             private String lng;
+            private String addr_id;
+
+            public String getAddr_id() {
+                return addr_id;
+            }
+
+            public void setAddr_id(String addr_id) {
+                this.addr_id = addr_id;
+            }
 
             public String getLat() {
                 return lat;

@@ -8,21 +8,21 @@ import java.util.List;
  */
 public class Fragment1ListModel implements Serializable {
     /**
-     * id : 1
-     * sn : 20190917
-     * now_state : 8月8日 12：00
-     * now_state_action : 装货
-     * addr_list : [{"type":2,"number":1,"addr":"重庆井口","addr_detail":"美丽阳光20-1","name":"张追踪","mobile":"18888888888","lat":"29.661435","lng":"106.448628"},{"type":1,"number":2,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.524504","lng":"106.579996"}]
-     * tag : ["专车","6吨","恒温","5.5方"]
-     * remark : 装车时间有限
-     * created_at : 2019-10-17 15:00
-     * price : 1800
+     * id : 7
+     * sn : T201910307
+     * now_state : 2019-10-30 18:30:14
+     * now_state_action : -73324
+     * addr_list : [{"type":1,"number":1,"addr":"重庆市沙坪坝井口镇","addr_detail":"阳光家园27--13-1","name":"黄实名","mobile":"15823629473","lat":"29.643795","lng":"106.447151","mileage":"10000"},{"type":1,"number":2,"addr":"重庆南岸","addr_detail":"天福克拉","name":"徐小平","mobile":"15823232323","lat":"29.529205","lng":"106.56385","mileage":"10000"},{"type":1,"number":3,"addr":"重庆市渝中","addr_detail":"重庆天地","name":"黄市","mobile":"15834343","lat":"29.55033","lng":"106.508395","mileage":"10000"}]
+     * tag : ["专车"]
+     * remark :
+     * created_at : 2019-10-30 18:30:14
+     * price : 500
      */
 
     private String id;
     private String sn;
     private String now_state;
-    private String now_state_action;
+    private long now_state_action;
     private String remark;
     private String created_at;
     private String price;
@@ -53,11 +53,11 @@ public class Fragment1ListModel implements Serializable {
         this.now_state = now_state;
     }
 
-    public String getNow_state_action() {
+    public long getNow_state_action() {
         return now_state_action;
     }
 
-    public void setNow_state_action(String now_state_action) {
+    public void setNow_state_action(long now_state_action) {
         this.now_state_action = now_state_action;
     }
 
@@ -103,14 +103,15 @@ public class Fragment1ListModel implements Serializable {
 
     public static class AddrListBean {
         /**
-         * type : 2
+         * type : 1
          * number : 1
-         * addr : 重庆井口
-         * addr_detail : 美丽阳光20-1
-         * name : 张追踪
-         * mobile : 18888888888
-         * lat : 29.661435
-         * lng : 106.448628
+         * addr : 重庆市沙坪坝井口镇
+         * addr_detail : 阳光家园27--13-1
+         * name : 黄实名
+         * mobile : 15823629473
+         * lat : 29.643795
+         * lng : 106.447151
+         * mileage : 10000
          */
 
         private int type;
@@ -121,6 +122,7 @@ public class Fragment1ListModel implements Serializable {
         private String mobile;
         private String lat;
         private String lng;
+        private String mileage;
 
         public int getType() {
             return type;
@@ -184,6 +186,14 @@ public class Fragment1ListModel implements Serializable {
 
         public void setLng(String lng) {
             this.lng = lng;
+        }
+
+        public String getMileage() {
+            return mileage;
+        }
+
+        public void setMileage(String mileage) {
+            this.mileage = mileage;
         }
     }
 }

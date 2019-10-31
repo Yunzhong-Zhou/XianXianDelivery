@@ -75,9 +75,10 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
     LinearLayout linearLayout1, ll_hint1, ll_hint2;
     ImageView imageView1, imageView1_2, iv_xinxi, iv_xinxi_2, iv_dianhua, iv_dianhua_2;
     TextView textView1, textView1_2, textView2, textView2_2, textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10, textView11,
-            tv_shouqi, tv_fanhui, tv_queren, tv_fujiafei;
+            tv_shouqi, tv_left, tv_right, tv_fujiafei;
 
     double lat = 0, lng = 0;
+    int juli = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,8 +149,8 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         textView11 = findViewByID_My(R.id.textView11);
 
         tv_shouqi = findViewByID_My(R.id.tv_shouqi);
-        tv_fanhui = findViewByID_My(R.id.tv_fanhui);
-        tv_queren = findViewByID_My(R.id.tv_queren);
+        tv_left = findViewByID_My(R.id.tv_left);
+        tv_right = findViewByID_My(R.id.tv_right);
         tv_fujiafei = findViewByID_My(R.id.tv_fujiafei);
 
         scrollView = findViewByID_My(R.id.scrollView);
@@ -218,13 +219,6 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         textView9.setText(model.getTindent().getPrice_detail().getStart() + "元");//起步价
         textView10.setText(model.getTindent().getPrice_detail().getMilleage() + "元");//离装货时间还有0小时
 //                textView11.setText(response.getTindent().getSend_time());//描述
-        //左边按钮
-        if (model.getTindent().getIs_appoint() == 1) {
-            //平台指派，可以拒绝
-            tv_fanhui.setText("取消订单");
-            tv_fanhui.setBackgroundResource(R.drawable.btn_huise);
-        }
-        tv_queren.setText(model.getTindent().getOption_btn().getStatus_text());//右边按钮显示
 
         //标签
         FlowLayoutAdapter<String> flowLayoutAdapter;
@@ -257,6 +251,33 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
 
 //        requestServer();
 
+        switch (model.getTindent().getStatus()) {
+            /*case 0://未接单-到不了导航页面
+                if (model.getTindent().getIs_appoint() == 1) {//平台指派，可以拒绝
+                    tv_left.setText("拒绝此单");//左边按钮
+                    tv_left.setBackgroundResource(R.drawable.btn_huise);
+
+                } else {
+                    tv_left.setText("返回详情");//左边按钮
+                    tv_left.setBackgroundResource(R.drawable.btn_juse);
+                }
+                tv_right.setText("确认接单");//右边按钮
+                break;*/
+            case 1://已接单
+                tv_left.setText("取消订单");//左边按钮
+                tv_left.setBackgroundResource(R.drawable.btn_huise);
+
+                tv_right.setText("确认装货");//右边按钮
+                break;
+            case 2://已装货
+            case 3://部分卸货
+                tv_left.setText("转派订单");//左边按钮
+                tv_left.setBackgroundResource(R.drawable.btn_huise);
+
+                tv_right.setText("确认卸货");//右边按钮
+                break;
+
+        }
     }
 
     @Override
@@ -344,33 +365,65 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                 bundle.putString("id", model.getTindent().getId());
                 CommonUtil.gotoActivityWithData(MapNavigationActivity.this, AddSurchargeActivity.class, bundle, false);
                 break;
-            case R.id.tv_fanhui:
-                //取消订单or转派订单
-                /*if (model.getTindent().getIs_appoint() == 1){
-                    //平台指派，可以拒绝
-                    Map<String, String> params = new HashMap<>();
-                    params.put("token", localUserInfo.getToken());
-                    params.put("id", model.getTindent().getId());
-                    params.put("action", "1");//拒单
-                    RequestJieDan(params);
-                }else {
-                    finish();
-                }*/
-
-                break;
-            case R.id.tv_queren:
-                //确认接单
-                switch (tv_queren.getText().toString().trim()) {
-                    case "确认装货":
-                        showToast("确认装货吗？", "确认", "取消", new View.OnClickListener() {
+            case R.id.tv_left:
+                //左边按钮
+                switch (tv_left.getText().toString().trim()) {
+                    case "取消订单":
+                        showToast("确认取消订单吗？", "确认", "取消", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 dialog.dismiss();
                                 Map<String, String> params = new HashMap<>();
                                 params.put("token", localUserInfo.getToken());
-                                params.put("id", model.getTindent().getId());
-                                params.put("type", "1");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
+                                params.put("t_indent_id", model.getTindent().getId());
+                                params.put("type", "6");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费5转单确认6取消订单7接收转单
                                 RequestZhuangHuo(params);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
+                    case "转派订单":
+                        showToast("确认转派订单吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                Bundle bundle = new Bundle();
+                                bundle.putString("id", model.getTindent().getId());
+                                CommonUtil.gotoActivityWithData(MapNavigationActivity.this, ZhuanDanActivity.class, bundle, false);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
+                }
+
+                break;
+            case R.id.tv_right:
+                //右边按钮
+                switch (tv_right.getText().toString().trim()) {
+                    case "确认装货":
+                        showToast("确认装货吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                //判断是否到达地点
+                                if (juli < 50) {
+                                    Map<String, String> params = new HashMap<>();
+                                    params.put("token", localUserInfo.getToken());
+                                    params.put("t_indent_id", model.getTindent().getId());
+                                    params.put("type", "1");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
+                                    RequestZhuangHuo(params);
+                                } else {
+                                    showToast("您未到达装货点");
+                                }
+
                             }
                         }, new View.OnClickListener() {
                             @Override
@@ -384,11 +437,16 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                             @Override
                             public void onClick(View v) {
                                 dialog.dismiss();
-                                Map<String, String> params = new HashMap<>();
-                                params.put("token", localUserInfo.getToken());
-                                params.put("id", model.getTindent().getId());
-                                params.put("type", "3");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
-                                RequestZhuangHuo(params);
+                                if (juli < 50) {
+                                    Map<String, String> params = new HashMap<>();
+                                    params.put("token", localUserInfo.getToken());
+                                    params.put("t_indent_id", model.getTindent().getId());
+                                    params.put("type", "3");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
+                                    params.put("t_indent_addr_id", model.getTindent().getNext_addr().getAddr_id());
+                                    RequestZhuangHuo(params);
+                                } else {
+                                    showToast("您未到达卸货点");
+                                }
                             }
                         }, new View.OnClickListener() {
                             @Override
@@ -505,9 +563,9 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         hideProgress();
         //多路径算路成功回调
         //设置模拟导航的行车速度
-        mAMapNavi.setEmulatorNaviSpeed(200);//模拟速度
-        mAMapNavi.startNavi(NaviType.EMULATOR);//模拟导航
-//        mAMapNavi.startNavi(NaviType.GPS);//实时导航
+//        mAMapNavi.setEmulatorNaviSpeed(200);//模拟速度
+//        mAMapNavi.startNavi(NaviType.EMULATOR);//模拟导航
+        mAMapNavi.startNavi(NaviType.GPS);//实时导航
         /**
          * 获取当前路线导航限制信息（例如： 限高，限宽）
          */
@@ -729,15 +787,17 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
 
     @Override
     public void onNaviInfoUpdate(NaviInfo naviInfo) {
-//        MyLogger.i(">>>>>>>>距目的地剩余距离:"+naviInfo.getPathRetainDistance());
+        MyLogger.i(">>>>>>>>距目的地剩余距离:" + naviInfo.getPathRetainDistance());
+        juli = naviInfo.getPathRetainDistance();
 //        MyLogger.i(">>>>>>>>距目的地剩余时间:"+naviInfo.getPathRetainTime());
-        if (naviInfo.getPathRetainDistance() <100){
-            if (tv_queren.getText().toString().trim().equals("去装货")){
-                tv_queren.setText("确认装货");
-            }else if (tv_queren.getText().toString().trim().equals("去卸货")){
-                tv_queren.setText("确认卸货");
+
+        /*if (naviInfo.getPathRetainDistance() <100){
+            if (tv_right.getText().toString().trim().equals("去装货")){
+                tv_right.setText("确认装货");
+            }else if (tv_right.getText().toString().trim().equals("去卸货")){
+                tv_right.setText("确认卸货");
             }
-        }
+        }*/
     }
 
     @Override

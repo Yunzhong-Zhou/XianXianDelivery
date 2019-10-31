@@ -629,7 +629,7 @@ public class CommonUtil {
      * @param time
      * @return
      */
-    public static String timedate4(Long time, Context mContext) {
+    public static String timedate4(Long time) {
         {
             Integer ss = 1000;
             Integer mi = ss * 60;

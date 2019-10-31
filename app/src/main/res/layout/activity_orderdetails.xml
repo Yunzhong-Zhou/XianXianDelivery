@@ -449,7 +449,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_fanhui"
+                android:id="@+id/tv_left"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:layout_marginRight="5dp"
@@ -462,7 +462,7 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/tv_queren"
+                android:id="@+id/tv_right"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:layout_marginLeft="5dp"

@@ -37,6 +37,9 @@ import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.CommonUtil;
 import com.transport.xianxian.utils.MyLogger;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -66,7 +69,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     LinearLayout linearLayout1, ll_hint1, ll_hint2;
     ImageView imageView1, iv_xinxi, iv_dianhua, iv_xiangqing;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10, textView11,
-            tv_addr1, tv_title1, tv_juli1, tv_addr2, tv_title2, tv_juli2, tv_shouqi, tv_fanhui, tv_queren;
+            tv_addr1, tv_title1, tv_juli1, tv_addr2, tv_title2, tv_juli2, tv_shouqi, tv_left, tv_right;
 
     double lat = 0, lng = 0, juli = 0;
     private DPoint mStartDPoint = null;
@@ -150,8 +153,8 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         tv_juli2 = findViewByID_My(R.id.tv_juli2);
 
         tv_shouqi = findViewByID_My(R.id.tv_shouqi);
-        tv_fanhui = findViewByID_My(R.id.tv_fanhui);
-        tv_queren = findViewByID_My(R.id.tv_queren);
+        tv_left = findViewByID_My(R.id.tv_left);
+        tv_right = findViewByID_My(R.id.tv_right);
 
         //收起布局
         ll_hint1.setVisibility(View.GONE);
@@ -182,7 +185,13 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
-                    myToast(info);
+                    showToast(info, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            finish();
+                        }
+                    });
                 }
             }
 
@@ -202,26 +211,26 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                         tv_addr1.setText(response.getTindent().getAddr_list().get(i).getAddr());
                         tv_title1.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
 
-                        /*if (lat != 0 && lng != 0) {
+                        if (lat != 0 && lng != 0) {
                             mStartDPoint = new DPoint(lat, lng);//起点
                             mEndDPoint = new DPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
                                     Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
                             juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
                             tv_juli1.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
-                        }*/
+                        }
                     } else if (i == (model.getTindent().getAddr_list().size() - 1)) {
                         mEndPoint = new LatLonPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
                                 Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点
 
                         tv_addr2.setText(response.getTindent().getAddr_list().get(i).getAddr());
                         tv_title2.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
-                        /*if (lat != 0 && lng != 0) {
+                        if (lat != 0 && lng != 0) {
                             mStartDPoint = new DPoint(lat, lng);//起点
                             mEndDPoint = new DPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
                                     Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
                             juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
                             tv_juli2.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
-                        }*/
+                        }
                     } else {
                         //途经点
 
@@ -248,15 +257,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 textView9.setText(response.getTindent().getPrice_detail().getStart() + "元");//起步价
                 textView10.setText(response.getTindent().getPrice_detail().getMilleage() + "元");//离装货时间还有0小时
 //                textView11.setText(response.getTindent().getSend_time());//描述
-
-                //左边按钮
-                if (response.getTindent().getIs_appoint() == 1){
-                    //平台指派，可以拒绝
-                    tv_fanhui.setText("拒绝此单");
-                    tv_fanhui.setBackgroundResource(R.drawable.btn_huise);
-                }
-                tv_queren.setText(response.getTindent().getOption_btn().getStatus_text());//右边按钮显示
-
 
                 //标签
                 FlowLayoutAdapter<String> flowLayoutAdapter;
@@ -290,6 +290,39 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     }
                 };
                 ((FlowLayout) findViewByID_My(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
+
+                switch (model.getTindent().getStatus()) {
+                    case 0://未接单
+                        if (model.getTindent().getIs_appoint() == 1) {//平台指派，可以拒绝
+                            tv_left.setText("拒绝此单");//左边按钮
+                            tv_left.setBackgroundResource(R.drawable.btn_huise);
+
+                        } else {
+                            tv_left.setText("返回列表");//左边按钮
+                            tv_left.setBackgroundResource(R.drawable.btn_juse);
+                        }
+                        tv_right.setText("确认接单");//右边按钮
+                        break;
+                    case 1://已接单
+                        tv_left.setText("取消订单");//左边按钮
+                        tv_left.setBackgroundResource(R.drawable.btn_huise);
+
+                        tv_right.setText("去装货");//右边按钮
+                        break;
+                    case 2://已装货
+                    case 3://已卸货
+                        tv_left.setText("转派订单");//左边按钮
+                        tv_left.setBackgroundResource(R.drawable.btn_huise);
+
+                        tv_right.setText("去卸货");//右边按钮
+                        break;
+                    case 7://订单完成
+                        tv_left.setText("转派订单");//左边按钮
+                        tv_left.setBackgroundResource(R.drawable.btn_lanse);
+
+                        tv_right.setText("配送完闭");//右边按钮
+                        break;
+                }
             }
         });
     }
@@ -344,34 +377,69 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 tv_shouqi.setVisibility(View.GONE);
                 break;
 
-            case R.id.tv_fanhui:
-                //返回列表
-                if (model.getTindent().getIs_appoint() == 1){
-                    //平台指派，可以拒绝
-                    showToast("确认拒绝此单吗？", "确认", "取消", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            Map<String, String> params = new HashMap<>();
-                            params.put("token", localUserInfo.getToken());
-                            params.put("id", model.getTindent().getId());
-                            params.put("action", "1");//拒单
-                            RequestJieDan(params);
-                        }
-                    }, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                        }
-                    });
-                }else {
-                    finish();
+            case R.id.tv_left:
+                //左边按钮
+                switch (tv_left.getText().toString().trim()) {
+                    case "拒绝此单":
+                        showToast("确认拒绝此单吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("id", model.getTindent().getId());
+                                params.put("action", "1");//拒单
+                                RequestJieDan(params, 1);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
+                    case "返回列表":
+                        finish();
+                        break;
+                    case "取消订单":
+                        showToast("确认取消订单吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("t_indent_id", model.getTindent().getId());
+                                params.put("type", "6");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费5转单确认6取消订单7接收转单
+                                RequestZhuangHuo(params);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
+                    case "转派订单":
+                        showToast("确认转派订单吗？", "确认", "取消", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                Bundle bundle = new Bundle();
+                                bundle.putString("id", model.getTindent().getId());
+                                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, ZhuanDanActivity.class, bundle, false);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        break;
                 }
-
                 break;
-            case R.id.tv_queren:
-                //确认接单
-                switch (tv_queren.getText().toString().trim()){
+            case R.id.tv_right:
+                //右边按钮
+                switch (tv_right.getText().toString().trim()) {
                     case "确认接单":
                         showToast("确认接单吗？", "确认", "取消", new View.OnClickListener() {
                             @Override
@@ -381,7 +449,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                 params.put("token", localUserInfo.getToken());
                                 params.put("id", model.getTindent().getId());
                                 params.put("action", "2");//接单
-                                RequestJieDan(params);
+                                RequestJieDan(params, 2);
 
                             }
                         }, new View.OnClickListener() {
@@ -392,13 +460,20 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                         });
                         break;
                     case "去装货":
+                    case "去卸货":
                         Bundle bundle = new Bundle();
                         bundle.putDouble("lat", lat);
                         bundle.putDouble("lng", lng);
                         bundle.putSerializable("OrderDetailsModel", model);
                         CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
                         break;
-                    case "确认装货":
+                    case "配送完闭":
+                        //跳转附加费
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putString("id", model.getTindent().getId());
+                        CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, AddSurchargeActivity.class, bundle2, true);
+                        break;
+                    /*case "确认装货"://确认装货
                         showToast("确认装货吗？", "确认", "取消", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -416,7 +491,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             }
                         });
                         break;
-                    case "确认卸货":
+                    case "disburden"://确认卸货
                         showToast("确认卸货吗？", "确认", "取消", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -425,6 +500,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                 params.put("token", localUserInfo.getToken());
                                 params.put("id", model.getTindent().getId());
                                 params.put("type", "3");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
+                                params.put("t_indent_addr_id", model.getTindent().getNext_addr().getAddr_id());
                                 RequestZhuangHuo(params);
                             }
                         }, new View.OnClickListener() {
@@ -433,7 +509,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                 dialog.dismiss();
                             }
                         });
-                        break;
+                        break;*/
                 }
 
 
@@ -441,7 +517,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         }
     }
 
-    private void RequestJieDan(Map<String, String> params) {
+    private void RequestJieDan(Map<String, String> params, int i) {
         OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_JieDan, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -457,27 +533,31 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>是否接单" + response);
-                myToast("确认成功");
-                Bundle bundle = new Bundle();
-                bundle.putDouble("lat", lat);
-                bundle.putDouble("lng", lng);
-                bundle.putSerializable("OrderDetailsModel", model);
-                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
-
-                /*JSONObject jObj;
+//                myToast("确认成功");
+                JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
-                    *//*JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
-                    MyLogger.i(">>>>>>>" + list.size());*//*
                     myToast(jObj.getString("msg"));
+
+                    if (i == 2) {//接单
+                        Bundle bundle = new Bundle();
+                        bundle.putDouble("lat", lat);
+                        bundle.putDouble("lng", lng);
+                        bundle.putSerializable("OrderDetailsModel", model);
+                        CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
+                    } else {//拒单
+                        finish();
+                    }
+
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }*/
+                }
+
             }
         }, false);
     }
+
     private void RequestZhuangHuo(Map<String, String> params) {
         OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -494,25 +574,19 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>司机-确认装货/卸货/发送附加费/附加费收取确认/转单确认" + response);
-                myToast("确认成功");
-                requestServer();
-                /*Bundle bundle = new Bundle();
-                bundle.putDouble("lat", lat);
-                bundle.putDouble("lng", lng);
-                bundle.putSerializable("OrderDetailsModel", model);
-                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);*/
-
-                /*JSONObject jObj;
+//                myToast("确认成功");
+                JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
-                    *//*JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
-                    MyLogger.i(">>>>>>>" + list.size());*//*
                     myToast(jObj.getString("msg"));
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }*/
+                }
+                if (tv_left.getText().toString().trim().equals("取消订单")) {
+                    finish();
+                }
+
             }
         }, false);
     }
@@ -532,7 +606,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         }
         MyLocationStyle myLocationStyle;
         myLocationStyle = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
-        myLocationStyle.interval(60 * 1000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
+        myLocationStyle.interval(30 * 1000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_SHOW);//只定位一次。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATE) ;//定位一次，且将视角移动到地图中心点。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_FOLLOW) ;//连续定位、且将视角移动到地图中心点，定位蓝点跟随设备移动。（1秒1次定位）
@@ -794,7 +868,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         MyLogger.i(">>>>>>>>我的位置：" + location.getLatitude());
         lat = location.getLatitude();
         lng = location.getLongitude();
-        if (model != null) {
+        /*if (model != null) {
             for (int i = 0; i < model.getTindent().getAddr_list().size(); i++) {
                 if (i == 0) {
                     if (lat != 0 && lng != 0) {
@@ -814,7 +888,8 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     }
                 }
             }
-        }
+        }*/
+        requestServer();
 
     }
 

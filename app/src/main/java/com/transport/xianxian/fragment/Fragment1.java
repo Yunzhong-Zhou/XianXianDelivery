@@ -381,8 +381,10 @@ public class Fragment1 extends BaseFragment {
                             (getActivity(), R.layout.item_fragment1, list) {
                         @Override
                         protected void convert(ViewHolder holder, Fragment1ListModel model, int position) {
-                            holder.setText(R.id.tv1, model.getNow_state() + "  " + model.getNow_state_action());
-                            holder.setText(R.id.tv2, model.getRemark());
+                            holder.setText(R.id.tv1, model.getNow_state() + " 装货");
+                            if (model.getNow_state_action() >= 0) {
+                                holder.setText(R.id.tv2, "离装货时间还有" + CommonUtil.timedate4(model.getNow_state_action() * 1000));//离装货时间还有0小时
+                            }
                             holder.setText(R.id.tv3, model.getRemark());//备注
                             holder.setText(R.id.tv4, model.getCreated_at() + " 发布");//发布时间
                             holder.setText(R.id.tv5, "¥ " + model.getPrice());//金额
@@ -421,6 +423,7 @@ public class Fragment1 extends BaseFragment {
 
                             //送货地址
                             for (int i = 0; i < model.getAddr_list().size(); i++) {
+                                //起点
                                 if (i == 0) {
                                     holder.setText(R.id.tv_addr1, model.getAddr_list().get(i).getAddr());
                                     holder.setText(R.id.tv_title1, model.getAddr_list().get(i).getAddr_detail());
@@ -431,16 +434,18 @@ public class Fragment1 extends BaseFragment {
                                         holder.setText(R.id.tv_juli1, "距您" + CommonUtil.distanceFormat(juli));
                                     }
                                 }
+                                //终点
                                 if (i == model.getAddr_list().size() - 1) {
                                     holder.setText(R.id.tv_addr2, model.getAddr_list().get(i).getAddr());
                                     holder.setText(R.id.tv_title2, model.getAddr_list().get(i).getAddr_detail());
 
-                                    if (lat != 0 && lng != 0) {
+                                    /*if (lat != 0 && lng != 0) {
                                         mStartPoint = new DPoint(lat, lng);//起点
                                         mEndPoint = new DPoint(Double.valueOf(model.getAddr_list().get(i).getLat()), Double.valueOf(model.getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
                                         juli = CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint);
                                         holder.setText(R.id.tv_juli2, "距您" + CommonUtil.distanceFormat(juli));
-                                    }
+                                    }*/
+                                    holder.setText(R.id.tv_juli2, "距起点" + CommonUtil.distanceFormat(Double.valueOf(model.getAddr_list().get(i).getMileage())));
                                 }
                             }
                         }

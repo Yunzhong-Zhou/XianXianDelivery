@@ -89,6 +89,7 @@ public class GuideActivity extends Activity {
         Request(params);
 
     }
+
     private void Request(Map<String, String> params) {
         OkHttpClientManager.postAsyn(this, URLs.Guide, params, new OkHttpClientManager.ResultCallback<GuideModel>() {
             @Override
@@ -128,14 +129,14 @@ public class GuideActivity extends Activity {
                     //设置小圆点imageview的参数
                     imageView.setScaleType(ImageView.ScaleType.CENTER);
                     imageView.setLayoutParams(new ViewGroup.LayoutParams(60, 60));//创建一个宽高均为20 的布局
-
+                    imageView.setPadding(10, 10, 10, 10);
                     //将小圆点layout添加到数组中
                     imageViews[i] = imageView;
                     //默认选中的是第一张图片，此时第一个小圆点是选中状态，其他不是
                     if (i == 0) {
-                        imageViews[i].setBackgroundResource(R.mipmap.xuanzhong);
+                        imageViews[i].setBackgroundResource(R.drawable.yuanxing_lanse);
                     } else {
-                        imageViews[i].setBackgroundResource(R.mipmap.weixuan);
+                        imageViews[i].setBackgroundResource(R.drawable.yuanxing_huise);
                     }
 
                     //将imageviews添加到小圆点视图组
@@ -297,10 +298,10 @@ public class GuideActivity extends Activity {
             // TODO Auto-generated method stub
             setCurrentPos(position);
             for (int i = 0; i < imageViews.length; i++) {
-                imageViews[position].setBackgroundResource(R.mipmap.xuanzhong);
+                imageViews[position].setBackgroundResource(R.drawable.yuanxing_lanse);
                 //不是当前选中的page，其小圆点设置为未选中的状态
                 if (position != i) {
-                    imageViews[i].setBackgroundResource(R.mipmap.weixuan);
+                    imageViews[i].setBackgroundResource(R.drawable.yuanxing_huise);
                 }
             }
 
