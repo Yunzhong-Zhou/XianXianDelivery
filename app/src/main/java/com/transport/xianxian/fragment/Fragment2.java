@@ -501,7 +501,12 @@ public class Fragment2 extends BaseFragment {
                                                 mEndPoint = new DPoint(Double.valueOf(model.getAddr_list().get(i).getLat()), Double.valueOf(model.getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
 //                                                    juli = CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint);
                                                 tv6.setText("送货路程" + CommonUtil.distanceFormat(CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint)));//送货路程
-                                                tv7.setText(model.getAddr_list().get(i).getOther());//备注
+                                                if (!model.getAddr_list().get(i).getOther().equals("")){
+                                                    tv7.setVisibility(View.VISIBLE);
+                                                    tv7.setText(model.getAddr_list().get(i).getOther());//备注
+                                                }else {
+                                                    tv7.setVisibility(View.GONE);
+                                                }
                                                 TextView tv_daohang = view.findViewById(R.id.tv_daohang);
                                                 tv_daohang.setOnClickListener(new View.OnClickListener() {
                                                     @Override

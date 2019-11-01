@@ -1,6 +1,7 @@
 package com.transport.xianxian.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +10,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
+import com.transport.xianxian.model.AddSurchargeModel;
+import com.transport.xianxian.net.OkHttpClientManager;
+import com.transport.xianxian.net.URLs;
+import com.transport.xianxian.utils.MyLogger;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Map;
 
 /**
  * Created by zyz on 2019-10-20.
@@ -21,6 +33,8 @@ public class AddSurchargeActivity extends BaseActivity {
     TextView textView1, textView2;
     TextView tv_add, tv_baocun, tv_queren;
     LinearLayout add_ll;
+
+    String id = "", money1 = "", money2 = "", money3 = "", moneys = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,52 +68,89 @@ public class AddSurchargeActivity extends BaseActivity {
                 //保存
                 if (match()) {
                     showProgress(true, "正在上传数据，请稍后...");
-//                    params.put("token", localUserInfo.getToken());//token
-//                    params.put("id", model.getId());//id
-//                    params.put("start_at", start_at);//派工时间
-//                    params.put("end_at", end_at);//完工时间
-//                    params.put("secure_item", secure_item);//安全事项
-//                    params.put("implement_content", implement_content);//实施内容
-//                    params.put("client_mobile", client_mobile);//用户电话
-//                    params.put("client_name", client_name);//用户姓名
-//                    params.put("client_feedback", client_feedback);//用户反馈
-//                    params.put("visit_time", visit_time);//回访时间
-//                    params.put("visit_name", visit_name);//回访人
-//
-//                    params.put("manhour", manhour);//工时消耗（json数据：天/金额） 如：{ "day": "10", "money": "1000"}
-//                    params.put("mileage", mileage);//汽车消耗（json数据：KM/金额） 如：{ "length": "10", "money": "500"}
-//                    params.put("material", material);//材料消耗（json数据：种类/数量/金额） 如：[{ "material_id": "x01", "qty": 8, "money": "800"}, { "material_id": "x02", "qty": 20, "money": "2000"}]
-//                    RequestUpdata(params);
+                    params.put("token", localUserInfo.getToken());//token
+                    params.put("t_indent_id", id);//id
+                    params.put("type", "4");//附加费
+                    params.put("detail", moneys);//材料消耗（json数据：种类/数量/金额） 如：[{ "material_id": "x01", "qty": 8, "money": "800"}, { "material_id": "x02", "qty": 20, "money": "2000"}]
+                    RequestUpdata(params, 1);
                 }
                 break;
             case R.id.tv_queren:
                 //发送客户确认
                 if (match()) {
                     showProgress(true, "正在上传数据，请稍后...");
-//                    params.put("token", localUserInfo.getToken());//token
-//                    params.put("id", model.getId());//id
-//                    params.put("start_at", start_at);//派工时间
-//                    params.put("end_at", end_at);//完工时间
-//                    params.put("secure_item", secure_item);//安全事项
-//                    params.put("implement_content", implement_content);//实施内容
-//                    params.put("client_mobile", client_mobile);//用户电话
-//                    params.put("client_name", client_name);//用户姓名
-//                    params.put("client_feedback", client_feedback);//用户反馈
-//                    params.put("visit_time", visit_time);//回访时间
-//                    params.put("visit_name", visit_name);//回访人
-//
-//                    params.put("manhour", manhour);//工时消耗（json数据：天/金额） 如：{ "day": "10", "money": "1000"}
-//                    params.put("mileage", mileage);//汽车消耗（json数据：KM/金额） 如：{ "length": "10", "money": "500"}
-//                    params.put("material", material);//材料消耗（json数据：种类/数量/金额） 如：[{ "material_id": "x01", "qty": 8, "money": "800"}, { "material_id": "x02", "qty": 20, "money": "2000"}]
-//                    RequestUpdata(params);
+                    params.put("token", localUserInfo.getToken());//token
+                    params.put("t_indent_id", id);//id
+                    params.put("type", "4");//附加费
+                    params.put("detail", moneys);//材料消耗（json数据：种类/数量/金额） 如：[{ "material_id": "x01", "qty": 8, "money": "800"}, { "material_id": "x02", "qty": 20, "money": "2000"}]
+                    RequestUpdata(params, 2);
                 }
                 break;
         }
     }
 
+    private void RequestUpdata(Map<String, String> params, int i) {
+        OkHttpClientManager.postAsyn(AddSurchargeActivity.this, URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>司机-确认装货/卸货/发送附加费/附加费收取确认/转单确认" + response);
+//                myToast("确认成功");
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                if (i == 1) {
+                    finish();
+                }
+
+            }
+        }, false);
+    }
+
     @Override
     protected void initData() {
+        id = getIntent().getStringExtra("id");
+        showProgress(true, getString(R.string.app_loading));
+        params.put("token", localUserInfo.getToken());//token
+        params.put("t_indent_id", id);//id
+        params.put("type", "8");//获取附加费
+        Request(params);
+    }
 
+    private void Request(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(AddSurchargeActivity.this, URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<AddSurchargeModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(AddSurchargeModel response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>获取附加费" + response);
+
+            }
+        });
     }
 
     //添加材料布局
@@ -127,13 +178,14 @@ public class AddSurchargeActivity extends BaseActivity {
         });
         add_ll.addView(view);
     }
+
     private boolean match() {
-        /*//附加费标准
-        day = editText1.getText().toString().trim();
+        //附加费标准
+        /*day = editText1.getText().toString().trim();
         if (TextUtils.isEmpty(day)) {
             myToast("请输入附加费标准");
             return false;
-        }
+        }*/
         //逾时等候费
         money1 = editText2.getText().toString().trim();
         if (TextUtils.isEmpty(money1)) {
@@ -141,20 +193,30 @@ public class AddSurchargeActivity extends BaseActivity {
             return false;
         }
         //路桥费
-        length = editText3.getText().toString().trim();
-        if (TextUtils.isEmpty(length)) {
+        money2 = editText3.getText().toString().trim();
+        if (TextUtils.isEmpty(money2)) {
             showToast("请输入路桥费");
             return false;
         }
         //搬运费
-        money2 = editText4.getText().toString().trim();
-        if (TextUtils.isEmpty(money2)) {
+        money3 = editText4.getText().toString().trim();
+        if (TextUtils.isEmpty(money3)) {
             showToast("请输入搬运费");
             return false;
         }
 
         //材料消耗
-        JSONArray idCradArray = new JSONArray();
+        JSONArray moneyArray = new JSONArray();
+        try {
+            JSONObject object = new JSONObject();
+            object.put("逾时等候费", money1);
+            object.put("路桥费", money2);
+            object.put("搬运费", money3);
+            moneyArray.put(object);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         for (int i = 0; i < add_ll.getChildCount(); i++) {
             View childAt = add_ll.getChildAt(i);
             TextView textView_1 = (TextView) childAt.findViewById(R.id.textView_1);
@@ -166,9 +228,9 @@ public class AddSurchargeActivity extends BaseActivity {
                 try {
                     JSONObject stoneObject = new JSONObject();
 //                    stoneObject.put("id", textView_1.getText().toString());
-                    stoneObject.put("title", editText_1.getText().toString());
+                    stoneObject.put("name", editText_1.getText().toString());
                     stoneObject.put("money", editText_2.getText().toString().trim());
-                    idCradArray.put(stoneObject);
+                    moneyArray.put(stoneObject);
                 } catch (Exception e) {
                     // TODO: handle exception
                     e.printStackTrace();
@@ -179,11 +241,12 @@ public class AddSurchargeActivity extends BaseActivity {
             }
         }
 
-        material = idCradArray.toString();
-        MyLogger.i(">>>>>"+material);*/
+        moneys = moneyArray.toString();
+        MyLogger.i(">>>>>" + moneys);
 
         return true;
     }
+
     @Override
     protected void updateView() {
         titleView.setTitle("增加附加费");

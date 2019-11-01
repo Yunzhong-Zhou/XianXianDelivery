@@ -76,7 +76,7 @@ public class URLs {
      */
     public static final String OrderDetails_JieDan= "/api/driver/tindent/create";
     /**
-     * 确认的类型1确认装货2提醒司机装货3确认卸货4附加费5转单确认6取消订单7接收转单
+     * 确认的类型1确认装货2提醒司机装货3确认卸货4附加费5转单确认6取消订单7接收转单8获取附加费
      */
     public static final String OrderDetails_ZhuangHuo= "/api/driver/tindent/confirm";
     /**
@@ -84,9 +84,9 @@ public class URLs {
      */
     public static final String Fragment2 = "/api/driver/tindent/search";
     /**
-     * 购买算力
+     * 获取附加费
      */
-    public static final String BuyComputingPower = "/api/invest/create";
+    public static final String AddSurcharge = "/api/driver/tindent/search";
     /**
      * 购买区块
      */

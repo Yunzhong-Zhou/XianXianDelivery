@@ -544,7 +544,6 @@ public class Fragment1 extends BaseFragment {
                     if (list.size() > 0) {
                         list.clear();
                         recyclerView.removeAllViews();
-
                     }
 
 //                    stopAlarm();
@@ -985,13 +984,53 @@ public class Fragment1 extends BaseFragment {
                 //点击转单-掉接口1-生成二维码
                 //扫码-掉接口2-跳转到订单详情
                 if (scanResult != null && !scanResult.equals("")) {
-
-//                    Bundle bundle1 = new Bundle();
-//                    bundle1.putString("id", scanResult);
-//                    CommonUtil.gotoActivityWithData(QRCodeActivity.this, ScavengingPaymentActivity.class, bundle1, true);
+                    showToast("确认接受该单吗？", "确认", "取消",
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    showProgress(true, "正在获取转单信息...");
+                                    Map<String, String> params = new HashMap<>();
+                                    params.put("token", localUserInfo.getToken());
+                                    params.put("t_indent_id", scanResult);
+                                    params.put("type", "7");//转单确认
+                                    RequestZhuanDan(params);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    /*Bundle bundle1 = new Bundle();
+                    bundle1.putString("id", scanResult);
+                    CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class, bundle1, false);*/
                 }
             }
 
         }
+    }
+    private void RequestZhuanDan(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(getActivity(), URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>司机-转单确认" + response);
+//                myToast("确认成功");
+               /* Bundle bundle1 = new Bundle();
+                bundle1.putString("id", scanResult);
+                CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class, bundle1, false);*/
+            }
+        }, false);
     }
 }

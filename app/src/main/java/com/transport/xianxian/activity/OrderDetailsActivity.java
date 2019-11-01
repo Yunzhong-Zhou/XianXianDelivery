@@ -441,7 +441,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 //右边按钮
                 switch (tv_right.getText().toString().trim()) {
                     case "确认接单":
-                        showToast("确认接单吗？", "确认", "取消", new View.OnClickListener() {
+                        showToast("确认接受此单吗？", "确认", "取消", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 dialog.dismiss();

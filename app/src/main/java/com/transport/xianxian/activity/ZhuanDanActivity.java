@@ -1,5 +1,6 @@
 package com.transport.xianxian.activity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,6 +11,10 @@ import com.transport.xianxian.base.BaseActivity;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
 import com.transport.xianxian.utils.MyLogger;
+import com.transport.xianxian.utils.ZxingUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +51,7 @@ public class ZhuanDanActivity extends BaseActivity {
         showProgress(true, getString(R.string.app_loading));
         Map<String, String> params = new HashMap<>();
         params.put("token", localUserInfo.getToken());
-        params.put("id", id);
+        params.put("t_indent_id", id);
         params.put("type", "5");//转单确认
         RequestZhuanDan(params);
 
@@ -67,22 +72,18 @@ public class ZhuanDanActivity extends BaseActivity {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>司机-转单确认" + response);
-                myToast("确认成功");
-
-                /*//生成二维码
-        Bitmap mBitmap = ZxingUtils.createQRCodeBitmap(id, 480, 480);
-        imageView1.setImageBitmap(mBitmap);*/
-                /*JSONObject jObj;
+//                myToast("确认成功");
+                JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
-                    *//*JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
-                    MyLogger.i(">>>>>>>" + list.size());*//*
-                    myToast(jObj.getString("msg"));
+                    JSONObject data = jObj.getJSONObject("data");
+                    //生成二维码
+                    Bitmap mBitmap = ZxingUtils.createQRCodeBitmap(data.getString("id"), 480, 480);
+                    imageView1.setImageBitmap(mBitmap);
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }*/
+                }
             }
         }, false);
     }
