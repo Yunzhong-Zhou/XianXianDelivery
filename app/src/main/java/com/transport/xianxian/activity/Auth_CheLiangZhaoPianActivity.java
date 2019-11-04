@@ -50,7 +50,6 @@ import static com.transport.xianxian.utils.MyChooseImages.REQUEST_CODE_PICK_IMAG
  * 车辆照片
  */
 public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
-    boolean isfrist = true;
     int item = 0;
     RecyclerView recyclerView;
     List<Auth_CheLiangZhaoPianModel.CarTypeListBean> stringList = new ArrayList<>();
@@ -173,6 +172,7 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
                     }
                     HashMap<String, String> params = new HashMap<>();
                     params.put("car_type_id", stringList.get(item).getId() + "");
+                    params.put("type", "post_car_image");
                     params.put("token", localUserInfo.getToken());
                     RequestUpData(filenames, files, params);//
                 }
@@ -248,15 +248,13 @@ public class Auth_CheLiangZhaoPianActivity extends BaseActivity {
                         //车型描述
                         pageViews = new ArrayList<View>();
                         for (int i = 0; i < stringList.size(); i++) {
-                            //第一次
-                            if (isfrist){
-                                if (response.getCar_type_id().equals(stringList.get(i).getId())) {
-                                    item = i;
-                                    isfrist = false;
-                                }
+                            if (response.getCar_type_id().equals(stringList.get(i).getId())) {
+                                item = i;
                             }
                             pageViews.add(inflater.inflate(R.layout.item_auth_clzp_vp_page, null));
+
                         }
+
                         for (int i = 0; i < pageViews.size(); i++) {
                             ImageView iv = (ImageView) pageViews.get(i).findViewById(R.id.iv);
                             TextView tv1 = pageViews.get(i).findViewById(R.id.tv1);

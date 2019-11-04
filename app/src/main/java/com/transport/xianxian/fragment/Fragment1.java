@@ -992,7 +992,7 @@ public class Fragment1 extends BaseFragment {
                                     showProgress(true, "正在获取转单信息...");
                                     Map<String, String> params = new HashMap<>();
                                     params.put("token", localUserInfo.getToken());
-                                    params.put("t_indent_id", scanResult);
+                                    params.put("t_indent_confirm_id", scanResult);
                                     params.put("type", "7");//转单确认
                                     RequestZhuanDan(params);
                                 }
@@ -1007,9 +1007,9 @@ public class Fragment1 extends BaseFragment {
                     CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class, bundle1, false);*/
                 }
             }
-
         }
     }
+
     private void RequestZhuanDan(Map<String, String> params) {
         OkHttpClientManager.postAsyn(getActivity(), URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -1027,9 +1027,19 @@ public class Fragment1 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>司机-转单确认" + response);
 //                myToast("确认成功");
-               /* Bundle bundle1 = new Bundle();
-                bundle1.putString("id", scanResult);
-                CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class, bundle1, false);*/
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                    JSONObject data = jObj.getJSONObject("data");
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString("id", data.getString("id"));
+                    CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class, bundle1, false);
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
             }
         }, false);
     }
