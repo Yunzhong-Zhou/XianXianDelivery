@@ -47,6 +47,7 @@
                         android:background="@drawable/yuanjiaobiankuang_5_huise"
                         android:hint="适用地方"
                         android:padding="10dp"
+                        android:editable="false"
                         android:textColor="@color/black1"
                         android:textColorHint="@color/black3"
                         android:textSize="13sp" />

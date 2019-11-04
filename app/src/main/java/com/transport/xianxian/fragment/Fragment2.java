@@ -32,8 +32,6 @@ import com.transport.xianxian.activity.OrderDetailsActivity;
 import com.transport.xianxian.activity.ZhuanDanActivity;
 import com.transport.xianxian.base.BaseFragment;
 import com.transport.xianxian.model.Fragment2Model1;
-import com.transport.xianxian.model.Fragment2Model2;
-import com.transport.xianxian.model.Fragment2Model3;
 import com.transport.xianxian.model.OrderDetailsModel;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
@@ -67,11 +65,11 @@ public class Fragment2 extends BaseFragment {
     List<Fragment2Model1> list1 = new ArrayList<>();
     CommonAdapter<Fragment2Model1> mAdapter1;
 
-    List<Fragment2Model2> list2 = new ArrayList<>();
-    CommonAdapter<Fragment2Model2> mAdapter2;
+    List<Fragment2Model1> list2 = new ArrayList<>();
+    CommonAdapter<Fragment2Model1> mAdapter2;
 
-    List<Fragment2Model3> list3 = new ArrayList<>();
-    CommonAdapter<Fragment2Model3> mAdapter3;
+    List<Fragment2Model1> list3 = new ArrayList<>();
+    CommonAdapter<Fragment2Model1> mAdapter3;
 
     private LinearLayout linearLayout1, linearLayout2, linearLayout3;
     private TextView textView1, textView2, textView3;
@@ -501,10 +499,10 @@ public class Fragment2 extends BaseFragment {
                                                 mEndPoint = new DPoint(Double.valueOf(model.getAddr_list().get(i).getLat()), Double.valueOf(model.getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
 //                                                    juli = CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint);
                                                 tv6.setText("送货路程" + CommonUtil.distanceFormat(CoordinateConverter.calculateLineDistance(mStartPoint, mEndPoint)));//送货路程
-                                                if (!model.getAddr_list().get(i).getOther().equals("")){
+                                                if (!model.getAddr_list().get(i).getOther().equals("")) {
                                                     tv7.setVisibility(View.VISIBLE);
                                                     tv7.setText(model.getAddr_list().get(i).getOther());//备注
-                                                }else {
+                                                } else {
                                                     tv7.setVisibility(View.GONE);
                                                 }
                                                 TextView tv_daohang = view.findViewById(R.id.tv_daohang);
@@ -525,10 +523,10 @@ public class Fragment2 extends BaseFragment {
                                                     }
                                                 });
 
-                                                if (model.getAddr_list().get(i).getIs_show() == 1){
+                                                if (model.getAddr_list().get(i).getIs_show() == 1) {
                                                     iv1.setVisibility(View.VISIBLE);
                                                     tv_daohang.setVisibility(View.VISIBLE);
-                                                }else {
+                                                } else {
                                                     iv1.setVisibility(View.GONE);
                                                     tv_daohang.setVisibility(View.GONE);
                                                 }
@@ -725,48 +723,63 @@ public class Fragment2 extends BaseFragment {
                                     /**
                                      * *************************已完成**************************************
                                      * */
-                                    list2 = JSON.parseArray(jsonArray.toString(), Fragment2Model2.class);
-                                    mAdapter2 = new CommonAdapter<Fragment2Model2>
+                                    list2 = JSON.parseArray(jsonArray.toString(), Fragment2Model1.class);
+                                    mAdapter2 = new CommonAdapter<Fragment2Model1>
                                             (getActivity(), R.layout.item_fragment2_2, list2) {
                                         @Override
-                                        protected void convert(ViewHolder holder, Fragment2Model2 model, int position) {
-                        /*holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
-                        holder.setText(R.id.textView3, model.getShow_created_at());
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
+                                        protected void convert(ViewHolder holder, Fragment2Model1 model, int position) {
+//                                            holder.setText(R.id.textView1, model.getNow_state_action());//状态
+                                            holder.setText(R.id.textView2, model.getUser_type());//专车
+//                                            holder.setText(R.id.textView3, );//附加费未收取
+                                            holder.setText(R.id.textView4, model.getNow_state() + model.getNow_state_action());//几点卸货/装货
+                                            holder.setText(R.id.textView5, "送货用时：" + model.getSend_time());//送货用时：time
+                                            holder.setText(R.id.textView6, "比预定卸货时间：" + model.getCompare_time());//比预定卸货时间：time
+                                            ImageView imageView1 = holder.getView(R.id.imageView1);
+                                            if (!model.getSend_head().equals(""))
+                                                Glide.with(getActivity())
+                                                        .load(IMGHOST + model.getSend_head())
+                                                        .centerCrop()
 //                                    .placeholder(R.mipmap.headimg)//加载站位图
 //                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);*/
+                                                        .into(imageView1);//加载图片
+                                            holder.setText(R.id.textView7, model.getSend_name());//姓名
+                                            holder.setText(R.id.textView8, model.getIndustry());//行业
+                                            holder.setText(R.id.textView9, "货源单号" + model.getSn());//货源单号
+                                            holder.setText(R.id.textView10, model.getCreated_at() + " 发布");//发布时间
+                                            holder.setText(R.id.textView11, model.getRemark());//备注
+                                            holder.setText(R.id.textView12, "¥ " + model.getPrice());//订单金额
+                                            holder.setText(R.id.textView13, "" + model.getPrice() + "元");//起步价
+                                            holder.setText(R.id.textView14, "" + model.getPrice() + "元");//里程费
 
-                                            //标签
-                                            FlowLayoutAdapter<String> flowLayoutAdapter;
-                                            List<String> list = new ArrayList<>();
-                                            list.add("专车");
-                                            list.add("6吨");
-                                            list.add("15-20℃恒温");
-                                            flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                                            //地址列表
+                                            for (int i = 0; i < model.getAddr_list().size(); i++) {
+                                                //起点
+                                                if (i == 0) {
+                                                    holder.setText(R.id.tv_time1, CommonUtil.timedate1(model.getAddr_list().get(i).getArrive_time()) + " 装货");
+                                                    holder.setText(R.id.tv_addr1, model.getAddr_list().get(i).getAddr());
+                                                    holder.setText(R.id.tv_title1, model.getAddr_list().get(i).getAddr_detail());
+                                                    holder.setText(R.id.tv_juli1, "送货路程" + CommonUtil.distanceFormat(Double.valueOf(model.getAddr_list().get(i).getMileage())));
+                                                }
+                                                //终点
+                                                if (i == model.getAddr_list().size() - 1) {
+                                                    holder.setText(R.id.tv_time2, CommonUtil.timedate1(model.getAddr_list().get(i).getLeave_time()) + " 卸货");
+                                                    holder.setText(R.id.tv_addr2, model.getAddr_list().get(i).getAddr());
+                                                    holder.setText(R.id.tv_title2, model.getAddr_list().get(i).getAddr_detail());
+                                                    holder.setText(R.id.tv_juli2, "送货路程" + CommonUtil.distanceFormat(Double.valueOf(model.getAddr_list().get(i).getMileage())));
+                                                }
+                                            }
+
+                                            //客户要求
+                                            FlowLayoutAdapter<String> flowLayoutAdapter1;
+                                            flowLayoutAdapter1 = new FlowLayoutAdapter<String>(model.getTag()) {
                                                 @Override
                                                 public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
-//                                holder.setText(R.id.tv,bean);
                                                     TextView tv = holder.getView(R.id.tv);
                                                     tv.setText(bean);
-                                /*if (position == 0){
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                                }else {
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
-                                }*/
                                                 }
 
                                                 @Override
                                                 public void onItemClick(int position, String bean) {
-
-//                                showToast("点击" + position);
                                                 }
 
                                                 @Override
@@ -774,16 +787,89 @@ public class Fragment2 extends BaseFragment {
                                                     return R.layout.item_flowlayout;
                                                 }
                                             };
-                                            ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter);
-                                            ((FlowLayout) holder.getView(R.id.flowLayout2)).setAdapter(flowLayoutAdapter);
+                                            ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter1);
 
+                                            //货物描述
+                                            FlowLayoutAdapter<String> flowLayoutAdapter2;
+                                            flowLayoutAdapter2 = new FlowLayoutAdapter<String>(model.getGoods_desc()) {
+                                                @Override
+                                                public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+                                                    TextView tv = holder.getView(R.id.tv);
+                                                    tv.setText(bean);
+                                                }
+
+                                                @Override
+                                                public void onItemClick(int position, String bean) {
+                                                }
+
+                                                @Override
+                                                public int getItemLayoutID(int position, String bean) {
+                                                    return R.layout.item_flowlayout;
+                                                }
+                                            };
+                                            ((FlowLayout) holder.getView(R.id.flowLayout2)).setAdapter(flowLayoutAdapter2);
+
+                                            //收取附加费
+                                            holder.getView(R.id.tv_shouqu).setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    Bundle bundle = new Bundle();
+                                                    bundle.putString("id", model.getId());
+                                                    CommonUtil.gotoActivityWithData(getActivity(), AddSurchargeActivity.class, bundle, false);
+                                                }
+                                            });
+                                            //行驶轨迹
+                                            holder.getView(R.id.tv_guiji).setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+
+                                                }
+                                            });
                                             //去聊天
                                             holder.getView(R.id.iv_xinxi).setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {
                                                     Bundle bundle = new Bundle();
-                                                    bundle.putString(EaseConstant.EXTRA_USER_ID, "18306043086");
+                                                    bundle.putString(EaseConstant.EXTRA_USER_ID, model.getSend_mobile());
                                                     CommonUtil.gotoActivityWithData(getActivity(), ChatActivity.class, bundle, false);
+                                                }
+                                            });
+                                            //拨打电话
+                                            holder.getView(R.id.iv_dianhua).setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    showToast("确认拨打 " + model.getSend_mobile() + " 吗？", "确认", "取消",
+                                                            new View.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(View v) {
+                                                                    dialog.dismiss();
+                                                                    //创建打电话的意图
+                                                                    Intent intent = new Intent();
+                                                                    //设置拨打电话的动作
+                                                                    intent.setAction(Intent.ACTION_CALL);//直接拨出电话
+//                                                                        intent.setAction(Intent.ACTION_DIAL);//只调用拨号界面，不拨出电话
+                                                                    //设置拨打电话的号码
+                                                                    intent.setData(Uri.parse("tel:" + model.getSend_mobile()));
+                                                                    //开启打电话的意图
+                                                                    startActivity(intent);
+                                                                }
+                                                            }, new View.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(View v) {
+                                                                    dialog.dismiss();
+                                                                }
+                                                            });
+
+
+                                                }
+                                            });
+                                            //附加费
+                                            holder.getView(R.id.tv_fujiafei).setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    Bundle bundle = new Bundle();
+                                                    bundle.putString("id", model.getId());
+                                                    CommonUtil.gotoActivityWithData(getActivity(), AddSurchargeActivity.class, bundle, false);
                                                 }
                                             });
                                         }
@@ -794,48 +880,49 @@ public class Fragment2 extends BaseFragment {
                                     /**
                                      * *************************已取消**************************************
                                      * */
-                                    list3 = JSON.parseArray(jsonArray.toString(), Fragment2Model3.class);
-                                    mAdapter3 = new CommonAdapter<Fragment2Model3>
+                                    list3 = JSON.parseArray(jsonArray.toString(), Fragment2Model1.class);
+                                    mAdapter3 = new CommonAdapter<Fragment2Model1>
                                             (getActivity(), R.layout.item_fragment2_3, list3) {
                                         @Override
-                                        protected void convert(ViewHolder holder, Fragment2Model3 model, int position) {
-                        /*holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
-                        holder.setText(R.id.textView3, model.getShow_created_at());
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);*/
+                                        protected void convert(ViewHolder holder, Fragment2Model1 model, int position) {
+                                            holder.setText(R.id.textView1, model.getNow_state_action());//状态
+                                            holder.setText(R.id.textView2, "货源单号" + model.getSn());//货源单号
+                                            holder.setText(R.id.textView3, model.getCreated_at() + " 发布");//发布时间
+                                            holder.setText(R.id.textView4, model.getRemark());//备注
+                                            holder.setText(R.id.textView5, "¥ " + model.getPrice());//订单金额
+                                            holder.setText(R.id.textView6, "" + model.getPrice() + "元");//起步价
+                                            holder.setText(R.id.textView7, "" + model.getPrice() + "元");//里程费
+//                                            holder.setText(R.id.textView8, "" + model.get);//取消理由
 
-                                            //标签
-                                            FlowLayoutAdapter<String> flowLayoutAdapter;
-                                            List<String> list = new ArrayList<>();
-                                            list.add("专车");
-                                            list.add("6吨");
-                                            list.add("15-20℃恒温");
-                                            flowLayoutAdapter = new FlowLayoutAdapter<String>(list) {
+                                            //地址列表
+                                            for (int i = 0; i < model.getAddr_list().size(); i++) {
+                                                //起点
+                                                if (i == 0) {
+                                                    holder.setText(R.id.tv_time1, CommonUtil.timedate1(model.getAddr_list().get(i).getArrive_time()) + " 装货");
+                                                    holder.setText(R.id.tv_addr1, model.getAddr_list().get(i).getAddr());
+                                                    holder.setText(R.id.tv_title1, model.getAddr_list().get(i).getAddr_detail());
+                                                    holder.setText(R.id.tv_juli1, "送货路程" + CommonUtil.distanceFormat(Double.valueOf(model.getAddr_list().get(i).getMileage())));
+                                                }
+                                                //终点
+                                                if (i == model.getAddr_list().size() - 1) {
+                                                    holder.setText(R.id.tv_time2, CommonUtil.timedate1(model.getAddr_list().get(i).getLeave_time()) + " 卸货");
+                                                    holder.setText(R.id.tv_addr2, model.getAddr_list().get(i).getAddr());
+                                                    holder.setText(R.id.tv_title2, model.getAddr_list().get(i).getAddr_detail());
+                                                    holder.setText(R.id.tv_juli2, "送货路程" + CommonUtil.distanceFormat(Double.valueOf(model.getAddr_list().get(i).getMileage())));
+                                                }
+                                            }
+
+                                            //客户要求
+                                            FlowLayoutAdapter<String> flowLayoutAdapter1;
+                                            flowLayoutAdapter1 = new FlowLayoutAdapter<String>(model.getTag()) {
                                                 @Override
                                                 public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
-//                                holder.setText(R.id.tv,bean);
                                                     TextView tv = holder.getView(R.id.tv);
                                                     tv.setText(bean);
-                                /*if (position == 0){
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                                }else {
-                                    tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
-                                }*/
                                                 }
 
                                                 @Override
                                                 public void onItemClick(int position, String bean) {
-
-//                                showToast("点击" + position);
                                                 }
 
                                                 @Override
@@ -843,18 +930,27 @@ public class Fragment2 extends BaseFragment {
                                                     return R.layout.item_flowlayout;
                                                 }
                                             };
-                                            ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter);
-                                            ((FlowLayout) holder.getView(R.id.flowLayout2)).setAdapter(flowLayoutAdapter);
+                                            ((FlowLayout) holder.getView(R.id.flowLayout1)).setAdapter(flowLayoutAdapter1);
 
-                                            //去聊天
-                                            holder.getView(R.id.iv_xinxi).setOnClickListener(new View.OnClickListener() {
+                                            //货物描述
+                                            FlowLayoutAdapter<String> flowLayoutAdapter2;
+                                            flowLayoutAdapter2 = new FlowLayoutAdapter<String>(model.getGoods_desc()) {
                                                 @Override
-                                                public void onClick(View v) {
-                                                    Bundle bundle = new Bundle();
-                                                    bundle.putString(EaseConstant.EXTRA_USER_ID, "18306043086");
-                                                    CommonUtil.gotoActivityWithData(getActivity(), ChatActivity.class, bundle, false);
+                                                public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
+                                                    TextView tv = holder.getView(R.id.tv);
+                                                    tv.setText(bean);
                                                 }
-                                            });
+
+                                                @Override
+                                                public void onItemClick(int position, String bean) {
+                                                }
+
+                                                @Override
+                                                public int getItemLayoutID(int position, String bean) {
+                                                    return R.layout.item_flowlayout;
+                                                }
+                                            };
+                                            ((FlowLayout) holder.getView(R.id.flowLayout2)).setAdapter(flowLayoutAdapter2);
                                         }
                                     };
                                     break;
@@ -915,8 +1011,8 @@ public class Fragment2 extends BaseFragment {
                             }
                             break;
                         case 2:
-                            List<Fragment2Model2> list2_1 = new ArrayList<>();
-                            list2_1 = JSON.parseArray(jsonArray.toString(), Fragment2Model2.class);
+                            List<Fragment2Model1> list2_1 = new ArrayList<>();
+                            list2_1 = JSON.parseArray(jsonArray.toString(), Fragment2Model1.class);
                             if (list2_1.size() == 0) {
                                 page2--;
                                 myToast(getString(R.string.app_nomore));
@@ -926,8 +1022,8 @@ public class Fragment2 extends BaseFragment {
                             }
                             break;
                         case 3:
-                            List<Fragment2Model3> list3_1 = new ArrayList<>();
-                            list3_1 = JSON.parseArray(jsonArray.toString(), Fragment2Model3.class);
+                            List<Fragment2Model1> list3_1 = new ArrayList<>();
+                            list3_1 = JSON.parseArray(jsonArray.toString(), Fragment2Model1.class);
                             if (list3_1.size() == 0) {
                                 page3--;
                                 myToast(getString(R.string.app_nomore));

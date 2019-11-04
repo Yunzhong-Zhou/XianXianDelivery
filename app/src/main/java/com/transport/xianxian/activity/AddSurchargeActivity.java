@@ -54,6 +54,44 @@ public class AddSurchargeActivity extends BaseActivity {
         tv_baocun = findViewByID_My(R.id.tv_baocun);
         tv_queren = findViewByID_My(R.id.tv_queren);
         add_ll = findViewByID_My(R.id.add_ll);
+
+        //失去焦点时触发
+        editText2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 此处为得到焦点时的处理内容
+                } else {
+                    // 此处为失去焦点时的处理内容
+                    MyLogger.i(">>>>>>>>>>" + editText2.getText().toString().trim());
+                    addMoney();
+                }
+            }
+        });
+        editText3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 此处为得到焦点时的处理内容
+                } else {
+                    // 此处为失去焦点时的处理内容
+                    MyLogger.i(">>>>>>>>>>" + editText3.getText().toString().trim());
+                    addMoney();
+                }
+            }
+        });
+        editText4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 此处为得到焦点时的处理内容
+                } else {
+                    // 此处为失去焦点时的处理内容
+                    MyLogger.i(">>>>>>>>>>" + editText4.getText().toString().trim());
+                    addMoney();
+                }
+            }
+        });
     }
 
     @Override
@@ -71,6 +109,7 @@ public class AddSurchargeActivity extends BaseActivity {
                     params.put("token", localUserInfo.getToken());//token
                     params.put("t_indent_id", id);//id
                     params.put("type", "4");//附加费
+                    params.put("option", "save");//保存
                     params.put("detail", moneys);//材料消耗（json数据：种类/数量/金额） 如：[{ "material_id": "x01", "qty": 8, "money": "800"}, { "material_id": "x02", "qty": 20, "money": "2000"}]
                     RequestUpdata(params, 1);
                 }
@@ -82,6 +121,7 @@ public class AddSurchargeActivity extends BaseActivity {
                     params.put("token", localUserInfo.getToken());//token
                     params.put("t_indent_id", id);//id
                     params.put("type", "4");//附加费
+                    params.put("option", "send");//发送
                     params.put("detail", moneys);//材料消耗（json数据：种类/数量/金额） 如：[{ "material_id": "x01", "qty": 8, "money": "800"}, { "material_id": "x02", "qty": 20, "money": "2000"}]
                     RequestUpdata(params, 2);
                 }
@@ -148,9 +188,43 @@ public class AddSurchargeActivity extends BaseActivity {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>获取附加费" + response);
+                editText1.setText(response.getCity());
+                textView1.setText(response.getRule());
 
+                if (response.getAttach().size() > 3) {
+                    editText2.setText(response.getAttach().get(0).getMoney());
+                    editText3.setText(response.getAttach().get(1).getMoney());
+                    editText4.setText(response.getAttach().get(2).getMoney());
+                    for (int i = 3; i < response.getAttach().size(); i++) {
+                        addView(response.getAttach().get(i).getName(), response.getAttach().get(i).getMoney());
+                    }
+                }
+                //合计
+                addMoney();
             }
         });
+    }
+
+    private void addMoney() {
+        double allMoney = 0;
+        if (!editText2.getText().toString().trim().equals("")){
+            allMoney += Double.valueOf(editText2.getText().toString().trim());
+        }
+        if (!editText3.getText().toString().trim().equals("")){
+            allMoney += Double.valueOf(editText3.getText().toString().trim());
+        }
+        if (!editText4.getText().toString().trim().equals("")){
+            allMoney += Double.valueOf(editText4.getText().toString().trim());
+        }
+
+        for (int i = 0; i < add_ll.getChildCount(); i++) {
+            View childAt = add_ll.getChildAt(i);
+            EditText editText_2 = (EditText) childAt.findViewById(R.id.editText_2);
+            if (!TextUtils.isEmpty(editText_2.getText().toString())) {
+                allMoney += Double.valueOf(editText_2.getText().toString().trim());
+            }
+        }
+        textView2.setText("¥ "+allMoney);
     }
 
     //添加材料布局
@@ -174,6 +248,20 @@ public class AddSurchargeActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 editText_1.setText("");
+            }
+        });
+
+        //失去焦点时触发
+        editText_2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 此处为得到焦点时的处理内容
+                } else {
+                    // 此处为失去焦点时的处理内容
+                    MyLogger.i(">>>>>>>>>>" + editText_2.getText().toString().trim());
+                    addMoney();
+                }
             }
         });
         add_ll.addView(view);
@@ -208,11 +296,19 @@ public class AddSurchargeActivity extends BaseActivity {
         //材料消耗
         JSONArray moneyArray = new JSONArray();
         try {
-            JSONObject object = new JSONObject();
-            object.put("逾时等候费", money1);
-            object.put("路桥费", money2);
-            object.put("搬运费", money3);
-            moneyArray.put(object);
+            JSONObject object1 = new JSONObject();
+            object1.put("name", "逾时等候费");
+            object1.put("money", money1);
+            moneyArray.put(object1);
+            JSONObject object2 = new JSONObject();
+            object2.put("name", "路桥费");
+            object2.put("money", money2);
+            moneyArray.put(object2);
+            JSONObject object3 = new JSONObject();
+            object3.put("name", "搬运费");
+            object3.put("money", money3);
+            moneyArray.put(object3);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

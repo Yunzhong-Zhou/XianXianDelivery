@@ -10,195 +10,35 @@
     android:orientation="vertical"
     android:padding="14dp">
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="17sp"
+        android:text="拒单" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:text="已装货"
-            android:textColor="@color/orange"
-            android:textSize="17sp" />
-
-        <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="配送中"
-            android:textColor="@color/black1"
-            android:textSize="17sp" />
+            android:layout_weight="1"
+            android:text="货源单号num"
+            android:textColor="@color/black3"
+            android:textSize="11sp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/yuanjiao_3_lanse"
-            android:paddingLeft="10dp"
-            android:paddingTop="4dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="4dp"
-            android:text="专车"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/tv_shunfengche"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/yuanjiao_3_huise"
-            android:drawableRight="@mipmap/ic_next_black"
-            android:gravity="center"
-            android:paddingLeft="7dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:text="搜索顺风车订单"
-            android:textColor="@color/black2"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="8月8日 6:03 卸货" />
-
-        <TextView
-            android:id="@+id/tv_zhuandan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/yuanjiao_3_huise"
-            android:drawableRight="@mipmap/ic_next_black"
-            android:gravity="center"
-            android:paddingLeft="7dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:text="转单给其他司机"
-            android:textColor="@color/black2"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/xian" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <com.joooonho.SelectableRoundedImageView
-            android:id="@+id/imageView1"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:background="@mipmap/headimg"
-            app:sriv_oval="true" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="发货联系人"
-                android:textColor="@color/black2"
-                android:textSize="12sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NAME"
-                    android:textColor="@color/black1"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="餐饮业"
-                    android:textColor="@color/black2"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/iv_xinxi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:src="@mipmap/ic_xinxi" />
-
-        <ImageView
-            android:id="@+id/iv_dianhua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:src="@mipmap/ic_dianhua" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="货源单号11818765444443"
-            android:textColor="@color/black3"
-            android:textSize="11sp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="8月7日 09:00 发布"
+            android:text="time 发布"
             android:textColor="@color/black3"
             android:textSize="11sp" />
 
@@ -241,7 +81,7 @@
 
             <View
                 android:layout_width="35dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="-10dp"
                 android:layout_marginRight="-10dp"
                 android:layout_weight="1"
@@ -259,17 +99,35 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_time1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="time 装货"
+                    android:textColor="@color/black3"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
             <TextView
+                android:id="@+id/tv_addr1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minLines="2"
-                android:text="广东省深圳市南山区蛇口沿山路与工业六路交界创业园A栋01室" />
-
+                android:layout_marginTop="4dp"
+                android:textSize="13sp"
+                android:text="address2" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -277,27 +135,47 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_title1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="泛娱科技"
+                    android:text="name"
+                    android:textColor="@color/black3"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tv_juli1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="送货路程0km"
+                    android:textColor="@color/black3"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_time2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="time 卸货"
                     android:textColor="@color/black3"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="距您7.5km"
-                    android:textColor="@color/black3"
-                    android:textSize="12sp" />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_addr2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:minLines="2"
-                android:text="广东省深圳市南山区蛇口沿山路与工业六路交界创业园A栋01室" />
+                android:text="address2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -306,17 +184,19 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_title2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="泛娱科技"
+                    android:text="name"
                     android:textColor="@color/black3"
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/tv_juli2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="距您7.5km"
+                    android:text="送货路程0km"
                     android:textColor="@color/black3"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -385,11 +265,11 @@
         android:textSize="11sp" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:text="装货时间有限，请提前到达找好位置。"
+        android:text="备注"
         android:textColor="@color/black1"
         android:textSize="12sp" />
 
@@ -408,7 +288,7 @@
             android:textSize="11sp" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¥ 0.00"
@@ -446,7 +326,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="100元"
@@ -469,7 +349,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="100元"
@@ -477,31 +357,28 @@
             android:textSize="17sp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_fujiafei"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/yuanjiao_3_lanse"
-        android:drawableRight="@mipmap/ic_next_white1"
-        android:gravity="center"
-        android:paddingLeft="7dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:text="编辑附加费"
-        android:textColor="@color/white"
-        android:textSize="12sp" />
+        android:background="@color/xian" />
 
     <TextView
-        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="若产生额外费用，如停车费和搬运费，请额外收取，若涉及逾时等候费，请接单后于附加费按标准结算"
-        android:textColor="@color/black3"
-        android:lineSpacingExtra="4dp"
+        android:text="取消理由"
+        android:textColor="@color/black2"
         android:textSize="11sp" />
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="取消理由"
+        android:textColor="@color/black2"
+        android:lineSpacingExtra="4dp"
+        android:textSize="12sp" />
 
 
 </LinearLayout>

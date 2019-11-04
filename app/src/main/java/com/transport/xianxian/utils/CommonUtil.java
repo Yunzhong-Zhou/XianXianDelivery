@@ -555,7 +555,7 @@ public class CommonUtil {
      * @return
      */
     public static String timedate1(String time) {
-        SimpleDateFormat sdr = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat sdr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         @SuppressWarnings("unused")
         long lcc = Long.valueOf(time);
         int i = Integer.parseInt(time);
