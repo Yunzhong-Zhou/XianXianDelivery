@@ -1,16 +1,24 @@
 package com.transport.xianxian.activity;
 
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amap.api.location.CoordinateConverter;
 import com.amap.api.location.DPoint;
@@ -24,6 +32,16 @@ import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.TruckPath;
 import com.amap.api.services.route.TruckRouteRestult;
+import com.amap.api.track.AMapTrackClient;
+import com.amap.api.track.ErrorCode;
+import com.amap.api.track.OnTrackLifecycleListener;
+import com.amap.api.track.TrackParam;
+import com.amap.api.track.query.model.AddTerminalRequest;
+import com.amap.api.track.query.model.AddTerminalResponse;
+import com.amap.api.track.query.model.AddTrackRequest;
+import com.amap.api.track.query.model.AddTrackResponse;
+import com.amap.api.track.query.model.QueryTerminalRequest;
+import com.amap.api.track.query.model.QueryTerminalResponse;
 import com.bumptech.glide.Glide;
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
@@ -31,6 +49,9 @@ import com.hyphenate.easeui.EaseConstant;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
+import com.transport.xianxian.lieying.Constants;
+import com.transport.xianxian.lieying.SimpleOnTrackLifecycleListener;
+import com.transport.xianxian.lieying.SimpleOnTrackListener;
 import com.transport.xianxian.model.OrderDetailsModel;
 import com.transport.xianxian.net.OkHttpClientManager;
 import com.transport.xianxian.net.URLs;
@@ -71,9 +92,95 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10, textView11,
             tv_addr1, tv_title1, tv_juli1, tv_addr2, tv_title2, tv_juli2, tv_shouqi, tv_left, tv_right;
 
+    //开始点、结束点、计算距离
     double lat = 0, lng = 0, juli = 0;
     private DPoint mStartDPoint = null;
     private DPoint mEndDPoint = null;
+
+    //轨迹
+    private static final String TAG = "TrackServiceActivity";
+    private static final String CHANNEL_ID_SERVICE_RUNNING = "CHANNEL_ID_SERVICE_RUNNING";
+    private AMapTrackClient aMapTrackClient;
+
+    private long terminalId;
+    private long trackId;
+
+    private OnTrackLifecycleListener onTrackListener = new SimpleOnTrackLifecycleListener() {
+        @Override
+        public void onBindServiceCallback(int status, String msg) {
+            Log.w(TAG, "onBindServiceCallback, status: " + status + ", msg: " + msg);
+        }
+
+        @Override
+        public void onStartTrackCallback(int status, String msg) {
+            if (status == ErrorCode.TrackListen.START_TRACK_SUCEE || status == ErrorCode.TrackListen.START_TRACK_SUCEE_NO_NETWORK) {
+                // 成功启动
+//                Toast.makeText(OrderDetailsActivity.this, "启动服务成功", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报启动服务成功");
+                //采集点
+                aMapTrackClient.setTrackId(trackId);
+                aMapTrackClient.startGather(onTrackListener);
+
+            } else if (status == ErrorCode.TrackListen.START_TRACK_ALREADY_STARTED) {
+                // 已经启动
+//                Toast.makeText(OrderDetailsActivity.this, "服务已经启动", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报启动服务已经启动");
+                //采集点
+                aMapTrackClient.setTrackId(trackId);
+                aMapTrackClient.startGather(onTrackListener);
+            } else {
+                Log.w(TAG, "error onStartTrackCallback, status: " + status + ", msg: " + msg);
+               /* Toast.makeText(OrderDetailsActivity.this,
+                        "error onStartTrackCallback, status: " + status + ", msg: " + msg,
+                        Toast.LENGTH_LONG).show();*/
+            }
+        }
+
+        @Override
+        public void onStopTrackCallback(int status, String msg) {
+            if (status == ErrorCode.TrackListen.STOP_TRACK_SUCCE) {
+                // 成功停止
+//                Toast.makeText(TrackServiceActivity.this, "停止服务成功", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报停止服务成功");
+            } else {
+                Log.w(TAG, "error onStopTrackCallback, status: " + status + ", msg: " + msg);
+                /*Toast.makeText(TrackServiceActivity.this,
+                        "error onStopTrackCallback, status: " + status + ", msg: " + msg,
+                        Toast.LENGTH_LONG).show();*/
+
+            }
+        }
+
+        @Override
+        public void onStartGatherCallback(int status, String msg) {
+            if (status == ErrorCode.TrackListen.START_GATHER_SUCEE) {
+//                Toast.makeText(TrackServiceActivity.this, "定位采集开启成功", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报-定位采集开启成功");
+            } else if (status == ErrorCode.TrackListen.START_GATHER_ALREADY_STARTED) {
+//                Toast.makeText(TrackServiceActivity.this, "定位采集已经开启", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报-定位采集已经开启");
+            } else {
+                Log.w(TAG, "error onStartGatherCallback, status: " + status + ", msg: " + msg);
+                /*Toast.makeText(TrackServiceActivity.this,
+                        "error onStartGatherCallback, status: " + status + ", msg: " + msg,
+                        Toast.LENGTH_LONG).show();*/
+            }
+        }
+
+        @Override
+        public void onStopGatherCallback(int status, String msg) {
+            if (status == ErrorCode.TrackListen.STOP_GATHER_SUCCE) {
+//                Toast.makeText(TrackServiceActivity.this, "定位采集停止成功", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报-定位采集停止成功");
+
+            } else {
+                Log.w(TAG, "error onStopGatherCallback, status: " + status + ", msg: " + msg);
+                /*Toast.makeText(TrackServiceActivity.this,
+                        "error onStopGatherCallback, status: " + status + ", msg: " + msg,
+                        Toast.LENGTH_LONG).show();*/
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +190,11 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         mapView = (MapView) findViewById(R.id.route_map);
         mapView.onCreate(savedInstanceState);// 此方法必须重写
         init();
+
+        //轨迹
+        // 不要使用Activity作为Context传入
+        aMapTrackClient = new AMapTrackClient(getApplicationContext());
+        aMapTrackClient.setInterval(5, 30);
     }
 
     /**
@@ -120,6 +232,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     protected void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+//        aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, terminalId), new SimpleOnTrackLifecycleListener());
     }
 
     @Override
@@ -424,6 +537,10 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             @Override
                             public void onClick(View v) {
                                 dialog.dismiss();
+                                //停止轨迹上报
+                                aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, terminalId), onTrackListener);
+                                aMapTrackClient.stopGather(onTrackListener);
+                                //跳转转单
                                 Bundle bundle = new Bundle();
                                 bundle.putString("id", model.getTindent().getId());
                                 CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, ZhuanDanActivity.class, bundle, false);
@@ -445,11 +562,11 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             @Override
                             public void onClick(View v) {
                                 dialog.dismiss();
-                                Map<String, String> params = new HashMap<>();
-                                params.put("token", localUserInfo.getToken());
-                                params.put("id", model.getTindent().getId());
-                                params.put("action", "2");//接单
-                                RequestJieDan(params, 2);
+
+                                //轨迹上报-创建成功后接单
+                                showProgress(true, "接单中，请稍候...");
+                                startTrack();
+
 
                             }
                         }, new View.OnClickListener() {
@@ -468,6 +585,9 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                         CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
                         break;
                     case "配送完闭":
+                        //停止轨迹上报
+                        aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, terminalId), onTrackListener);
+                        aMapTrackClient.stopGather(onTrackListener);
                         //跳转附加费
                         Bundle bundle2 = new Bundle();
                         bundle2.putString("id", model.getTindent().getId());
@@ -525,6 +645,12 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 hideProgress();
                 if (!info.equals("")) {
                     myToast(info);
+                }
+                if (i ==2){
+                    //接单错误-停止轨迹
+                    //停止轨迹上报
+                    aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, terminalId), onTrackListener);
+                    aMapTrackClient.stopGather(onTrackListener);
                 }
             }
 
@@ -584,6 +710,11 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     e.printStackTrace();
                 }
                 if (tv_left.getText().toString().trim().equals("取消订单")) {
+
+                    //停止轨迹上报
+                    aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, terminalId), onTrackListener);
+                    aMapTrackClient.stopGather(onTrackListener);
+
                     finish();
                 }
 
@@ -916,5 +1047,140 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 
         return bitmap;
 
+    }
+
+    /**
+     * *********************************轨迹上报**************************************************
+     */
+    private void startTrack() {
+        // 先根据Terminal名称查询Terminal ID，如果Terminal还不存在，就尝试创建，拿到Terminal ID后，
+        // 用Terminal ID开启轨迹服务
+        aMapTrackClient.queryTerminal(new QueryTerminalRequest(Constants.SERVICE_ID, Constants.TERMINAL_NAME), new SimpleOnTrackListener() {
+            @Override
+            public void onQueryTerminalCallback(QueryTerminalResponse queryTerminalResponse) {
+                if (queryTerminalResponse.isSuccess()) {
+                    if (queryTerminalResponse.isTerminalExist()) {
+                        // 当前终端已经创建过，直接使用查询到的terminal id
+                        terminalId = queryTerminalResponse.getTid();
+//                        if (uploadToTrack) {
+                        aMapTrackClient.addTrack(new AddTrackRequest(Constants.SERVICE_ID, terminalId), new SimpleOnTrackListener() {
+                            @Override
+                            public void onAddTrackCallback(AddTrackResponse addTrackResponse) {
+                                if (addTrackResponse.isSuccess()) {
+                                    // trackId需要在启动服务后设置才能生效，因此这里不设置，而是在startGather之前设置了track id
+                                    trackId = addTrackResponse.getTrid();
+                                    TrackParam trackParam = new TrackParam(Constants.SERVICE_ID, terminalId);
+                                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                        trackParam.setNotification(createNotification());
+                                    }
+
+                                    trackParam.setTrackId(trackId);//上报到指定轨迹
+                                    aMapTrackClient.startTrack(trackParam, onTrackListener);
+
+                                    MyLogger.i(">>>>>>>terminalId:" + terminalId + ">>>>>>>>trackId:" + trackId);
+                                    //保存terminalId、trackId
+                                    Map<String, String> params = new HashMap<>();
+                                    params.put("token", localUserInfo.getToken());
+                                    params.put("id", model.getTindent().getId());
+                                    params.put("action", "2");//接单
+                                    params.put("terminal_id", terminalId + "");//221758795
+                                    params.put("track_id", trackId + "");
+                                    RequestJieDan(params, 2);
+
+                                } else {
+                                    Toast.makeText(OrderDetailsActivity.this, "轨迹-网络请求失败，" + addTrackResponse.getErrorMsg(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+                       /* } else {
+                            // 不指定track id，上报的轨迹点是该终端的散点轨迹
+                            TrackParam trackParam = new TrackParam(Constants.SERVICE_ID, terminalId);
+                            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                trackParam.setNotification(createNotification());
+                            }
+                            aMapTrackClient.startTrack(trackParam, onTrackListener);
+                        }*/
+                    } else {
+                        // 当前终端是新终端，还未创建过，创建该终端并使用新生成的terminal id
+                        aMapTrackClient.addTerminal(new AddTerminalRequest(Constants.TERMINAL_NAME, Constants.SERVICE_ID), new SimpleOnTrackListener() {
+                            @Override
+                            public void onCreateTerminalCallback(AddTerminalResponse addTerminalResponse) {
+                                if (addTerminalResponse.isSuccess()) {
+                                    terminalId = addTerminalResponse.getTid();
+
+                                    //不创建新Track
+                                    /*TrackParam trackParam = new TrackParam(Constants.SERVICE_ID, terminalId);
+                                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                        trackParam.setNotification(createNotification());
+                                    }
+                                    aMapTrackClient.startTrack(trackParam, onTrackListener);*/
+                                    //需要创建新Track
+                                    aMapTrackClient.addTrack(new AddTrackRequest(Constants.SERVICE_ID, terminalId), new SimpleOnTrackListener() {
+                                        @Override
+                                        public void onAddTrackCallback(AddTrackResponse addTrackResponse) {
+                                            if (addTrackResponse.isSuccess()) {
+                                                // trackId需要在启动服务后设置才能生效，因此这里不设置，而是在startGather之前设置了track id
+                                                trackId = addTrackResponse.getTrid();
+                                                TrackParam trackParam = new TrackParam(Constants.SERVICE_ID, terminalId);
+                                                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                                    trackParam.setNotification(createNotification());
+                                                }
+
+                                                trackParam.setTrackId(trackId);//上报到指定轨迹
+                                                aMapTrackClient.startTrack(trackParam, onTrackListener);
+
+                                                MyLogger.i(">>>>>>>terminalId:" + terminalId + ">>>>>>>>trackId:" + trackId);
+                                                //保存terminalId、trackId
+                                                Map<String, String> params = new HashMap<>();
+                                                params.put("token", localUserInfo.getToken());
+                                                params.put("id", model.getTindent().getId());
+                                                params.put("action", "2");//接单
+                                                params.put("terminal_id", terminalId + "");
+                                                params.put("track_id", trackId + "");
+                                                RequestJieDan(params, 2);
+                                            } else {
+                                                Toast.makeText(OrderDetailsActivity.this, "轨迹-网络请求失败，" + addTrackResponse.getErrorMsg(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    Toast.makeText(OrderDetailsActivity.this, "轨迹-网络请求失败，" + addTerminalResponse.getErrorMsg(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+
+
+                } else {
+                    Toast.makeText(OrderDetailsActivity.this, "轨迹-网络请求失败，" + queryTerminalResponse.getErrorMsg(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    /**
+     * 在8.0以上手机，如果app切到后台，系统会限制定位相关接口调用频率
+     * 可以在启动轨迹上报服务时提供一个通知，这样Service启动时会使用该通知成为前台Service，可以避免此限制
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private Notification createNotification() {
+        Notification.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID_SERVICE_RUNNING, "app service", NotificationManager.IMPORTANCE_LOW);
+            nm.createNotificationChannel(channel);
+            builder = new Notification.Builder(getApplicationContext(), CHANNEL_ID_SERVICE_RUNNING);
+        } else {
+            builder = new Notification.Builder(getApplicationContext());
+        }
+        Intent nfIntent = new Intent(OrderDetailsActivity.this, TrackServiceActivity.class);
+        nfIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        builder.setContentIntent(PendingIntent.getActivity(OrderDetailsActivity.this, 0, nfIntent, 0))
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("猎鹰sdk运行中")
+                .setContentText("猎鹰sdk运行中");
+        Notification notification = builder.build();
+        return notification;
     }
 }

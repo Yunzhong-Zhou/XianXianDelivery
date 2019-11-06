@@ -36,6 +36,10 @@ import com.amap.api.navi.model.AimLessModeCongestionInfo;
 import com.amap.api.navi.model.AimLessModeStat;
 import com.amap.api.navi.model.NaviInfo;
 import com.amap.api.navi.model.NaviLatLng;
+import com.amap.api.track.AMapTrackClient;
+import com.amap.api.track.ErrorCode;
+import com.amap.api.track.OnTrackLifecycleListener;
+import com.amap.api.track.TrackParam;
 import com.autonavi.tbt.TrafficFacilityInfo;
 import com.bumptech.glide.Glide;
 import com.cy.cyflowlayoutlibrary.FlowLayout;
@@ -44,6 +48,8 @@ import com.hyphenate.easeui.EaseConstant;
 import com.squareup.okhttp.Request;
 import com.transport.xianxian.R;
 import com.transport.xianxian.base.BaseActivity;
+import com.transport.xianxian.lieying.Constants;
+import com.transport.xianxian.lieying.SimpleOnTrackLifecycleListener;
 import com.transport.xianxian.model.ErrorInfo;
 import com.transport.xianxian.model.OrderDetailsModel;
 import com.transport.xianxian.net.OkHttpClientManager;
@@ -80,6 +86,81 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
     double lat = 0, lng = 0;
     int juli = 0;
 
+    //轨迹
+    private static final String TAG = "TrackServiceActivity";
+    private static final String CHANNEL_ID_SERVICE_RUNNING = "CHANNEL_ID_SERVICE_RUNNING";
+    private AMapTrackClient aMapTrackClient;
+
+    private OnTrackLifecycleListener onTrackListener = new SimpleOnTrackLifecycleListener() {
+        @Override
+        public void onBindServiceCallback(int status, String msg) {
+            Log.w(TAG, "onBindServiceCallback, status: " + status + ", msg: " + msg);
+        }
+
+        @Override
+        public void onStartTrackCallback(int status, String msg) {
+            if (status == ErrorCode.TrackListen.START_TRACK_SUCEE || status == ErrorCode.TrackListen.START_TRACK_SUCEE_NO_NETWORK) {
+                // 成功启动
+//                Toast.makeText(OrderDetailsActivity.this, "启动服务成功", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报启动服务成功");
+
+            } else if (status == ErrorCode.TrackListen.START_TRACK_ALREADY_STARTED) {
+                // 已经启动
+//                Toast.makeText(OrderDetailsActivity.this, "服务已经启动", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报启动服务已经启动");
+            } else {
+                Log.w(TAG, "error onStartTrackCallback, status: " + status + ", msg: " + msg);
+               /* Toast.makeText(OrderDetailsActivity.this,
+                        "error onStartTrackCallback, status: " + status + ", msg: " + msg,
+                        Toast.LENGTH_LONG).show();*/
+            }
+        }
+
+        @Override
+        public void onStopTrackCallback(int status, String msg) {
+            if (status == ErrorCode.TrackListen.STOP_TRACK_SUCCE) {
+                // 成功停止
+//                Toast.makeText(TrackServiceActivity.this, "停止服务成功", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报停止服务成功");
+            } else {
+                Log.w(TAG, "error onStopTrackCallback, status: " + status + ", msg: " + msg);
+                /*Toast.makeText(TrackServiceActivity.this,
+                        "error onStopTrackCallback, status: " + status + ", msg: " + msg,
+                        Toast.LENGTH_LONG).show();*/
+
+            }
+        }
+
+        @Override
+        public void onStartGatherCallback(int status, String msg) {
+            if (status == ErrorCode.TrackListen.START_GATHER_SUCEE) {
+//                Toast.makeText(TrackServiceActivity.this, "定位采集开启成功", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报-定位采集开启成功");
+            } else if (status == ErrorCode.TrackListen.START_GATHER_ALREADY_STARTED) {
+//                Toast.makeText(TrackServiceActivity.this, "定位采集已经开启", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报-定位采集已经开启");
+            } else {
+                Log.w(TAG, "error onStartGatherCallback, status: " + status + ", msg: " + msg);
+                /*Toast.makeText(TrackServiceActivity.this,
+                        "error onStartGatherCallback, status: " + status + ", msg: " + msg,
+                        Toast.LENGTH_LONG).show();*/
+            }
+        }
+
+        @Override
+        public void onStopGatherCallback(int status, String msg) {
+            if (status == ErrorCode.TrackListen.STOP_GATHER_SUCCE) {
+//                Toast.makeText(TrackServiceActivity.this, "定位采集停止成功", Toast.LENGTH_SHORT).show();
+                MyLogger.i(">>>>>>轨迹上报-定位采集停止成功");
+
+            } else {
+                Log.w(TAG, "error onStopGatherCallback, status: " + status + ", msg: " + msg);
+                /*Toast.makeText(TrackServiceActivity.this,
+                        "error onStopGatherCallback, status: " + status + ", msg: " + msg,
+                        Toast.LENGTH_LONG).show();*/
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +177,10 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
         mAMapNavi.addAMapNaviListener(MapNavigationActivity.this);
         mAMapNavi.setUseInnerVoice(true);
 
+        //轨迹
+        // 不要使用Activity作为Context传入
+        aMapTrackClient = new AMapTrackClient(getApplicationContext());
+        aMapTrackClient.setInterval(5, 30);
     }
 
     @Override
@@ -276,6 +361,12 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
 
                 tv_right.setText("确认卸货");//右边按钮
                 break;
+            case 7://订单完成
+                tv_left.setText("转派订单");//左边按钮
+                tv_left.setBackgroundResource(R.drawable.btn_lanse);
+
+                tv_right.setText("配送完闭");//右边按钮
+                break;
 
         }
     }
@@ -372,6 +463,10 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                         showToast("确认取消订单吗？", "确认", "取消", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                if (!model.getTindent().getTerminal_id().equals("")){
+                                    aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, Long.valueOf(model.getTindent().getTerminal_id())), onTrackListener);
+                                    aMapTrackClient.stopGather(onTrackListener);
+                                }
                                 dialog.dismiss();
                                 Map<String, String> params = new HashMap<>();
                                 params.put("token", localUserInfo.getToken());
@@ -390,6 +485,12 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                         showToast("确认转派订单吗？", "确认", "取消", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                //停止轨迹上报
+                                if (!model.getTindent().getTerminal_id().equals("")){
+                                    aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, Long.valueOf(model.getTindent().getTerminal_id())), onTrackListener);
+                                    aMapTrackClient.stopGather(onTrackListener);
+                                }
+
                                 dialog.dismiss();
                                 Bundle bundle = new Bundle();
                                 bundle.putString("id", model.getTindent().getId());
@@ -454,6 +555,16 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                                 dialog.dismiss();
                             }
                         });
+                        break;
+                    case "配送完闭":
+                        if (!model.getTindent().getTerminal_id().equals("")){
+                            aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, Long.valueOf(model.getTindent().getTerminal_id())), onTrackListener);
+                            aMapTrackClient.stopGather(onTrackListener);
+                        }
+                        //跳转附加费
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putString("id", model.getTindent().getId());
+                        CommonUtil.gotoActivityWithData(MapNavigationActivity.this, AddSurchargeActivity.class, bundle2, true);
                         break;
                 }
                 break;

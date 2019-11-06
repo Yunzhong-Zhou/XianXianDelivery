@@ -26,6 +26,8 @@ import java.util.Map;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import static com.transport.xianxian.net.OkHttpClientManager.IMGHOST;
+
 /**
  * Created by zyz on 2016/9/12.
  * Email：1125213018@qq.com
@@ -116,7 +118,7 @@ public class GuideActivity extends Activity {
                     ImageView imageView = (ImageView) pageViews.get(i).findViewById(R.id.imageView);
 //                    imageView.setImageResource(images[i]);
                     Glide.with(GuideActivity.this)
-                            .load(response.getApp_banner_list().get(i).getImage())
+                            .load(IMGHOST + response.getApp_banner_list().get(i).getImage())
                             .fitCenter()
                             .into(imageView);//加载图片
                 }
@@ -134,9 +136,9 @@ public class GuideActivity extends Activity {
                     imageViews[i] = imageView;
                     //默认选中的是第一张图片，此时第一个小圆点是选中状态，其他不是
                     if (i == 0) {
-                        imageViews[i].setBackgroundResource(R.drawable.yuanxing_lanse);
+                        imageViews[i].setImageResource(R.drawable.yuanxing_lanse);
                     } else {
-                        imageViews[i].setBackgroundResource(R.drawable.yuanxing_huise);
+                        imageViews[i].setImageResource(R.drawable.yuanxing_huise);
                     }
 
                     //将imageviews添加到小圆点视图组
@@ -298,10 +300,10 @@ public class GuideActivity extends Activity {
             // TODO Auto-generated method stub
             setCurrentPos(position);
             for (int i = 0; i < imageViews.length; i++) {
-                imageViews[position].setBackgroundResource(R.drawable.yuanxing_lanse);
+                imageViews[position].setImageResource(R.drawable.yuanxing_lanse);
                 //不是当前选中的page，其小圆点设置为未选中的状态
                 if (position != i) {
-                    imageViews[i].setBackgroundResource(R.drawable.yuanxing_huise);
+                    imageViews[i].setImageResource(R.drawable.yuanxing_huise);
                 }
             }
 

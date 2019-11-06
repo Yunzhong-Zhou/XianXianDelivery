@@ -62,6 +62,25 @@ public class OrderDetailsModel implements Serializable {
 
         private String created_at;
         private int is_attach_fee;
+        private String terminal_id;
+        private String track_id;
+
+        public String getTerminal_id() {
+            return terminal_id;
+        }
+
+        public void setTerminal_id(String terminal_id) {
+            this.terminal_id = terminal_id;
+        }
+
+        public String getTrack_id() {
+            return track_id;
+        }
+
+        public void setTrack_id(String track_id) {
+            this.track_id = track_id;
+        }
+
         private CarTypeInfoBean car_type_info;
         private String send_time;
         private String compare_time;

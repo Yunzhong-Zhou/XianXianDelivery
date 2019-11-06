@@ -58,6 +58,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
 
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -135,6 +136,12 @@
         <activity
             android:name=".activity.MapNavigationActivity"
             android:label="地图导航（去装货、去卸货、）" />
+        <activity
+            android:name=".activity.TrackServiceActivity"
+            android:label="轨迹上报服务" />
+        <activity
+            android:name=".activity.TrackSearchActivity"
+            android:label="轨迹查询" />
         <!--个人中心-->
         <activity
             android:name=".activity.MyProfileActivity"
@@ -242,13 +249,15 @@
             android:configChanges="orientation|keyboardHidden|screenSize" /> <!--导航组件-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="e3109ed74f26a203f73d288d7e412b1d"/>
+            android:value="84ece9b63d4898ec33622dc0c993d740"/>
         <!--定位-->
         <service
             android:name=".service.LocationService"
             android:enabled="true"
             android:exported="true" />
-        <service android:name="com.amap.api.location.APSService"/>
+        <service android:name="com.amap.api.location.APSService"/><!--定位SDK服务-->
+        <service android:name="com.amap.api.track.AMapTrackService" /><!--猎鹰SDK服务-->
+
         <!-- 百度地图所需的service -->
         <service
             android:name="com.baidu.location.f"

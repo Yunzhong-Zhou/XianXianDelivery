@@ -26,6 +26,8 @@ import com.transport.xianxian.activity.JiangLiHuoDongActivity;
 import com.transport.xianxian.activity.LoginActivity;
 import com.transport.xianxian.activity.MainActivity;
 import com.transport.xianxian.activity.MyProfileActivity;
+import com.transport.xianxian.activity.TrackSearchActivity;
+import com.transport.xianxian.activity.TrackServiceActivity;
 import com.transport.xianxian.activity.WalletActivity;
 import com.transport.xianxian.base.BaseFragment;
 import com.transport.xianxian.model.Fragment3Model;
@@ -47,7 +49,7 @@ public class Fragment3 extends BaseFragment {
     ImageView imageView1;
     TextView textView1, textView2;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5, linearLayout6,
-            linearLayout7, linearLayout8, linearLayout9;
+            linearLayout7, linearLayout8, linearLayout9,linearLayout10,linearLayout11;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -121,6 +123,8 @@ public class Fragment3 extends BaseFragment {
         linearLayout7 = findViewByID_My(R.id.linearLayout7);
         linearLayout8 = findViewByID_My(R.id.linearLayout8);
         linearLayout9 = findViewByID_My(R.id.linearLayout9);
+        linearLayout10= findViewByID_My(R.id.linearLayout10);
+        linearLayout11 = findViewByID_My(R.id.linearLayout11);
 
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
@@ -131,6 +135,8 @@ public class Fragment3 extends BaseFragment {
         linearLayout7.setOnClickListener(this);
         linearLayout8.setOnClickListener(this);
         linearLayout9.setOnClickListener(this);
+        linearLayout10.setOnClickListener(this);
+        linearLayout11.setOnClickListener(this);
 
     }
 
@@ -270,6 +276,14 @@ public class Fragment3 extends BaseFragment {
             case R.id.linearLayout9:
                 //会话列表
                 CommonUtil.gotoActivity(getActivity(), ChatMainActivity.class);
+                break;
+            case R.id.linearLayout10:
+                //上报轨迹
+                CommonUtil.gotoActivity(getActivity(), TrackServiceActivity.class);
+                break;
+            case R.id.linearLayout11:
+                //查看轨迹
+                CommonUtil.gotoActivity(getActivity(), TrackSearchActivity.class);
                 break;
         }
     }

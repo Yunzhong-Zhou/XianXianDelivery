@@ -150,7 +150,7 @@ public class MainActivity extends BaseActivity {
                         }
                     }
                 })
-                .setCurrentTab(0);//设置当前选中的Tab，从0开始
+                .setCurrentTab(item);//设置当前选中的Tab，从0开始
     }
 
     @Override

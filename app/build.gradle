@@ -154,7 +154,9 @@ dependencies {
     //高德地图
 //    implementation 'com.amap.api:3dmap:latest.integration'//3D地图
 //    implementation 'com.amap.api:map2d:latest.integration'//2D地图
+
     implementation 'com.amap.api:navi-3dmap:latest.integration'//导航(包含了3D地图)
     implementation 'com.amap.api:search:latest.integration'//搜索
-    implementation 'com.amap.api:location:latest.integration'//定位
+//    implementation 'com.amap.api:location:latest.integration'//定位(猎鹰jar包 包含了定位包)
+
 }

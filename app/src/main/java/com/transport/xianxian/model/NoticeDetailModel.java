@@ -10,14 +10,14 @@ public class NoticeDetailModel implements Serializable {
      * id : 1
      * member_id : 3
      * title : 提现
-     * content : 提醒下谢谢
+     * message : 提醒下谢谢
      * created_at : 2019-10-17 16:13:40
      */
 
     private int id;
     private int member_id;
     private String title;
-    private String content;
+    private String message;
     private String created_at;
 
     public int getId() {
@@ -44,12 +44,12 @@ public class NoticeDetailModel implements Serializable {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public String getMessage() {
+        return message;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getCreated_at() {

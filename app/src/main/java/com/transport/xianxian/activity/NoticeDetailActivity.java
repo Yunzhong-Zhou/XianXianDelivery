@@ -109,7 +109,7 @@ public class NoticeDetailActivity extends BaseActivity {
                             @Override
                             protected void convert(ViewHolder holder, NoticeDetailModel model, int position) {
                                 holder.setText(R.id.tv1, model.getTitle());
-                                holder.setText(R.id.tv2, model.getContent());
+                                holder.setText(R.id.tv2, model.getMessage());
                                 holder.setText(R.id.tv3, model.getCreated_at());
                             }
                         };
