@@ -280,7 +280,6 @@ public class Fragment2 extends BaseFragment {
                         lng = aMapLocation.getLongitude();
                         mStartPoint = new DPoint(lat, lng);//起点
 
-
                         String string = "";
                         switch (status) {
                             case 1:
@@ -308,6 +307,7 @@ public class Fragment2 extends BaseFragment {
                         Request(string);
 
                     } else {
+                        hideProgress();
                         //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
                         MyLogger.e("定位失败：", "location Error, ErrCode:"
                                 + aMapLocation.getErrorCode() + ", errInfo:"
@@ -463,8 +463,21 @@ public class Fragment2 extends BaseFragment {
                                             holder.setText(R.id.textView8, model.getCreated_at() + " 发布");//发布时间
                                             holder.setText(R.id.textView9, model.getRemark());//备注
                                             holder.setText(R.id.textView10, "¥ " + model.getPrice());//订单金额
-                                            holder.setText(R.id.textView11, "" + model.getPrice() + "元");//起步价
-                                            holder.setText(R.id.textView12, "" + model.getPrice() + "元");//里程费
+                                            //费用列表
+                                            LinearLayout ll_add2 = holder.getView(R.id.ll_add2);
+                                            for (int i = 0; i < model.getPrice_detail().size(); i++) {
+                                                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                                                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                                LayoutInflater inflater = LayoutInflater.from(getActivity());
+                                                View view = inflater.inflate(R.layout.item_add_fragment2_2, null, false);
+                                                view.setLayoutParams(lp);
+
+                                                TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
+                                                TextView tv_money = (TextView) view.findViewById(R.id.tv_money);
+                                                tv_title.setText(model.getPrice_detail().get(i).getTitle());
+                                                tv_money.setText(model.getPrice_detail().get(i).getPrice() + "元");
+                                                ll_add2.addView(view);
+                                            }
 
                                             //地址列表
                                             LinearLayout ll_add = holder.getView(R.id.ll_add);
@@ -493,8 +506,13 @@ public class Fragment2 extends BaseFragment {
                                                     tv1.setText("" + i);
                                                     tv1.setBackgroundResource(R.drawable.yuanxing_huise);
                                                 }
-                                                tv2.setText(model.getAddr_list().get(i).getArrive_time() + " " + model.getAddr_list().get(i).getStatus_text());//time 装货
-                                                tv3.setText("估计用时：" + model.getAddr_list().get(i).getPre_time() + "分钟");//估计用时：
+                                                tv2.setText(CommonUtil.timedate1(model.getAddr_list().get(i).getArrive_time()) + " " + model.getAddr_list().get(i).getStatus_text());//time 装货
+                                                if (i == 0){
+                                                    tv3.setVisibility(View.GONE);
+                                                }else {
+                                                    tv3.setVisibility(View.VISIBLE);
+                                                    tv3.setText("估计用时：" + CommonUtil.timedate3(Long.valueOf(model.getAddr_list().get(i).getPre_time())) + "分钟");//估计用时：
+                                                }
                                                 tv4.setText(model.getAddr_list().get(i).getAddr());//地址
                                                 tv5.setText(model.getAddr_list().get(i).getAddr_detail());//地址详情
                                                 mEndPoint = new DPoint(Double.valueOf(model.getAddr_list().get(i).getLat()), Double.valueOf(model.getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
@@ -515,15 +533,9 @@ public class Fragment2 extends BaseFragment {
                                                         String string = "?token=" + localUserInfo.getToken()
                                                                 + "&id=" + model.getId();
                                                         RequestDetail(string);
-
-                                                        /*Bundle bundle = new Bundle();
-                                                        bundle.putString("id", model.getId());
-                                                        bundle.putDouble("lat", lat);
-                                                        bundle.putDouble("lng", lng);
-                                                        CommonUtil.gotoActivityWithData(getActivity(), MapNavigationActivity1.class, bundle, false);*/
                                                     }
                                                 });
-
+                                                //是否显示去导航按钮、左边位置标识
                                                 if (model.getAddr_list().get(i).getIs_show() == 1) {
                                                     iv1.setVisibility(View.VISIBLE);
                                                     tv_daohang.setVisibility(View.VISIBLE);
@@ -531,51 +543,6 @@ public class Fragment2 extends BaseFragment {
                                                     iv1.setVisibility(View.GONE);
                                                     tv_daohang.setVisibility(View.GONE);
                                                 }
-                                                /*if (model.getAddr_list().get(i).getType() == 1) {//装货点
-                                                    switch (model.getAddr_list().get(i).getStatus()) {
-                                                        case 1:
-                                                            //前往装货
-                                                        case 4:
-                                                            //开始运输
-                                                            iv1.setVisibility(View.GONE);
-                                                            tv_daohang.setVisibility(View.GONE);
-                                                            break;
-                                                        case 2:
-                                                            //开始装货
-                                                        case 3:
-                                                            //装货完成
-                                                            iv1.setVisibility(View.VISIBLE);
-                                                            tv_daohang.setVisibility(View.VISIBLE);
-                                                            break;
-                                                        default:
-                                                            iv1.setVisibility(View.GONE);
-                                                            tv_daohang.setVisibility(View.GONE);
-                                                            break;
-
-                                                    }
-                                                } else if (model.getAddr_list().get(i).getType() == 2) {//卸货点
-                                                    switch (model.getAddr_list().get(i).getStatus()) {
-                                                        case 1:
-                                                            //未到达
-
-                                                            break;
-                                                        case 2:
-                                                            //运输中
-                                                            break;
-                                                        case 3:
-                                                            //已到达
-                                                            break;
-                                                        case 4:
-                                                            //已开始卸货
-                                                            break;
-                                                        case 5:
-                                                            //卸货完成
-                                                            break;
-                                                        case 6:
-                                                            //已离开
-                                                            break;
-                                                    }
-                                                }*/
 
                                                 ll_add.addView(view);
                                             }
@@ -749,9 +716,22 @@ public class Fragment2 extends BaseFragment {
                                             holder.setText(R.id.textView10, model.getCreated_at() + " 发布");//发布时间
                                             holder.setText(R.id.textView11, model.getRemark());//备注
                                             holder.setText(R.id.textView12, "¥ " + model.getPrice());//订单金额
-                                            holder.setText(R.id.textView13, "" + model.getPrice() + "元");//起步价
-                                            holder.setText(R.id.textView14, "" + model.getPrice() + "元");//里程费
 
+                                            //费用列表
+                                            LinearLayout ll_add2 = holder.getView(R.id.ll_add2);
+                                            for (int i = 0; i < model.getPrice_detail().size(); i++) {
+                                                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                                                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                                LayoutInflater inflater = LayoutInflater.from(getActivity());
+                                                View view = inflater.inflate(R.layout.item_add_fragment2_2, null, false);
+                                                view.setLayoutParams(lp);
+
+                                                TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
+                                                TextView tv_money = (TextView) view.findViewById(R.id.tv_money);
+                                                tv_title.setText(model.getPrice_detail().get(i).getTitle());
+                                                tv_money.setText(model.getPrice_detail().get(i).getPrice() + "元");
+                                                ll_add2.addView(view);
+                                            }
                                             //地址列表
                                             for (int i = 0; i < model.getAddr_list().size(); i++) {
                                                 //起点
@@ -898,7 +878,21 @@ public class Fragment2 extends BaseFragment {
                                             holder.setText(R.id.textView6, "" + model.getPrice() + "元");//起步价
                                             holder.setText(R.id.textView7, "" + model.getPrice() + "元");//里程费
 //                                            holder.setText(R.id.textView8, "" + model.get);//取消理由
+                                            //费用列表
+                                            LinearLayout ll_add2 = holder.getView(R.id.ll_add2);
+                                            for (int i = 0; i < model.getPrice_detail().size(); i++) {
+                                                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                                                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                                LayoutInflater inflater = LayoutInflater.from(getActivity());
+                                                View view = inflater.inflate(R.layout.item_add_fragment2_2, null, false);
+                                                view.setLayoutParams(lp);
 
+                                                TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
+                                                TextView tv_money = (TextView) view.findViewById(R.id.tv_money);
+                                                tv_title.setText(model.getPrice_detail().get(i).getTitle());
+                                                tv_money.setText(model.getPrice_detail().get(i).getPrice() + "元");
+                                                ll_add2.addView(view);
+                                            }
                                             //地址列表
                                             for (int i = 0; i < model.getAddr_list().size(); i++) {
                                                 //起点

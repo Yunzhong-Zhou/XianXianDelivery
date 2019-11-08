@@ -609,11 +609,11 @@ public class CommonUtil {
 //            sb.append(Integer.valueOf(hour1+"") + ":");//小时-取整
 //            }
 //            if(minute > 0) {
-//            sb.append(String.format("%02d", minute) + ":");//分
+            sb.append(String.format("%02d", minute) + ":");//分
 //            }
 //            if(second > 0) {
 //            sb.append(String.format("%02d", second) + "");//秒
-            sb.append(String.format("%02d", time / ss) + "");//秒
+//            sb.append(String.format("%02d", time / ss) + "");//秒
 
 //            }
             /*if(milliSecond > 0) {

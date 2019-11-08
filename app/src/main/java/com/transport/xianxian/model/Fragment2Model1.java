@@ -8,90 +8,52 @@ import java.util.List;
  */
 public class Fragment2Model1 implements Serializable {
     /**
-     * id : 1
-     * sn : 2018101511
-     * created_at : 20191018
-     * is_attach_fee : 0
+     * send_time :
+     * compare_time :
+     * now_state :
+     * now_state_action :
+     * now_state_sub_action :
+     * id : 5
+     * sn : T201911045
+     * status : 1
+     * created_at : 2019-11-04 17:49
+     * is_attach_fee : 2
      * user_type : 专车
-     * send_time : 3.4小时
-     * compare_time : 早1小时
-     * now_state : 8月8日 12：00
-     * now_state_action : 已装货
-     * now_state_sub_action : 配送中
-     * send_name : 赵小姐
-     * send_mobile : 15873232323
+     * send_name : 测试
+     * send_mobile : 15823629481
+     * send_head : /upload/head/2019-10-20/ff660c5fefd51b5a5b3d9e8ccb7304c6.png
      * industry : 餐饮
-     * hx_username :
-     * send_head : a.jpg
-     * addr_list : [{"type":2,"number":1,"addr":"重庆井口","addr_detail":"美丽阳光10-1","name":"张追踪","mobile":"18888888888","lat":"29.643795","lng":"106.447151","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":"1","status_text":"运输中","other":"搬五楼楼梯"},{"type":2,"number":1,"addr":"重庆南坪","addr_detail":"天福克拉10-1","name":"廓可","mobile":"15823629471","lat":"29.529205","lng":"106.56385","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:18","mileage":"10000","pre_time":"160","status":1,"status_text":"未到达","other":"搬五楼楼梯"},{"type":2,"number":3,"addr":"重庆渝中","addr_detail":"重庆天地20-1","name":"小谢","mobile":"15823629474","lat":"29.55033","lng":"106.508395","arrive_time":"2019-10-23 12:18","leave_time":"2019-10-23 12:28","mileage":"10000","pre_time":"160","status":1,"status_text":"未到达","other":"搬五楼楼梯"}]
-     * tag : ["专车","6吨","恒温","5.5方"]
+     * hx_username : 15823629481
+     * addr_list : [{"type":1,"number":1,"addr":"重庆南岸","addr_detail":"天福克拉","name":"徐小平","mobile":"15823232323","lat":"29.529205","lng":"106.56385","arrive_time":1573013253,"leave_time":1573013386,"mileage":0,"pre_time":"","status":"2","status_text":"已接单 前往装货","other":"","is_show":2},{"type":2,"number":2,"addr":"重庆南岸","addr_detail":"天福克拉","name":"徐小平","mobile":"15823232323","lat":"29.529205","lng":"106.56385","arrive_time":0,"leave_time":0,"mileage":0,"pre_time":"","status":"6","status_text":"","other":"","is_show":2},{"type":2,"number":3,"addr":"重庆南岸","addr_detail":"天福克拉","name":"徐小平","mobile":"15823232323","lat":"29.529205","lng":"106.56385","arrive_time":0,"leave_time":0,"mileage":0,"pre_time":"","status":"5","status_text":"","other":"","is_show":2}]
+     * tag : ["专车"]
      * goods_desc : ["冰鲜","总总量","体积5.5方"]
-     * remark : 备注
-     * price : 18000
-     * price_detail : {"start":"10","milleage":"10"}
+     * remark :
+     * price : null
+     * price_detail : [{"title":"里程费","price":"1206.00"},{"title":"加急费","price":null},{"title":"温层费","price":null},{"title":"货主附加费","price":null},{"title":"司机附加费","price":null},{"title":"其他费用","price":null}]
      */
 
-    private String id;
-    private String sn;
-    private String created_at;
-    private int is_attach_fee;
-    private String user_type;
     private String send_time;
     private String compare_time;
     private String now_state;
     private String now_state_action;
     private String now_state_sub_action;
+    private String id;
+    private String sn;
+    private int status;
+    private String created_at;
+    private int is_attach_fee;
+    private String user_type;
     private String send_name;
     private String send_mobile;
+    private String send_head;
     private String industry;
     private String hx_username;
-    private String send_head;
     private String remark;
-    private String price;
-    private PriceDetailBean price_detail;
+    private Object price;
     private List<AddrListBean> addr_list;
     private List<String> tag;
     private List<String> goods_desc;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getSn() {
-        return sn;
-    }
-
-    public void setSn(String sn) {
-        this.sn = sn;
-    }
-
-    public String getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
-    }
-
-    public int getIs_attach_fee() {
-        return is_attach_fee;
-    }
-
-    public void setIs_attach_fee(int is_attach_fee) {
-        this.is_attach_fee = is_attach_fee;
-    }
-
-    public String getUser_type() {
-        return user_type;
-    }
-
-    public void setUser_type(String user_type) {
-        this.user_type = user_type;
-    }
+    private List<PriceDetailBean> price_detail;
 
     public String getSend_time() {
         return send_time;
@@ -133,6 +95,54 @@ public class Fragment2Model1 implements Serializable {
         this.now_state_sub_action = now_state_sub_action;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSn() {
+        return sn;
+    }
+
+    public void setSn(String sn) {
+        this.sn = sn;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public int getIs_attach_fee() {
+        return is_attach_fee;
+    }
+
+    public void setIs_attach_fee(int is_attach_fee) {
+        this.is_attach_fee = is_attach_fee;
+    }
+
+    public String getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(String user_type) {
+        this.user_type = user_type;
+    }
+
     public String getSend_name() {
         return send_name;
     }
@@ -147,6 +157,14 @@ public class Fragment2Model1 implements Serializable {
 
     public void setSend_mobile(String send_mobile) {
         this.send_mobile = send_mobile;
+    }
+
+    public String getSend_head() {
+        return send_head;
+    }
+
+    public void setSend_head(String send_head) {
+        this.send_head = send_head;
     }
 
     public String getIndustry() {
@@ -165,14 +183,6 @@ public class Fragment2Model1 implements Serializable {
         this.hx_username = hx_username;
     }
 
-    public String getSend_head() {
-        return send_head;
-    }
-
-    public void setSend_head(String send_head) {
-        this.send_head = send_head;
-    }
-
     public String getRemark() {
         return remark;
     }
@@ -181,20 +191,12 @@ public class Fragment2Model1 implements Serializable {
         this.remark = remark;
     }
 
-    public String getPrice() {
+    public Object getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Object price) {
         this.price = price;
-    }
-
-    public PriceDetailBean getPrice_detail() {
-        return price_detail;
-    }
-
-    public void setPrice_detail(PriceDetailBean price_detail) {
-        this.price_detail = price_detail;
     }
 
     public List<AddrListBean> getAddr_list() {
@@ -221,49 +223,32 @@ public class Fragment2Model1 implements Serializable {
         this.goods_desc = goods_desc;
     }
 
-    public static class PriceDetailBean {
-        /**
-         * start : 10
-         * milleage : 10
-         */
+    public List<PriceDetailBean> getPrice_detail() {
+        return price_detail;
+    }
 
-        private String start;
-        private String milleage;
-
-        public String getStart() {
-            return start;
-        }
-
-        public void setStart(String start) {
-            this.start = start;
-        }
-
-        public String getMilleage() {
-            return milleage;
-        }
-
-        public void setMilleage(String milleage) {
-            this.milleage = milleage;
-        }
+    public void setPrice_detail(List<PriceDetailBean> price_detail) {
+        this.price_detail = price_detail;
     }
 
     public static class AddrListBean {
         /**
-         * type : 2
+         * type : 1
          * number : 1
-         * addr : 重庆井口
-         * addr_detail : 美丽阳光10-1
-         * name : 张追踪
-         * mobile : 18888888888
-         * lat : 29.643795
-         * lng : 106.447151
-         * arrive_time : 2019-10-23 12:18
-         * leave_time : 2019-10-23 12:18
-         * mileage : 10000
-         * pre_time : 160
-         * status : 1
-         * status_text : 运输中
-         * other : 搬五楼楼梯
+         * addr : 重庆南岸
+         * addr_detail : 天福克拉
+         * name : 徐小平
+         * mobile : 15823232323
+         * lat : 29.529205
+         * lng : 106.56385
+         * arrive_time : 1573013253
+         * leave_time : 1573013386
+         * mileage : 0
+         * pre_time :
+         * status : 2
+         * status_text : 已接单 前往装货
+         * other :
+         * is_show : 2
          */
 
         private int type;
@@ -276,20 +261,12 @@ public class Fragment2Model1 implements Serializable {
         private String lng;
         private String arrive_time;
         private String leave_time;
-        private String mileage;
+        private int mileage;
         private String pre_time;
-        private int status;
+        private String status;
         private String status_text;
         private String other;
         private int is_show;
-
-        public int getIs_show() {
-            return is_show;
-        }
-
-        public void setIs_show(int is_show) {
-            this.is_show = is_show;
-        }
 
         public int getType() {
             return type;
@@ -371,11 +348,11 @@ public class Fragment2Model1 implements Serializable {
             this.leave_time = leave_time;
         }
 
-        public String getMileage() {
+        public int getMileage() {
             return mileage;
         }
 
-        public void setMileage(String mileage) {
+        public void setMileage(int mileage) {
             this.mileage = mileage;
         }
 
@@ -387,11 +364,11 @@ public class Fragment2Model1 implements Serializable {
             this.pre_time = pre_time;
         }
 
-        public int getStatus() {
+        public String getStatus() {
             return status;
         }
 
-        public void setStatus(int status) {
+        public void setStatus(String status) {
             this.status = status;
         }
 
@@ -409,6 +386,40 @@ public class Fragment2Model1 implements Serializable {
 
         public void setOther(String other) {
             this.other = other;
+        }
+
+        public int getIs_show() {
+            return is_show;
+        }
+
+        public void setIs_show(int is_show) {
+            this.is_show = is_show;
+        }
+    }
+
+    public static class PriceDetailBean {
+        /**
+         * title : 里程费
+         * price : 1206.00
+         */
+
+        private String title;
+        private String price;
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getPrice() {
+            return price;
+        }
+
+        public void setPrice(String price) {
+            this.price = price;
         }
     }
 }

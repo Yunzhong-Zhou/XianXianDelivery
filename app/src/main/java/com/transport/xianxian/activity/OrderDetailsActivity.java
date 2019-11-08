@@ -920,7 +920,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         } else if (rCode == 1002) {
             myToast("key验证无效！");
         } else {
-            myToast("结果：" + rCode);
+            MyLogger.i("结果：" + rCode);
         }
     }
 

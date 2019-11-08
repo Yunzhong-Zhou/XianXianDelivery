@@ -312,50 +312,10 @@
         android:textSize="11sp" />
 
     <LinearLayout
+        android:id="@+id/ll_add2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="起步价"
-            android:textColor="@color/black1"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="100元"
-            android:textColor="@color/black1"
-            android:textSize="17sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="里程费"
-            android:textColor="@color/black1"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="100元"
-            android:textColor="@color/black1"
-            android:textSize="17sp" />
-    </LinearLayout>
+        android:orientation="vertical"/>
 
     <View
         android:layout_width="match_parent"
