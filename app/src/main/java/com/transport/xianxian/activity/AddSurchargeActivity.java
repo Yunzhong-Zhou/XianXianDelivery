@@ -29,6 +29,7 @@ import java.util.Map;
  * 增加附加费
  */
 public class AddSurchargeActivity extends BaseActivity {
+    AddSurchargeModel model;
     EditText editText1, editText2, editText3, editText4;
     TextView textView1, textView2;
     TextView tv_add, tv_baocun, tv_queren;
@@ -188,6 +189,7 @@ public class AddSurchargeActivity extends BaseActivity {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>获取附加费" + response);
+                model = response;
                 editText1.setText(response.getCity());
                 textView1.setText(response.getRule());
 
@@ -339,6 +341,11 @@ public class AddSurchargeActivity extends BaseActivity {
 
         moneys = moneyArray.toString();
         MyLogger.i(">>>>>" + moneys);
+
+        if (model.isCan_update() == false){
+            myToast("货主已付费，无法修改数据");
+            return false;
+        }
 
         return true;
     }

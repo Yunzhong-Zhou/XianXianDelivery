@@ -29,6 +29,7 @@ import com.transport.xianxian.activity.ChatActivity;
 import com.transport.xianxian.activity.MainActivity;
 import com.transport.xianxian.activity.MapNavigationActivity;
 import com.transport.xianxian.activity.OrderDetailsActivity;
+import com.transport.xianxian.activity.TrackSearchActivity;
 import com.transport.xianxian.activity.TrackServiceActivity;
 import com.transport.xianxian.activity.ZhuanDanActivity;
 import com.transport.xianxian.base.BaseFragment;
@@ -806,7 +807,10 @@ public class Fragment2 extends BaseFragment {
                                             holder.getView(R.id.tv_guiji).setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {
-                                                    CommonUtil.gotoActivity(getActivity(), TrackServiceActivity.class, false);
+                                                    Bundle bundle = new Bundle();
+                                                    bundle.putString("terminalId", model.getTerminal_id());
+                                                    bundle.putString("trackId", model.getTrack_id());
+                                                    CommonUtil.gotoActivityWithData(getActivity(), TrackSearchActivity.class,bundle, false);
 
                                                 }
                                             });

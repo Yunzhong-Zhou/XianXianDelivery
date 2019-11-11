@@ -40,6 +40,8 @@ import java.util.List;
  * 2、演示如何查询终端最近上报的轨迹点及其所属轨迹信息，分别绘制出每条轨迹下的所有轨迹点
  */
 public class TrackSearchActivity extends BaseActivity {
+    private String terminalId;
+    private String trackId;
 
     private AMapTrackClient aMapTrackClient;
 
@@ -76,7 +78,7 @@ public class TrackSearchActivity extends BaseActivity {
                                 QueryTrackRequest queryTrackRequest = new QueryTrackRequest(
                                         Constants.SERVICE_ID,
                                         tid,
-                                        -1,     // 轨迹id，不指定，查询所有轨迹，注意分页仅在查询特定轨迹id时生效，查询所有轨迹时无法对轨迹点进行分页
+                                        Long.valueOf(trackId),     // 轨迹id，不指定，查询所有轨迹，注意分页仅在查询特定轨迹id时生效，查询所有轨迹时无法对轨迹点进行分页
                                         System.currentTimeMillis() - 12 * 60 * 60 * 1000,
                                         System.currentTimeMillis(),
                                         0,      // 不启用去噪
@@ -187,6 +189,16 @@ public class TrackSearchActivity extends BaseActivity {
             }
         });
     }
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+        terminalId = getIntent().getStringExtra("terminalId");
+        trackId = getIntent().getStringExtra("trackId");
+    }
 
     private void showNetErrorHint(String errorMsg) {
         Toast.makeText(this, "网络请求失败，错误原因: " + errorMsg, Toast.LENGTH_SHORT).show();
@@ -257,16 +269,6 @@ public class TrackSearchActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         textureMapView.onDestroy();
-    }
-
-    @Override
-    protected void initView() {
-
-    }
-
-    @Override
-    protected void initData() {
-
     }
 
     @Override

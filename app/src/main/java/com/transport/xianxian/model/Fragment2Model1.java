@@ -31,6 +31,24 @@ public class Fragment2Model1 implements Serializable {
      * price : null
      * price_detail : [{"title":"里程费","price":"1206.00"},{"title":"加急费","price":null},{"title":"温层费","price":null},{"title":"货主附加费","price":null},{"title":"司机附加费","price":null},{"title":"其他费用","price":null}]
      */
+    private String terminal_id;
+    private String track_id;
+
+    public String getTerminal_id() {
+        return terminal_id;
+    }
+
+    public void setTerminal_id(String terminal_id) {
+        this.terminal_id = terminal_id;
+    }
+
+    public String getTrack_id() {
+        return track_id;
+    }
+
+    public void setTrack_id(String track_id) {
+        this.track_id = track_id;
+    }
 
     private String send_time;
     private String compare_time;
@@ -49,7 +67,7 @@ public class Fragment2Model1 implements Serializable {
     private String industry;
     private String hx_username;
     private String remark;
-    private Object price;
+    private String price;
     private List<AddrListBean> addr_list;
     private List<String> tag;
     private List<String> goods_desc;
@@ -191,11 +209,11 @@ public class Fragment2Model1 implements Serializable {
         this.remark = remark;
     }
 
-    public Object getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Object price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
