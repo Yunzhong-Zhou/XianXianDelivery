@@ -557,9 +557,11 @@ public class CommonUtil {
     public static String timedate1(String time) {
         SimpleDateFormat sdr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         @SuppressWarnings("unused")
-        long lcc = Long.valueOf(time);
-        int i = Integer.parseInt(time);
-        String times = sdr.format(new Date(i * 1000L));
+        long lcc = Long.valueOf(time);//毫秒
+        String times = sdr.format(new Date(lcc));
+
+        long i = Long.valueOf(time);//秒
+//        String times = sdr.format(new Date(i * 1000L));
         return times;
 
     }

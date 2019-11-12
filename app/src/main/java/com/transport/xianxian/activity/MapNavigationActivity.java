@@ -515,7 +515,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                             public void onClick(View v) {
                                 dialog.dismiss();
                                 //判断是否到达地点
-                                if (juli < 50) {
+                                if (juli < 1000) {
                                     Map<String, String> params = new HashMap<>();
                                     params.put("token", localUserInfo.getToken());
                                     params.put("t_indent_id", model.getTindent().getId());
@@ -538,7 +538,7 @@ public class MapNavigationActivity extends BaseActivity implements AMapNaviListe
                             @Override
                             public void onClick(View v) {
                                 dialog.dismiss();
-                                if (juli < 50) {
+                                if (juli < 1000) {
                                     Map<String, String> params = new HashMap<>();
                                     params.put("token", localUserInfo.getToken());
                                     params.put("t_indent_id", model.getTindent().getId());

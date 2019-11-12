@@ -33,6 +33,24 @@ public class Fragment2Model1 implements Serializable {
      */
     private String terminal_id;
     private String track_id;
+    private Long take_time;
+    private Long end_time;
+
+    public Long getTake_time() {
+        return take_time;
+    }
+
+    public void setTake_time(Long take_time) {
+        this.take_time = take_time;
+    }
+
+    public Long getEnd_time() {
+        return end_time;
+    }
+
+    public void setEnd_time(Long end_time) {
+        this.end_time = end_time;
+    }
 
     public String getTerminal_id() {
         return terminal_id;
@@ -249,7 +267,7 @@ public class Fragment2Model1 implements Serializable {
         this.price_detail = price_detail;
     }
 
-    public static class AddrListBean {
+    public static class AddrListBean implements Serializable{
         /**
          * type : 1
          * number : 1
@@ -415,7 +433,7 @@ public class Fragment2Model1 implements Serializable {
         }
     }
 
-    public static class PriceDetailBean {
+    public static class PriceDetailBean implements Serializable{
         /**
          * title : 里程费
          * price : 1206.00
