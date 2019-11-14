@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.liaoinstan.springview:library:1.5.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.liaoinstan.springview/library/1.5.1/28f30ec0e514f742a2e9933411e35491b7f82f85/library-1.5.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.liaoinstan.springview/library/1.5.1/7a9b06b7effbfd5c86d62555dc6ba65c7b47b1a5/library-1.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
