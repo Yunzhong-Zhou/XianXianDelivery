@@ -14,7 +14,7 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
-import com.transport.xianxian.R;
+import com.delivery.xianxian.R;
 
 import java.util.ArrayList;
 import java.util.List;

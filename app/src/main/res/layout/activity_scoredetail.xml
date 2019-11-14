@@ -41,7 +41,7 @@
             android:layout_height="0.5dp"
             android:background="@color/xian" />
 
-        <com.transport.xianxian.view.LoadingLayout
+        <com.delivery.xianxian.view.LoadingLayout
             android:id="@+id/loading_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -57,7 +57,7 @@
                     android:layout_height="match_parent" />
 
             </com.liaoinstan.springview.widget.SpringView>
-        </com.transport.xianxian.view.LoadingLayout>
+        </com.delivery.xianxian.view.LoadingLayout>
     </LinearLayout>
 
 </LinearLayout>

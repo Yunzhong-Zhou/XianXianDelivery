@@ -72,7 +72,7 @@
             android:textSize="14sp"
             android:visibility="gone" />
 
-        <com.transport.xianxian.view.RollingView
+        <com.delivery.xianxian.view.RollingView
             android:id="@+id/rollingView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -452,7 +452,7 @@
                     android:text="接单功能已关闭\n请设置接单模式后点击开始接单"
                     android:textColor="@color/black2" />
 
-                <com.transport.xianxian.view.LoadingLayout
+                <com.delivery.xianxian.view.LoadingLayout
                     android:id="@+id/loading_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -461,7 +461,7 @@
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
-                </com.transport.xianxian.view.LoadingLayout>
+                </com.delivery.xianxian.view.LoadingLayout>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

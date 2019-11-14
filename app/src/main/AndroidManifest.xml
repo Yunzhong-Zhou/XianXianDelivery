@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.transport.xianxian">
+    package="com.delivery.xianxian">
 
     <!--网络权限问题-->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -60,7 +60,7 @@
 
 
     <application
-        android:name=".MyApplication"
+        android:name="com.delivery.xianxian.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -72,7 +72,7 @@
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false">
         <activity
-            android:name=".activity.HelloActivity"
+            android:name="com.delivery.xianxian.activity.HelloActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"><!--//全屏-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -81,133 +81,133 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".utils.permission.PermissionsActivity"
+            android:name="com.delivery.xianxian.utils.permission.PermissionsActivity"
             android:label="权限页" />
         <activity
-            android:name=".activity.GuideActivity"
+            android:name="com.delivery.xianxian.activity.GuideActivity"
             android:label="引导页"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.delivery.xianxian.activity.MainActivity"
             android:label="主页" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name="com.delivery.xianxian.activity.LoginActivity"
             android:label="登录" />
         <activity
-            android:name=".activity.ForgetPasswordActivity"
+            android:name="com.delivery.xianxian.activity.ForgetPasswordActivity"
             android:label="忘记密码" />
         <activity
-            android:name=".activity.Registered2Activity"
+            android:name="com.delivery.xianxian.activity.Registered2Activity"
             android:label="注册1" />
         <activity
-            android:name=".activity.RegisteredActivity"
+            android:name="com.delivery.xianxian.activity.RegisteredActivity"
             android:label="注册1" />
         <activity
-            android:name=".activity.WebContentActivity"
+            android:name="com.delivery.xianxian.activity.WebContentActivity"
             android:label="网页" />
         <activity
-            android:name=".zxing.CaptureActivity"
+            android:name="com.delivery.xianxian.zxing.CaptureActivity"
             android:label="扫一扫" />
 
 
         <!--首页-->
         <activity
-            android:name=".activity.NoticeDetailActivity"
+            android:name="com.delivery.xianxian.activity.NoticeDetailActivity"
             android:label="公告详情" />
         <activity
-            android:name=".activity.ScoreDetailActivity"
+            android:name="com.delivery.xianxian.activity.ScoreDetailActivity"
             android:label="评分详情" />
         <activity
-            android:name=".activity.CapitalStatisticsActivity"
+            android:name="com.delivery.xianxian.activity.CapitalStatisticsActivity"
             android:label="资金统计" />
         <activity
-            android:name=".activity.TakeCashActivity"
+            android:name="com.delivery.xianxian.activity.TakeCashActivity"
             android:label="提现" />
         <activity
-            android:name=".activity.OrderDetailsActivity"
+            android:name="com.delivery.xianxian.activity.OrderDetailsActivity"
             android:label="订单详情" />
         <!--订单-->
         <activity
-            android:name=".activity.AddSurchargeActivity"
+            android:name="com.delivery.xianxian.activity.AddSurchargeActivity"
             android:label="添加附加费" />
         <activity
-            android:name=".activity.ZhuanDanActivity"
+            android:name="com.delivery.xianxian.activity.ZhuanDanActivity"
             android:label="转单二维码" />
         <activity
-            android:name=".activity.MapNavigationActivity"
+            android:name="com.delivery.xianxian.activity.MapNavigationActivity"
             android:label="地图导航（去装货、去卸货、）" />
         <activity
-            android:name=".activity.TrackServiceActivity"
+            android:name="com.delivery.xianxian.activity.TrackServiceActivity"
             android:label="轨迹上报服务" />
         <activity
-            android:name=".activity.TrackSearchActivity"
+            android:name="com.delivery.xianxian.activity.TrackSearchActivity"
             android:label="轨迹查询" />
         <!--个人中心-->
         <activity
-            android:name=".activity.MyProfileActivity"
+            android:name="com.delivery.xianxian.activity.MyProfileActivity"
             android:label="修改头像/电话" />
         <activity
-            android:name=".activity.ChangePasswordActivity"
+            android:name="com.delivery.xianxian.activity.ChangePasswordActivity"
             android:label="修改密码" />
         <activity
-            android:name=".activity.WalletActivity"
+            android:name="com.delivery.xianxian.activity.WalletActivity"
             android:label="钱包" />
         <activity
-            android:name=".activity.JiangLiHuoDongActivity"
+            android:name="com.delivery.xianxian.activity.JiangLiHuoDongActivity"
             android:label="奖励活动" />
         <activity
-            android:name=".activity.JiangLiListActivity"
+            android:name="com.delivery.xianxian.activity.JiangLiListActivity"
             android:label="奖励记录" />
         <activity
-            android:name=".activity.JiFenShangChengActivity"
+            android:name="com.delivery.xianxian.activity.JiFenShangChengActivity"
             android:label="积分商城" />
         <activity
-            android:name=".activity.JiFenLieBiaoActivity"
+            android:name="com.delivery.xianxian.activity.JiFenLieBiaoActivity"
             android:label="商品列表" />
         <activity
-            android:name=".activity.DuiHuanListActivity"
+            android:name="com.delivery.xianxian.activity.DuiHuanListActivity"
             android:label="兑换记录" />
         <activity
-            android:name=".activity.JiFenMingXiActivity"
+            android:name="com.delivery.xianxian.activity.JiFenMingXiActivity"
             android:label="积分明细" />
         <activity
-            android:name=".activity.CheZhuZhuShouActivity"
+            android:name="com.delivery.xianxian.activity.CheZhuZhuShouActivity"
             android:label="车主助手" />
         <activity
-            android:name=".activity.Auth_CheZhuActivity"
+            android:name="com.delivery.xianxian.activity.Auth_CheZhuActivity"
             android:label="车主认证" />
         <activity
-            android:name=".activity.Auth_ShenFenZhengActivity"
+            android:name="com.delivery.xianxian.activity.Auth_ShenFenZhengActivity"
             android:label="身份证认证" />
         <activity
-            android:name=".activity.Auth_JiaShiZhengActivity"
+            android:name="com.delivery.xianxian.activity.Auth_JiaShiZhengActivity"
             android:label="驾驶证及行驶证认证" />
         <activity
-            android:name=".activity.Auth_YinHangKaActivity"
+            android:name="com.delivery.xianxian.activity.Auth_YinHangKaActivity"
             android:label="银行卡" />
         <activity
-            android:name=".activity.Auth_CheLiangBaoXianActivity"
+            android:name="com.delivery.xianxian.activity.Auth_CheLiangBaoXianActivity"
             android:label="车辆保险" />
         <activity
-            android:name=".activity.Auth_ChongYeZhiGeActivity"
+            android:name="com.delivery.xianxian.activity.Auth_ChongYeZhiGeActivity"
             android:label="从业资格证认证" />
         <activity
-            android:name=".activity.Auth_GuaKaoGongSiActivity"
+            android:name="com.delivery.xianxian.activity.Auth_GuaKaoGongSiActivity"
             android:label="挂靠公司告知书" />
         <activity
-            android:name=".activity.Auth_ChePaiHaoMaActivity"
+            android:name="com.delivery.xianxian.activity.Auth_ChePaiHaoMaActivity"
             android:label="车牌号码" />
         <activity
-            android:name=".activity.Auth_CheLiangZhaoPianActivity"
+            android:name="com.delivery.xianxian.activity.Auth_CheLiangZhaoPianActivity"
             android:label="车牌照片" />
 
 
         <!--环信-->
         <activity
-            android:name=".activity.ChatMainActivity"
+            android:name="com.delivery.xianxian.activity.ChatMainActivity"
             android:label="聊天首页" />
         <activity
-            android:name=".activity.ChatActivity"
+            android:name="com.delivery.xianxian.activity.ChatActivity"
             android:label="聊天页面" />
         <activity
             android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
@@ -252,7 +252,7 @@
             android:value="84ece9b63d4898ec33622dc0c993d740"/>
         <!--定位-->
         <service
-            android:name=".service.LocationService"
+            android:name="com.delivery.xianxian.service.LocationService"
             android:enabled="true"
             android:exported="true" />
         <service android:name="com.amap.api.location.APSService"/><!--定位SDK服务-->
@@ -287,7 +287,7 @@
             tools:node="replace"></service>
         <!--极光推送-->
         <receiver
-            android:name=".utils.jpush.MyReceiver"
+            android:name="com.delivery.xianxian.utils.jpush.MyReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -300,7 +300,7 @@
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".utils.jpush.MyJPushMessageReceiver">
+        <receiver android:name="com.delivery.xianxian.utils.jpush.MyJPushMessageReceiver">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
                 <category android:name="${applicationId}"></category>

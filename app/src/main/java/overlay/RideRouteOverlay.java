@@ -11,7 +11,7 @@ import com.amap.api.maps.model.PolylineOptions;
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.route.RidePath;
 import com.amap.api.services.route.RideStep;
-import com.transport.xianxian.R;
+import com.delivery.xianxian.R;
 
 import java.util.List;
 

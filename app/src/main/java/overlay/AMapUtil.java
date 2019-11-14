@@ -13,7 +13,7 @@ import com.amap.api.services.route.BusPath;
 import com.amap.api.services.route.BusStep;
 import com.amap.api.services.route.RouteBusLineItem;
 import com.amap.api.services.route.RouteRailwayItem;
-import com.transport.xianxian.R;
+import com.delivery.xianxian.R;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;

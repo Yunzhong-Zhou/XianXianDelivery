@@ -15,7 +15,7 @@ import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.route.TMC;
 import com.amap.api.services.route.TruckPath;
 import com.amap.api.services.route.TruckStep;
-import com.transport.xianxian.R;
+import com.delivery.xianxian.R;
 
 import java.util.ArrayList;
 import java.util.List;
