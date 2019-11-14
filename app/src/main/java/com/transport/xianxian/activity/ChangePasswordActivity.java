@@ -79,7 +79,7 @@ public class ChangePasswordActivity extends BaseActivity {
                     this.showProgress(true, getString(R.string.app_sendcode_hint1));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("mobile", phonenum);
-                    params.put("type", "3");
+                    params.put("type", "2");
                     RequestCode(params);//获取验证码
                 }
                 break;

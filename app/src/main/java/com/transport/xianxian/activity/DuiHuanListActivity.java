@@ -115,7 +115,8 @@ public class DuiHuanListActivity extends BaseActivity {
                             protected void convert(ViewHolder holder, DuiHuanListModel model, int position) {
                                 holder.setText(R.id.textView1, model.getTitle());
                                 holder.setText(R.id.textView2, model.getSub_title());
-                                holder.setText(R.id.textView3, "兑换时间：" + model.getCrated_at());
+                                holder.setText(R.id.textView3, "兑换时间：" + model.getCreated_at());
+
                                 holder.setText(R.id.textView4, "-" + model.getScore() + "积分");
                                 ImageView imageView1 = holder.getView(R.id.imageView1);
                                 if (model.getImage() != null && !model.getImage().equals(""))

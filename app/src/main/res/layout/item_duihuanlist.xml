@@ -9,10 +9,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="15dp"
-        android:paddingTop="10dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="10dp">
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/imageView1"
@@ -24,30 +21,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="NAME"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="2019年10月03日16:02:27"
                 android:textColor="@color/black2"
                 android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="2019年10月03日16:02:27"
                 android:textColor="@color/black2"
                 android:textSize="12sp" />

@@ -18,7 +18,7 @@ public class DuiHuanListModel implements Serializable {
     private String image;
     private String sub_title;
     private String score;
-    private String crated_at;
+    private String created_at;
 
     public String getTitle() {
         return title;
@@ -52,11 +52,11 @@ public class DuiHuanListModel implements Serializable {
         this.score = score;
     }
 
-    public String getCrated_at() {
-        return crated_at;
+    public String getCreated_at() {
+        return created_at;
     }
 
-    public void setCrated_at(String crated_at) {
-        this.crated_at = crated_at;
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 }

@@ -71,19 +71,19 @@ public class JiFenShangChengActivity extends BaseActivity {
             case R.id.linearLayout1:
                 //兑好礼
                 Bundle bundle1 = new Bundle();
-                bundle1.putString("type", model.getType().get(0).getVal());
+                bundle1.putInt("type", model.getType().get(0).getKey());
                 CommonUtil.gotoActivityWithData(this, JiFenLieBiaoActivity.class, bundle1, false);
                 break;
             case R.id.linearLayout2:
                 //兑加油
                 Bundle bundle2 = new Bundle();
-                bundle2.putString("type", model.getType().get(1).getVal());
+                bundle2.putInt("type", model.getType().get(1).getKey());
                 CommonUtil.gotoActivityWithData(this, JiFenLieBiaoActivity.class, bundle2, false);
                 break;
             case R.id.linearLayout3:
                 //兑话费
                 Bundle bundle3 = new Bundle();
-                bundle3.putString("type", model.getType().get(2).getVal());
+                bundle3.putInt("type", model.getType().get(2).getKey());
                 CommonUtil.gotoActivityWithData(this, JiFenLieBiaoActivity.class, bundle3, false);
                 break;
 
@@ -137,7 +137,7 @@ public class JiFenShangChengActivity extends BaseActivity {
                 images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");*/
                 images.clear();
                 for (int i = 0; i < response.getBanner().size(); i++) {
-                    images.add(response.getBanner().get(i).getUrl());
+                    images.add(OkHttpClientManager.IMGHOST+response.getBanner().get(i).getUrl());
                 }
                 //设置banner样式
                 banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
@@ -162,7 +162,7 @@ public class JiFenShangChengActivity extends BaseActivity {
                     @Override
                     public void OnBannerClick(int position) {
                         Bundle bundle = new Bundle();
-                        bundle.putString("type", response.getBanner().get(position).getType());
+                        bundle.putInt("type", response.getBanner().get(position).getType());
                         CommonUtil.gotoActivityWithData(JiFenShangChengActivity.this, JiFenLieBiaoActivity.class, bundle, false);
                     }
                 });

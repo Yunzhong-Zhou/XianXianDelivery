@@ -368,6 +368,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:onClick="onClick"
+                            android:visibility="gone"
                             android:orientation="horizontal"
                             android:paddingTop="16dp"
                             android:paddingBottom="16dp">
@@ -396,6 +397,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
+                            android:visibility="gone"
                             android:background="@color/xian" />
                         <LinearLayout
                             android:id="@+id/linearLayout11"
@@ -405,6 +407,7 @@
                             android:onClick="onClick"
                             android:orientation="horizontal"
                             android:paddingTop="16dp"
+                            android:visibility="gone"
                             android:paddingBottom="16dp">
 
                             <ImageView
@@ -431,6 +434,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
+                            android:visibility="gone"
                             android:background="@color/xian" />
                         <LinearLayout
                             android:id="@+id/linearLayout8"

@@ -85,6 +85,8 @@ public class CapitalStatisticsActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.txt_tixian:
                 //提现
+//                Bundle bundle = new Bundle();
+//                bundle.putString("money",);
                 CommonUtil.gotoActivity(CapitalStatisticsActivity.this, TakeCashActivity.class);
                 break;
             default:

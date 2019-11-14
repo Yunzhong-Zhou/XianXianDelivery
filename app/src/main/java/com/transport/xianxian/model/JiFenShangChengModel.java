@@ -78,7 +78,7 @@ public class JiFenShangChengModel implements Serializable {
          */
 
         private String url;
-        private String type;
+        private int type;
 
         public String getUrl() {
             return url;
@@ -88,11 +88,11 @@ public class JiFenShangChengModel implements Serializable {
             this.url = url;
         }
 
-        public String getType() {
+        public int getType() {
             return type;
         }
 
-        public void setType(String type) {
+        public void setType(int type) {
             this.type = type;
         }
     }

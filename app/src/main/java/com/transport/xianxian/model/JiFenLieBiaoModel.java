@@ -62,18 +62,18 @@ public class JiFenLieBiaoModel implements Serializable {
          * score : 100
          */
 
-        private int id;
+        private String id;
         private String title;
         private String sub_title;
         private String image;
         private String store;
         private String score;
 
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 

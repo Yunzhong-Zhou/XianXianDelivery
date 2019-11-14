@@ -130,6 +130,10 @@ public class URLs {
      */
     public static final String JiFenLieBiao = "/api/goods/search";
     /**
+     * 积分列表-兑换
+     */
+    public static final String JiFenLieBiao_add = "/api/goods/exchange-add";
+    /**
      * 兑换记录
      */
     public static final String DuiHuanJiLu = "/api/goods/exchange-search";

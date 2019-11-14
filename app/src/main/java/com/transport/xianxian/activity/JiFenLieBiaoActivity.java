@@ -3,6 +3,7 @@ package com.transport.xianxian.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -26,7 +27,9 @@ import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.transport.xianxian.net.OkHttpClientManager.HOST;
 
@@ -62,6 +65,7 @@ public class JiFenLieBiaoActivity extends BaseActivity {
                 page = 1;
                 String string = "?page=" + page//当前页号
                         + "&count=" + "10"//页面行数
+                        + "&type=" + type
                         + "&token=" + localUserInfo.getToken();
                 Request(string);
             }
@@ -71,6 +75,7 @@ public class JiFenLieBiaoActivity extends BaseActivity {
                 page++;
                 String string = "?page=" + page//当前页号
                         + "&count=" + "10"//页面行数
+                        + "&type=" + type
                         + "&token=" + localUserInfo.getToken();
                 RequestMore(string);
             }
@@ -101,8 +106,10 @@ public class JiFenLieBiaoActivity extends BaseActivity {
         super.requestServer();
 //        this.showLoadingPage();
         showProgress(true, getString(R.string.app_loading));
+        page = 1;
         String string = "?page=" + page//当前页号
                 + "&count=" + "10"//页面行数
+                + "&type=" + type
                 + "&token=" + localUserInfo.getToken();
         Request(string);
     }
@@ -126,7 +133,7 @@ public class JiFenLieBiaoActivity extends BaseActivity {
 
                 images.clear();
                 for (int i = 0; i < response.getBanner().size(); i++) {
-                    images.add(response.getBanner().get(i).getUrl());
+                    images.add(OkHttpClientManager.IMGHOST + response.getBanner().get(i).getUrl());
                 }
                 //设置banner样式
                 banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
@@ -150,16 +157,53 @@ public class JiFenLieBiaoActivity extends BaseActivity {
                 banner.setOnBannerListener(new OnBannerListener() {
                     @Override
                     public void OnBannerClick(int position) {
-
+                        showToast("确认兑换该商品吗？", "确认", "取消",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        HashMap<String, String> params = new HashMap<>();
+                                        params.put("token", localUserInfo.getToken());
+                                        params.put("goods_id", response.getBanner().get(position).getGoods_id() + "");
+                                        RequestAdd(params);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
                     }
                 });
 
                 list = response.getGoods_data();
                 gridViewAdapter = new JiFenLieBiao_GridViewAdapter(JiFenLieBiaoActivity.this, list);
                 gridView.setAdapter(gridViewAdapter);
+                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        showToast("确认兑换该商品吗？", "确认", "取消",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        HashMap<String, String> params = new HashMap<>();
+                                        params.put("token", localUserInfo.getToken());
+                                        params.put("goods_id", list.get(position).getId() + "");
+                                        RequestAdd(params);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                    }
+                });
             }
         });
     }
+
     private void RequestMore(String string) {
         OkHttpClientManager.getAsyn(this, URLs.JiFenLieBiao + string, new OkHttpClientManager.ResultCallback<JiFenLieBiaoModel>() {
             @Override
@@ -190,6 +234,28 @@ public class JiFenLieBiaoActivity extends BaseActivity {
         });
 
     }
+
+    private void RequestAdd(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(JiFenLieBiaoActivity.this, URLs.JiFenLieBiao_add, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                MyLogger.i(">>>>>>>>>积分兑换" + response);
+                myToast("兑换成功");
+                requestServer();
+            }
+        }, false);
+
+    }
+
     @Override
     protected void updateView() {
         titleView.setTitle("商品列表");

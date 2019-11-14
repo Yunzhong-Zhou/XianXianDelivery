@@ -25,10 +25,11 @@ import java.util.Map;
 
 public class ForgetPasswordActivity extends BaseActivity {
     private TextView textView1, textView2;
-    private EditText editText1, editText2;
+    private EditText editText1, editText2, editText3, editText4;
+
+    String phonenum = "", password1 = "", password2 = "", code = "";
 
     private TimeCount time;
-    String phonenum = "", code = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +48,14 @@ public class ForgetPasswordActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        editText1 = findViewByID_My(R.id.editText1);
+
+        editText2 = findViewByID_My(R.id.editText2);
+        editText3 = findViewByID_My(R.id.editText3);
+        editText4 = findViewByID_My(R.id.editText4);
+
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
-
-        editText1 = findViewByID_My(R.id.editText1);
-        editText2 = findViewByID_My(R.id.editText2);
     }
 
     @Override
@@ -72,7 +76,7 @@ public class ForgetPasswordActivity extends BaseActivity {
                     this.showProgress(true, getString(R.string.app_sendcode_hint1));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("mobile", phonenum);
-                    params.put("type", "2");
+                    params.put("type", "3");
                     RequestCode(params);//获取验证码
                 }
                 break;
@@ -86,6 +90,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 //                    params.put("password", password1);//密码（不能小于6位数）
 //                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
 //                    params.put("uuid", CommonUtil.getIMEI(ForgetPasswordActivity.this));
+                    params.put("password", password1);//密码（不能小于6位数）
                     params.put("code", code);//手机验证码
                     Request(params);
                 }
@@ -107,20 +112,20 @@ public class ForgetPasswordActivity extends BaseActivity {
             myToast(getString(R.string.forgetpassword_h2));
             return false;
         }
-        /*password1 = editText3.getText().toString().trim();
+        password1 = editText3.getText().toString().trim();
         if (TextUtils.isEmpty(password1)) {
-            myToast(getString(R.string.forgetpassword_h3));
+            myToast(getString(R.string.registered_h3));
             return false;
         }
         password2 = editText4.getText().toString().trim();
         if (TextUtils.isEmpty(password2)) {
-            myToast(getString(R.string.forgetpassword_h4));
+            myToast(getString(R.string.registered_h4));
             return false;
         }
         if (!password1.equals(password2)) {
-            myToast(getString(R.string.forgetpassword_h7));
+            myToast(getString(R.string.registered_h12));
             return false;
-        }*/
+        }
         return true;
     }
 
