@@ -115,7 +115,7 @@ public class RegisteredActivity extends BaseActivity {
             case R.id.textView4:
                 //用户注册协议
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/api/driver/article/gvrp");
+                bundle.putString("url", HOST + "/api/owner/article/gvrp");
                 CommonUtil.gotoActivityWithData(RegisteredActivity.this, WebContentActivity.class, bundle, false);
 
                 break;
@@ -310,10 +310,18 @@ public class RegisteredActivity extends BaseActivity {
                                     @Override
                                     public void run() {
                                         hideProgress();
-                                        //去完善信息
+
+                                        localUserInfo.setUserId(id);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putInt("isShowAd", 1);
+                                        CommonUtil.gotoActivityWithFinishOtherAllAndData(
+                                                RegisteredActivity.this, MainActivity.class,
+                                                bundle, true);
+
+                                        /*//去完善信息
                                         Bundle bundle = new Bundle();
                                         bundle.putString("id", id);
-                                        CommonUtil.gotoActivityWithData(RegisteredActivity.this, Registered2Activity.class, bundle, true);
+                                        CommonUtil.gotoActivityWithData(RegisteredActivity.this, Registered2Activity.class, bundle, true);*/
                                     }
                                 });
                             } catch (final HyphenateException e) {

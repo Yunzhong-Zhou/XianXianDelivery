@@ -12,22 +12,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
-import com.hyphenate.EMCallBack;
-import com.hyphenate.chat.EMClient;
-import com.liaoinstan.springview.widget.SpringView;
-import com.squareup.okhttp.Request;
 import com.delivery.xianxian.R;
-import com.delivery.xianxian.activity.Auth_CheZhuActivity;
 import com.delivery.xianxian.activity.ChangePasswordActivity;
 import com.delivery.xianxian.activity.ChatMainActivity;
-import com.delivery.xianxian.activity.CheZhuZhuShouActivity;
 import com.delivery.xianxian.activity.JiFenShangChengActivity;
-import com.delivery.xianxian.activity.JiangLiHuoDongActivity;
 import com.delivery.xianxian.activity.LoginActivity;
 import com.delivery.xianxian.activity.MainActivity;
 import com.delivery.xianxian.activity.MyProfileActivity;
-import com.delivery.xianxian.activity.TrackSearchActivity;
-import com.delivery.xianxian.activity.TrackServiceActivity;
+import com.delivery.xianxian.activity.ServiceCenterActivity;
 import com.delivery.xianxian.activity.WalletActivity;
 import com.delivery.xianxian.base.BaseFragment;
 import com.delivery.xianxian.model.Fragment3Model;
@@ -35,6 +27,10 @@ import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
+import com.liaoinstan.springview.widget.SpringView;
+import com.squareup.okhttp.Request;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,7 +45,7 @@ public class Fragment3 extends BaseFragment {
     ImageView imageView1;
     TextView textView1, textView2;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5, linearLayout6,
-            linearLayout7, linearLayout8, linearLayout9,linearLayout10,linearLayout11;
+            linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11, linearLayout12, linearLayout13, linearLayout14;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -102,7 +98,9 @@ public class Fragment3 extends BaseFragment {
         textView1 = findViewByID_My(R.id.textView1);
         textView1.setOnClickListener(this);
         textView2 = findViewByID_My(R.id.textView2);
-        textView1.setText(localUserInfo.getNickname());
+        if (!localUserInfo.getNickname().equals("")) {
+            textView1.setText(localUserInfo.getNickname());
+        }
         textView2.setText(localUserInfo.getPhonenumber());
         if (!localUserInfo.getUserImage().equals(""))
             Glide.with(getActivity())
@@ -123,8 +121,11 @@ public class Fragment3 extends BaseFragment {
         linearLayout7 = findViewByID_My(R.id.linearLayout7);
         linearLayout8 = findViewByID_My(R.id.linearLayout8);
         linearLayout9 = findViewByID_My(R.id.linearLayout9);
-        linearLayout10= findViewByID_My(R.id.linearLayout10);
+        linearLayout10 = findViewByID_My(R.id.linearLayout10);
         linearLayout11 = findViewByID_My(R.id.linearLayout11);
+        linearLayout12 = findViewByID_My(R.id.linearLayout12);
+        linearLayout13 = findViewByID_My(R.id.linearLayout13);
+        linearLayout14 = findViewByID_My(R.id.linearLayout14);
 
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
@@ -137,6 +138,9 @@ public class Fragment3 extends BaseFragment {
         linearLayout9.setOnClickListener(this);
         linearLayout10.setOnClickListener(this);
         linearLayout11.setOnClickListener(this);
+        linearLayout12.setOnClickListener(this);
+        linearLayout13.setOnClickListener(this);
+        linearLayout14.setOnClickListener(this);
 
     }
 
@@ -159,9 +163,10 @@ public class Fragment3 extends BaseFragment {
             public void onResponse(Fragment3Model response) {
                 MyLogger.i(">>>>>>>>>我的" + response);
                 //昵称
-                textView1.setText(response.getNickname());
-                localUserInfo.setNickname(response.getNickname());
-
+                if (!response.getNickname().equals("")) {
+                    textView1.setText(response.getNickname());
+                    localUserInfo.setNickname(response.getNickname());
+                }
                 //头像
                 localUserInfo.setUserImage(response.getHead());
                 if (!response.getHead().equals(""))
@@ -231,30 +236,56 @@ public class Fragment3 extends BaseFragment {
                 CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class);
                 break;
             case R.id.linearLayout2:
-                //车主认证
-                CommonUtil.gotoActivity(getActivity(), Auth_CheZhuActivity.class);
+                //货运订单
+//                CommonUtil.gotoActivity(getActivity(), Auth_CheZhuActivity.class);
                 break;
             case R.id.linearLayout3:
-                //车主助手
-                CommonUtil.gotoActivity(getActivity(), CheZhuZhuShouActivity.class);
-                break;
-            case R.id.linearLayout4:
                 //我的钱包
                 CommonUtil.gotoActivity(getActivity(), WalletActivity.class);
                 break;
-            case R.id.linearLayout5:
+            case R.id.linearLayout4:
                 //积分商城
                 CommonUtil.gotoActivity(getActivity(), JiFenShangChengActivity.class);
                 break;
+            case R.id.linearLayout5:
+                //申请发票
+
+                break;
             case R.id.linearLayout6:
-                //奖励活动
-                CommonUtil.gotoActivity(getActivity(), JiangLiHuoDongActivity.class);
+                //客服中心
+                CommonUtil.gotoActivity(getActivity(), ServiceCenterActivity.class);
+
                 break;
             case R.id.linearLayout7:
+                //我的司机
+
+                break;
+            case R.id.linearLayout8:
                 //修改密码
                 CommonUtil.gotoActivity(getActivity(), ChangePasswordActivity.class);
                 break;
-            case R.id.linearLayout8:
+            case R.id.linearLayout9:
+                //用户协议
+
+                break;
+            case R.id.linearLayout10:
+                //收费标准
+
+                break;
+            case R.id.linearLayout11:
+                //关于我们
+                //奖励活动
+//                CommonUtil.gotoActivity(getActivity(), JiangLiHuoDongActivity.class);
+                break;
+            case R.id.linearLayout12:
+                //分享APP
+
+                break;
+            case R.id.linearLayout13:
+                //会话列表
+                CommonUtil.gotoActivity(getActivity(), ChatMainActivity.class);
+                break;
+            case R.id.linearLayout14:
                 //退出登录
                 showToast("确认退出登录吗？",
                         getString(R.string.app_confirm),
@@ -272,18 +303,6 @@ public class Fragment3 extends BaseFragment {
                                 dialog.dismiss();
                             }
                         });
-                break;
-            case R.id.linearLayout9:
-                //会话列表
-                CommonUtil.gotoActivity(getActivity(), ChatMainActivity.class);
-                break;
-            case R.id.linearLayout10:
-                //上报轨迹
-                CommonUtil.gotoActivity(getActivity(), TrackServiceActivity.class);
-                break;
-            case R.id.linearLayout11:
-                //查看轨迹
-                CommonUtil.gotoActivity(getActivity(), TrackSearchActivity.class);
                 break;
         }
     }

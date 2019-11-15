@@ -100,6 +100,8 @@
 
     <!--底部栏-->
     <string name="fragment1">首页</string>
+    <string name="fragment1_u1"><u>点击查看明细</u></string>
+
     <string name="fragment2">订单</string>
     <string name="fragment3">我的</string>
     <string name="fragment4">充币</string>
@@ -166,7 +168,7 @@
     <string name="login_h1">请输入手机号码</string>
     <string name="login_h2">请输入密码</string>
     <string name="login_h3"><u>注册账号</u></string>
-    <string name="login_h4">忘记密码?</string>
+    <string name="login_h4"><u>忘记密码</u></string>
     <string name="login_h5">登录</string>
     <string name="login_h6">第三方登录</string>
     <string name="login_h7">正在登录...</string>

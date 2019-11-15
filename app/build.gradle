@@ -131,7 +131,8 @@ dependencies {
     implementation 'com.github.AnJiaoDe:BaseDialog:V1.1.8'
 
     //城市联动选择
-    implementation 'liji.library.dev:citypickerview:4.1.1'
+    implementation 'liji.library.dev:citypickerview:4.1.1'//底部选择器
+    implementation 'com.zaaach:citypicker:2.0.3'//页面选择
 
     //时间选择器
     implementation 'com.contrarywind:Android-PickerView:4.1.8'

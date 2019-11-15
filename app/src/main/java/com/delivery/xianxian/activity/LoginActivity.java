@@ -19,10 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cy.dialog.BaseDialog;
-import com.hyphenate.EMCallBack;
-import com.hyphenate.chat.EMClient;
-import com.maning.updatelibrary.InstallUtils;
-import com.squareup.okhttp.Request;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.LoginModel;
@@ -33,6 +29,10 @@ import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 import com.delivery.xianxian.utils.permission.PermissionsActivity;
 import com.delivery.xianxian.utils.permission.PermissionsChecker;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
+import com.maning.updatelibrary.InstallUtils;
+import com.squareup.okhttp.Request;
 
 import java.util.Map;
 
@@ -196,33 +196,34 @@ public class LoginActivity extends BaseActivity {
                 localUserInfo.setToken(response.getFresh_token());
                 //保存电话号码
                 localUserInfo.setPhoneNumber(response.getMobile());
-                if (response.getIdentity() == 1) {//登录通过
-                    //环信登录-为了登录成功，先退出登录
-                    EMClient.getInstance().logout(false);
-                    EMClient.getInstance().login(response.getHx_username(), "123456", new EMCallBack() {
-                        @Override
-                        public void onSuccess() {
-                            hideProgress();
-                            //保存id
-                            localUserInfo.setUserId(response.getId());
-                            CommonUtil.gotoActivityWithFinishOtherAll(LoginActivity.this, MainActivity.class, true);
-                        }
+                //环信登录-为了登录成功，先退出登录
+                EMClient.getInstance().logout(false);
+                EMClient.getInstance().login(response.getHx_username(), "123456", new EMCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        hideProgress();
+                        //保存id
+                        localUserInfo.setUserId(response.getId());
+                        CommonUtil.gotoActivityWithFinishOtherAll(LoginActivity.this, MainActivity.class, true);
+                    }
 
-                        @Override
-                        public void onProgress(int progress, String status) {
-                        }
+                    @Override
+                    public void onProgress(int progress, String status) {
+                    }
 
-                        @Override
-                        public void onError(int code, String error) {
-                            runOnUiThread(new Runnable() {
-                                public void run() {
-                                    hideProgress();
-                                    MyLogger.i("环信登录失败：" + error);
-                                    myToast("环信登录失败：" + error);
-                                }
-                            });
-                        }
-                    });
+                    @Override
+                    public void onError(int code, String error) {
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                hideProgress();
+                                MyLogger.i("环信登录失败：" + error);
+                                myToast("环信登录失败：" + error);
+                            }
+                        });
+                    }
+                });
+                /*if (response.getIdentity() == 1) {//登录通过
+
                 } else {//未完善资料
                     hideProgress();
                     showToast("该账户尚未完善资料，前往完善资料", new View.OnClickListener() {
@@ -234,7 +235,7 @@ public class LoginActivity extends BaseActivity {
                             CommonUtil.gotoActivity(LoginActivity.this, Registered2Activity.class, false);
                         }
                     });
-                }
+                }*/
             }
         }, false);
 
@@ -262,7 +263,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle("登录");
+        titleView.setTitle("冷链配送");
         titleView.hideLeftBtn();
     }
 

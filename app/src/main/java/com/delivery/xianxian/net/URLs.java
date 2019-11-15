@@ -25,7 +25,7 @@ public class URLs {
     /**
      * 登录
      */
-    public static final String Login = "/api/driver/login";
+    public static final String Login = "/api/owner/login";
     /**
      * 一键登录
      */
@@ -37,15 +37,15 @@ public class URLs {
     /**
      * 重置密码
      */
-    public static final String ForgetPassword = "/api/driver/forget-password";
+    public static final String ForgetPassword = "/api/owner/forget-password";
     /**
      * 注册
      */
-    public static final String Registered = "/api/driver/register";
+    public static final String Registered = "/api/owner/register";
     /**
      * 注册2
      */
-    public static final String Registered2= "/api/driver/identity";
+    public static final String Registered2= "/api/owner/identity";
     /**
      * 注册-极验
      */
@@ -62,31 +62,31 @@ public class URLs {
     /**
      * 首页
      */
-    public static final String Fragment1= "/api/driver/index";
+    public static final String Fragment1= "/api/owner/index";
     /**
      * 接单列表
      */
-    public static final String Fragment1List= "/api/driver/tindent/set";
+    public static final String Fragment1List= "/api/owner/tindent/set";
     /**
      * 订单详情
      */
-    public static final String OrderDetails= "/api/driver/tindent/detail";
+    public static final String OrderDetails= "/api/owner/tindent/detail";
     /**
      * 拒绝/接单
      */
-    public static final String OrderDetails_JieDan= "/api/driver/tindent/create";
+    public static final String OrderDetails_JieDan= "/api/owner/tindent/create";
     /**
      * 确认的类型1确认装货2提醒司机装货3确认卸货4附加费5转单确认6取消订单7接收转单8获取附加费
      */
-    public static final String OrderDetails_ZhuangHuo= "/api/driver/tindent/confirm";
+    public static final String OrderDetails_ZhuangHuo= "/api/owner/tindent/confirm";
     /**
      * 订单
      */
-    public static final String Fragment2 = "/api/driver/tindent/search";
+    public static final String Fragment2 = "/api/owner/tindent/search";
     /**
      * 获取附加费
      */
-    public static final String AddSurcharge = "/api/driver/tindent/search";
+    public static final String AddSurcharge = "/api/owner/tindent/search";
     /**
      * 购买区块
      */
@@ -96,19 +96,19 @@ public class URLs {
     /**
      * 我的主页
      */
-    public static final String Center = "/api/driver/center/index";
+    public static final String Center = "/api/owner/center/index";
     /**
      * 退出
      */
-    public static final String Out = "/api/driver/logout";
+    public static final String Out = "/api/owner/logout";
     /**
      * 修改手机号
      */
-    public static final String ChangePhone = "/api/driver/center/bind-mobile";
+    public static final String ChangePhone = "/api/owner/center/bind-mobile";
     /**
      * 修改信息
      */
-    public static final String ChangeProfile = "/api/driver/center/update";
+    public static final String ChangeProfile = "/api/owner/center/update";
     /**
      * 设置交易密码
      */
@@ -116,7 +116,7 @@ public class URLs {
     /**
      * 修改密码
      */
-    public static final String ChangePassword = "/api/driver/center/reset-password";
+    public static final String ChangePassword = "/api/owner/center/reset-password";
     /**
      * 钱包地址（get）
      */
@@ -144,12 +144,12 @@ public class URLs {
     /**
      * 奖励记录
      */
-    public static final String JiangLiList = "/api/driver/center/award";
+    public static final String JiangLiList = "/api/owner/center/award";
 
     /**
      * 车主认证
      */
-    public static final String Auth_CheZhu = "/api/driver/center/identification";
+    public static final String Auth_CheZhu = "/api/owner/center/identification";
     /**
      * 充值详情
      */
@@ -189,19 +189,19 @@ public class URLs {
     /**
      * 公告详情
      */
-    public static final String NoticeDetail = "/api/driver/message";
+    public static final String NoticeDetail = "/api/owner/message";
     /**
      * 评分详情
      */
-    public static final String ScoreDetail = "/api/driver/tcomment";
+    public static final String ScoreDetail = "/api/owner/tcomment";
     /**
      * 钱包
      */
-    public static final String Wallet = "/api/driver/center/tmoney";
+    public static final String Wallet = "/api/owner/center/tmoney";
     /**
      * 资金统计
      */
-    public static final String CapitalStatistics = "/api/driver/tmoney-today";
+    public static final String CapitalStatistics = "/api/owner/tmoney-today";
     /**
      * 帮助列表
      */

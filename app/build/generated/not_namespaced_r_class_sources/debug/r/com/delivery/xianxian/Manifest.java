@@ -9,7 +9,7 @@ package com.delivery.xianxian;
 
 public final class Manifest {
   public static final class permission {
-    public static final String JPUSH_MESSAGE="com.transport.xianxian.permission.JPUSH_MESSAGE";
+    public static final String JPUSH_MESSAGE="com.delivery.xianxian.permission.JPUSH_MESSAGE";
   }
 
 }

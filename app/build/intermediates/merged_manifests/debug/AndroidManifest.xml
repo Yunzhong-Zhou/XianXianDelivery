@@ -102,7 +102,8 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.delivery.xianxian.activity.MainActivity"
-            android:label="主页" />
+            android:label="主页"
+            android:theme="@style/DefaultCityPickerTheme" />
         <activity
             android:name="com.delivery.xianxian.activity.LoginActivity"
             android:label="登录" />
@@ -123,6 +124,9 @@
             android:label="扫一扫" />
 
         <!-- 首页 -->
+        <activity
+            android:name="com.delivery.xianxian.activity.SelectAddressActivity"
+            android:label="选取地点" />
         <activity
             android:name="com.delivery.xianxian.activity.NoticeDetailActivity"
             android:label="公告详情" />
@@ -183,7 +187,7 @@
             android:name="com.delivery.xianxian.activity.JiFenMingXiActivity"
             android:label="积分明细" />
         <activity
-            android:name="com.delivery.xianxian.activity.CheZhuZhuShouActivity"
+            android:name="com.delivery.xianxian.activity.ServiceCenterActivity"
             android:label="车主助手" />
         <activity
             android:name="com.delivery.xianxian.activity.Auth_CheZhuActivity"
@@ -261,7 +265,7 @@
             android:theme="@android:style/Theme.NoTitleBar" /> <!-- 导航组件 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="84ece9b63d4898ec33622dc0c993d740" />
+            android:value="b31683d96c37bd2c6b874efe7750f18d" />
         <!-- 定位 -->
         <service
             android:name="com.delivery.xianxian.service.LocationService"

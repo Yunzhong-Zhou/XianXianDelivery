@@ -12,18 +12,18 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int sriv_border_color = 0x7f0301f8;
-        public static final int sriv_border_width = 0x7f0301f9;
-        public static final int sriv_left_bottom_corner_radius = 0x7f0301fa;
-        public static final int sriv_left_top_corner_radius = 0x7f0301fb;
-        public static final int sriv_oval = 0x7f0301fc;
-        public static final int sriv_right_bottom_corner_radius = 0x7f0301fd;
-        public static final int sriv_right_top_corner_radius = 0x7f0301fe;
+        public static final int sriv_border_color = 0x7f030217;
+        public static final int sriv_border_width = 0x7f030218;
+        public static final int sriv_left_bottom_corner_radius = 0x7f030219;
+        public static final int sriv_left_top_corner_radius = 0x7f03021a;
+        public static final int sriv_oval = 0x7f03021b;
+        public static final int sriv_right_bottom_corner_radius = 0x7f03021c;
+        public static final int sriv_right_top_corner_radius = 0x7f03021d;
     }
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] SelectableRoundedImageView = { 0x101011d, 0x7f0301f8, 0x7f0301f9, 0x7f0301fa, 0x7f0301fb, 0x7f0301fc, 0x7f0301fd, 0x7f0301fe };
+        public static final int[] SelectableRoundedImageView = { 0x101011d, 0x7f030217, 0x7f030218, 0x7f030219, 0x7f03021a, 0x7f03021b, 0x7f03021c, 0x7f03021d };
         public static final int SelectableRoundedImageView_android_scaleType = 0;
         public static final int SelectableRoundedImageView_sriv_border_color = 1;
         public static final int SelectableRoundedImageView_sriv_border_width = 2;

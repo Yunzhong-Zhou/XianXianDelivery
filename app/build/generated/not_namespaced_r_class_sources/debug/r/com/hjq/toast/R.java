@@ -12,11 +12,11 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int toast_main_text_view_id = 0x7f080237;
+        public static final int toast_main_text_view_id = 0x7f080248;
     }
     public static final class style {
         private style() {}
 
-        public static final int ToastAnimation = 0x7f0f018e;
+        public static final int ToastAnimation = 0x7f0f0191;
     }
 }

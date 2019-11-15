@@ -18,13 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cy.dialog.BaseDialog;
-import com.hjm.bottomtabbar.BottomTabBar;
-import com.maning.updatelibrary.InstallUtils;
-import com.squareup.okhttp.Request;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.fragment.Fragment1;
-import com.delivery.xianxian.fragment.Fragment2;
 import com.delivery.xianxian.fragment.Fragment3;
 import com.delivery.xianxian.model.UpgradeModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
@@ -33,6 +29,9 @@ import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 import com.delivery.xianxian.utils.permission.PermissionsActivity;
 import com.delivery.xianxian.utils.permission.PermissionsChecker;
+import com.hjm.bottomtabbar.BottomTabBar;
+import com.maning.updatelibrary.InstallUtils;
+import com.squareup.okhttp.Request;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -93,7 +92,7 @@ public class MainActivity extends BaseActivity {
 //                .setTabPadding(4,6,10)//设置ICON图片与上部分割线的间隔、图片与文字的间隔、文字与底部的间隔
                 .setChangeColor(getResources().getColor(R.color.blue), getResources().getColor(R.color.black1))//设置选中的颜色、未选中的颜色
                 .addTabItem(getString(R.string.fragment1), R.mipmap.tab1_1, R.mipmap.tab1_0, Fragment1.class)//设置文字、选中图片、未选中图片、fragment
-                .addTabItem(getString(R.string.fragment2), R.mipmap.tab2_1, R.mipmap.tab2_0, Fragment2.class)//设置文字、选中图片、未选中图片、fragment
+//                .addTabItem(getString(R.string.fragment2), R.mipmap.tab2_1, R.mipmap.tab2_0, Fragment2.class)//设置文字、选中图片、未选中图片、fragment
                 .addTabItem(getString(R.string.fragment3), R.mipmap.tab3_1, R.mipmap.tab3_0, Fragment3.class)//设置文字、选中图片、未选中图片、fragment
 //                .addTabItem(getString(R.string.fragment4), R.mipmap.tab4_1, R.mipmap.tab4_0, Fragment4.class)//设置文字、选中图片、未选中图片、fragment
 //                .addTabItem(getString(R.string.fragment5), R.mipmap.tab5_1, R.mipmap.tab5_0, Fragment5.class)//设置文字、选中图片、未选中图片、fragment
@@ -125,14 +124,14 @@ public class MainActivity extends BaseActivity {
                                         .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
                                         .init();*/
                                 break;
-                            case 2:
+                            /*case 2:
                                 MainActivity.item = 2;
                                 mImmersionBar.getTag("common").init();
-                               /* mImmersionBar.reset()
+                               *//* mImmersionBar.reset()
 //                                        .statusBarColor(R.color.red)
                                         .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
-                                        .init();*/
-                                break;
+                                        .init();*//*
+                                break;*/
                            /* case 3:
                                 MainActivity.item = 3;
                                 mImmersionBar.reset()

@@ -12,59 +12,59 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int jpush_ic_richpush_actionbar_back = 0x7f070167;
-        public static final int jpush_ic_richpush_actionbar_divider = 0x7f070168;
-        public static final int jpush_richpush_btn_selector = 0x7f070169;
-        public static final int jpush_richpush_progressbar = 0x7f07016a;
+        public static final int jpush_ic_richpush_actionbar_back = 0x7f07016a;
+        public static final int jpush_ic_richpush_actionbar_divider = 0x7f07016b;
+        public static final int jpush_richpush_btn_selector = 0x7f07016c;
+        public static final int jpush_richpush_progressbar = 0x7f07016d;
     }
     public static final class id {
         private id() {}
 
         public static final int actionbarLayoutId = 0x7f080039;
-        public static final int fullWebView = 0x7f0800ef;
-        public static final int imgRichpushBtnBack = 0x7f080113;
-        public static final int imgView = 0x7f080114;
-        public static final int popLayoutId = 0x7f080195;
-        public static final int pushPrograssBar = 0x7f08019e;
-        public static final int push_notification_bg = 0x7f08019f;
-        public static final int push_notification_big_icon = 0x7f0801a0;
-        public static final int push_notification_content = 0x7f0801a1;
-        public static final int push_notification_content_one_line = 0x7f0801a2;
-        public static final int push_notification_date = 0x7f0801a3;
-        public static final int push_notification_dot = 0x7f0801a4;
-        public static final int push_notification_layout_lefttop = 0x7f0801a5;
-        public static final int push_notification_small_icon = 0x7f0801a6;
-        public static final int push_notification_style_1 = 0x7f0801a7;
-        public static final int push_notification_style_1_big_icon = 0x7f0801a8;
-        public static final int push_notification_style_1_content = 0x7f0801a9;
-        public static final int push_notification_style_1_date = 0x7f0801aa;
-        public static final int push_notification_style_1_title = 0x7f0801ab;
-        public static final int push_notification_style_default = 0x7f0801ac;
-        public static final int push_notification_sub_title = 0x7f0801ad;
-        public static final int push_notification_title = 0x7f0801ae;
-        public static final int push_root_view = 0x7f0801af;
-        public static final int rlRichpushTitleBar = 0x7f0801c0;
-        public static final int tvRichpushTitle = 0x7f080248;
-        public static final int wvPopwin = 0x7f080293;
+        public static final int fullWebView = 0x7f0800ff;
+        public static final int imgRichpushBtnBack = 0x7f080123;
+        public static final int imgView = 0x7f080124;
+        public static final int popLayoutId = 0x7f0801a7;
+        public static final int pushPrograssBar = 0x7f0801b0;
+        public static final int push_notification_bg = 0x7f0801b1;
+        public static final int push_notification_big_icon = 0x7f0801b2;
+        public static final int push_notification_content = 0x7f0801b3;
+        public static final int push_notification_content_one_line = 0x7f0801b4;
+        public static final int push_notification_date = 0x7f0801b5;
+        public static final int push_notification_dot = 0x7f0801b6;
+        public static final int push_notification_layout_lefttop = 0x7f0801b7;
+        public static final int push_notification_small_icon = 0x7f0801b8;
+        public static final int push_notification_style_1 = 0x7f0801b9;
+        public static final int push_notification_style_1_big_icon = 0x7f0801ba;
+        public static final int push_notification_style_1_content = 0x7f0801bb;
+        public static final int push_notification_style_1_date = 0x7f0801bc;
+        public static final int push_notification_style_1_title = 0x7f0801bd;
+        public static final int push_notification_style_default = 0x7f0801be;
+        public static final int push_notification_sub_title = 0x7f0801bf;
+        public static final int push_notification_title = 0x7f0801c0;
+        public static final int push_root_view = 0x7f0801c1;
+        public static final int rlRichpushTitleBar = 0x7f0801d2;
+        public static final int tvRichpushTitle = 0x7f080259;
+        public static final int wvPopwin = 0x7f0802a4;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int jpush_popwin_layout = 0x7f0b00b2;
-        public static final int jpush_webview_layout = 0x7f0b00b3;
-        public static final int push_notification = 0x7f0b00cd;
+        public static final int jpush_popwin_layout = 0x7f0b00bb;
+        public static final int jpush_webview_layout = 0x7f0b00bc;
+        public static final int push_notification = 0x7f0b00d6;
     }
     public static final class string {
         private string() {}
 
-        public static final int jg_channel_name_p_default = 0x7f0e0167;
-        public static final int jg_channel_name_p_high = 0x7f0e0168;
-        public static final int jg_channel_name_p_low = 0x7f0e0169;
-        public static final int jg_channel_name_p_min = 0x7f0e016a;
+        public static final int jg_channel_name_p_default = 0x7f0e016d;
+        public static final int jg_channel_name_p_high = 0x7f0e016e;
+        public static final int jg_channel_name_p_low = 0x7f0e016f;
+        public static final int jg_channel_name_p_min = 0x7f0e0170;
     }
     public static final class style {
         private style() {}
 
-        public static final int MyDialogStyle = 0x7f0f00d1;
+        public static final int MyDialogStyle = 0x7f0f00d4;
     }
 }
