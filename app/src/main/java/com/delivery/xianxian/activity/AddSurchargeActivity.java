@@ -229,7 +229,7 @@ public class AddSurchargeActivity extends BaseActivity {
         textView2.setText("¥ "+allMoney);
     }
 
-    //添加材料布局
+    //添加布局
     private void addView(String title, String money) {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);

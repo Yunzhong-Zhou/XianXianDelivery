@@ -1,12 +1,16 @@
 package com.delivery.xianxian.fragment;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,6 +19,9 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.bumptech.glide.Glide;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.activity.MainActivity;
@@ -23,6 +30,7 @@ import com.delivery.xianxian.base.BaseFragment;
 import com.delivery.xianxian.model.Fragment1Model;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
+import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
@@ -37,6 +45,8 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -76,17 +86,17 @@ public class Fragment1 extends BaseFragment {
     ViewPager viewPager;
     private ArrayList<View> pageViews = new ArrayList<>();
     GuidePageAdapter mPageAdapter;
-    ImageView iv_left,iv_right;
+    ImageView iv_left, iv_right;
 
     //现在、预约
     LinearLayout ll_time1;
-    TextView tv_now,tv_next;
+    TextView tv_now, tv_next;
 
     //地址
-    TextView tv_qidian,tv_zhongdian,tv_tujingdian;
-    LinearLayout ll_add;
-
-
+    TextView tv_qidian, tv_zhongdian, tv_tujingdian, tv_time;
+    LinearLayout ll_add, ll_time2;
+    String startAddr_id = "", endAddr_id = "";
+    TimePickerView pvTime1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -182,7 +192,9 @@ public class Fragment1 extends BaseFragment {
         tv_tujingdian = findViewByID_My(R.id.tv_tujingdian);
         tv_tujingdian.setOnClickListener(this);
         ll_add = findViewByID_My(R.id.ll_add);
-
+        tv_time = findViewByID_My(R.id.tv_time);
+        tv_time.setOnClickListener(this);
+        ll_time2 = findViewByID_My(R.id.ll_time2);
     }
 
     @Override
@@ -274,6 +286,7 @@ public class Fragment1 extends BaseFragment {
         mLocationClient.startLocation();
 
     }
+
     //获取车型
     private void Request(String string) {
         OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
@@ -436,6 +449,8 @@ public class Fragment1 extends BaseFragment {
                 tv_next.setBackgroundResource(R.drawable.yuanjiao_10_huise_right);
                 tv_now.setTextColor(getResources().getColor(R.color.white));
                 tv_next.setTextColor(getResources().getColor(R.color.black2));
+
+                ll_time2.setVisibility(View.GONE);
                 break;
             case R.id.tv_next:
                 //预约用车
@@ -443,24 +458,38 @@ public class Fragment1 extends BaseFragment {
                 tv_next.setBackgroundResource(R.drawable.yuanjiao_10_lanse_right);
                 tv_now.setTextColor(getResources().getColor(R.color.black2));
                 tv_next.setTextColor(getResources().getColor(R.color.white));
+
+                ll_time2.setVisibility(View.VISIBLE);
                 break;
 
             case R.id.tv_qidian:
                 //起点
                 Intent intent1 = new Intent(getActivity(), SelectAddressActivity.class);
-                startActivityForResult(intent1, 10001);
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("type", 10001);
+                intent1.putExtras(bundle1);
+                startActivityForResult(intent1, 10001, bundle1);
                 break;
             case R.id.tv_zhongdian:
                 //终点
                 Intent intent2 = new Intent(getActivity(), SelectAddressActivity.class);
-                startActivityForResult(intent2, 10002);
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("type", 10002);
+                intent2.putExtras(bundle2);
+                startActivityForResult(intent2, 10002, bundle2);
                 break;
             case R.id.tv_tujingdian:
                 //途经点
                 Intent intent3 = new Intent(getActivity(), SelectAddressActivity.class);
-                startActivityForResult(intent3, 10003);
+                Bundle bundle3 = new Bundle();
+                bundle3.putInt("type", 10003);
+                intent3.putExtras(bundle3);
+                startActivityForResult(intent3, 10003, bundle3);
                 break;
-
+            case R.id.tv_time:
+                //预约时间
+                setDate(tv_time);
+                break;
 
         }
     }
@@ -514,6 +543,88 @@ public class Fragment1 extends BaseFragment {
 
     }
 
+    //预约时间
+    private void setDate(TextView textView) {
+        //获取当前时间
+        Calendar calendar = Calendar.getInstance();
+        //年
+        int year = calendar.get(Calendar.YEAR);
+        //月
+        int month = calendar.get(Calendar.MONTH);
+        //日
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        //小时
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        //分钟
+        int minute = calendar.get(Calendar.MINUTE);
+        //秒
+        int second = calendar.get(Calendar.SECOND);
+
+
+        Calendar selectedDate = Calendar.getInstance();
+        Calendar startDate = Calendar.getInstance();
+        Calendar endDate = Calendar.getInstance();
+
+        //正确设置方式 原因：注意事项有说明
+        startDate.set(year, month, day, hour, minute);
+
+        //当前时间加3天
+        calendar.add(Calendar.DAY_OF_MONTH, 3);
+        endDate.set(calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH),
+                calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE));
+
+        pvTime1 = new TimePickerBuilder(getActivity(), new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {//选中事件回调
+                textView.setText(CommonUtil.getTime1(date));
+            }
+        })
+                .setType(new boolean[]{false, true, true, true, true, false})// 默认全部显示
+                .setCancelText("取消")//取消按钮文字
+                .setSubmitText("确定")//确认按钮文字
+                .setContentTextSize(15)//滚轮文字大小
+                .setTitleSize(16)//标题文字大小
+                .setTitleText("选择预约时间")//标题文字
+                .setOutSideCancelable(true)//点击屏幕，点在控件外部范围时，是否取消显示
+                .isCyclic(false)//是否循环滚动
+                .setTitleColor(getResources().getColor(R.color.black2))//标题文字颜色
+                .setSubmitColor(getResources().getColor(R.color.blue))//确定按钮文字颜色
+                .setCancelColor(getResources().getColor(R.color.blue))//取消按钮文字颜色
+                .setTitleBgColor(getResources().getColor(R.color.black5))//标题背景颜色 Night mode
+                .setBgColor(getResources().getColor(R.color.white))//滚轮背景颜色 Night mode
+                .setDate(selectedDate)// 如果不设置的话，默认是系统时间*/
+                .setRangDate(startDate, endDate)//起始终止年月日设定
+                .setLabel("年", "月", "日", "时", "分", "秒")//默认设置为年月日时分秒
+                .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
+                .isDialog(true)//是否显示为对话框样式
+                .build();
+
+        Dialog mDialog = pvTime1.getDialog();
+        if (mDialog != null) {
+
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    Gravity.BOTTOM);
+            params.leftMargin = 0;
+            params.rightMargin = 0;
+            pvTime1.getDialogContainerLayout().setLayoutParams(params);
+
+            Window dialogWindow = mDialog.getWindow();
+            if (dialogWindow != null) {
+                dialogWindow.setWindowAnimations(com.bigkoo.pickerview.R.style.picker_view_slide_anim);//修改动画样式
+                dialogWindow.setGravity(Gravity.BOTTOM);//改成Bottom,底部显示
+                dialogWindow.setDimAmount(0.1f);
+            }
+        }
+
+        pvTime1.show();
+    }
+
     @Override
     protected void updateView() {
 
@@ -535,29 +646,68 @@ public class Fragment1 extends BaseFragment {
         /**
          * 处理二维码扫描结果
          */
-        MyLogger.i(">>>>>requestCode:"+requestCode+
-                "\n>>>>>resultCode:"+resultCode+
-                "\n>>>>>data:"+data);
-        switch (requestCode){
+        MyLogger.i(">>>>>requestCode:" + requestCode +
+                "\n>>>>>resultCode:" + resultCode +
+                "\n>>>>>data:" + data);
+        switch (requestCode) {
             case 10001:
                 //起点
                 if (data != null) {
-                    Bundle bundle = data.getExtras();
-                    String scanResult = bundle.getString("addr");
-                    MyLogger.i(">>>地址>>>>" + scanResult);
-
+                    Bundle bundle1 = data.getExtras();
+                    String addr1 = bundle1.getString("addr");
+                    startAddr_id = bundle1.getString("addr_id");
+                    MyLogger.i(">>>地址>>>>" + addr1);
+                    tv_qidian.setText(addr1);
                 }
                 break;
             case 10002:
                 //终点
+                if (data != null) {
+                    Bundle bundle2 = data.getExtras();
+                    String addr2 = bundle2.getString("addr");
+                    endAddr_id = bundle2.getString("addr_id");
+                    MyLogger.i(">>>地址>>>>" + addr2);
+                    tv_zhongdian.setText(addr2);
+                }
                 break;
             case 10003:
                 //途经点
+                if (data != null) {
+                    Bundle bundle3 = data.getExtras();
+                    /*String addr1 = bundle3.getString("addr");
+                    MyLogger.i(">>>地址>>>>" + addr1);*/
+                    addView(bundle3.getString("addr"), bundle3.getString("addr_id"));
+                }
                 break;
         }
 
     }
 
+    //添加布局
+    private void addView(String addr, String addr_id) {
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        View view = inflater.inflate(R.layout.item_addaddress, null, false);
+        view.setLayoutParams(lp);
+        //实例化子页面的控件
+        TextView tv_id = (TextView) view.findViewById(R.id.tv_id);
+        TextView tv_dizhi = (TextView) view.findViewById(R.id.tv_dizhi);
+        TextView tv_delete = (TextView) view.findViewById(R.id.tv_delete);
+
+        tv_id.setText(addr_id);
+        tv_dizhi.setText(addr);
+
+        tv_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv_id.setText("");
+                tv_dizhi.setText("");
+                ll_add.removeView(view);
+            }
+        });
+        ll_add.addView(view);
+    }
 
     /**
      * *****************************************GuidePageAdapter********************************************

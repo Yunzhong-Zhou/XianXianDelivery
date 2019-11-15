@@ -82,6 +82,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >
@@ -127,7 +128,8 @@
         <!-- 首页 -->
         <activity
             android:name="com.delivery.xianxian.activity.SelectAddressActivity"
-            android:label="选取地点" />
+            android:label="选取地点"
+            android:theme="@style/DefaultCityPickerTheme" />
         <activity
             android:name="com.delivery.xianxian.activity.NoticeDetailActivity"
             android:label="公告详情" />

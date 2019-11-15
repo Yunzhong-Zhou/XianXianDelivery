@@ -12,7 +12,7 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int toast_main_text_view_id = 0x7f080248;
+        public static final int toast_main_text_view_id = 0x7f08024c;
     }
     public static final class style {
         private style() {}

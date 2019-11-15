@@ -88,9 +88,9 @@ public class URLs {
      */
     public static final String AddSurcharge = "/api/owner/tindent/search";
     /**
-     * 购买区块
+     * 添加地址
      */
-    public static final String BuyQuKuai = "/api/block/create";
+    public static final String AddAddress = "/api/owner/addr-create";
 
     // 用户模块
     /**

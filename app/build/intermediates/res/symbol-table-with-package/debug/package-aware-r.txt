@@ -2072,6 +2072,7 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id et_addr
 id et_search
 id et_sendmessage
 id exitUntilCollapsed
@@ -2149,6 +2150,7 @@ id item_touch_helper_previous_elevation
 id iv
 id iv1
 id iv_call_icon
+id iv_close
 id iv_delete
 id iv_dianhua
 id iv_dianhua_2
@@ -2209,6 +2211,7 @@ id ll_hint2
 id ll_loading
 id ll_shangcheng
 id ll_time1
+id ll_time2
 id ll_title
 id ll_title_background
 id loading_layout
@@ -2267,6 +2270,7 @@ id percentage
 id pin
 id popLayoutId
 id pop_layout
+id pop_listView
 id primary_menu
 id primary_menu_container
 id progressBar
@@ -2453,18 +2457,22 @@ id tv_addr2
 id tv_baocun
 id tv_cancel
 id tv_chatcontent
+id tv_city
 id tv_confirm
 id tv_content1
 id tv_content2
 id tv_daohang
+id tv_delete
 id tv_delivered
 id tv_detail
+id tv_dizhi
 id tv_error_msg
 id tv_file_name
 id tv_file_size
 id tv_file_state
 id tv_fujiafei
 id tv_guiji
+id tv_id
 id tv_jilu
 id tv_juli1
 id tv_juli2
@@ -2482,6 +2490,7 @@ id tv_right
 id tv_shouqi
 id tv_shouqu
 id tv_shunfengche
+id tv_time
 id tv_time1
 id tv_time2
 id tv_title
@@ -2718,6 +2727,7 @@ layout fragment3
 layout include_pickerview_topbar
 layout item_add_fragment2_1
 layout item_add_fragment2_2
+layout item_addaddress
 layout item_addsurcharge
 layout item_auth_cheliangzhaopian_tv
 layout item_auth_clzp_vp_page
@@ -2761,6 +2771,7 @@ layout pickerview_time
 layout pop_citypicker
 layout pop_jdcitypicker
 layout pop_jdcitypicker_item
+layout pop_list_1
 layout pop_zoomimg
 layout push_notification
 layout select_dialog_item_material
@@ -2779,7 +2790,6 @@ mipmap bg_baisetouying
 mipmap bg_fragment1
 mipmap bg_jianglihuodong
 mipmap bg_jifenshangcheng
-mipmap bg_shuxuxian
 mipmap bg_upgrade
 mipmap cp_icon_clear_all
 mipmap cp_icon_empty
@@ -2813,11 +2823,15 @@ mipmap ic_auth_xiangji
 mipmap ic_chezhuzhushou_1
 mipmap ic_chezhuzhushou_2
 mipmap ic_chezhuzhushou_3
+mipmap ic_close_white
 mipmap ic_delete
 mipmap ic_delete_black
 mipmap ic_dianhua
+mipmap ic_dianhua_black
 mipmap ic_down_black
+mipmap ic_down_white
 mipmap ic_fahuo
+mipmap ic_fangzi
 mipmap ic_fragment5_1
 mipmap ic_fragment5_10
 mipmap ic_fragment5_11
@@ -2849,6 +2863,8 @@ mipmap ic_login_zhanghu
 mipmap ic_next_black
 mipmap ic_next_white
 mipmap ic_next_white1
+mipmap ic_quan_blue
+mipmap ic_quan_red
 mipmap ic_return_black
 mipmap ic_return_white
 mipmap ic_right_black
@@ -2856,6 +2872,8 @@ mipmap ic_rili
 mipmap ic_shaoma
 mipmap ic_shaoma_black
 mipmap ic_shouhuo
+mipmap ic_tongxunlu
+mipmap ic_tujingdian
 mipmap ic_weigouxuan
 mipmap ic_weixin
 mipmap ic_weixuan

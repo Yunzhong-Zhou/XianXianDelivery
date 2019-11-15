@@ -122,7 +122,7 @@ public class CommonUtil {
         Intent intent = new Intent();
         intent.setClass(curActivity, targetActivity);
         intent.putExtras(bundle);
-        curActivity.startActivityForResult(intent, RequestCode);
+        curActivity.startActivityForResult(intent, RequestCode, bundle);
 //		curActivity.overridePendingTransition(R.anim.slide_left_in,
 //				R.anim.slide_left_out);
 
@@ -317,6 +317,7 @@ public class CommonUtil {
 
     /**
      * 距离只保留两位小数
+     *
      * @param distance 以米为单位
      * @return
      */
@@ -329,7 +330,7 @@ public class CommonUtil {
         } else {
             str = "m";
         }
-        return String.format("%.2f",value)+str;
+        return String.format("%.2f", value) + str;
     }
 
     /**
@@ -524,9 +525,15 @@ public class CommonUtil {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         return format.format(date);
     }
+    public static String getTime1(Date date) {//可根据需要自行截取数据显示
+        Log.d("getTime()", "choice date millis: " + date.getTime());
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd HH:mm");
+        return format.format(date);
+    }
 
 
     //时间转时间戳
+
     /**
      * 调此方法输入所要转换的时间输入例如（"2014-06-14 16-09-00"）返回时间戳
      *
@@ -658,7 +665,7 @@ public class CommonUtil {
                 sb.append(String.format("%02d", minute) + ":");//分
             }
 //            if (second > 0) {
-                sb.append(String.format("%02d", second) + "s");//秒
+            sb.append(String.format("%02d", second) + "s");//秒
 //            }
             /*if(milliSecond > 0) {
                 sb.append(milliSecond+"毫秒");//毫秒

@@ -350,6 +350,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     }
                 }
                 setfromandtoMarker();//显示标注物
+
                 searchRouteResult(RouteSearch.DRIVING_MULTI_STRATEGY_FASTEST_SHORTEST_AVOID_CONGESTION);//默认避免拥堵、设置车辆信息
 
                 if (!response.getTindent().getSend_head().equals(""))

@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
+//        setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
 
         mPermissionsChecker = new PermissionsChecker(this);
 
@@ -85,8 +85,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         mBottomTabBar = findViewByID_My(R.id.bottom_tab_bar);
 
-        mBottomTabBar
-                .init(getSupportFragmentManager())//初始化方法，必须第一个调用；传入参数为V4包下的FragmentManager
+        mBottomTabBar.init(getSupportFragmentManager())//初始化方法，必须第一个调用；传入参数为V4包下的FragmentManager
 //                .setImgSize(50,50)//设置ICON图片的尺寸
 //                .setFontSize(8)//设置文字的尺寸
 //                .setTabPadding(4,6,10)//设置ICON图片与上部分割线的间隔、图片与文字的间隔、文字与底部的间隔
