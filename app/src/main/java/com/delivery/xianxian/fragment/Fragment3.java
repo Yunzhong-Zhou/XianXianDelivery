@@ -207,6 +207,7 @@ public class Fragment3 extends BaseFragment {
 //                        TextView textView1 = dialog.findViewById(R.id.textView1);
 //                        textView1.setText(e.getMessage());
                 final EditText editText1 = dialog.findViewById(R.id.editText1);
+                editText1.setSingleLine();
                 dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

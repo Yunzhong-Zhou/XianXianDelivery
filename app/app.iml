@@ -189,5 +189,6 @@
     <orderEntry type="library" name="Gradle: com.hyphenate:hyphenate-sdk:3.6.1@aar" level="project" />
     <orderEntry type="module" module-name="easeui" />
     <orderEntry type="library" name="Gradle: org.apache.http.legacy-android-29" level="project" />
+    <orderEntry type="module" module-name="easeui" />
   </component>
 </module>

@@ -1765,6 +1765,7 @@ drawable ic_citypicker_onecity
 drawable ic_citypicker_three_city
 drawable ic_close
 drawable ic_launcher
+drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_left_white
 drawable ic_mtrl_chip_checked_black
@@ -2197,6 +2198,7 @@ id linearLayout8
 id linearLayout9
 id list
 id listMode
+id listView
 id list_itease_layout
 id list_item
 id list_view
@@ -2482,6 +2484,7 @@ id tv_location
 id tv_money
 id tv_name
 id tv_next
+id tv_nextStep
 id tv_now
 id tv_qidian
 id tv_queren
@@ -2603,6 +2606,8 @@ layout activity_chatmain
 layout activity_city_list_select
 layout activity_citylist
 layout activity_citypicker
+layout activity_confirmorder
+layout activity_feedetail
 layout activity_forgetpassword
 layout activity_guide
 layout activity_hello
@@ -2664,9 +2669,12 @@ layout design_text_input_password_icon
 layout dialog_alarm_ui
 layout dialog_base1
 layout dialog_base2
+layout dialog_beizhu
 layout dialog_changename
+layout dialog_jiajifei
 layout dialog_list
 layout dialog_list1
+layout dialog_temperature
 layout dialog_upgrade
 layout ease_acitivity_ding_msg_send
 layout ease_activity_baidumap
@@ -2744,6 +2752,7 @@ layout item_jifenmingxi
 layout item_noticedetail
 layout item_pop_list
 layout item_scoredetail
+layout item_temperature
 layout item_wallet
 layout jpush_popwin_layout
 layout jpush_webview_layout
@@ -2855,6 +2864,7 @@ mipmap ic_jifenshangcheng_2
 mipmap ic_jifenshangcheng_3
 mipmap ic_jindudingdian
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 mipmap ic_left_black
 mipmap ic_left_white

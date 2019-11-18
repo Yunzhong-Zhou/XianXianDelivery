@@ -26,18 +26,18 @@ public class Fragment1Model {
          * image : 1.jpg
          */
 
-        private int id;
+        private String id;
         private String name;
         private String size;
         private int weight;
         private int bulk;
         private String image;
 
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 

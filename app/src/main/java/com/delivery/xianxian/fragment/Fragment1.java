@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +25,11 @@ import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.bumptech.glide.Glide;
 import com.delivery.xianxian.R;
+import com.delivery.xianxian.activity.ConfirmOrderActivity;
 import com.delivery.xianxian.activity.MainActivity;
 import com.delivery.xianxian.activity.SelectAddressActivity;
 import com.delivery.xianxian.base.BaseFragment;
+import com.delivery.xianxian.model.AddFeeModel;
 import com.delivery.xianxian.model.Fragment1Model;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
@@ -47,7 +50,9 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -89,14 +94,19 @@ public class Fragment1 extends BaseFragment {
     ImageView iv_left, iv_right;
 
     //现在、预约
+    String is_plan = "2";
     LinearLayout ll_time1;
     TextView tv_now, tv_next;
 
     //地址
+    String addr_ids = "";
     TextView tv_qidian, tv_zhongdian, tv_tujingdian, tv_time;
     LinearLayout ll_add, ll_time2;
     String startAddr_id = "", endAddr_id = "";
     TimePickerView pvTime1;
+
+    //下一步
+    TextView tv_detail, tv_nextStep;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -195,6 +205,12 @@ public class Fragment1 extends BaseFragment {
         tv_time = findViewByID_My(R.id.tv_time);
         tv_time.setOnClickListener(this);
         ll_time2 = findViewByID_My(R.id.ll_time2);
+
+        //下一步
+        tv_detail = findViewByID_My(R.id.tv_detail);
+        tv_detail.setOnClickListener(this);
+        tv_nextStep = findViewByID_My(R.id.tv_nextStep);
+        tv_nextStep.setOnClickListener(this);
     }
 
     @Override
@@ -445,6 +461,7 @@ public class Fragment1 extends BaseFragment {
 
             case R.id.tv_now:
                 //现在用车
+                is_plan = "2";
                 tv_now.setBackgroundResource(R.drawable.yuanjiao_10_lanse_left);
                 tv_next.setBackgroundResource(R.drawable.yuanjiao_10_huise_right);
                 tv_now.setTextColor(getResources().getColor(R.color.white));
@@ -454,6 +471,7 @@ public class Fragment1 extends BaseFragment {
                 break;
             case R.id.tv_next:
                 //预约用车
+                is_plan = "1";
                 tv_now.setBackgroundResource(R.drawable.yuanjiao_10_huise_left);
                 tv_next.setBackgroundResource(R.drawable.yuanjiao_10_lanse_right);
                 tv_now.setTextColor(getResources().getColor(R.color.black2));
@@ -489,6 +507,30 @@ public class Fragment1 extends BaseFragment {
             case R.id.tv_time:
                 //预约时间
                 setDate(tv_time);
+                break;
+
+            /*case R.id.tv_detail:
+                //详细
+                Bundle bundle4 = new Bundle();
+                bundle4.putString("city", city);
+                bundle4.putString("car_type_id", carTypeList.get(item).getId() + "");
+                bundle4.putString("use_type", use_type + "");
+                CommonUtil.gotoActivityWithData(getActivity(), FeeDetailActivity.class, bundle4, false);
+                break;*/
+            case R.id.tv_nextStep:
+                //下一步
+                if (match()) {
+                    //先计算费用-返回路程等信息
+                    Map<String, String> params = new HashMap<>();
+                    params.put("token", localUserInfo.getToken());
+                    params.put("city", city);
+                    params.put("car_type_id", carTypeList.get(item).getId() + "");
+                    params.put("use_type", use_type + "");
+                    params.put("addr_ids", addr_ids);
+                    RequestAdd(params);
+                }
+//                CommonUtil.gotoActivity(getActivity(), ConfirmOrderActivity.class, false);
+
                 break;
 
         }
@@ -623,6 +665,75 @@ public class Fragment1 extends BaseFragment {
         }
 
         pvTime1.show();
+    }
+
+    private boolean match() {
+        if (city.equals("")) {
+            myToast("请选择城市");
+            return false;
+        }
+        if (is_plan.equals("1")) {
+            if (tv_time.getText().toString().trim().equals("")) {
+                myToast("请选择预约时间");
+                return false;
+            }
+        }
+        if (startAddr_id.equals("")) {
+            myToast("请选择发货地址");
+            return false;
+        }
+        if (endAddr_id.equals("")) {
+            myToast("请选择收货地址");
+            return false;
+        }
+        if (startAddr_id.equals(endAddr_id)) {
+            myToast("收货地址和发货地址不能一样");
+            return false;
+        }
+        addr_ids = startAddr_id;
+        for (int i = 0; i < ll_add.getChildCount(); i++) {
+            View childAt = ll_add.getChildAt(i);
+            TextView tv_id = (TextView) childAt.findViewById(R.id.tv_id);
+
+            if (!TextUtils.isEmpty(tv_id.getText().toString())) {
+                addr_ids = addr_ids + "," + tv_id.getText().toString();
+            } else {
+                showToast("请选择途经地");
+            }
+        }
+        addr_ids = addr_ids + "," + endAddr_id;
+        MyLogger.i(">>>>>>>>" + addr_ids);
+        return true;
+    }
+
+    private void RequestAdd(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(getActivity(), URLs.OrderAdd, params, new OkHttpClientManager.ResultCallback<AddFeeModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(AddFeeModel response) {
+                MyLogger.i(">>>>>>>>>计算费用" + response);
+                hideProgress();
+
+                Bundle bundle5 = new Bundle();
+                bundle5.putString("city", city);
+                bundle5.putString("car_type_id", carTypeList.get(item).getId() + "");//车型id
+                bundle5.putString("use_type", use_type + "");//用车类型1专车2顺风车3快递
+                bundle5.putString("is_plan", is_plan + "");//用车时间类型1预约2现在
+                bundle5.putString("plan_time", tv_time.getText().toString().trim() + "");//用车时间
+                bundle5.putString("mileage", response.getMillage() + "");//里程km
+                bundle5.putString("pre_time", response.getDuration() + "");//预计耗时s
+                bundle5.putString("price", response.getPrice() + "");//价格
+                bundle5.putString("addr_ids", addr_ids + "");//需要得位置起始地顺序id,逗号隔开(1,2,3)
+                CommonUtil.gotoActivityWithData(getActivity(), ConfirmOrderActivity.class, bundle5, false);
+            }
+        });
     }
 
     @Override

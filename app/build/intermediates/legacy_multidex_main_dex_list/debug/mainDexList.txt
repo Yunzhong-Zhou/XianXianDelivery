@@ -309,6 +309,7 @@ com/superrtc/voiceengine/WebRtcAudioManager$VolumeLogger.class
 com/superrtc/voiceengine/WebRtcAudioRecord.class
 com/superrtc/voiceengine/WebRtcAudioTrack.class
 com/tencent/bugly/crashreport/CrashReport.class
+com/zaaach/citypicker/model/LocateState$State.class
 cz/msebera/android/httpclient/annotation/GuardedBy.class
 cz/msebera/android/httpclient/annotation/Immutable.class
 cz/msebera/android/httpclient/annotation/NotThreadSafe.class

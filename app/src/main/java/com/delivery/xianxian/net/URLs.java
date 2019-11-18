@@ -64,6 +64,22 @@ public class URLs {
      */
     public static final String Fragment1= "/api/owner/index";
     /**
+     * 下单计算费用(返回费用明细)
+     */
+    public static final String OrderAdd= "/api/owner/city/cost";
+    /**
+     * 获取温层费用
+     */
+    public static final String GetTemperature= "/api/owner/tindent/update";
+    /**
+     * 费用详情
+     */
+    public static final String FeeDetail= "/api/owner/city/price";
+    /**
+     * 下单
+     */
+    public static final String ConfirmOrder= "/api/owner/tindent/create";
+    /**
      * 接单列表
      */
     public static final String Fragment1List= "/api/owner/tindent/set";
@@ -97,6 +113,10 @@ public class URLs {
      * 我的主页
      */
     public static final String Center = "/api/owner/center/index";
+    /**
+     * 个人信息
+     */
+    public static final String Info = "/api/member/get-info";
     /**
      * 退出
      */

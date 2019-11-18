@@ -202,6 +202,7 @@
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
+                    android:inputType="phone"
                     android:textColor="@color/black1"
                     android:textColorHint="@color/black3"
                     android:textSize="12sp" />

@@ -31,18 +31,18 @@
     <!-- Optional for location -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
     <!--用于申请调用A-GPS模块-->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <!-- 极光推送 -->
 
     <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <!--用于获取运营商信息，用于支持提供运营商信息相关的接口-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--用于申请获取蓝牙信息进行室内定位-->
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
 
     <!-- 这个权限用于进行网络定位 -->
@@ -56,7 +56,6 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
 
 
     <application
@@ -90,7 +89,7 @@
         <activity
             android:name="com.delivery.xianxian.activity.MainActivity"
             android:label="主页"
-            android:theme="@style/DefaultCityPickerTheme"/>
+            android:theme="@style/DefaultCityPickerTheme" />
         <activity
             android:name="com.delivery.xianxian.activity.LoginActivity"
             android:label="登录" />
@@ -116,6 +115,13 @@
             android:name="com.delivery.xianxian.activity.SelectAddressActivity"
             android:label="选取地点"
             android:theme="@style/DefaultCityPickerTheme" />
+        <activity
+            android:name="com.delivery.xianxian.activity.ConfirmOrderActivity"
+            android:label="确认订单" />
+        <activity
+            android:name="com.delivery.xianxian.activity.FeeDetailActivity"
+            android:label="费用详情" />
+
         <activity
             android:name="com.delivery.xianxian.activity.NoticeDetailActivity"
             android:label="公告详情" />
@@ -216,8 +222,8 @@
             android:label="聊天页面" />
         <activity
             android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
-            android:screenOrientation="portrait"
-            android:label="地图定位"/>
+            android:label="地图定位"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
@@ -249,18 +255,19 @@
         </receiver>
 
         <!--高德地图-->
-        <activity android:name="com.amap.api.navi.AmapRouteActivity"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize" /> <!--导航组件-->
+        <activity
+            android:name="com.amap.api.navi.AmapRouteActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar" /> <!--导航组件-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="b31683d96c37bd2c6b874efe7750f18d"/>
+            android:value="b31683d96c37bd2c6b874efe7750f18d" />
         <!--定位-->
         <service
             android:name="com.delivery.xianxian.service.LocationService"
             android:enabled="true"
             android:exported="true" />
-        <service android:name="com.amap.api.location.APSService"/><!--定位SDK服务-->
+        <service android:name="com.amap.api.location.APSService" /><!--定位SDK服务-->
         <service android:name="com.amap.api.track.AMapTrackService" /><!--猎鹰SDK服务-->
 
         <!-- 百度地图所需的service -->

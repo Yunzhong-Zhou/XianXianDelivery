@@ -130,6 +130,12 @@
             android:label="选取地点"
             android:theme="@style/DefaultCityPickerTheme" />
         <activity
+            android:name="com.delivery.xianxian.activity.ConfirmOrderActivity"
+            android:label="确认订单" />
+        <activity
+            android:name="com.delivery.xianxian.activity.FeeDetailActivity"
+            android:label="费用详情" />
+        <activity
             android:name="com.delivery.xianxian.activity.NoticeDetailActivity"
             android:label="公告详情" />
         <activity

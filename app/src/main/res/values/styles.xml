@@ -13,7 +13,7 @@
         <!--<item name="android:statusBarColor"></item>&lt;!&ndash;状态栏颜色&ndash;&gt;-->
 
         <item name="android:textColor">@color/default_text</item><!--默认字体颜色-->
-        <item name="android:textSize">15.0sp</item><!--默认字号-->
+        <item name="android:textSize">14.0sp</item><!--默认字号-->
         <item name="android:typeface">normal</item><!--默认字体-->
         <!--<item name="android:textScaleX">1.0</item>&lt;!&ndash;字体间距&ndash;&gt;-->
     </style>

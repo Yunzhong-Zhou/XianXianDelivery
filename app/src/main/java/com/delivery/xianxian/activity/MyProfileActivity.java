@@ -10,25 +10,27 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.hyphenate.EMCallBack;
-import com.hyphenate.chat.EMClient;
-import com.squareup.okhttp.Request;
+import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.ChangeProfileModel;
+import com.delivery.xianxian.model.MyProfileModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.FileUtil;
 import com.delivery.xianxian.utils.MyChooseImages;
 import com.delivery.xianxian.utils.MyLogger;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
+import com.squareup.okhttp.Request;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,10 +52,9 @@ import static com.delivery.xianxian.utils.MyChooseImages.REQUEST_CODE_PICK_IMAGE
 public class MyProfileActivity extends BaseActivity {
     //选择图片及上传
     ArrayList<String> listFileNames = new ArrayList<>();
-    ArrayList<File> listFiles= new ArrayList<>();
+    ArrayList<File> listFiles = new ArrayList<>();
     ImageView imageView1;
-    TextView textView1, textView2, textView3;
-    EditText editText1, editText2;
+    TextView textView, textView1, textView2, textView3, textView4;
     private TimeCount time;
 
     String phonenum = "", code = "";
@@ -66,86 +67,141 @@ public class MyProfileActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        //获取个人信息
+        showProgress(true, getString(R.string.app_loading));
+        requestInfo("?token=" + localUserInfo.getToken());
+    }
+
+    @Override
     protected void initView() {
         imageView1 = findViewByID_My(R.id.imageView1);
-        if (!localUserInfo.getUserImage().equals(""))
-            Glide.with(MyProfileActivity.this)
-                    .load(OkHttpClientManager.IMGHOST + localUserInfo.getUserImage())
-                    .centerCrop()
-//                    .placeholder(R.mipmap.headimg)//加载站位图
-//                    .error(R.mipmap.headimg)//加载失败
-                    .into(imageView1);//加载图片
-
+        textView = findViewByID_My(R.id.textView);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
-        editText1 = findViewByID_My(R.id.editText1);
-        editText2 = findViewByID_My(R.id.editText2);
-
+        textView4 = findViewByID_My(R.id.textView4);
     }
 
     @Override
     protected void initData() {
         time = new TimeCount(60000, 1000);//构造CountDownTimer对象
     }
+    private void requestInfo(String string) {
+        OkHttpClientManager.getAsyn(MyProfileActivity.this, URLs.Info + string, new OkHttpClientManager.ResultCallback<MyProfileModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
 
+            @Override
+            public void onResponse(MyProfileModel response) {
+                MyLogger.i(">>>>>>>>>个人信息" + response);
+                //头像
+                if (!response.getHead().equals(""))
+                    Glide.with(MyProfileActivity.this)
+                            .load(OkHttpClientManager.IMGHOST + response.getHead())
+                            .centerCrop()
+//                            .placeholder(R.mipmap.headimg)//加载站位图
+//                            .error(R.mipmap.headimg)//加载失败
+                            .into(imageView1);//加载图片
+                else
+                    imageView1.setImageResource(R.mipmap.headimg);
+
+                //昵称
+                textView1.setText(response.getNickname());
+                //手机号
+                textView2.setText(response.getMobile());
+
+                localUserInfo.setPhoneNumber(response.getMobile());
+                localUserInfo.setNickname(response.getNickname());
+                localUserInfo.setInvuteCode(response.getInvite_code());
+//                localUserInfo.setEmail(response.getEmail());
+                localUserInfo.setUserImage(response.getHead());
+
+                hideProgress();
+            }
+        });
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imageView1:
-                //头像
-                MyChooseImages.showPhotoDialog(MyProfileActivity.this);
-                break;
-            case R.id.textView1:
+            case R.id.textView:
                 //上传头像
-                if (listFiles.size() > 0){
-                    textView1.setClickable(false);
-                    showProgress(true, "正在修改，请稍候...");
-                    String[] filenames = new String[]{};
-                    File[] files = new File[]{};
-                    for (int i = 0; i < listFiles.size(); i++) {
-                        filenames = listFileNames.toArray(new String[i]);
-                        files = listFiles.toArray(new File[i]);
-                    }
-                    this.showProgress(true, getString(R.string.app_loading1));
-                    params.put("token", localUserInfo.getToken());
-                    params.put("nickname", "");
-                    RequestChangeProfile(filenames, files, params);//修改
-                }else {
-                    myToast("请选择头像上传");
-                }
-                break;
-
-            case R.id.textView2:
-                //获取验证码
-                phonenum = editText1.getText().toString().trim();
-                if (TextUtils.isEmpty(phonenum)) {
-                    myToast("请输入新手机号码");
-                } else {
-                    textView2.setClickable(false);
-                    this.showProgress(true, getString(R.string.app_sendcode_hint1));
-                    HashMap<String, String> params = new HashMap<>();
-                    params.put("token", localUserInfo.getToken());
-                    params.put("mobile", phonenum);
-                    params.put("type", "4");
-                    RequestCode(params);//获取验证码
-                }
-                break;
-
-            case R.id.textView3:
-                //上传手机号
                 if (match()) {
-                    textView3.setClickable(false);
-                    this.showProgress(true, "正在修改，请稍候...");
-                    HashMap<String, String> params = new HashMap<>();
-                    params.put("token", localUserInfo.getToken());
-                    params.put("mobile", phonenum);
-                    params.put("code", code);
-                    RequestChangePhone(params);//修改手机号
+                    if (listFiles.size() > 0) {
+                        textView.setClickable(false);
+                        showProgress(true, "正在修改，请稍候...");
+                        String[] filenames = new String[]{};
+                        File[] files = new File[]{};
+                        for (int i = 0; i < listFiles.size(); i++) {
+                            filenames = listFileNames.toArray(new String[i]);
+                            files = listFiles.toArray(new File[i]);
+                        }
+                        this.showProgress(true, getString(R.string.app_loading1));
+                        params.put("token", localUserInfo.getToken());
+                        params.put("nickname", "");
+                        RequestChangeProfile(filenames, files, params);//修改
+                    } else {
+                        myToast("请选择头像上传");
+                    }
                 }
+                break;
+            case R.id.linearLayout1:
+                //头像
+
+                break;
+            case R.id.linearLayout2:
+                //昵称
+                dialog = new BaseDialog(MyProfileActivity.this);
+                dialog.contentView(R.layout.dialog_changename)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+//                        TextView textView1 = dialog.findViewById(R.id.textView1);
+//                        textView1.setText(e.getMessage());
+                final EditText editText1 = dialog.findViewById(R.id.editText1);
+                dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!editText1.getText().toString().trim().equals("")) {
+                            CommonUtil.hideSoftKeyboard_fragment(v, MyProfileActivity.this);
+                            dialog.dismiss();
+                            textView1.setText(editText1.getText().toString().trim());
+                        } else {
+                            myToast("请输入昵称");
+                        }
+                    }
+                });
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.linearLayout3:
+                //手机号
+
+                break;
+            case R.id.linearLayout4:
+                //行业
+
+                break;
+            case R.id.linearLayout5:
+                //实名认证
+
                 break;
         }
     }
+
     private void RequestCode(Map<String, String> params) {
         OkHttpClientManager.postAsyn(this, URLs.Code, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -169,6 +225,7 @@ public class MyProfileActivity extends BaseActivity {
         }, false);
 
     }
+
     //修改信息
     private void RequestChangeProfile(String[] fileKeys, File[] files, HashMap<String, String> params) {
         OkHttpClientManager.postAsyn(MyProfileActivity.this, URLs.ChangeProfile, fileKeys, files, params, new OkHttpClientManager.ResultCallback<ChangeProfileModel>() {
@@ -186,7 +243,7 @@ public class MyProfileActivity extends BaseActivity {
                 textView1.setClickable(true);
                 MyLogger.i(">>>>>>>>>修改信息" + response);
                 myToast("修改成功");
-               /* localUserInfo.setUserImage(response.getHead());
+                localUserInfo.setUserImage(response.getHead());
                 //头像
                 if (!response.getHead().equals(""))
                     Glide.with(MyProfileActivity.this)
@@ -196,11 +253,13 @@ public class MyProfileActivity extends BaseActivity {
 //                            .error(R.mipmap.headimg)//加载失败
                             .into(imageView1);//加载图片
                 else
-                    imageView1.setImageResource(R.mipmap.headimg);*/
+                    imageView1.setImageResource(R.mipmap.headimg);
+
                 hideProgress();
             }
         });
     }
+
     private void RequestChangePhone(Map<String, String> params) {
         OkHttpClientManager.postAsyn(this, URLs.ChangePhone, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -250,23 +309,19 @@ public class MyProfileActivity extends BaseActivity {
         }, false);
 
     }
+
     private boolean match() {
-        phonenum = editText1.getText().toString().trim();
-        if (TextUtils.isEmpty(phonenum)) {
+        phonenum = textView2.getText().toString().trim();
+        /*if (TextUtils.isEmpty(phonenum)) {
             myToast("请输入新手机号码");
             return false;
-        }
-        code = editText2.getText().toString().trim();
-        if (TextUtils.isEmpty(code)) {
-            myToast(getString(R.string.registered_h2));
-            return false;
-        }
+        }*/
         return true;
     }
 
     @Override
     protected void updateView() {
-        titleView.setTitle("修改头像/电话");
+        titleView.setTitle("个人信息");
     }
 
     /**
