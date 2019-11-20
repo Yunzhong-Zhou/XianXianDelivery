@@ -106,6 +106,7 @@ public class Fragment1 extends BaseFragment {
     TimePickerView pvTime1;
 
     //下一步
+    AddFeeModel model;
     TextView tv_detail, tv_nextStep;
 
     @Override
@@ -403,7 +404,7 @@ public class Fragment1 extends BaseFragment {
                             public void onPick(int position, City data) {
                                 //选择的城市
                                 tv_addr.setText(data.getName() + "");
-
+                                city = data.getName();
                             }
 
                             @Override
@@ -529,8 +530,6 @@ public class Fragment1 extends BaseFragment {
                     params.put("addr_ids", addr_ids);
                     RequestAdd(params);
                 }
-//                CommonUtil.gotoActivity(getActivity(), ConfirmOrderActivity.class, false);
-
                 break;
 
         }
@@ -720,17 +719,18 @@ public class Fragment1 extends BaseFragment {
             public void onResponse(AddFeeModel response) {
                 MyLogger.i(">>>>>>>>>计算费用" + response);
                 hideProgress();
-
+                model = response;
                 Bundle bundle5 = new Bundle();
                 bundle5.putString("city", city);
                 bundle5.putString("car_type_id", carTypeList.get(item).getId() + "");//车型id
                 bundle5.putString("use_type", use_type + "");//用车类型1专车2顺风车3快递
                 bundle5.putString("is_plan", is_plan + "");//用车时间类型1预约2现在
                 bundle5.putString("plan_time", tv_time.getText().toString().trim() + "");//用车时间
-                bundle5.putString("mileage", response.getMillage() + "");//里程km
-                bundle5.putString("pre_time", response.getDuration() + "");//预计耗时s
-                bundle5.putString("price", response.getPrice() + "");//价格
+//                bundle5.putString("mileage", response.getMillage() + "");//里程km
+//                bundle5.putString("pre_time", response.getDuration() + "");//预计耗时s
+//                bundle5.putString("price", response.getPrice() + "");//价格
                 bundle5.putString("addr_ids", addr_ids + "");//需要得位置起始地顺序id,逗号隔开(1,2,3)
+                bundle5.putSerializable("AddFeeModel",response);
                 CommonUtil.gotoActivityWithData(getActivity(), ConfirmOrderActivity.class, bundle5, false);
             }
         });

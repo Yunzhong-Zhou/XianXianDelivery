@@ -1,27 +1,17 @@
 package com.delivery.xianxian.activity;
 
-import android.annotation.TargetApi;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.amap.api.location.CoordinateConverter;
-import com.amap.api.location.DPoint;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptor;
@@ -32,40 +22,26 @@ import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.TruckPath;
 import com.amap.api.services.route.TruckRouteRestult;
-import com.amap.api.track.AMapTrackClient;
-import com.amap.api.track.ErrorCode;
-import com.amap.api.track.OnTrackLifecycleListener;
-import com.amap.api.track.TrackParam;
-import com.amap.api.track.query.model.AddTerminalRequest;
-import com.amap.api.track.query.model.AddTerminalResponse;
-import com.amap.api.track.query.model.AddTrackRequest;
-import com.amap.api.track.query.model.AddTrackResponse;
-import com.amap.api.track.query.model.QueryTerminalRequest;
-import com.amap.api.track.query.model.QueryTerminalResponse;
 import com.bumptech.glide.Glide;
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
-import com.hyphenate.easeui.EaseConstant;
-import com.squareup.okhttp.Request;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
-import com.delivery.xianxian.lieying.Constants;
-import com.delivery.xianxian.lieying.SimpleOnTrackLifecycleListener;
-import com.delivery.xianxian.lieying.SimpleOnTrackListener;
 import com.delivery.xianxian.model.OrderDetailsModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.hyphenate.easeui.EaseConstant;
+import com.squareup.okhttp.Request;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import overlay.AMapUtil;
 import overlay.TruckRouteColorfulOverLay;
 
@@ -87,100 +63,24 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     List<LatLonPoint> pointList = new ArrayList<>();//途经点
     private ProgressDialog progDialog = null;// 搜索时进度条
 
-    LinearLayout linearLayout1, ll_hint1, ll_hint2;
-    ImageView imageView1, iv_xinxi, iv_dianhua, iv_xiangqing;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10, textView11,
-            tv_addr1, tv_title1, tv_juli1, tv_addr2, tv_title2, tv_juli2, tv_shouqi, tv_left, tv_right;
+    private RecyclerView recyclerView;
+    List<OrderDetailsModel.TindentBean.AddrListBean> list = new ArrayList<>();
+    CommonAdapter<OrderDetailsModel.TindentBean.AddrListBean> mAdapter;
 
-    //开始点、结束点、计算距离
-    double lat = 0, lng = 0, juli = 0;
+    LinearLayout ll_hint1, ll_hint2, ll_hint3;
+    ImageView imageView1, tv_shouqi;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
+            textView9, textView10, textView11, textView12, textView13, textView14, textView15, textView16,
+            textView17, textView18, textView19,
+            tv_confirm;
+
+
+    boolean isOpen = false;
+
+    /*//开始点、结束点、计算距离
+    double lat = 0, lng = 0;
     private DPoint mStartDPoint = null;
-    private DPoint mEndDPoint = null;
-
-    //轨迹
-    private static final String TAG = "TrackServiceActivity";
-    private static final String CHANNEL_ID_SERVICE_RUNNING = "CHANNEL_ID_SERVICE_RUNNING";
-    private AMapTrackClient aMapTrackClient;
-
-    private long terminalId;
-    private long trackId;
-
-    private OnTrackLifecycleListener onTrackListener = new SimpleOnTrackLifecycleListener() {
-        @Override
-        public void onBindServiceCallback(int status, String msg) {
-            Log.w(TAG, "onBindServiceCallback, status: " + status + ", msg: " + msg);
-        }
-
-        @Override
-        public void onStartTrackCallback(int status, String msg) {
-            if (status == ErrorCode.TrackListen.START_TRACK_SUCEE || status == ErrorCode.TrackListen.START_TRACK_SUCEE_NO_NETWORK) {
-                // 成功启动
-//                Toast.makeText(OrderDetailsActivity.this, "启动服务成功", Toast.LENGTH_SHORT).show();
-                MyLogger.i(">>>>>>轨迹上报启动服务成功");
-                //采集点
-                aMapTrackClient.setTrackId(trackId);
-                aMapTrackClient.startGather(onTrackListener);
-
-            } else if (status == ErrorCode.TrackListen.START_TRACK_ALREADY_STARTED) {
-                // 已经启动
-//                Toast.makeText(OrderDetailsActivity.this, "服务已经启动", Toast.LENGTH_SHORT).show();
-                MyLogger.i(">>>>>>轨迹上报启动服务已经启动");
-                //采集点
-                aMapTrackClient.setTrackId(trackId);
-                aMapTrackClient.startGather(onTrackListener);
-            } else {
-                Log.w(TAG, "error onStartTrackCallback, status: " + status + ", msg: " + msg);
-               /* Toast.makeText(OrderDetailsActivity.this,
-                        "error onStartTrackCallback, status: " + status + ", msg: " + msg,
-                        Toast.LENGTH_LONG).show();*/
-            }
-        }
-
-        @Override
-        public void onStopTrackCallback(int status, String msg) {
-            if (status == ErrorCode.TrackListen.STOP_TRACK_SUCCE) {
-                // 成功停止
-//                Toast.makeText(TrackServiceActivity.this, "停止服务成功", Toast.LENGTH_SHORT).show();
-                MyLogger.i(">>>>>>轨迹上报停止服务成功");
-            } else {
-                Log.w(TAG, "error onStopTrackCallback, status: " + status + ", msg: " + msg);
-                /*Toast.makeText(TrackServiceActivity.this,
-                        "error onStopTrackCallback, status: " + status + ", msg: " + msg,
-                        Toast.LENGTH_LONG).show();*/
-
-            }
-        }
-
-        @Override
-        public void onStartGatherCallback(int status, String msg) {
-            if (status == ErrorCode.TrackListen.START_GATHER_SUCEE) {
-//                Toast.makeText(TrackServiceActivity.this, "定位采集开启成功", Toast.LENGTH_SHORT).show();
-                MyLogger.i(">>>>>>轨迹上报-定位采集开启成功");
-            } else if (status == ErrorCode.TrackListen.START_GATHER_ALREADY_STARTED) {
-//                Toast.makeText(TrackServiceActivity.this, "定位采集已经开启", Toast.LENGTH_SHORT).show();
-                MyLogger.i(">>>>>>轨迹上报-定位采集已经开启");
-            } else {
-                Log.w(TAG, "error onStartGatherCallback, status: " + status + ", msg: " + msg);
-                /*Toast.makeText(TrackServiceActivity.this,
-                        "error onStartGatherCallback, status: " + status + ", msg: " + msg,
-                        Toast.LENGTH_LONG).show();*/
-            }
-        }
-
-        @Override
-        public void onStopGatherCallback(int status, String msg) {
-            if (status == ErrorCode.TrackListen.STOP_GATHER_SUCCE) {
-//                Toast.makeText(TrackServiceActivity.this, "定位采集停止成功", Toast.LENGTH_SHORT).show();
-                MyLogger.i(">>>>>>轨迹上报-定位采集停止成功");
-
-            } else {
-                Log.w(TAG, "error onStopGatherCallback, status: " + status + ", msg: " + msg);
-                /*Toast.makeText(TrackServiceActivity.this,
-                        "error onStopGatherCallback, status: " + status + ", msg: " + msg,
-                        Toast.LENGTH_LONG).show();*/
-            }
-        }
-    };
+    private DPoint mEndDPoint = null;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,10 +91,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         mapView.onCreate(savedInstanceState);// 此方法必须重写
         init();
 
-        //轨迹
-        // 不要使用Activity作为Context传入
-        aMapTrackClient = new AMapTrackClient(getApplicationContext());
-        aMapTrackClient.setInterval(5, 30);
     }
 
     /**
@@ -237,14 +133,11 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 
     @Override
     protected void initView() {
-        linearLayout1 = findViewByID_My(R.id.linearLayout1);
         ll_hint1 = findViewByID_My(R.id.ll_hint1);
         ll_hint2 = findViewByID_My(R.id.ll_hint2);
-
+        ll_hint3 = findViewByID_My(R.id.ll_hint3);
+        ll_hint3.setVisibility(View.GONE);
         imageView1 = findViewByID_My(R.id.imageView1);
-        iv_xinxi = findViewByID_My(R.id.iv_xinxi);
-        iv_dianhua = findViewByID_My(R.id.iv_dianhua);
-        iv_xiangqing = findViewByID_My(R.id.iv_xiangqing);
 
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
@@ -257,23 +150,23 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         textView9 = findViewByID_My(R.id.textView9);
         textView10 = findViewByID_My(R.id.textView10);
         textView11 = findViewByID_My(R.id.textView11);
-
-        tv_addr1 = findViewByID_My(R.id.tv_addr1);
-        tv_title1 = findViewByID_My(R.id.tv_title1);
-        tv_juli1 = findViewByID_My(R.id.tv_juli1);
-        tv_addr2 = findViewByID_My(R.id.tv_addr2);
-        tv_title2 = findViewByID_My(R.id.tv_title2);
-        tv_juli2 = findViewByID_My(R.id.tv_juli2);
+        textView12 = findViewByID_My(R.id.textView12);
+        textView13 = findViewByID_My(R.id.textView13);
+        textView14 = findViewByID_My(R.id.textView14);
+        textView15 = findViewByID_My(R.id.textView15);
+        textView16 = findViewByID_My(R.id.textView16);
+        textView17 = findViewByID_My(R.id.textView17);
+        textView18 = findViewByID_My(R.id.textView18);
+        textView19 = findViewByID_My(R.id.textView19);
+        tv_confirm = findViewByID_My(R.id.tv_confirm);
 
         tv_shouqi = findViewByID_My(R.id.tv_shouqi);
-        tv_left = findViewByID_My(R.id.tv_left);
-        tv_right = findViewByID_My(R.id.tv_right);
 
-        //收起布局
-        ll_hint1.setVisibility(View.GONE);
-        ll_hint2.setVisibility(View.GONE);
-        iv_xiangqing.setVisibility(View.VISIBLE);
-        tv_shouqi.setVisibility(View.GONE);
+        recyclerView = findViewByID_My(R.id.recyclerView);
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(OrderDetailsActivity.this);
+        recyclerView.setLayoutManager(mLinearLayoutManager);
+
+
     }
 
     @Override
@@ -321,29 +214,10 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                         mStartPoint = new LatLonPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat())
                                 , Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//起点
 
-                        tv_addr1.setText(response.getTindent().getAddr_list().get(i).getAddr());
-                        tv_title1.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
-
-                        if (lat != 0 && lng != 0) {
-                            mStartDPoint = new DPoint(lat, lng);//起点
-                            mEndDPoint = new DPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
-                                    Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
-                            juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
-                            tv_juli1.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
-                        }
                     } else if (i == (model.getTindent().getAddr_list().size() - 1)) {
                         mEndPoint = new LatLonPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
                                 Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点
 
-                        tv_addr2.setText(response.getTindent().getAddr_list().get(i).getAddr());
-                        tv_title2.setText(response.getTindent().getAddr_list().get(i).getAddr_detail());
-                        if (lat != 0 && lng != 0) {
-                            mStartDPoint = new DPoint(lat, lng);//起点
-                            mEndDPoint = new DPoint(Double.valueOf(response.getTindent().getAddr_list().get(i).getLat()),
-                                    Double.valueOf(response.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
-                            juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
-                            tv_juli2.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
-                        }
                     } else {
                         //途经点
 
@@ -351,26 +225,79 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 }
                 setfromandtoMarker();//显示标注物
 
-                searchRouteResult(RouteSearch.DRIVING_MULTI_STRATEGY_FASTEST_SHORTEST_AVOID_CONGESTION);//默认避免拥堵、设置车辆信息
+//                searchRouteResult(RouteSearch.DRIVING_MULTI_STRATEGY_FASTEST_SHORTEST_AVOID_CONGESTION);//默认避免拥堵、设置车辆信息
 
-                if (!response.getTindent().getSend_head().equals(""))
-                    Glide.with(OrderDetailsActivity.this)
-                            .load(IMGHOST + response.getTindent().getSend_head())
-                            .centerCrop()
+                switch (model.getTindent().getStatus()) {
+                    case 0://未接单
+                        ll_hint1.setVisibility(View.VISIBLE);
+                        ll_hint2.setVisibility(View.GONE);
+                        titleView.showRightTextview("取消订单", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                            }
+                        });
+
+
+                        break;
+                    default:
+                        //已接单
+                        ll_hint1.setVisibility(View.GONE);
+                        ll_hint2.setVisibility(View.VISIBLE);
+
+                        titleView.hideRightBtn_invisible();
+
+
+                        if (!response.getTindent().getDriver_info().getHead().equals(""))
+                            Glide.with(OrderDetailsActivity.this)
+                                    .load(IMGHOST + response.getTindent().getDriver_info().getHead())
+                                    .centerCrop()
 //                    .placeholder(R.mipmap.headimg)//加载站位图
 //                    .error(R.mipmap.headimg)//加载失败
-                            .into(imageView1);//加载图片
-                textView1.setText(response.getTindent().getSend_name());//昵称
-                textView2.setText(response.getTindent().getIndustry());//行业
-                textView3.setText("货源单号" + response.getTindent().getSn());//货源单号
-                textView4.setText(response.getTindent().getCreated_at() + " 发布");// 发布
-                textView5.setText(response.getTindent().getNow_state() + " " + response.getTindent().getNow_state_action());// 卸货
-                textView6.setText(response.getTindent().getSend_time());//离装货时间还有0小时
-                textView7.setText(response.getTindent().getRemark());//备注
-                textView8.setText("¥ " + response.getTindent().getPrice());//订单金额
-                textView9.setText(response.getTindent().getPrice_detail().getStart() + "元");//起步价
-                textView10.setText(response.getTindent().getPrice_detail().getMilleage() + "元");//离装货时间还有0小时
-//                textView11.setText(response.getTindent().getSend_time());//描述
+                                    .into(imageView1);//加载图片
+
+                        textView4.setText(response.getTindent().getDriver_info().getNickname());//昵称
+                        textView5.setText("评分" + response.getTindent().getDriver_info().getComment_score());//评分
+                        textView6.setText("" + response.getTindent().getDriver_info().getCard_number());//车牌
+                        textView7.setText(response.getTindent().getUse_type());//类型
+                        break;
+                }
+
+                textView10.setText("发布时间：" + response.getTindent().getPlan_time());//发布时间
+                textView11.setText("订单号：" + response.getTindent().getSn());//订单号：
+                textView12.setText(response.getTindent().getStatus_text());// 状态
+                textView13.setText(response.getTindent().getCar_type());// 订单车型
+//                textView14.setText(response.getTindent().get);//联系电话
+                textView15.setText(response.getTindent().getTemperature());//温层
+                textView16.setText(response.getTindent().getRemark());//备注
+                textView17.setText(response.getTindent().getPay_status());//支付状态
+                textView18.setText("¥ " + response.getTindent().getTotal_price());//金额
+
+
+                list = response.getTindent().getAddr_list();
+                mAdapter = new CommonAdapter<OrderDetailsModel.TindentBean.AddrListBean>
+                        (OrderDetailsActivity.this, R.layout.item_orderdetail, list) {
+                    @Override
+                    protected void convert(ViewHolder holder, OrderDetailsModel.TindentBean.AddrListBean model, int position) {
+                        //车型
+                        TextView textView1 = holder.getView(R.id.tv1);
+                        if (position == 0) {
+                            textView1.setText("发");
+                            textView1.setBackgroundResource(R.drawable.yuanxing_lanse);
+                        } else if (position == (response.getTindent().getAddr_list().size() - 1)) {
+                            textView1.setText("收");
+                            textView1.setBackgroundResource(R.drawable.yuanxing_juse);
+                        } else {
+                            //途经点
+                            textView1.setText("途");
+                            textView1.setBackgroundResource(R.drawable.yuanxing_huise);
+                        }
+                        holder.setText(R.id.tv2, model.getAddr());//地址
+                        holder.setText(R.id.tv3, "发货人：" + model.getName());//发货人
+                        holder.setText(R.id.tv4, "手机号：" + model.getMobile());//手机号
+                    }
+                };
+                recyclerView.setAdapter(mAdapter);
 
                 //标签
                 FlowLayoutAdapter<String> flowLayoutAdapter;
@@ -378,7 +305,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 for (int i = 0; i < response.getTindent().getTag().size(); i++) {
                     stringList.add(response.getTindent().getTag().get(i).getVal());
                 }*/
-                flowLayoutAdapter = new FlowLayoutAdapter<String>(response.getTindent().getTag()) {
+                flowLayoutAdapter = new FlowLayoutAdapter<String>(response.getTindent().getOther_tag()) {
                     @Override
                     public void bindDataToView(FlowLayoutAdapter.ViewHolder holder, int position, String bean) {
 //                                holder.setText(R.id.tv,bean);
@@ -404,39 +331,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     }
                 };
                 ((FlowLayout) findViewByID_My(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
-
-                switch (model.getTindent().getStatus()) {
-                    case 0://未接单
-                        if (model.getTindent().getIs_appoint() == 1) {//平台指派，可以拒绝
-                            tv_left.setText("拒绝此单");//左边按钮
-                            tv_left.setBackgroundResource(R.drawable.btn_huise);
-
-                        } else {
-                            tv_left.setText("返回列表");//左边按钮
-                            tv_left.setBackgroundResource(R.drawable.btn_juse);
-                        }
-                        tv_right.setText("确认接单");//右边按钮
-                        break;
-                    case 1://已接单
-                        tv_left.setText("取消订单");//左边按钮
-                        tv_left.setBackgroundResource(R.drawable.btn_huise);
-
-                        tv_right.setText("去装货");//右边按钮
-                        break;
-                    case 2://已装货
-                    case 3://已卸货
-                        tv_left.setText("转派订单");//左边按钮
-                        tv_left.setBackgroundResource(R.drawable.btn_huise);
-
-                        tv_right.setText("去卸货");//右边按钮
-                        break;
-                    case 7://订单完成
-                        tv_left.setText("转派订单");//左边按钮
-                        tv_left.setBackgroundResource(R.drawable.btn_lanse);
-
-                        tv_right.setText("配送完闭");//右边按钮
-                        break;
-                }
             }
         });
     }
@@ -445,15 +339,21 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()) {
-            case R.id.iv_xinxi:
+            case R.id.textView2:
+                //添加附加费
+                break;
+            case R.id.textView3:
+                //立即发布给附近所有司机
+                break;
+            case R.id.textView8:
                 //聊天
                 Bundle bundle1 = new Bundle();
-                bundle1.putString(EaseConstant.EXTRA_USER_ID, model.getTindent().getHx_username());
+                bundle1.putString(EaseConstant.EXTRA_USER_ID, model.getTindent().getDriver_info().getHx_username());
                 CommonUtil.gotoActivityWithData(this, ChatActivity.class, bundle1, false);
                 break;
-            case R.id.iv_dianhua:
+            case R.id.textView9:
                 //打电话
-                showToast("确认拨打 " + model.getTindent().getSend_mobile() + " 吗？", "确认", "取消",
+                showToast("确认拨打 " + model.getTindent().getDriver_info().getMobile() + " 吗？", "确认", "取消",
                         new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -464,7 +364,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                 intent.setAction(Intent.ACTION_CALL);//直接拨出电话
 //                                                                        intent.setAction(Intent.ACTION_DIAL);//只调用拨号界面，不拨出电话
                                 //设置拨打电话的号码
-                                intent.setData(Uri.parse("tel:" + model.getTindent().getSend_mobile()));
+                                intent.setData(Uri.parse("tel:" + model.getTindent().getDriver_info().getMobile()));
                                 //开启打电话的意图
                                 startActivity(intent);
                             }
@@ -475,252 +375,18 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             }
                         });
                 break;
-            case R.id.linearLayout1:
-            case R.id.iv_xiangqing:
-                //查看详情
-                ll_hint1.setVisibility(View.VISIBLE);
-                ll_hint2.setVisibility(View.VISIBLE);
-                iv_xiangqing.setVisibility(View.GONE);
-                tv_shouqi.setVisibility(View.VISIBLE);
-                break;
             case R.id.tv_shouqi:
                 //收起
-                ll_hint1.setVisibility(View.GONE);
-                ll_hint2.setVisibility(View.GONE);
-                iv_xiangqing.setVisibility(View.VISIBLE);
-                tv_shouqi.setVisibility(View.GONE);
-                break;
-
-            case R.id.tv_left:
-                //左边按钮
-                switch (tv_left.getText().toString().trim()) {
-                    case "拒绝此单":
-                        showToast("确认拒绝此单吗？", "确认", "取消", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                Map<String, String> params = new HashMap<>();
-                                params.put("token", localUserInfo.getToken());
-                                params.put("id", model.getTindent().getId());
-                                params.put("action", "1");//拒单
-                                RequestJieDan(params, 1);
-                            }
-                        }, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                            }
-                        });
-                        break;
-                    case "返回列表":
-                        finish();
-                        break;
-                    case "取消订单":
-                        showToast("确认取消订单吗？", "确认", "取消", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                Map<String, String> params = new HashMap<>();
-                                params.put("token", localUserInfo.getToken());
-                                params.put("t_indent_id", model.getTindent().getId());
-                                params.put("type", "6");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费5转单确认6取消订单7接收转单
-                                RequestZhuangHuo(params);
-                            }
-                        }, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                            }
-                        });
-                        break;
-                    case "转派订单":
-                        showToast("确认转派订单吗？", "确认", "取消", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                //停止轨迹上报
-                                aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, terminalId), onTrackListener);
-                                aMapTrackClient.stopGather(onTrackListener);
-                                //跳转转单
-                                Bundle bundle = new Bundle();
-                                bundle.putString("id", model.getTindent().getId());
-                                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, ZhuanDanActivity.class, bundle, false);
-                            }
-                        }, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                            }
-                        });
-                        break;
+                isOpen = !isOpen;
+                if (isOpen) {
+                    tv_shouqi.setImageResource(R.mipmap.ic_down_black);
+                    ll_hint3.setVisibility(View.VISIBLE);
+                } else {
+                    tv_shouqi.setImageResource(R.mipmap.ic_up_black);
+                    ll_hint3.setVisibility(View.GONE);
                 }
-                break;
-            case R.id.tv_right:
-                //右边按钮
-                switch (tv_right.getText().toString().trim()) {
-                    case "确认接单":
-                        showToast("确认接受此单吗？", "确认", "取消", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-
-                                //轨迹上报-创建成功后接单
-                                showProgress(true, "接单中，请稍候...");
-                                startTrack();
-
-
-                            }
-                        }, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                            }
-                        });
-                        break;
-                    case "去装货":
-                    case "去卸货":
-                        Bundle bundle = new Bundle();
-                        bundle.putDouble("lat", lat);
-                        bundle.putDouble("lng", lng);
-                        bundle.putSerializable("OrderDetailsModel", model);
-                        CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
-                        break;
-                    case "配送完闭":
-                        //停止轨迹上报
-                        aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, terminalId), onTrackListener);
-                        aMapTrackClient.stopGather(onTrackListener);
-                        //跳转附加费
-                        Bundle bundle2 = new Bundle();
-                        bundle2.putString("id", model.getTindent().getId());
-                        CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, AddSurchargeActivity.class, bundle2, true);
-                        break;
-                    /*case "确认装货"://确认装货
-                        showToast("确认装货吗？", "确认", "取消", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                Map<String, String> params = new HashMap<>();
-                                params.put("token", localUserInfo.getToken());
-                                params.put("id", model.getTindent().getId());
-                                params.put("type", "1");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
-                                RequestZhuangHuo(params);
-                            }
-                        }, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                            }
-                        });
-                        break;
-                    case "disburden"://确认卸货
-                        showToast("确认卸货吗？", "确认", "取消", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                Map<String, String> params = new HashMap<>();
-                                params.put("token", localUserInfo.getToken());
-                                params.put("id", model.getTindent().getId());
-                                params.put("type", "3");//确认的类型1确认装货2提醒司机装货3确认卸货4附加费
-                                params.put("t_indent_addr_id", model.getTindent().getNext_addr().getAddr_id());
-                                RequestZhuangHuo(params);
-                            }
-                        }, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                            }
-                        });
-                        break;*/
-                }
-
-
                 break;
         }
-    }
-
-    private void RequestJieDan(Map<String, String> params, int i) {
-        OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_JieDan, params, new OkHttpClientManager.ResultCallback<String>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-//                showErrorPage();
-                hideProgress();
-                if (!info.equals("")) {
-                    myToast(info);
-                }
-                if (i ==2){
-                    //接单错误-停止轨迹
-                    //停止轨迹上报
-                    aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, terminalId), onTrackListener);
-                    aMapTrackClient.stopGather(onTrackListener);
-                }
-            }
-
-            @Override
-            public void onResponse(String response) {
-//                showContentPage();
-                hideProgress();
-                MyLogger.i(">>>>>>>>>是否接单" + response);
-//                myToast("确认成功");
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    myToast(jObj.getString("msg"));
-
-                    if (i == 2) {//接单
-                        Bundle bundle = new Bundle();
-                        bundle.putDouble("lat", lat);
-                        bundle.putDouble("lng", lng);
-                        bundle.putSerializable("OrderDetailsModel", model);
-                        CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, MapNavigationActivity.class, bundle, false);
-                    } else {//拒单
-                        finish();
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        }, false);
-    }
-
-    private void RequestZhuangHuo(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<String>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-//                showErrorPage();
-                hideProgress();
-                if (!info.equals("")) {
-                    myToast(info);
-                }
-            }
-
-            @Override
-            public void onResponse(String response) {
-//                showContentPage();
-                hideProgress();
-                MyLogger.i(">>>>>>>>>司机-确认装货/卸货/发送附加费/附加费收取确认/转单确认" + response);
-//                myToast("确认成功");
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    myToast(jObj.getString("msg"));
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                if (tv_left.getText().toString().trim().equals("取消订单")) {
-
-                    //停止轨迹上报
-                    aMapTrackClient.stopTrack(new TrackParam(Constants.SERVICE_ID, terminalId), onTrackListener);
-                    aMapTrackClient.stopGather(onTrackListener);
-
-                    finish();
-                }
-
-            }
-        }, false);
     }
 
     @Override
@@ -833,17 +499,17 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 mStartPoint, mEndPoint);
 
         //设置车辆信息
-        fromAndTo.setPlateNumber(model.getTindent().getCar_type_info().getCar_number());//车牌号，如A6BN05
+//        fromAndTo.setPlateNumber(model.getTindent().getCar_type_info().getCar_number());//车牌号，如A6BN05
 //        fromAndTo.setPlateProvince("京");
 
         // 第一个参数表示路径规划的起点和终点，第二个参数表示计算路径的模式，第三个参数表示途经点，第四个参数货车大小 必填
         RouteSearch.TruckRouteQuery query = new RouteSearch.TruckRouteQuery(fromAndTo, mode, pointList, RouteSearch.TRUCK_SIZE_HEAVY);
 
-        query.setTruckAxis(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_axis()));//轴数
+        /*query.setTruckAxis(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_axis()));//轴数
         query.setTruckHeight(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_height()));//高 单位：米
         query.setTruckWidth(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_weight()));//宽度，单位：米
         query.setTruckLoad(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_load()));//最大载重，单位：吨
-        query.setTruckWeight(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_weight()));//载重
+        query.setTruckWeight(Float.valueOf(model.getTindent().getCar_type_info().getVehicle_weight()));//载重*/
 
         //异步查询
         mRouteSearch.calculateTruckRouteAsyn(query);
@@ -998,30 +664,9 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     @Override
     public void onMyLocationChange(Location location) {
         MyLogger.i(">>>>>>>>我的位置：" + location.getLatitude());
-        lat = location.getLatitude();
-        lng = location.getLongitude();
-        /*if (model != null) {
-            for (int i = 0; i < model.getTindent().getAddr_list().size(); i++) {
-                if (i == 0) {
-                    if (lat != 0 && lng != 0) {
-                        mStartDPoint = new DPoint(lat, lng);//起点
-                        mEndDPoint = new DPoint(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat()),
-                                Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
-                        juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
-                        tv_juli1.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
-                    }
-                } else if (i == (model.getTindent().getAddr_list().size() - 1)) {
-                    if (lat != 0 && lng != 0) {
-                        mStartDPoint = new DPoint(lat, lng);//起点
-                        mEndDPoint = new DPoint(Double.valueOf(model.getTindent().getAddr_list().get(i).getLat()),
-                                Double.valueOf(model.getTindent().getAddr_list().get(i).getLng()));//终点，39.995576,116.481288
-                        juli = CoordinateConverter.calculateLineDistance(mStartDPoint, mEndDPoint);
-                        tv_juli2.setText("距您" + CommonUtil.distanceFormat(juli) + "m");
-                    }
-                }
-            }
-        }*/
-        requestServer();
+//        lat = location.getLatitude();
+//        lng = location.getLongitude();
+//        requestServer();
 
     }
 
@@ -1048,140 +693,5 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 
         return bitmap;
 
-    }
-
-    /**
-     * *********************************轨迹上报**************************************************
-     */
-    private void startTrack() {
-        // 先根据Terminal名称查询Terminal ID，如果Terminal还不存在，就尝试创建，拿到Terminal ID后，
-        // 用Terminal ID开启轨迹服务
-        aMapTrackClient.queryTerminal(new QueryTerminalRequest(Constants.SERVICE_ID, Constants.TERMINAL_NAME), new SimpleOnTrackListener() {
-            @Override
-            public void onQueryTerminalCallback(QueryTerminalResponse queryTerminalResponse) {
-                if (queryTerminalResponse.isSuccess()) {
-                    if (queryTerminalResponse.isTerminalExist()) {
-                        // 当前终端已经创建过，直接使用查询到的terminal id
-                        terminalId = queryTerminalResponse.getTid();
-//                        if (uploadToTrack) {
-                        aMapTrackClient.addTrack(new AddTrackRequest(Constants.SERVICE_ID, terminalId), new SimpleOnTrackListener() {
-                            @Override
-                            public void onAddTrackCallback(AddTrackResponse addTrackResponse) {
-                                if (addTrackResponse.isSuccess()) {
-                                    // trackId需要在启动服务后设置才能生效，因此这里不设置，而是在startGather之前设置了track id
-                                    trackId = addTrackResponse.getTrid();
-                                    TrackParam trackParam = new TrackParam(Constants.SERVICE_ID, terminalId);
-                                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                        trackParam.setNotification(createNotification());
-                                    }
-
-                                    trackParam.setTrackId(trackId);//上报到指定轨迹
-                                    aMapTrackClient.startTrack(trackParam, onTrackListener);
-
-                                    MyLogger.i(">>>>>>>terminalId:" + terminalId + ">>>>>>>>trackId:" + trackId);
-                                    //保存terminalId、trackId
-                                    Map<String, String> params = new HashMap<>();
-                                    params.put("token", localUserInfo.getToken());
-                                    params.put("id", model.getTindent().getId());
-                                    params.put("action", "2");//接单
-                                    params.put("terminal_id", terminalId + "");//221758795
-                                    params.put("track_id", trackId + "");
-                                    RequestJieDan(params, 2);
-
-                                } else {
-                                    Toast.makeText(OrderDetailsActivity.this, "轨迹-网络请求失败，" + addTrackResponse.getErrorMsg(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-
-                       /* } else {
-                            // 不指定track id，上报的轨迹点是该终端的散点轨迹
-                            TrackParam trackParam = new TrackParam(Constants.SERVICE_ID, terminalId);
-                            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                trackParam.setNotification(createNotification());
-                            }
-                            aMapTrackClient.startTrack(trackParam, onTrackListener);
-                        }*/
-                    } else {
-                        // 当前终端是新终端，还未创建过，创建该终端并使用新生成的terminal id
-                        aMapTrackClient.addTerminal(new AddTerminalRequest(Constants.TERMINAL_NAME, Constants.SERVICE_ID), new SimpleOnTrackListener() {
-                            @Override
-                            public void onCreateTerminalCallback(AddTerminalResponse addTerminalResponse) {
-                                if (addTerminalResponse.isSuccess()) {
-                                    terminalId = addTerminalResponse.getTid();
-
-                                    //不创建新Track
-                                    /*TrackParam trackParam = new TrackParam(Constants.SERVICE_ID, terminalId);
-                                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                        trackParam.setNotification(createNotification());
-                                    }
-                                    aMapTrackClient.startTrack(trackParam, onTrackListener);*/
-                                    //需要创建新Track
-                                    aMapTrackClient.addTrack(new AddTrackRequest(Constants.SERVICE_ID, terminalId), new SimpleOnTrackListener() {
-                                        @Override
-                                        public void onAddTrackCallback(AddTrackResponse addTrackResponse) {
-                                            if (addTrackResponse.isSuccess()) {
-                                                // trackId需要在启动服务后设置才能生效，因此这里不设置，而是在startGather之前设置了track id
-                                                trackId = addTrackResponse.getTrid();
-                                                TrackParam trackParam = new TrackParam(Constants.SERVICE_ID, terminalId);
-                                                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                                    trackParam.setNotification(createNotification());
-                                                }
-
-                                                trackParam.setTrackId(trackId);//上报到指定轨迹
-                                                aMapTrackClient.startTrack(trackParam, onTrackListener);
-
-                                                MyLogger.i(">>>>>>>terminalId:" + terminalId + ">>>>>>>>trackId:" + trackId);
-                                                //保存terminalId、trackId
-                                                Map<String, String> params = new HashMap<>();
-                                                params.put("token", localUserInfo.getToken());
-                                                params.put("id", model.getTindent().getId());
-                                                params.put("action", "2");//接单
-                                                params.put("terminal_id", terminalId + "");
-                                                params.put("track_id", trackId + "");
-                                                RequestJieDan(params, 2);
-                                            } else {
-                                                Toast.makeText(OrderDetailsActivity.this, "轨迹-网络请求失败，" + addTrackResponse.getErrorMsg(), Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                    });
-                                } else {
-                                    Toast.makeText(OrderDetailsActivity.this, "轨迹-网络请求失败，" + addTerminalResponse.getErrorMsg(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-                    }
-
-
-                } else {
-                    Toast.makeText(OrderDetailsActivity.this, "轨迹-网络请求失败，" + queryTerminalResponse.getErrorMsg(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
-    /**
-     * 在8.0以上手机，如果app切到后台，系统会限制定位相关接口调用频率
-     * 可以在启动轨迹上报服务时提供一个通知，这样Service启动时会使用该通知成为前台Service，可以避免此限制
-     */
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    private Notification createNotification() {
-        Notification.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID_SERVICE_RUNNING, "app service", NotificationManager.IMPORTANCE_LOW);
-            nm.createNotificationChannel(channel);
-            builder = new Notification.Builder(getApplicationContext(), CHANNEL_ID_SERVICE_RUNNING);
-        } else {
-            builder = new Notification.Builder(getApplicationContext());
-        }
-        Intent nfIntent = new Intent(OrderDetailsActivity.this, TrackServiceActivity.class);
-        nfIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        builder.setContentIntent(PendingIntent.getActivity(OrderDetailsActivity.this, 0, nfIntent, 0))
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("猎鹰sdk运行中")
-                .setContentText("猎鹰sdk运行中");
-        Notification notification = builder.build();
-        return notification;
     }
 }

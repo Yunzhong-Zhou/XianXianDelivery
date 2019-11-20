@@ -19,6 +19,7 @@ import com.delivery.xianxian.activity.JiFenShangChengActivity;
 import com.delivery.xianxian.activity.LoginActivity;
 import com.delivery.xianxian.activity.MainActivity;
 import com.delivery.xianxian.activity.MyProfileActivity;
+import com.delivery.xianxian.activity.OrderListActivity;
 import com.delivery.xianxian.activity.ServiceCenterActivity;
 import com.delivery.xianxian.activity.WalletActivity;
 import com.delivery.xianxian.base.BaseFragment;
@@ -238,7 +239,7 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout2:
                 //货运订单
-//                CommonUtil.gotoActivity(getActivity(), Auth_CheZhuActivity.class);
+                CommonUtil.gotoActivity(getActivity(), OrderListActivity.class);
                 break;
             case R.id.linearLayout3:
                 //我的钱包

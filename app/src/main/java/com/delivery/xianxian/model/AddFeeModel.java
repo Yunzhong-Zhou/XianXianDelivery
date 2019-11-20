@@ -51,7 +51,7 @@ public class AddFeeModel implements Serializable {
         this.price_list = price_list;
     }
 
-    public static class PriceListBean {
+    public static class PriceListBean implements Serializable{
         /**
          * title : 起步价（5公里）
          * price : 48元

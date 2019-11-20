@@ -72,13 +72,21 @@ public class URLs {
      */
     public static final String GetTemperature= "/api/owner/tindent/update";
     /**
-     * 费用详情
+     * 收费标准
      */
-    public static final String FeeDetail= "/api/owner/city/price";
+    public static final String FeeModel= "/api/owner/city/price";
+    /**
+     * 额外需求
+     */
+    public static final String AddOther= "/api/owner/city/other-price";
     /**
      * 下单
      */
     public static final String ConfirmOrder= "/api/owner/tindent/create";
+    /**
+     * 下单-支付
+     */
+    public static final String ConfirmOrder_Pay= "/api/owner/tindent/pay-tindent";
     /**
      * 接单列表
      */
@@ -98,7 +106,7 @@ public class URLs {
     /**
      * 订单
      */
-    public static final String Fragment2 = "/api/owner/tindent/search";
+    public static final String OrderList = "/api/owner/tindent/search";
     /**
      * 获取附加费
      */

@@ -22,45 +22,45 @@ public final class R {
 
         public static final int actionbarLayoutId = 0x7f080039;
         public static final int fullWebView = 0x7f080100;
-        public static final int imgRichpushBtnBack = 0x7f080124;
-        public static final int imgView = 0x7f080125;
-        public static final int popLayoutId = 0x7f0801ab;
-        public static final int pushPrograssBar = 0x7f0801b5;
-        public static final int push_notification_bg = 0x7f0801b6;
-        public static final int push_notification_big_icon = 0x7f0801b7;
-        public static final int push_notification_content = 0x7f0801b8;
-        public static final int push_notification_content_one_line = 0x7f0801b9;
-        public static final int push_notification_date = 0x7f0801ba;
-        public static final int push_notification_dot = 0x7f0801bb;
-        public static final int push_notification_layout_lefttop = 0x7f0801bc;
-        public static final int push_notification_small_icon = 0x7f0801bd;
-        public static final int push_notification_style_1 = 0x7f0801be;
-        public static final int push_notification_style_1_big_icon = 0x7f0801bf;
-        public static final int push_notification_style_1_content = 0x7f0801c0;
-        public static final int push_notification_style_1_date = 0x7f0801c1;
-        public static final int push_notification_style_1_title = 0x7f0801c2;
-        public static final int push_notification_style_default = 0x7f0801c3;
-        public static final int push_notification_sub_title = 0x7f0801c4;
-        public static final int push_notification_title = 0x7f0801c5;
-        public static final int push_root_view = 0x7f0801c6;
-        public static final int rlRichpushTitleBar = 0x7f0801d7;
-        public static final int tvRichpushTitle = 0x7f08025e;
-        public static final int wvPopwin = 0x7f0802af;
+        public static final int imgRichpushBtnBack = 0x7f080123;
+        public static final int imgView = 0x7f080124;
+        public static final int popLayoutId = 0x7f0801a8;
+        public static final int pushPrograssBar = 0x7f0801b2;
+        public static final int push_notification_bg = 0x7f0801b3;
+        public static final int push_notification_big_icon = 0x7f0801b4;
+        public static final int push_notification_content = 0x7f0801b5;
+        public static final int push_notification_content_one_line = 0x7f0801b6;
+        public static final int push_notification_date = 0x7f0801b7;
+        public static final int push_notification_dot = 0x7f0801b8;
+        public static final int push_notification_layout_lefttop = 0x7f0801b9;
+        public static final int push_notification_small_icon = 0x7f0801ba;
+        public static final int push_notification_style_1 = 0x7f0801bb;
+        public static final int push_notification_style_1_big_icon = 0x7f0801bc;
+        public static final int push_notification_style_1_content = 0x7f0801bd;
+        public static final int push_notification_style_1_date = 0x7f0801be;
+        public static final int push_notification_style_1_title = 0x7f0801bf;
+        public static final int push_notification_style_default = 0x7f0801c0;
+        public static final int push_notification_sub_title = 0x7f0801c1;
+        public static final int push_notification_title = 0x7f0801c2;
+        public static final int push_root_view = 0x7f0801c3;
+        public static final int rlRichpushTitleBar = 0x7f0801d6;
+        public static final int tvRichpushTitle = 0x7f080261;
+        public static final int wvPopwin = 0x7f0802ae;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int jpush_popwin_layout = 0x7f0b00c2;
-        public static final int jpush_webview_layout = 0x7f0b00c3;
-        public static final int push_notification = 0x7f0b00de;
+        public static final int jpush_popwin_layout = 0x7f0b00ca;
+        public static final int jpush_webview_layout = 0x7f0b00cb;
+        public static final int push_notification = 0x7f0b00e6;
     }
     public static final class string {
         private string() {}
 
-        public static final int jg_channel_name_p_default = 0x7f0e016d;
-        public static final int jg_channel_name_p_high = 0x7f0e016e;
-        public static final int jg_channel_name_p_low = 0x7f0e016f;
-        public static final int jg_channel_name_p_min = 0x7f0e0170;
+        public static final int jg_channel_name_p_default = 0x7f0e016e;
+        public static final int jg_channel_name_p_high = 0x7f0e016f;
+        public static final int jg_channel_name_p_low = 0x7f0e0170;
+        public static final int jg_channel_name_p_min = 0x7f0e0171;
     }
     public static final class style {
         private style() {}

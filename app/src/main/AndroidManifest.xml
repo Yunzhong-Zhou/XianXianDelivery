@@ -121,6 +121,14 @@
         <activity
             android:name="com.delivery.xianxian.activity.FeeDetailActivity"
             android:label="费用详情" />
+        <activity
+            android:name="com.delivery.xianxian.activity.FeeModelActivity"
+            android:label="收费标准" />
+        <activity
+            android:name="com.delivery.xianxian.activity.AddOtherActivity"
+            android:label="添加额外需求" />
+
+
 
         <activity
             android:name="com.delivery.xianxian.activity.NoticeDetailActivity"
@@ -139,14 +147,14 @@
             android:label="订单详情" />
         <!--订单-->
         <activity
+            android:name="com.delivery.xianxian.activity.OrderListActivity"
+            android:label="货运订单" />
+        <activity
             android:name="com.delivery.xianxian.activity.AddSurchargeActivity"
             android:label="添加附加费" />
         <activity
             android:name="com.delivery.xianxian.activity.ZhuanDanActivity"
             android:label="转单二维码" />
-        <activity
-            android:name="com.delivery.xianxian.activity.MapNavigationActivity"
-            android:label="地图导航（去装货、去卸货、）" />
         <activity
             android:name="com.delivery.xianxian.activity.TrackServiceActivity"
             android:label="轨迹上报服务" />

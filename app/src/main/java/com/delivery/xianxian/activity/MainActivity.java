@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity {
 //                .setTabPadding(4,6,10)//设置ICON图片与上部分割线的间隔、图片与文字的间隔、文字与底部的间隔
                 .setChangeColor(getResources().getColor(R.color.blue), getResources().getColor(R.color.black1))//设置选中的颜色、未选中的颜色
                 .addTabItem(getString(R.string.fragment1), R.mipmap.tab1_1, R.mipmap.tab1_0, Fragment1.class)//设置文字、选中图片、未选中图片、fragment
-//                .addTabItem(getString(R.string.fragment2), R.mipmap.tab2_1, R.mipmap.tab2_0, Fragment2.class)//设置文字、选中图片、未选中图片、fragment
+//                .addTabItem(getString(R.string.activity_orderlist), R.mipmap.tab2_1, R.mipmap.tab2_0, OrderListActivity.class)//设置文字、选中图片、未选中图片、fragment
                 .addTabItem(getString(R.string.fragment3), R.mipmap.tab3_1, R.mipmap.tab3_0, Fragment3.class)//设置文字、选中图片、未选中图片、fragment
 //                .addTabItem(getString(R.string.fragment4), R.mipmap.tab4_1, R.mipmap.tab4_0, Fragment4.class)//设置文字、选中图片、未选中图片、fragment
 //                .addTabItem(getString(R.string.fragment5), R.mipmap.tab5_1, R.mipmap.tab5_0, Fragment5.class)//设置文字、选中图片、未选中图片、fragment

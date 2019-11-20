@@ -13,23 +13,33 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.adapter.TemperatureAdapter;
 import com.delivery.xianxian.base.BaseActivity;
+import com.delivery.xianxian.model.AddFeeModel;
+import com.delivery.xianxian.model.ConfirmOrderModel;
 import com.delivery.xianxian.model.TemperatureModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 import com.squareup.okhttp.Request;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import static com.delivery.xianxian.net.OkHttpClientManager.HOST;
+import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
 
 /**
  * Created by zyz on 2019-11-16.
@@ -39,14 +49,16 @@ public class ConfirmOrderActivity extends BaseActivity {
     List<TemperatureModel.TemperatureListBean> list_h = new ArrayList<>();
     int i1 = 0;
 
-    String city = "", car_type_id = "", use_type = "", is_plan = "", plan_time = "", mileage = "",
-            pre_time = "", price = "", addr_ids = "", temperature = "", name = "", mobile = "",
-            urgent_fee ="0",remark = "";
+    AddFeeModel model;
+    String city = "", car_type_id = "", use_type = "", is_plan = "", plan_time = "", addr_ids = "",
+            temperature = "", name = "", mobile = "", urgent_fee = "0", remark = "", other = "";
     TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12;
 
     private ImageView imageView1;
     boolean isgouxuan = true;
+
+    int pay_item = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,18 +87,20 @@ public class ConfirmOrderActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        model = (AddFeeModel) getIntent().getSerializableExtra("AddFeeModel");
         city = getIntent().getStringExtra("city");
         car_type_id = getIntent().getStringExtra("car_type_id");
         use_type = getIntent().getStringExtra("use_type");
         is_plan = getIntent().getStringExtra("is_plan");
         plan_time = getIntent().getStringExtra("plan_time");
-        mileage = getIntent().getStringExtra("mileage");
-        pre_time = getIntent().getStringExtra("pre_time");
-        price = getIntent().getStringExtra("price");
         addr_ids = getIntent().getStringExtra("addr_ids");
 
         textView6.setText(plan_time);
-        textView11.setText("合计费用：￥"+price);
+        textView11.setText("合计费用：￥" + model.getPrice());
+
+        textView7.setText(localUserInfo.getNickname());
+        textView8.setText(localUserInfo.getPhonenumber());
+
         //获取预冷数据
         requestServer();
 
@@ -119,11 +133,11 @@ public class ConfirmOrderActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>获取温层费用：" + response);
                 hideProgress();
                 list_h = response.getTemperature_list();
-                if (list_h.size() > 0) {
+                /*if (list_h.size() > 0) {
                     temperature = list_h.get(0).getId();
                     textView1.setText(list_h.get(0).getTitle() + "：" + list_h.get(0).getTemperature());
                     textView2.setText("¥ " + list_h.get(0).getPrice());
-                }
+                }*/
             }
         });
     }
@@ -239,7 +253,11 @@ public class ConfirmOrderActivity extends BaseActivity {
                 break;
             case R.id.linearLayout4:
                 //添加其他
-
+                Intent intent1 = new Intent(ConfirmOrderActivity.this, AddOtherActivity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("type", 10004);
+                intent1.putExtras(bundle1);
+                startActivityForResult(intent1, 10004, bundle1);
                 break;
             case R.id.textView9:
                 //通讯录
@@ -260,12 +278,12 @@ public class ConfirmOrderActivity extends BaseActivity {
                 CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this, WebContentActivity.class, bundle, false);
                 break;
             case R.id.textView12:
-                //明细
+                //费用明细
                 Bundle bundle4 = new Bundle();
                 bundle4.putString("city", city);
                 bundle4.putString("car_type_id", car_type_id);
                 bundle4.putString("use_type", use_type);
-                bundle4.putString("addr_ids", addr_ids);
+                bundle4.putSerializable("AddFeeModel", model);
                 CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this, FeeDetailActivity.class, bundle4, false);
                 break;
 
@@ -280,25 +298,27 @@ public class ConfirmOrderActivity extends BaseActivity {
                     params.put("use_type", use_type + "");
                     params.put("is_plan", is_plan);
                     params.put("plan_time", plan_time);
-                    params.put("mileage", mileage);
-                    params.put("pre_time", pre_time);
-                    params.put("price", price);
+                    params.put("mileage", model.getMillage());
+                    params.put("pre_time", model.getDuration());
+                    params.put("price", model.getPrice());
                     params.put("addr_ids", addr_ids);
                     params.put("temperature", temperature);
                     params.put("urgent_fee", urgent_fee);
-//                    params.put("urgent", urgent);
-//                    params.put("owner_fee", owner_fee);
-//                    params.put("other_fee", other_fee);
-//                    params.put("other", other);
+                    params.put("other", other);
                     params.put("remark", remark);
+
+                    params.put("urgent", "");
+                    params.put("owner_fee", "");
+                    params.put("other_fee", "");
                     RequestAdd(params);
                 }
 
                 break;
         }
     }
+
     private void RequestAdd(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(ConfirmOrderActivity.this, URLs.ConfirmOrder, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(ConfirmOrderActivity.this, URLs.ConfirmOrder, params, new OkHttpClientManager.ResultCallback<ConfirmOrderModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -308,12 +328,112 @@ public class ConfirmOrderActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(ConfirmOrderModel response) {
                 MyLogger.i(">>>>>>>>>下单" + response);
                 hideProgress();
+//                myToast("下单成功");
+                //弹出支付框
+//                showToast("下单成功，确认支付");
+                dialog = new BaseDialog(ConfirmOrderActivity.this);
+                dialog.contentView(R.layout.dialog_pay)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(false)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView tv1 = dialog.findViewById(R.id.tv1);
+                tv1.setText(response.getTotal_price());
+
+                RecyclerView rv = dialog.findViewById(R.id.rv);
+                LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(ConfirmOrderActivity.this);
+                rv.setLayoutManager(mLinearLayoutManager);
+                CommonAdapter<ConfirmOrderModel.PayTypeListBean> mAdapter = new CommonAdapter<ConfirmOrderModel.PayTypeListBean>
+                        (ConfirmOrderActivity.this, R.layout.item_pay, response.getPay_type_list()) {
+                    @Override
+                    protected void convert(ViewHolder holder, ConfirmOrderModel.PayTypeListBean model, int position) {
+                        holder.setText(R.id.tv1, model.getTitle());//标题
+                        TextView tv2 = holder.getView(R.id.tv2);
+                        if (!model.getSub_title().equals("")) {
+                            tv2.setVisibility(View.VISIBLE);
+                            tv2.setText(model.getSub_title());
+                        } else {
+                            tv2.setVisibility(View.GONE);
+                        }
+                        ImageView iv1 = holder.getView(R.id.iv1);
+                        Glide.with(ConfirmOrderActivity.this).load(IMGHOST + model.getIcon())
+                                .centerCrop()
+//                            .placeholder(R.mipmap.headimg)//加载站位图
+//                            .error(R.mipmap.headimg)//加载失败
+                                .into(iv1);//加载图片
+                        ImageView iv2 = holder.getView(R.id.iv2);
+                        if (pay_item == position) {
+                            iv2.setImageResource(R.mipmap.ic_xuanzhong);
+                        } else {
+                            iv2.setImageResource(R.mipmap.ic_weixuan);
+                        }
+                    }
+                };
+                mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        pay_item = i;
+                        mAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv.setAdapter(mAdapter);
+
+                TextView tv3 = dialog.findViewById(R.id.tv3);
+                tv3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                        showProgress(true, "正在获取支付订单...");
+                        Map<String, String> params = new HashMap<>();
+                        params.put("token", localUserInfo.getToken());
+                        params.put("pay_type", response.getPay_type_list().get(pay_item).getType() + "");
+                        params.put("t_indent_id", response.getId());
+                        RequestPay(params,response.getId());
+                    }
+                });
+
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
             }
         });
     }
+    private void RequestPay(Map<String, String> params,String id) {
+        OkHttpClientManager.postAsyn(ConfirmOrderActivity.this, URLs.ConfirmOrder_Pay, params, new OkHttpClientManager.ResultCallback<ConfirmOrderModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(ConfirmOrderModel response) {
+                MyLogger.i(">>>>>>>>>下单" + response);
+                hideProgress();
+                myToast("下单成功");
+                //跳转订单派送
+                Bundle bundle = new Bundle();
+                bundle.putString("id",id);
+                CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this,OrderDetailsActivity.class,bundle,true);
+            }
+        });
+    }
+
     private boolean match() {
        /* if (temperature.equals("")) {
             myToast("请选择提前预冷");
@@ -321,6 +441,7 @@ public class ConfirmOrderActivity extends BaseActivity {
         }*/
         return true;
     }
+
     @Override
     protected void updateView() {
         titleView.setTitle("确认订单");
@@ -338,7 +459,6 @@ public class ConfirmOrderActivity extends BaseActivity {
             startActivityForResult(intent, REQUEST_SELECT_PHONE_NUMBER);
         }
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -361,6 +481,19 @@ public class ConfirmOrderActivity extends BaseActivity {
 
                 cursor.close();
             }
+        }
+        MyLogger.i(">>>>>requestCode:" + requestCode +
+                "\n>>>>>resultCode:" + resultCode +
+                "\n>>>>>data:" + data);
+        switch (requestCode) {
+            case 10004:
+                //其他需求
+                if (data != null) {
+                    Bundle bundle1 = data.getExtras();
+                    other = bundle1.getString("other");
+                    textView5.setText(bundle1.getString("other_s"));
+                }
+                break;
         }
     }
 }

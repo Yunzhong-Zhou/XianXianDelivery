@@ -344,7 +344,7 @@ public class SelectAddressActivity extends BaseActivity {
                 //确认发货地
                 if (match()) {
                     textView2.setClickable(false);
-                    this.showProgress(true, getString(R.string.login_h7));
+                    this.showProgress(true, "正在添加位置...");
                     params.put("token", localUserInfo.getToken());
                     params.put("addr", addr);
                     params.put("addr_detail", addr_detail);

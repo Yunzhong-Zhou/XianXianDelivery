@@ -20,7 +20,7 @@
             android:textSize="24sp" />
 
         <TextView
-
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -29,9 +29,10 @@
             android:textSize="40sp" />
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="（总里程N公里）"
+            android:text="（总里程 公里）"
             android:textColor="@color/black1"
             android:textSize="16sp" />
     </LinearLayout>
@@ -55,28 +56,9 @@
         android:layout_marginRight="15dp"
         android:background="@color/xian" />
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="45dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="起步价（车型）"
-            android:textColor="@color/black2"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="¥ 0"
-            android:textColor="@color/black1"
-            android:textSize="14sp" />
-    </LinearLayout>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

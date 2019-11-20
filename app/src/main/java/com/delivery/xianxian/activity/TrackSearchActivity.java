@@ -28,7 +28,7 @@ import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.lieying.Constants;
 import com.delivery.xianxian.lieying.SimpleOnTrackListener;
-import com.delivery.xianxian.model.Fragment2Model1;
+import com.delivery.xianxian.model.OrderListModel;
 import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 
@@ -41,7 +41,7 @@ import java.util.List;
  * 2、演示如何查询终端最近上报的轨迹点及其所属轨迹信息，分别绘制出每条轨迹下的所有轨迹点
  */
 public class TrackSearchActivity extends BaseActivity {
-    Fragment2Model1 model;
+    OrderListModel model;
 
     private AMapTrackClient aMapTrackClient;
 
@@ -57,7 +57,7 @@ public class TrackSearchActivity extends BaseActivity {
         textureMapView = findViewByID_My(R.id.activity_track_search_map);
         textureMapView.onCreate(savedInstanceState);
 
-        model = (Fragment2Model1) getIntent().getSerializableExtra("Fragment2Model1");
+        /*model = (OrderListModel) getIntent().getSerializableExtra("OrderListModel");
         MyLogger.i(">>>>>>>>开始时间：" + CommonUtil.timedate1(model.getTake_time()*1000 + "") +
                 "\n>>>>>>>>>>>>>结束时间：" + CommonUtil.timedate1(model.getEnd_time()*1000 + ""));
 
@@ -88,7 +88,7 @@ public class TrackSearchActivity extends BaseActivity {
                 }
             }
 
-        }
+        }*/
 
 
     }
@@ -113,9 +113,10 @@ public class TrackSearchActivity extends BaseActivity {
                         // 搜索最近12小时以内上报的属于某个轨迹的轨迹点信息，散点上报不会包含在该查询结果中
                         QueryTrackRequest queryTrackRequest = new QueryTrackRequest(
                                 Constants.SERVICE_ID,
-//                                tid,
-                                Long.valueOf(model.getTerminal_id()),
-                                Long.valueOf(model.getTrack_id()),     // 轨迹id，不指定，查询所有轨迹，注意分页仅在查询特定轨迹id时生效，查询所有轨迹时无法对轨迹点进行分页
+                                tid,
+                                -1,
+//                                Long.valueOf(model.getTerminal_id()),
+//                                Long.valueOf(model.getTrack_id()),     // 轨迹id，不指定，查询所有轨迹，注意分页仅在查询特定轨迹id时生效，查询所有轨迹时无法对轨迹点进行分页
                                 startTime,//开始时间（最多24小时）
 //                                System.currentTimeMillis() - 24 * 60 * 60 * 1000,
                                 endTime,//结束时间
@@ -195,8 +196,8 @@ public class TrackSearchActivity extends BaseActivity {
                         // 搜索最近12小时以内上报的轨迹
                         HistoryTrackRequest historyTrackRequest = new HistoryTrackRequest(
                                 Constants.SERVICE_ID,
-//                                tid,
-                                Long.valueOf(model.getTerminal_id()),// 轨迹id，不指定，查询所有轨迹，注意分页仅在查询特定轨迹id时生效，查询所有轨迹时无法对轨迹点进行分页
+                                tid,
+//                                Long.valueOf(model.getTerminal_id()),// 轨迹id，不指定，查询所有轨迹，注意分页仅在查询特定轨迹id时生效，查询所有轨迹时无法对轨迹点进行分页
 //                                Long.valueOf(model.getTrack_id()),
                                 startTime,//开始时间
 //                                System.currentTimeMillis() - 24 * 60 * 60 * 1000,
