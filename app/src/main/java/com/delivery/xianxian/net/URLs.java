@@ -45,7 +45,7 @@ public class URLs {
     /**
      * 注册2
      */
-    public static final String Registered2= "/api/owner/identity";
+    public static final String Registered2 = "/api/owner/identity";
     /**
      * 注册-极验
      */
@@ -53,7 +53,7 @@ public class URLs {
     /**
      * 新人领取
      */
-    public static final String NewcomerReward= "/api/member/sign";
+    public static final String NewcomerReward = "/api/member/sign";
     /**
      * 实名认证
      */
@@ -62,47 +62,47 @@ public class URLs {
     /**
      * 首页
      */
-    public static final String Fragment1= "/api/owner/index";
+    public static final String Fragment1 = "/api/owner/index";
     /**
      * 下单计算费用(返回费用明细)
      */
-    public static final String OrderAdd= "/api/owner/city/cost";
+    public static final String OrderAdd = "/api/owner/city/cost";
     /**
      * 获取温层费用
      */
-    public static final String GetTemperature= "/api/owner/tindent/update";
+    public static final String GetTemperature = "/api/owner/tindent/update";
     /**
      * 收费标准
      */
-    public static final String FeeModel= "/api/owner/city/price";
+    public static final String FeeModel = "/api/owner/city/price";
     /**
      * 额外需求
      */
-    public static final String AddOther= "/api/owner/city/other-price";
+    public static final String AddOther = "/api/owner/city/other-price";
     /**
      * 下单
      */
-    public static final String ConfirmOrder= "/api/owner/tindent/create";
+    public static final String ConfirmOrder = "/api/owner/tindent/create";
     /**
      * 下单-支付
      */
-    public static final String ConfirmOrder_Pay= "/api/owner/tindent/pay-tindent";
+    public static final String ConfirmOrder_Pay = "/api/owner/tindent/pay-tindent";
     /**
      * 接单列表
      */
-    public static final String Fragment1List= "/api/owner/tindent/set";
+    public static final String Fragment1List = "/api/owner/tindent/set";
     /**
      * 订单详情
      */
-    public static final String OrderDetails= "/api/owner/tindent/detail";
+    public static final String OrderDetails = "/api/owner/tindent/detail";
     /**
-     * 拒绝/接单
+     * 确认按钮
      */
-    public static final String OrderDetails_JieDan= "/api/owner/tindent/create";
+    public static final String OrderDetails_Confirm = "/api/owner/tindent/confirm";
     /**
-     * 确认的类型1确认装货2提醒司机装货3确认卸货4附加费5转单确认6取消订单7接收转单8获取附加费
+     * 取消订单
      */
-    public static final String OrderDetails_ZhuangHuo= "/api/owner/tindent/confirm";
+    public static final String OrderDetails_QuXiao = "/api/owner/tindent/update";
     /**
      * 订单
      */
@@ -253,11 +253,11 @@ public class URLs {
     /**
      * 创建转币（获取可用金额）
      */
-    public static final String Transfer= "/api/transfer/create";
+    public static final String Transfer = "/api/transfer/create";
     /**
      * 转币记录
      */
-    public static final String TransferRecord= "/api/transfer/record";
+    public static final String TransferRecord = "/api/transfer/record";
     /**
      * 拼接请求路径
      *

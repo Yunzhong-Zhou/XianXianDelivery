@@ -131,7 +131,7 @@ public class AddSurchargeActivity extends BaseActivity {
     }
 
     private void RequestUpdata(Map<String, String> params, int i) {
-        OkHttpClientManager.postAsyn(AddSurchargeActivity.this, URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(AddSurchargeActivity.this, URLs.OrderDetails_Confirm, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                showErrorPage();
@@ -174,7 +174,7 @@ public class AddSurchargeActivity extends BaseActivity {
     }
 
     private void Request(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(AddSurchargeActivity.this, URLs.OrderDetails_ZhuangHuo, params, new OkHttpClientManager.ResultCallback<AddSurchargeModel>() {
+        OkHttpClientManager.postAsyn(AddSurchargeActivity.this, URLs.OrderDetails_Confirm, params, new OkHttpClientManager.ResultCallback<AddSurchargeModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                showErrorPage();

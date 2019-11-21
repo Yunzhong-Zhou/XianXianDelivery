@@ -73,10 +73,10 @@ public final class R {
         public static final int normal = 0x7f08018d;
         public static final int progressBar = 0x7f0801ad;
         public static final int radio = 0x7f0801c6;
-        public static final int standard = 0x7f080213;
-        public static final int text = 0x7f080227;
-        public static final int text2 = 0x7f080228;
-        public static final int title_view = 0x7f08024e;
+        public static final int standard = 0x7f080214;
+        public static final int text = 0x7f080228;
+        public static final int text2 = 0x7f080229;
+        public static final int title_view = 0x7f08024f;
         public static final int wide = 0x7f0802aa;
         public static final int wrap_content = 0x7f0802ad;
     }

@@ -8,9 +8,8 @@ import java.util.List;
  */
 public class OrderDetailsModel implements Serializable {
     /**
-     * tindent : {"id":20,"sn":"T2019111920","created_at":1574161061,"use_type":"专车","car_type":"面包车","is_plan":2,"plan_time":"2019-11-19 18:57:41","status":1,"status_text":"未装货","driver_info":{"nickname":"18306043086","mobile":"18306043086","head":"/upload/head/1.png","comment_score":"0.00","card_number":"","hx_username":"18306043086"},"addr_list":[{"type":1,"number":1,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿","name":"yang","mobile":"17189991141","lat":"29.529091","lng":"106.563827","is_end":2,"arrive_time":1574249624,"leave_time":0,"mileage":4,"pre_time":4,"status":"3","status_text":"已到达 开始装货","other":""},{"type":2,"number":2,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿马丁","name":"yang","mobile":"17189991141","lat":"29.529087","lng":"106.56383","is_end":1,"arrive_time":0,"leave_time":0,"mileage":178,"pre_time":143,"status":"5","status_text":"前卸货","other":""}],"temperature":"","remark":"","other_tag":["小推车"],"pay_status":"已支付","total_price":"18.00","price_detail":[{"title":"里程费","price":"18.00"},{"title":"货主附加费","price":"0.00"},{"title":"司机附加费用","price":"0.00"},{"title":"其他费用","price":"0.00"}],"confirm_shipment_msg":[{"id":41,"created_at":"2019-11-20 19:33:44"}]}
+     * tindent : {"id":20,"sn":"T2019111920","created_at":1574161061,"use_type":"专车","car_type":"面包车","is_plan":2,"plan_time":"2019-11-19 18:57:41","status":1,"status_text":"未装货","driver_info":{"nickname":"18306043086","mobile":"18306043086","head":"/upload/head/1.png","comment_score":"0.00","card_number":"","hx_username":"18306043086"},"addr_list":[{"type":1,"number":1,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿","name":"yang","mobile":"17189991141","lat":"29.529091","lng":"106.563827","is_end":2,"arrive_time":1574249624,"leave_time":0,"mileage":4,"pre_time":4,"status":"3","status_text":"已到达 开始装货","other":""},{"type":2,"number":2,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿马丁","name":"yang","mobile":"17189991141","lat":"29.529087","lng":"106.56383","is_end":1,"arrive_time":0,"leave_time":0,"mileage":178,"pre_time":143,"status":"5","status_text":"前卸货","other":""}],"temperature":"","remark":"","other_tag":["小推车"],"pay_status":"已支付","total_price":"18.00","price_detail":[{"title":"里程费","price":"18.00"},{"title":"货主附加费","price":"0.00"},{"title":"司机附加费用","price":"0.00"},{"title":"其他费用","price":"0.00"}],"confirm_shipment_msg":{"id":41,"created_at":"2019-11-20 19:33:44"},"confirm_text":{"name":"确认装货","id":41}}
      */
-
     private TindentBean tindent;
 
     public TindentBean getTindent() {
@@ -40,10 +39,11 @@ public class OrderDetailsModel implements Serializable {
          * pay_status : 已支付
          * total_price : 18.00
          * price_detail : [{"title":"里程费","price":"18.00"},{"title":"货主附加费","price":"0.00"},{"title":"司机附加费用","price":"0.00"},{"title":"其他费用","price":"0.00"}]
-         * confirm_shipment_msg : [{"id":41,"created_at":"2019-11-20 19:33:44"}]
+         * confirm_shipment_msg : {"id":41,"created_at":"2019-11-20 19:33:44"}
+         * confirm_text : {"name":"确认装货","id":41}
          */
 
-        private int id;
+        private String id;
         private String sn;
         private int created_at;
         private String use_type;
@@ -57,16 +57,35 @@ public class OrderDetailsModel implements Serializable {
         private String remark;
         private String pay_status;
         private String total_price;
+        private ConfirmTextBean confirm_text;
         private List<AddrListBean> addr_list;
         private List<String> other_tag;
         private List<PriceDetailBean> price_detail;
-        private List<ConfirmShipmentMsgBean> confirm_shipment_msg;
 
-        public int getId() {
+        private String cancel_at;
+        private String cancel_reason;
+
+        public String getCancel_at() {
+            return cancel_at;
+        }
+
+        public void setCancel_at(String cancel_at) {
+            this.cancel_at = cancel_at;
+        }
+
+        public String getCancel_reason() {
+            return cancel_reason;
+        }
+
+        public void setCancel_reason(String cancel_reason) {
+            this.cancel_reason = cancel_reason;
+        }
+
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
@@ -174,6 +193,14 @@ public class OrderDetailsModel implements Serializable {
             this.total_price = total_price;
         }
 
+        public ConfirmTextBean getConfirm_text() {
+            return confirm_text;
+        }
+
+        public void setConfirm_text(ConfirmTextBean confirm_text) {
+            this.confirm_text = confirm_text;
+        }
+
         public List<AddrListBean> getAddr_list() {
             return addr_list;
         }
@@ -196,14 +223,6 @@ public class OrderDetailsModel implements Serializable {
 
         public void setPrice_detail(List<PriceDetailBean> price_detail) {
             this.price_detail = price_detail;
-        }
-
-        public List<ConfirmShipmentMsgBean> getConfirm_shipment_msg() {
-            return confirm_shipment_msg;
-        }
-
-        public void setConfirm_shipment_msg(List<ConfirmShipmentMsgBean> confirm_shipment_msg) {
-            this.confirm_shipment_msg = confirm_shipment_msg;
         }
 
         public static class DriverInfoBean {
@@ -269,6 +288,41 @@ public class OrderDetailsModel implements Serializable {
 
             public void setHx_username(String hx_username) {
                 this.hx_username = hx_username;
+            }
+        }
+
+        public static class ConfirmTextBean {
+            /**
+             * name : 确认装货
+             * id : 41
+             */
+
+            private String name;
+            private String id;
+            private String option;
+
+            public String getOption() {
+                return option;
+            }
+
+            public void setOption(String option) {
+                this.option = option;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public String getId() {
+                return id;
+            }
+
+            public void setId(String id) {
+                this.id = id;
             }
         }
 
@@ -461,32 +515,6 @@ public class OrderDetailsModel implements Serializable {
 
             public void setPrice(String price) {
                 this.price = price;
-            }
-        }
-
-        public static class ConfirmShipmentMsgBean {
-            /**
-             * id : 41
-             * created_at : 2019-11-20 19:33:44
-             */
-
-            private int id;
-            private String created_at;
-
-            public int getId() {
-                return id;
-            }
-
-            public void setId(int id) {
-                this.id = id;
-            }
-
-            public String getCreated_at() {
-                return created_at;
-            }
-
-            public void setCreated_at(String created_at) {
-                this.created_at = created_at;
             }
         }
     }

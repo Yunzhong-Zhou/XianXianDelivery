@@ -27,6 +27,7 @@ import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
+import com.delivery.xianxian.model.OrderCancelModel;
 import com.delivery.xianxian.model.OrderDetailsModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
@@ -37,8 +38,13 @@ import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -73,7 +79,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
             textView9, textView10, textView11, textView12, textView13, textView14, textView15, textView16,
             textView17, textView18, textView19,
             tv_confirm;
-
 
     boolean isOpen = false;
 
@@ -234,11 +239,41 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                         titleView.showRightTextview("取消订单", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
+                                showToast("确认取消该订单吗？", "确认", "取消",
+                                        new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                dialog.dismiss();
+                                                Map<String, String> params = new HashMap<>();
+                                                params.put("token", localUserInfo.getToken());
+                                                params.put("id", model.getTindent().getId());
+                                                params.put("type", "owner_cancel_get");
+                                                RequestQuXiao(params);
+                                            }
+                                        }, new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                dialog.dismiss();
+                                            }
+                                        });
                             }
                         });
 
                         break;
+                    case 7:
+                        showToast("该订单已配送完毕是否前往评价？", "确认", "取消",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(OrderDetailsActivity.this,AppraiseActivity.class,false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
                     default:
                         //已接单
                         ll_hint1.setVisibility(View.GONE);
@@ -259,6 +294,8 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                         textView5.setText("评分" + response.getTindent().getDriver_info().getComment_score());//评分
                         textView6.setText("" + response.getTindent().getDriver_info().getCard_number());//车牌
                         textView7.setText(response.getTindent().getUse_type());//类型
+
+
                         break;
                 }
 
@@ -310,13 +347,8 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                                holder.setText(R.id.tv,bean);
                         TextView tv = holder.getView(R.id.tv);
                         tv.setText(bean);
-                        if (position == 0) {
-                            tv.setTextColor(getResources().getColor(R.color.white));
-                            tv.setBackgroundResource(R.drawable.yuanjiao_3_lanse);
-                        } else {
-                            tv.setTextColor(getResources().getColor(R.color.black1));
-                            tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
-                        }
+                        tv.setTextColor(getResources().getColor(R.color.black1));
+                        tv.setBackgroundResource(R.drawable.yuanjiao_3_huise);
                     }
 
                     @Override
@@ -331,9 +363,12 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 };
                 ((FlowLayout) findViewByID_My(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
 
-               /* if (response.getTindent().getConfirm_shipment_msg().size()>0){
-                    tv_confirm.
-                }*/
+                if (response.getTindent().getConfirm_text() != null) {
+                    tv_confirm.setVisibility(View.VISIBLE);
+                    tv_confirm.setText(response.getTindent().getConfirm_text().getName());
+                } else {
+                    tv_confirm.setVisibility(View.GONE);
+                }
 
             }
         });
@@ -390,6 +425,75 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     ll_hint3.setVisibility(View.GONE);
                 }
                 break;
+            case R.id.tv_confirm:
+                //确认按钮
+                switch (model.getTindent().getConfirm_text().getOption()) {
+                    case "confirm_shipment":
+                        //确认装货
+                        showToast("确认司机已装货吗？", "确认", "取消",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        Map<String, String> params = new HashMap<>();
+                                        params.put("token", localUserInfo.getToken());
+                                        params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
+                                        params.put("t_indent_id", model.getTindent().getId());
+                                        params.put("type", "1");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
+                                        RequestConfirm(params);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        break;
+                    case "confirm_disburden":
+                        //确认卸货
+                        showToast("确认司机已卸货吗？", "确认", "取消",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        Map<String, String> params = new HashMap<>();
+                                        params.put("token", localUserInfo.getToken());
+                                        params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
+                                        params.put("t_indent_id", model.getTindent().getId());
+                                        params.put("type", "3");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
+                                        RequestConfirm(params);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        break;
+                    case "confirm_attach":
+                        //确认附加费
+                        showToast("确认司机添加的附加费吗？", "确认", "取消",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        Map<String, String> params = new HashMap<>();
+                                        params.put("token", localUserInfo.getToken());
+                                        params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
+                                        params.put("t_indent_id", model.getTindent().getId());
+                                        params.put("type", "5");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
+                                        RequestConfirm(params);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        break;
+
+                }
+                break;
         }
     }
 
@@ -398,6 +502,66 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         titleView.setTitle("订单详情");
     }
 
+    private void RequestConfirm(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_Confirm, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕" + response);
+//                myToast("确认成功");
+//                finish();
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    /*JSONArray jsonArray = jObj.getJSONArray("data");
+                    list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
+                    MyLogger.i(">>>>>>>" + list.size());*/
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                requestServer();
+            }
+        }, false);
+    }
+
+    private void RequestQuXiao(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_QuXiao, params, new OkHttpClientManager.ResultCallback<OrderCancelModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(OrderCancelModel response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>取消" + response);
+//                myToast("取消订单成功");
+
+                Bundle bundle = new Bundle();
+                bundle.putString("id", model.getTindent().getId());
+                bundle.putSerializable("model", response);
+                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, OrderCancelActivity.class, bundle, true);
+
+            }
+        }, false);
+    }
 
     /**
      * 初始化AMap对象

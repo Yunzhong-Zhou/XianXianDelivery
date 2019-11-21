@@ -1795,6 +1795,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable progress
 drawable progress_small
+drawable ratingbar_layer
 drawable recall_message_bg
 drawable sanjiaoxing_down_baise
 drawable search_bar_icon_normal
@@ -1829,14 +1830,17 @@ drawable yuanjiao_5_baise
 drawable yuanjiao_5_baisetouying
 drawable yuanjiao_5_baiseyinying
 drawable yuanjiao_5_fenhongse
+drawable yuanjiao_5_hongse_topright_dwonleft
 drawable yuanjiao_5_huangse
 drawable yuanjiao_5_huise
 drawable yuanjiao_5_huise0
 drawable yuanjiao_5_huise1
 drawable yuanjiao_5_juse0
 drawable yuanjiao_5_juse1
+drawable yuanjiao_5_juse_topright_dwonleft
 drawable yuanjiao_5_lanse0
 drawable yuanjiao_5_lanse1
+drawable yuanjiao_5_lanse_topright_dwonleft
 drawable yuanjiao_5_lvsejianbian
 drawable yuanjiaobiankuang_3_hongse_baidi
 drawable yuanjiaobiankuang_3_huise
@@ -2303,6 +2307,7 @@ id push_root_view
 id query
 id quit
 id radio
+id ratingbar
 id realtabcontent
 id recording_hint
 id rectangle
@@ -2495,7 +2500,6 @@ id tv_nextStep
 id tv_now
 id tv_qidian
 id tv_queren
-id tv_quxiao
 id tv_shouqi
 id tv_shouqu
 id tv_time
@@ -2592,8 +2596,10 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_addinvoice
 layout activity_addother
 layout activity_addsurcharge
+layout activity_appraise
 layout activity_auth_cheliangbaoxian
 layout activity_auth_cheliangzhaopian
 layout activity_auth_chepaihaoma
@@ -2627,6 +2633,8 @@ layout activity_login
 layout activity_main
 layout activity_myprofile
 layout activity_noticedetail
+layout activity_ordercancel
+layout activity_ordercanceldetail
 layout activity_orderdetails
 layout activity_orderlist
 layout activity_permissions
@@ -2641,7 +2649,6 @@ layout activity_track_search
 layout activity_track_service
 layout activity_wallet
 layout activity_webcontent
-layout activity_zhuandan
 layout alertdialog
 layout ali_footer
 layout ali_header
@@ -2757,9 +2764,11 @@ layout item_flowlayout
 layout item_fragment1
 layout item_fragment2_2
 layout item_fragment2_3
+layout item_invoice
 layout item_jifenliebiao_gridview
 layout item_jifenmingxi
 layout item_noticedetail
+layout item_ordercancel
 layout item_orderdetail
 layout item_orderlist_1
 layout item_pay
@@ -2905,6 +2914,8 @@ mipmap ic_weixuan
 mipmap ic_xinxi
 mipmap ic_xuanzhong
 mipmap ic_zhifubao
+mipmap rating_off
+mipmap rating_on
 mipmap start
 mipmap tab1_0
 mipmap tab1_1
@@ -4019,6 +4030,7 @@ style dialog_anim_right
 style dialog_anim_top
 style dialog_zoom
 style horizontal_slide
+style myRatingBar
 style nornal_style
 style picker_view_scale_anim
 style picker_view_slide_anim

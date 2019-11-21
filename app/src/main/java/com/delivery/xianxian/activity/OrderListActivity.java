@@ -280,9 +280,16 @@ public class OrderListActivity extends BaseActivity {
                         mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("id", list1.get(i).getId());
-                                CommonUtil.gotoActivityWithData(OrderListActivity.this, OrderDetailsActivity.class, bundle);
+                                if (status == 3) {
+                                    //跳转取消订单详情
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("id", list1.get(i).getId());
+                                    CommonUtil.gotoActivityWithData(OrderListActivity.this, OrderCancelDetailActivity.class, bundle);
+                                } else {
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("id", list1.get(i).getId());
+                                    CommonUtil.gotoActivityWithData(OrderListActivity.this, OrderDetailsActivity.class, bundle);
+                                }
                             }
 
                             @Override

@@ -39,7 +39,7 @@ public final class R {
         public static final int black_background = 0x7f07006a;
         public static final int gray_radius = 0x7f07015b;
         public static final int no_banner = 0x7f070173;
-        public static final int white_radius = 0x7f07018f;
+        public static final int white_radius = 0x7f070190;
     }
     public static final class id {
         private id() {}
@@ -60,12 +60,12 @@ public final class R {
         public static final int matrix = 0x7f080179;
         public static final int numIndicator = 0x7f080192;
         public static final int numIndicatorInside = 0x7f080193;
-        public static final int titleView = 0x7f08024a;
+        public static final int titleView = 0x7f08024b;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int banner = 0x7f0b0051;
+        public static final int banner = 0x7f0b0054;
     }
     public static final class styleable {
         private styleable() {}
