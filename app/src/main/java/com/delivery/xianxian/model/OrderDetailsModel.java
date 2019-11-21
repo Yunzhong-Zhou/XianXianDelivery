@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class OrderDetailsModel implements Serializable {
     /**
-     * tindent : {"id":20,"sn":"T2019111920","created_at":1574161061,"use_type":"专车","is_plan":2,"plan_time":"2019-11-19 18:57:41","status":1,"status_text":"未装货","driver_info":{"nickname":"18306043086","mobile":"18306043086","head":"/upload/head/1.png","comment_score":"0.00","card_number":"","hx_username":"18306043086"},"addr_list":[{"type":1,"number":1,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿","name":"yang","mobile":"17189991141","lat":"29.529091","lng":"106.563827","is_end":2,"arrive_time":1574249624,"leave_time":0,"mileage":4,"pre_time":4,"status":"3","status_text":"已到达 开始装货","other":""},{"type":2,"number":2,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿马丁","name":"yang","mobile":"17189991141","lat":"29.529087","lng":"106.56383","is_end":1,"arrive_time":0,"leave_time":0,"mileage":178,"pre_time":143,"status":"5","status_text":"前卸货","other":""}],"temperature":"","remark":"","other_tag":[],"pay_status":"已支付","total_price":"18.00","price_detail":[{"title":"里程费","price":"18.00"},{"title":"货主附加费","price":"0.00"},{"title":"司机附加费用","price":"0.00"},{"title":"其他费用","price":"0.00"}],"confirm_shipment_msg":[{"id":41,"created_at":"2019-11-20 19:33:44"}]}
+     * tindent : {"id":20,"sn":"T2019111920","created_at":1574161061,"use_type":"专车","car_type":"面包车","is_plan":2,"plan_time":"2019-11-19 18:57:41","status":1,"status_text":"未装货","driver_info":{"nickname":"18306043086","mobile":"18306043086","head":"/upload/head/1.png","comment_score":"0.00","card_number":"","hx_username":"18306043086"},"addr_list":[{"type":1,"number":1,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿","name":"yang","mobile":"17189991141","lat":"29.529091","lng":"106.563827","is_end":2,"arrive_time":1574249624,"leave_time":0,"mileage":4,"pre_time":4,"status":"3","status_text":"已到达 开始装货","other":""},{"type":2,"number":2,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿马丁","name":"yang","mobile":"17189991141","lat":"29.529087","lng":"106.56383","is_end":1,"arrive_time":0,"leave_time":0,"mileage":178,"pre_time":143,"status":"5","status_text":"前卸货","other":""}],"temperature":"","remark":"","other_tag":["小推车"],"pay_status":"已支付","total_price":"18.00","price_detail":[{"title":"里程费","price":"18.00"},{"title":"货主附加费","price":"0.00"},{"title":"司机附加费用","price":"0.00"},{"title":"其他费用","price":"0.00"}],"confirm_shipment_msg":[{"id":41,"created_at":"2019-11-20 19:33:44"}]}
      */
 
     private TindentBean tindent;
@@ -27,6 +27,7 @@ public class OrderDetailsModel implements Serializable {
          * sn : T2019111920
          * created_at : 1574161061
          * use_type : 专车
+         * car_type : 面包车
          * is_plan : 2
          * plan_time : 2019-11-19 18:57:41
          * status : 1
@@ -35,7 +36,7 @@ public class OrderDetailsModel implements Serializable {
          * addr_list : [{"type":1,"number":1,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿","name":"yang","mobile":"17189991141","lat":"29.529091","lng":"106.563827","is_end":2,"arrive_time":1574249624,"leave_time":0,"mileage":4,"pre_time":4,"status":"3","status_text":"已到达 开始装货","other":""},{"type":2,"number":2,"addr":"重庆市南岸区南坪街道天福克拉广场","addr_detail":"阿斯顿马丁","name":"yang","mobile":"17189991141","lat":"29.529087","lng":"106.56383","is_end":1,"arrive_time":0,"leave_time":0,"mileage":178,"pre_time":143,"status":"5","status_text":"前卸货","other":""}]
          * temperature :
          * remark :
-         * other_tag : []
+         * other_tag : ["小推车"]
          * pay_status : 已支付
          * total_price : 18.00
          * price_detail : [{"title":"里程费","price":"18.00"},{"title":"货主附加费","price":"0.00"},{"title":"司机附加费用","price":"0.00"},{"title":"其他费用","price":"0.00"}]
@@ -46,6 +47,7 @@ public class OrderDetailsModel implements Serializable {
         private String sn;
         private int created_at;
         private String use_type;
+        private String car_type;
         private int is_plan;
         private String plan_time;
         private int status;
@@ -54,20 +56,11 @@ public class OrderDetailsModel implements Serializable {
         private String temperature;
         private String remark;
         private String pay_status;
-        private String car_type;
         private String total_price;
         private List<AddrListBean> addr_list;
         private List<String> other_tag;
         private List<PriceDetailBean> price_detail;
         private List<ConfirmShipmentMsgBean> confirm_shipment_msg;
-
-        public String getCar_type() {
-            return car_type;
-        }
-
-        public void setCar_type(String car_type) {
-            this.car_type = car_type;
-        }
 
         public int getId() {
             return id;
@@ -99,6 +92,14 @@ public class OrderDetailsModel implements Serializable {
 
         public void setUse_type(String use_type) {
             this.use_type = use_type;
+        }
+
+        public String getCar_type() {
+            return car_type;
+        }
+
+        public void setCar_type(String car_type) {
+            this.car_type = car_type;
         }
 
         public int getIs_plan() {

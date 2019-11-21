@@ -808,6 +808,10 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/res/anim/dialog_top_out.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_invoice.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_invoice.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
     },

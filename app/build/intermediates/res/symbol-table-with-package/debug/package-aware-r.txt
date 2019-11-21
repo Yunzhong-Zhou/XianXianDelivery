@@ -2617,6 +2617,7 @@ layout activity_feemodel
 layout activity_forgetpassword
 layout activity_guide
 layout activity_hello
+layout activity_invoice
 layout activity_jianglihuodong
 layout activity_jianglilist
 layout activity_jifenliebiao

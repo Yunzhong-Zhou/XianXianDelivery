@@ -108,6 +108,10 @@ public class URLs {
      */
     public static final String OrderList = "/api/owner/tindent/search";
     /**
+     * 申请发票
+     */
+    public static final String Invoice = "/api/owner/center/apply-invoice-search";
+    /**
      * 获取附加费
      */
     public static final String AddSurcharge = "/api/owner/tindent/search";

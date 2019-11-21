@@ -63,9 +63,7 @@ public class OrderListActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-        if (MainActivity.item == 1) {
-            requestServer();
-        }
+        requestServer();
     }
 
 
@@ -186,7 +184,7 @@ public class OrderListActivity extends BaseActivity {
         titleView.showRightTextview("申请发票", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                CommonUtil.gotoActivity(OrderListActivity.this, InvoiceActivity.class, false);
             }
         });
     }

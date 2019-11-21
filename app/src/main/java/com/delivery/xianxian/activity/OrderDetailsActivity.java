@@ -238,7 +238,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             }
                         });
 
-
                         break;
                     default:
                         //已接单
@@ -331,6 +330,11 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     }
                 };
                 ((FlowLayout) findViewByID_My(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
+
+               /* if (response.getTindent().getConfirm_shipment_msg().size()>0){
+                    tv_confirm.
+                }*/
+
             }
         });
     }

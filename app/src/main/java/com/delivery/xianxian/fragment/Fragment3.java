@@ -67,7 +67,7 @@ public class Fragment3 extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (MainActivity.item == 2) {
+        if (MainActivity.item == 1) {
             requestServer();
         }
     }

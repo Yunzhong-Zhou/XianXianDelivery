@@ -154,13 +154,17 @@
         <activity
             android:name="com.delivery.xianxian.activity.TakeCashActivity"
             android:label="提现" />
-        <activity
-            android:name="com.delivery.xianxian.activity.OrderDetailsActivity"
-            android:label="订单详情" />
+
         <!-- 订单 -->
         <activity
             android:name="com.delivery.xianxian.activity.OrderListActivity"
             android:label="货运订单" />
+        <activity
+            android:name="com.delivery.xianxian.activity.OrderDetailsActivity"
+            android:label="订单详情" />
+        <activity
+            android:name="com.delivery.xianxian.activity.InvoiceActivity"
+            android:label="申请发票" />
         <activity
             android:name="com.delivery.xianxian.activity.AddSurchargeActivity"
             android:label="添加附加费" />
