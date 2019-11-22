@@ -266,7 +266,9 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                     @Override
                                     public void onClick(View v) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(OrderDetailsActivity.this,AppraiseActivity.class,false);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("id", model.getTindent().getId());
+                                        CommonUtil.gotoActivityWithData(OrderDetailsActivity.this,AppraiseActivity.class,bundle,false);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override

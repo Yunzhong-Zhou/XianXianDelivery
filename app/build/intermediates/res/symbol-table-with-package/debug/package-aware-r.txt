@@ -1848,6 +1848,7 @@ drawable yuanjiaobiankuang_3_lanse
 drawable yuanjiaobiankuang_5_baise
 drawable yuanjiaobiankuang_5_huise
 drawable yuanjiaobiankuang_5_juse
+drawable yuanjiaobiankuang_5_lanse
 drawable yuanxing_hongse
 drawable yuanxing_huise
 drawable yuanxing_juse
@@ -2752,6 +2753,7 @@ layout item_add_fragment2_2
 layout item_addaddress
 layout item_addother
 layout item_addsurcharge
+layout item_appraise_gridview
 layout item_auth_cheliangzhaopian_tv
 layout item_auth_clzp_vp_page
 layout item_citylist

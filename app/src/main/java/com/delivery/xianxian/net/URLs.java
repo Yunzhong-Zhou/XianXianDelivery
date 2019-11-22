@@ -112,6 +112,10 @@ public class URLs {
      */
     public static final String Invoice = "/api/owner/center/apply-invoice-search";
     /**
+     * 评论
+     */
+    public static final String Appraise = "/api/owner/tindent/comment";
+    /**
      * 获取附加费
      */
     public static final String AddSurcharge = "/api/owner/tindent/search";
