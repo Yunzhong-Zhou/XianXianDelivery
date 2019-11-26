@@ -15,6 +15,7 @@ import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.activity.ChangePasswordActivity;
 import com.delivery.xianxian.activity.ChatMainActivity;
+import com.delivery.xianxian.activity.InvoiceActivity;
 import com.delivery.xianxian.activity.JiFenShangChengActivity;
 import com.delivery.xianxian.activity.LoginActivity;
 import com.delivery.xianxian.activity.MainActivity;
@@ -251,12 +252,11 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout5:
                 //申请发票
-
+                CommonUtil.gotoActivity(getActivity(), InvoiceActivity.class);
                 break;
             case R.id.linearLayout6:
                 //客服中心
                 CommonUtil.gotoActivity(getActivity(), ServiceCenterActivity.class);
-
                 break;
             case R.id.linearLayout7:
                 //我的司机

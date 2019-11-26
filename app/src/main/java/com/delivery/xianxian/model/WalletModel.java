@@ -8,24 +8,16 @@ import java.util.List;
  */
 public class WalletModel implements Serializable {
     /**
-     * nickname : 15823629471
-     * head :
+     * nickname : 183****3089
+     * head : /upload/head/7.png
      * money : 0
-     * wait_money : 0
-     * frozen_money : 0
-     * total_money : 0
-     * withdrawal_money : 0
-     * tmoney_data : [{"id":1,"type":1,"out_in":2,"title":"货主付款","sn":"20191016","money":"100.00","remark":"货主付款","created_at":"2019-10-16 13:58:53"},{"id":2,"type":2,"out_in":2,"title":"货主付款","sn":"20191016","money":"1000.00","remark":"货主付款","created_at":"2019-10-16 14:08:47"}]
+     * coupon_list : [{"id":1,"title":"专车卷","money":"50","status":"正常","expired_at":"8天5小时","image":"a.jpg"}]
      */
 
     private String nickname;
     private String head;
     private String money;
-    private String wait_money;
-    private String frozen_money;
-    private String total_money;
-    private String withdrawal_money;
-    private List<TmoneyDataBean> tmoney_data;
+    private List<CouponListBean> coupon_list;
 
     public String getNickname() {
         return nickname;
@@ -51,66 +43,30 @@ public class WalletModel implements Serializable {
         this.money = money;
     }
 
-    public String getWait_money() {
-        return wait_money;
+    public List<CouponListBean> getCoupon_list() {
+        return coupon_list;
     }
 
-    public void setWait_money(String wait_money) {
-        this.wait_money = wait_money;
+    public void setCoupon_list(List<CouponListBean> coupon_list) {
+        this.coupon_list = coupon_list;
     }
 
-    public String getFrozen_money() {
-        return frozen_money;
-    }
-
-    public void setFrozen_money(String frozen_money) {
-        this.frozen_money = frozen_money;
-    }
-
-    public String getTotal_money() {
-        return total_money;
-    }
-
-    public void setTotal_money(String total_money) {
-        this.total_money = total_money;
-    }
-
-    public String getWithdrawal_money() {
-        return withdrawal_money;
-    }
-
-    public void setWithdrawal_money(String withdrawal_money) {
-        this.withdrawal_money = withdrawal_money;
-    }
-
-    public List<TmoneyDataBean> getTmoney_data() {
-        return tmoney_data;
-    }
-
-    public void setTmoney_data(List<TmoneyDataBean> tmoney_data) {
-        this.tmoney_data = tmoney_data;
-    }
-
-    public static class TmoneyDataBean {
+    public static class CouponListBean {
         /**
          * id : 1
-         * type : 1
-         * out_in : 2
-         * title : 货主付款
-         * sn : 20191016
-         * money : 100.00
-         * remark : 货主付款
-         * created_at : 2019-10-16 13:58:53
+         * title : 专车卷
+         * money : 50
+         * status : 正常
+         * expired_at : 8天5小时
+         * image : a.jpg
          */
 
         private String id;
-        private String type;
-        private int out_in;
         private String title;
-        private String sn;
         private String money;
-        private String remark;
-        private String created_at;
+        private String status;
+        private String expired_at;
+        private String image;
 
         public String getId() {
             return id;
@@ -118,22 +74,6 @@ public class WalletModel implements Serializable {
 
         public void setId(String id) {
             this.id = id;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-
-        public int getOut_in() {
-            return out_in;
-        }
-
-        public void setOut_in(int out_in) {
-            this.out_in = out_in;
         }
 
         public String getTitle() {
@@ -144,14 +84,6 @@ public class WalletModel implements Serializable {
             this.title = title;
         }
 
-        public String getSn() {
-            return sn;
-        }
-
-        public void setSn(String sn) {
-            this.sn = sn;
-        }
-
         public String getMoney() {
             return money;
         }
@@ -160,20 +92,28 @@ public class WalletModel implements Serializable {
             this.money = money;
         }
 
-        public String getRemark() {
-            return remark;
+        public String getStatus() {
+            return status;
         }
 
-        public void setRemark(String remark) {
-            this.remark = remark;
+        public void setStatus(String status) {
+            this.status = status;
         }
 
-        public String getCreated_at() {
-            return created_at;
+        public String getExpired_at() {
+            return expired_at;
         }
 
-        public void setCreated_at(String created_at) {
-            this.created_at = created_at;
+        public void setExpired_at(String expired_at) {
+            this.expired_at = expired_at;
+        }
+
+        public String getImage() {
+            return image;
+        }
+
+        public void setImage(String image) {
+            this.image = image;
         }
     }
 }

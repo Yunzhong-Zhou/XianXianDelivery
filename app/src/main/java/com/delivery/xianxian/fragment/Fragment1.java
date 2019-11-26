@@ -60,7 +60,6 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
-import static com.superrtc.ContextUtils.getApplicationContext;
 
 
 /**
@@ -224,7 +223,7 @@ public class Fragment1 extends BaseFragment {
         hotCities.add(new HotCity("深圳", "广东", "101280601"));
         hotCities.add(new HotCity("杭州", "浙江", "101210101"));
         //初始化定位
-        mLocationClient = new AMapLocationClient(getApplicationContext());
+        mLocationClient = new AMapLocationClient(getActivity());
         AMapLocationClientOption option = new AMapLocationClientOption();
         //设置定位场景，目前支持三种场景（签到、出行、运动，默认无场景）
         option.setLocationPurpose(AMapLocationClientOption.AMapLocationPurpose.Transport);
@@ -299,9 +298,9 @@ public class Fragment1 extends BaseFragment {
         });
 
         //设置场景模式后最好调用一次stop，再调用start以保证场景模式生效
-        mLocationClient.stopLocation();
+//        mLocationClient.stopLocation();
+        // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
         mLocationClient.startLocation();
-
     }
 
     //获取车型
@@ -335,8 +334,8 @@ public class Fragment1 extends BaseFragment {
                     TextView tv1 = pageViews.get(i).findViewById(R.id.tv1);
                     TextView tv2 = pageViews.get(i).findViewById(R.id.tv2);
                     TextView tv3 = pageViews.get(i).findViewById(R.id.tv3);
-                    tv1.setText("长宽高：" + carTypeList.get(i).getWeight());
-                    tv2.setText("载重：" + carTypeList.get(i).getSize());
+                    tv1.setText("长宽高：" + carTypeList.get(i).getSize());
+                    tv2.setText("载重：" + carTypeList.get(i).getWeight());
                     tv3.setText("承载体积：" + carTypeList.get(i).getBulk());
                     if (!carTypeList.get(i).getImage().equals(""))
                         Glide.with(getActivity())

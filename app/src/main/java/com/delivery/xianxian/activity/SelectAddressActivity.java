@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -128,17 +129,6 @@ public class SelectAddressActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
-        type = getIntent().getIntExtra("type", 0);
-        //热门城市
-        hotCities.add(new HotCity("北京", "北京", "101010100")); //code为城市代码
-        hotCities.add(new HotCity("上海", "上海", "101020100"));
-        hotCities.add(new HotCity("广州", "广东", "101280101"));
-        hotCities.add(new HotCity("深圳", "广东", "101280601"));
-        hotCities.add(new HotCity("杭州", "浙江", "101210101"));
-    }
-
-    @Override
     protected void initView() {
         et_addr = findViewByID_My(R.id.et_addr);
         tv_city = findViewByID_My(R.id.tv_city);
@@ -149,23 +139,6 @@ public class SelectAddressActivity extends BaseActivity {
         editText4 = findViewByID_My(R.id.editText4);
         textView2 = findViewByID_My(R.id.textView2);
         imageView1 = findViewByID_My(R.id.imageView1);
-        switch (type) {
-            case 10001:
-                //起点
-                imageView1.setImageResource(R.mipmap.ic_quan_blue);
-                editText1.setHint("发货地信息（选填）");
-                break;
-            case 10002:
-                //终点
-                imageView1.setImageResource(R.mipmap.ic_quan_red);
-                editText1.setHint("收货地信息（选填）");
-                break;
-            case 10003:
-                //途经点
-                imageView1.setImageResource(R.mipmap.ic_quan_blue);
-                editText1.setHint("途经地信息（选填）");
-                break;
-        }
 
         et_addr.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -199,7 +172,37 @@ public class SelectAddressActivity extends BaseActivity {
             }
         });
     }
+    @Override
+    protected void initData() {
+        type = getIntent().getIntExtra("type", 0);
+        //热门城市
+        hotCities.add(new HotCity("北京", "北京", "101010100")); //code为城市代码
+        hotCities.add(new HotCity("上海", "上海", "101020100"));
+        hotCities.add(new HotCity("广州", "广东", "101280101"));
+        hotCities.add(new HotCity("深圳", "广东", "101280601"));
+        hotCities.add(new HotCity("杭州", "浙江", "101210101"));
 
+        switch (type) {
+            case 10001:
+                //起点
+                imageView1.setImageResource(R.mipmap.ic_quan_blue);
+                editText1.setHint("发货地信息（选填）");
+                textView2.setText("确认发货地");
+                break;
+            case 10002:
+                //终点
+                imageView1.setImageResource(R.mipmap.ic_quan_red);
+                editText1.setHint("收货地信息（选填）");
+                textView2.setText("确认收货地");
+                break;
+            case 10003:
+                //途经点
+                imageView1.setImageResource(R.mipmap.ic_quan_blue);
+                editText1.setHint("途经地信息（选填）");
+                textView2.setText("确认途经地");
+                break;
+        }
+    }
 
     /**
      * 初始化AMap对象
@@ -224,6 +227,7 @@ public class SelectAddressActivity extends BaseActivity {
         aMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
         aMap.getUiSettings().setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
         aMap.getUiSettings().setScaleControlsEnabled(true);//控制比例尺控件是否显示
+
         aMap.setMyLocationEnabled(true);// 设置为true表示启动显示定位蓝点，false表示隐藏定位蓝点并不进行定位，默认是false。
         aMap.setOnMyLocationChangeListener(new AMap.OnMyLocationChangeListener() {
             @Override
@@ -233,6 +237,10 @@ public class SelectAddressActivity extends BaseActivity {
                 // 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
                 RegeocodeQuery query = new RegeocodeQuery(point, 200, GeocodeSearch.AMAP);
                 geocoderSearch.getFromLocationAsyn(query);
+
+
+                LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());//构造一个位置
+                aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,16));//设置地图放大级别
             }
         });
         aMap.setOnMapClickListener(new AMap.OnMapClickListener() {

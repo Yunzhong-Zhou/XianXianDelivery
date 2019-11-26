@@ -20,7 +20,9 @@ import com.delivery.xianxian.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
 
@@ -29,7 +31,7 @@ import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
  * 评价
  */
 public class AppraiseActivity extends BaseActivity {
-    String id = "";
+    String id = "", score = "0";
     ImageView imageView1;
     TextView textView, textView1, textView2, textView3, textView4, textView5;
     EditText editText1;
@@ -51,7 +53,7 @@ public class AppraiseActivity extends BaseActivity {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-
+                score = rating + "";
             }
         });
         imageView1 = findViewByID_My(R.id.imageView1);
@@ -71,6 +73,14 @@ public class AppraiseActivity extends BaseActivity {
                 } else {
                     list.get(position).setIsgouxuan(0);
                 }
+
+
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getIsgouxuan() == 1) {
+
+                    }
+                }
+
                 adapter.notifyDataSetChanged();
             }
         });
@@ -78,6 +88,27 @@ public class AppraiseActivity extends BaseActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String other = "";
+                String other_s = "";
+                int num = 0;
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getIsgouxuan() == 1) {
+                        num++;
+                        other = other + list.get(i).getKey() + ",";
+                        other_s = other_s + list.get(i).getVal() + ",";
+                    }
+                }
+                if (num > 3) {
+                    myToast("最多选择三个");
+                } else {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("token", localUserInfo.getToken());
+                    params.put("score", score);
+                    params.put("t_indent_id", id);
+                    params.put("tag_id", other);
+                    params.put("remark", editText1.getText().toString().trim());
+                    RequestUpdata(params);
+                }
 
             }
         });
@@ -126,7 +157,7 @@ public class AppraiseActivity extends BaseActivity {
                 textView2.setText("评分" + response.getDriver_info().getComment_score());//评分
                 textView3.setText("" + response.getDriver_info().getCard_number());//车牌
                 textView4.setText(response.getDriver_info().getUse_type());//类型
-                textView5.setText("¥"+response.getDriver_info().getMoney());//金额
+                textView5.setText("¥" + response.getDriver_info().getMoney());//金额
 
                 list = response.getTag_list();
                 for (int i = 0; i < list.size(); i++) {
@@ -138,7 +169,35 @@ public class AppraiseActivity extends BaseActivity {
             }
         });
     }
+    private void RequestUpdata(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(AppraiseActivity.this, URLs.Appraise, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
 
+            @Override
+            public void onResponse(String response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>发布评论" + response);
+                myToast("发布成功");
+                /*JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }*/
+
+            }
+        }, false);
+    }
     @Override
     protected void updateView() {
         titleView.setTitle("评价");
