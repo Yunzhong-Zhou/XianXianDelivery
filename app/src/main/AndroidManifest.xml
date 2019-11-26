@@ -189,6 +189,9 @@
             android:name="com.delivery.xianxian.activity.RechargeActivity"
             android:label="充值" />
         <activity
+            android:name="com.delivery.xianxian.activity.MoneyListActivity"
+            android:label="余额明细" />
+        <activity
             android:name="com.delivery.xianxian.activity.JiangLiHuoDongActivity"
             android:label="奖励活动" />
         <activity

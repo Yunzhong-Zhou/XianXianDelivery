@@ -8,10 +8,10 @@ import java.util.List;
  */
 public class ConfirmOrderModel implements Serializable {
     /**
-     * id : 16
-     * total_price : 18
+     * id : 4
+     * total_price : 118
      * useable_money : 0.00
-     * pay_type_list : [{"type":1,"icon":"/img/pay/balance.png","title":"余额支付","sub_title":"可用余额0.00元"},{"type":3,"icon":"/img/pay/zfb.png","title":"支付宝","sub_title":""},{"type":2,"icon":"/img/pay/wx.png","title":"微信","sub_title":""}]
+     * pay_type_list : [{"type":1,"icon":"/img/pay/balance.png","title":"余额支付","sub_title":"可用余额0.00元"},[{"type":3,"icon":"/img/pay/zfb.png","title":"支付宝","sub_title":""},{"type":2,"icon":"/img/pay/wx.png","title":"微信","sub_title":""}]]
      */
 
     private String id;
@@ -59,16 +59,16 @@ public class ConfirmOrderModel implements Serializable {
          * sub_title : 可用余额0.00元
          */
 
-        private int type;
+        private String type;
         private String icon;
         private String title;
         private String sub_title;
 
-        public int getType() {
+        public String getType() {
             return type;
         }
 
-        public void setType(int type) {
+        public void setType(String type) {
             this.type = type;
         }
 

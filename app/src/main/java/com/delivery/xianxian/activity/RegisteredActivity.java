@@ -9,16 +9,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hyphenate.EMError;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.exceptions.HyphenateException;
-import com.squareup.okhttp.Request;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.EMError;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
+import com.squareup.okhttp.Request;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,7 +42,7 @@ public class RegisteredActivity extends BaseActivity {
     private ImageView imageView1;
     boolean isgouxuan = true;
 
-    String phonenum = "", password1 = "", password2 = "", code = "", num = "", nickname = "", register_addr = "";
+    String phonenum = "", password1 = "", password2 = "", code = "", num = "", nickname = "", register_addr = "",hx_username = "";
 
     private TimeCount time;
 
@@ -305,18 +306,43 @@ public class RegisteredActivity extends BaseActivity {
                         @Override
                         public void run() {
                             try {
-                                EMClient.getInstance().createAccount(jObj1.getString("hx_username"), "123456");
+                                hx_username = jObj1.getString("hx_username");
+                                EMClient.getInstance().createAccount(hx_username, "123456");
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
                                         hideProgress();
 
-                                        localUserInfo.setUserId(id);
-                                        Bundle bundle = new Bundle();
-                                        bundle.putInt("isShowAd", 1);
-                                        CommonUtil.gotoActivityWithFinishOtherAllAndData(
-                                                RegisteredActivity.this, MainActivity.class,
-                                                bundle, true);
+                                        //登录环信
+                                        EMClient.getInstance().logout(false);
+                                        EMClient.getInstance().login(hx_username, "123456", new EMCallBack() {
+                                            @Override
+                                            public void onSuccess() {
+                                                hideProgress();
+                                                //保存id
+                                                localUserInfo.setUserId(id);
+                                                Bundle bundle = new Bundle();
+                                                bundle.putInt("isShowAd", 1);
+                                                CommonUtil.gotoActivityWithFinishOtherAllAndData(
+                                                        RegisteredActivity.this, MainActivity.class,
+                                                        bundle, true);
+                                            }
+
+                                            @Override
+                                            public void onProgress(int progress, String status) {
+                                            }
+
+                                            @Override
+                                            public void onError(int code, String error) {
+                                                runOnUiThread(new Runnable() {
+                                                    public void run() {
+                                                        hideProgress();
+                                                        MyLogger.i("环信登录失败：" + error);
+                                                        myToast("环信登录失败：" + error);
+                                                    }
+                                                });
+                                            }
+                                        });
 
                                         /*//去完善信息
                                         Bundle bundle = new Bundle();

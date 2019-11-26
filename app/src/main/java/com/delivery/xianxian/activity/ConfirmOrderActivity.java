@@ -66,6 +66,14 @@ public class ConfirmOrderActivity extends BaseActivity {
         setContentView(R.layout.activity_confirmorder);
     }
 
+    /*@Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+        }
+    }*/
+
     @Override
     protected void initView() {
         textView = findViewByID_My(R.id.textView);
@@ -398,7 +406,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                         params.put("token", localUserInfo.getToken());
                         params.put("pay_type", response.getPay_type_list().get(pay_item).getType() + "");
                         params.put("t_indent_id", response.getId());
-                        RequestPay(params,response.getId());
+                        RequestPay(params, response.getId());
                     }
                 });
 
@@ -411,7 +419,8 @@ public class ConfirmOrderActivity extends BaseActivity {
             }
         });
     }
-    private void RequestPay(Map<String, String> params,String id) {
+
+    private void RequestPay(Map<String, String> params, String id) {
         OkHttpClientManager.postAsyn(ConfirmOrderActivity.this, URLs.ConfirmOrder_Pay, params, new OkHttpClientManager.ResultCallback<ConfirmOrderModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -428,8 +437,8 @@ public class ConfirmOrderActivity extends BaseActivity {
                 myToast("下单成功");
                 //跳转订单派送
                 Bundle bundle = new Bundle();
-                bundle.putString("id",id);
-                CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this,OrderDetailsActivity.class,bundle,true);
+                bundle.putString("id", id);
+                CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this, OrderDetailsActivity.class, bundle, true);
             }
         });
     }

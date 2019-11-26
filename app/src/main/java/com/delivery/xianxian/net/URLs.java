@@ -187,6 +187,18 @@ public class URLs {
      */
     public static final String Auth_CheZhu = "/api/owner/center/identification";
     /**
+     * 余额明细
+     */
+    public static final String MoneyList = "/api/owner/center/tmoney-search";
+    /**
+     * 充值
+     */
+    public static final String Recharge = "/api/owner/center/tmoney-recharge";
+    /**
+     * 充值
+     */
+    public static final String Recharge_Add = "/api/owner/center/tmoney-recharge-add";
+    /**
      * 充值详情
      */
     public static final String RechargeDetail = "/api/top-up/detail";

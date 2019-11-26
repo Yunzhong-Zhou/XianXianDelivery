@@ -834,6 +834,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     @Override
     public void onMyLocationChange(Location location) {
         MyLogger.i(">>>>>>>>我的位置：" + location.getLatitude());
+
 //        lat = location.getLatitude();
 //        lng = location.getLongitude();
 //        requestServer();

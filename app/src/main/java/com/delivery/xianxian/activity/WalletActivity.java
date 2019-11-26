@@ -28,8 +28,6 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class WalletActivity extends BaseActivity {
     TextView textView1, textView2;
-
-    int page = 1;
     private RecyclerView recyclerView;
     List<WalletModel.CouponListBean> list = new ArrayList<>();
     CommonAdapter<WalletModel.CouponListBean> mAdapter;
@@ -42,24 +40,16 @@ public class WalletActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        setSpringViewMore(true);//不需要加载更多
+        setSpringViewMore(false);//不需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                page = 1;
-                String string = "?page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
-                        + "&token=" + localUserInfo.getToken();
+                String string = "?token=" + localUserInfo.getToken();
                 Request(string);
             }
 
             @Override
             public void onLoadmore() {
-                page++;
-                String string = "?page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
-                        + "&token=" + localUserInfo.getToken();
-                RequestMore(string);
             }
         });
         recyclerView = findViewByID_My(R.id.recyclerView);
@@ -96,9 +86,7 @@ public class WalletActivity extends BaseActivity {
 //        this.showLoadingPage();
 
         showProgress(true, getString(R.string.app_loading));
-        String string = "?page=" + page//当前页号
-                + "&count=" + "10"//页面行数
-                + "&token=" + localUserInfo.getToken();
+        String string = "?token=" + localUserInfo.getToken();
         Request(string);
     }
 
@@ -140,41 +128,14 @@ public class WalletActivity extends BaseActivity {
         });
     }
 
-    private void RequestMore(String string) {
-        OkHttpClientManager.getAsyn(WalletActivity.this, URLs.Wallet + string, new OkHttpClientManager.ResultCallback<WalletModel>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-                page--;
-                showErrorPage();
-                hideProgress();
-                if (!info.equals("")) {
-                    showToast(info);
-                }
-            }
-
-            @Override
-            public void onResponse(WalletModel response) {
-                showContentPage();
-                hideProgress();
-                MyLogger.i(">>>>>>>>>钱包更多" + response);
-
-                List<WalletModel.CouponListBean> list1 = new ArrayList<>();
-                list1 = response.getCoupon_list();
-                if (list1.size() == 0) {
-                    page--;
-                    myToast(getString(R.string.app_nomore));
-                } else {
-                    list.addAll(list1);
-                    mAdapter.notifyDataSetChanged();
-                }
-
-            }
-        });
-
-    }
-
     @Override
     protected void updateView() {
         titleView.setTitle("钱包");
+        titleView.showRightTextview("余额明细", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommonUtil.gotoActivity(WalletActivity.this,MoneyListActivity.class,false);
+            }
+        });
     }
 }
