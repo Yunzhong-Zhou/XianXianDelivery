@@ -9,7 +9,9 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -44,10 +46,11 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
     //选择图片及上传
     ArrayList<String> listFileNames = new ArrayList<>();
     ArrayList<File> listFiles = new ArrayList<>();
-    String type = "";
+    String type = "",identity_name = "",identity_number = "";
 
     ImageView imageView1, imageView2;
     LinearLayout linearLayout1, linearLayout2;
+    EditText editText1,editText2;
 
     TextView textView1;
 
@@ -63,6 +66,8 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
         imageView2 = findViewByID_My(R.id.imageView2);
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
+        editText1 = findViewByID_My(R.id.editText1);
+        editText2 = findViewByID_My(R.id.editText2);
 
         textView1 = findViewByID_My(R.id.textView1);
 
@@ -108,7 +113,8 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
                         files = listFiles.toArray(new File[i]);
                     }
                     HashMap<String, String> params = new HashMap<>();
-                    params.put("type", "post_identity");
+                    params.put("identity_name", identity_name);
+                    params.put("identity_number", identity_number);
                     params.put("token", localUserInfo.getToken());
                     RequestUpData(filenames, files, params);//
                 }
@@ -120,7 +126,7 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
     }
 
     private void RequestUpData(String[] fileKeys, File[] files, HashMap<String, String> params) {
-        OkHttpClientManager.postAsyn(this, URLs.Auth_CheZhu, fileKeys, files, params,
+        OkHttpClientManager.postAsyn(this, URLs.Auth, fileKeys, files, params,
                 new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -157,7 +163,7 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.Auth_CheZhu + string,
+        OkHttpClientManager.getAsyn(this, URLs.Auth + string,
                 new OkHttpClientManager.ResultCallback<Auth_ShenFenZhengModel>() {
                     @Override
                     public void onError(Request request, String info, Exception e) {
@@ -170,7 +176,7 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
                     @Override
                     public void onResponse(final Auth_ShenFenZhengModel response) {
                         hideProgress();
-                        MyLogger.i(">>>>>>>>>车主认证-身份认证" + response);
+                        MyLogger.i(">>>>>>>>>身份认证" + response);
                         if (!response.getIdentity_front_image().equals("")){
                             imageView1.setVisibility(View.VISIBLE);
                             linearLayout1.setVisibility(View.GONE);
@@ -203,16 +209,27 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
     }
 
     private boolean match() {
+        identity_name = editText1.getText().toString().trim();
+        if (TextUtils.isEmpty(identity_name)) {
+            myToast("请输入姓名");
+            return false;
+        }
+        identity_number = editText2.getText().toString().trim();
+        if (TextUtils.isEmpty(identity_number)) {
+            myToast("请输入身份证号");
+            return false;
+        }
         if (listFiles.size() != 2) {
             myToast("请上传身份证正反面图片");
             return false;
         }
+
         return true;
     }
 
     @Override
     protected void updateView() {
-        titleView.setTitle("身份证认证");
+        titleView.setTitle("实名认证");
     }
 
     /**

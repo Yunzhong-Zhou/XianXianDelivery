@@ -1,6 +1,7 @@
 package com.delivery.xianxian.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by zyz on 2018/2/10.
@@ -8,27 +9,27 @@ import java.io.Serializable;
 
 public class MyProfileModel implements Serializable {
     /**
-     * id : e860799fbb2244df57d53158908b2ef5
-     * mobile : 18306043086
      * nickname : 阿斯顿马丁
-     * head : /head/95.png
-     * invite_code : 814578
-     * grade_title : 1级
+     * mobile : 18306043086
+     * head : /upload/head/24.png
+     * industry :
+     * industry_list : [{"key":1,"val":"餐饮"},{"key":2,"val":"生鲜"},{"key":3,"val":"批发"},{"key":4,"val":"冷饮"}]
+     * is_certification : 2
      */
 
-    private String id;
-    private String mobile;
     private String nickname;
+    private String mobile;
     private String head;
-    private String invite_code;
-    private String grade_title;
+    private String industry;
+    private int is_certification;
+    private List<IndustryListBean> industry_list;
 
-    public String getId() {
-        return id;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getMobile() {
@@ -39,14 +40,6 @@ public class MyProfileModel implements Serializable {
         this.mobile = mobile;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public String getHead() {
         return head;
     }
@@ -55,19 +48,53 @@ public class MyProfileModel implements Serializable {
         this.head = head;
     }
 
-    public String getInvite_code() {
-        return invite_code;
+    public String getIndustry() {
+        return industry;
     }
 
-    public void setInvite_code(String invite_code) {
-        this.invite_code = invite_code;
+    public void setIndustry(String industry) {
+        this.industry = industry;
     }
 
-    public String getGrade_title() {
-        return grade_title;
+    public int getIs_certification() {
+        return is_certification;
     }
 
-    public void setGrade_title(String grade_title) {
-        this.grade_title = grade_title;
+    public void setIs_certification(int is_certification) {
+        this.is_certification = is_certification;
+    }
+
+    public List<IndustryListBean> getIndustry_list() {
+        return industry_list;
+    }
+
+    public void setIndustry_list(List<IndustryListBean> industry_list) {
+        this.industry_list = industry_list;
+    }
+
+    public static class IndustryListBean {
+        /**
+         * key : 1
+         * val : 餐饮
+         */
+
+        private int key;
+        private String val;
+
+        public int getKey() {
+            return key;
+        }
+
+        public void setKey(int key) {
+            this.key = key;
+        }
+
+        public String getVal() {
+            return val;
+        }
+
+        public void setVal(String val) {
+            this.val = val;
+        }
     }
 }

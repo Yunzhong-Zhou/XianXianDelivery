@@ -204,7 +204,7 @@ public class LoginActivity extends BaseActivity {
                         hideProgress();
                         //保存id
                         localUserInfo.setUserId(response.getId());
-                        CommonUtil.gotoActivityWithFinishOtherAll(LoginActivity.this, MainActivity.class, true);
+                        CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
                     }
 
                     @Override

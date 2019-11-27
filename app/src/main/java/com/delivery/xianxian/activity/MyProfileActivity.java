@@ -20,7 +20,6 @@ import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
-import com.delivery.xianxian.model.ChangeProfileModel;
 import com.delivery.xianxian.model.MyProfileModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
@@ -31,13 +30,19 @@ import com.delivery.xianxian.utils.MyLogger;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.squareup.okhttp.Request;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import id.zelory.compressor.Compressor;
 
 import static com.delivery.xianxian.utils.MyChooseImages.REQUEST_CODE_CAPTURE_CAMEIA;
@@ -57,7 +62,10 @@ public class MyProfileActivity extends BaseActivity {
     TextView textView, textView1, textView2, textView3, textView4;
     private TimeCount time;
 
-    String phonenum = "", code = "";
+    String phonenum = "", code = "",industry = "";
+
+    MyProfileModel model;
+    int i1 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +109,7 @@ public class MyProfileActivity extends BaseActivity {
             @Override
             public void onResponse(MyProfileModel response) {
                 MyLogger.i(">>>>>>>>>个人信息" + response);
+                model = response;
                 //头像
                 if (!response.getHead().equals(""))
                     Glide.with(MyProfileActivity.this)
@@ -116,10 +125,17 @@ public class MyProfileActivity extends BaseActivity {
                 textView1.setText(response.getNickname());
                 //手机号
                 textView2.setText(response.getMobile());
+                //行业
+                textView3.setText(response.getIndustry());
+                //实名认证//1已认证2未认证
+                if (response.getIs_certification() == 1){
+                    textView4.setText("已认证");
+                }else {
+                    textView4.setText("未认证");
+                }
 
                 localUserInfo.setPhoneNumber(response.getMobile());
                 localUserInfo.setNickname(response.getNickname());
-                localUserInfo.setInvuteCode(response.getInvite_code());
 //                localUserInfo.setEmail(response.getEmail());
                 localUserInfo.setUserImage(response.getHead());
 
@@ -133,27 +149,25 @@ public class MyProfileActivity extends BaseActivity {
             case R.id.textView:
                 //上传头像
                 if (match()) {
+                    String[] filenames = new String[]{};
+                    File[] files = new File[]{};
                     if (listFiles.size() > 0) {
-                        textView.setClickable(false);
-                        showProgress(true, "正在修改，请稍候...");
-                        String[] filenames = new String[]{};
-                        File[] files = new File[]{};
                         for (int i = 0; i < listFiles.size(); i++) {
                             filenames = listFileNames.toArray(new String[i]);
                             files = listFiles.toArray(new File[i]);
                         }
-                        this.showProgress(true, getString(R.string.app_loading1));
-                        params.put("token", localUserInfo.getToken());
-                        params.put("nickname", "");
-                        RequestChangeProfile(filenames, files, params);//修改
-                    } else {
-                        myToast("请选择头像上传");
                     }
+                    textView.setClickable(false);
+                    showProgress(true, "正在修改，请稍候...");
+                    params.put("token", localUserInfo.getToken());
+                    params.put("nickname", textView1.getText().toString().trim());
+                    params.put("industry", industry);
+                    RequestChangeProfile(filenames, files, params);//修改
                 }
                 break;
             case R.id.linearLayout1:
                 //头像
-
+                MyChooseImages.showPhotoDialog(this);
                 break;
             case R.id.linearLayout2:
                 //昵称
@@ -193,11 +207,69 @@ public class MyProfileActivity extends BaseActivity {
                 break;
             case R.id.linearLayout4:
                 //行业
+                BaseDialog dialog1 = new BaseDialog(MyProfileActivity.this);
+                dialog1.contentView(R.layout.dialog_list)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView title = dialog1.findViewById(R.id.textView1);
+                title.setText("选择行业");
+                RecyclerView rv = dialog1.findViewById(R.id.recyclerView);
+                LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(MyProfileActivity.this);
+                rv.setLayoutManager(mLinearLayoutManager);
 
+                List<String> mStringList = new ArrayList<>();
+                if (model != null) {
+                    for (int i = 0; i < model.getIndustry_list().size(); i++) {
+                        mStringList.add(model.getIndustry_list().get(i).getVal());
+                    }
+                }
+
+                CommonAdapter<String> adapter = new CommonAdapter<String>
+                        (MyProfileActivity.this, R.layout.item_dialog_list, mStringList) {
+                    @Override
+                    protected void convert(ViewHolder holder, String model, int position) {
+                        TextView tv = holder.getView(R.id.textView);
+                        ImageView iv = holder.getView(R.id.imageView);
+                        tv.setText(model);
+                        if (position == i1) {
+                            tv.setTextColor(getResources().getColor(R.color.blue));
+                            iv.setImageResource(R.mipmap.ic_xuanzhong);
+                        } else {
+                            tv.setTextColor(getResources().getColor(R.color.black1));
+                            iv.setImageResource(R.mipmap.ic_weixuan);
+                        }
+                    }
+                };
+                adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        i1 = i;
+                        industry = model.getIndustry_list().get(i).getKey() + "";
+                        adapter.notifyDataSetChanged();
+                        textView3.setText(mStringList.get(i));
+                        dialog1.dismiss();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv.setAdapter(adapter);
+                dialog1.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog1.dismiss();
+                    }
+                });
                 break;
             case R.id.linearLayout5:
                 //实名认证
-
+                CommonUtil.gotoActivity(MyProfileActivity.this,Auth_ShenFenZhengActivity.class,false);
                 break;
         }
     }
@@ -228,7 +300,7 @@ public class MyProfileActivity extends BaseActivity {
 
     //修改信息
     private void RequestChangeProfile(String[] fileKeys, File[] files, HashMap<String, String> params) {
-        OkHttpClientManager.postAsyn(MyProfileActivity.this, URLs.ChangeProfile, fileKeys, files, params, new OkHttpClientManager.ResultCallback<ChangeProfileModel>() {
+        OkHttpClientManager.postAsyn(MyProfileActivity.this, URLs.ChangeProfile, fileKeys, files, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 textView1.setClickable(true);
@@ -239,23 +311,11 @@ public class MyProfileActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(ChangeProfileModel response) {
+            public void onResponse(String response) {
                 textView1.setClickable(true);
                 MyLogger.i(">>>>>>>>>修改信息" + response);
                 myToast("修改成功");
-                localUserInfo.setUserImage(response.getHead());
-                //头像
-                if (!response.getHead().equals(""))
-                    Glide.with(MyProfileActivity.this)
-                            .load(OkHttpClientManager.IMGHOST + response.getHead())
-                            .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
-                            .into(imageView1);//加载图片
-                else
-                    imageView1.setImageResource(R.mipmap.headimg);
-
-                hideProgress();
+                requestInfo("?token=" + localUserInfo.getToken());
             }
         });
     }
@@ -311,7 +371,7 @@ public class MyProfileActivity extends BaseActivity {
     }
 
     private boolean match() {
-        phonenum = textView2.getText().toString().trim();
+//        phonenum = textView2.getText().toString().trim();
         /*if (TextUtils.isEmpty(phonenum)) {
             myToast("请输入新手机号码");
             return false;

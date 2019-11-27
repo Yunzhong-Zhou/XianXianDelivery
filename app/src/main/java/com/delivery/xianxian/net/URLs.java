@@ -132,7 +132,7 @@ public class URLs {
     /**
      * 个人信息
      */
-    public static final String Info = "/api/member/get-info";
+    public static final String Info = "/api/owner/center/update";
     /**
      * 退出
      */
@@ -183,9 +183,9 @@ public class URLs {
     public static final String JiangLiList = "/api/owner/center/award";
 
     /**
-     * 车主认证
+     * 认证
      */
-    public static final String Auth_CheZhu = "/api/owner/center/identification";
+    public static final String Auth = "/api/owner/center/certification";
     /**
      * 余额明细
      */

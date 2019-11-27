@@ -264,9 +264,9 @@ public class OrderListActivity extends BaseActivity {
                                 holder.setText(R.id.textView4, "车型：" + model.getCar_type());//车型
                                 //温层
                                 if (model.getTemperature().equals("")) {
-                                    holder.setText(R.id.textView5, "（" + model.getRemark() + "）");
+                                    holder.setText(R.id.textView5, "");
                                 } else {
-                                    holder.setText(R.id.textView5, "温层：" + model.getTemperature() + "（" + model.getRemark() + "）");
+                                    holder.setText(R.id.textView5, "温层：" + model.getTemperature());
                                 }
                                 holder.setText(R.id.textView6, model.getStart_addr());//发货地
                                 holder.setText(R.id.textView7, model.getEnd_addr());//收货地

@@ -15,6 +15,7 @@ import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.activity.ChangePasswordActivity;
 import com.delivery.xianxian.activity.ChatMainActivity;
+import com.delivery.xianxian.activity.FeeModelActivity;
 import com.delivery.xianxian.activity.InvoiceActivity;
 import com.delivery.xianxian.activity.JiFenShangChengActivity;
 import com.delivery.xianxian.activity.LoginActivity;
@@ -272,16 +273,23 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout10:
                 //收费标准
-
+                CommonUtil.gotoActivity(getActivity(), FeeModelActivity.class);
                 break;
             case R.id.linearLayout11:
                 //关于我们
-                //奖励活动
 //                CommonUtil.gotoActivity(getActivity(), JiangLiHuoDongActivity.class);
                 break;
             case R.id.linearLayout12:
                 //分享APP
+                Intent share_intent1 = new Intent();
+                share_intent1.setAction(Intent.ACTION_SEND);
+//                    share_intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                share_intent1.setType("text/plain");
+                share_intent1.putExtra(Intent.EXTRA_TEXT, "鲜鲜拉\n"
+                        +"www.baidu.com");
 
+                share_intent1 = Intent.createChooser(share_intent1, "分享");
+                startActivity(share_intent1);
                 break;
             case R.id.linearLayout13:
                 //会话列表
