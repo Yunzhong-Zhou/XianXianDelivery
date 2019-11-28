@@ -1,6 +1,7 @@
 package com.delivery.xianxian.activity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.delivery.xianxian.R;
@@ -109,12 +110,18 @@ public class MoneyListActivity extends BaseActivity {
                                 (MoneyListActivity.this, R.layout.item_moneylist, list) {
                             @Override
                             protected void convert(ViewHolder holder, MoneyListModel model, int position) {
-                                /*holder.setText(R.id.textView1, model.getTitle());
-                                holder.setText(R.id.textView2, model.getSub_title());
-                                holder.setText(R.id.textView3, "兑换时间：" + model.getCreated_at());
+                                holder.setText(R.id.tv1, model.getTitle());
+                                holder.setText(R.id.tv2, model.getCreated_at());
+                                TextView tv3 = holder.getView(R.id.tv3);
+                                if (model.getOut_in() == 1){
+                                    tv3.setText("-¥" + model.getMoney());
+                                    tv3.setTextColor(getResources().getColor(R.color.black1));
+                                }else {
+                                    tv3.setText("+¥" + model.getMoney());
+                                    tv3.setTextColor(getResources().getColor(R.color.red));
+                                }
 
-                                holder.setText(R.id.textView4, "-" + model.getScore() + "积分");
-                                ImageView imageView1 = holder.getView(R.id.imageView1);
+                                /*ImageView imageView1 = holder.getView(R.id.imageView1);
                                 if (model.getImage() != null && !model.getImage().equals(""))
                                     Glide.with(MoneyListActivity.this)
                                             .load(IMGHOST + model.getImage())

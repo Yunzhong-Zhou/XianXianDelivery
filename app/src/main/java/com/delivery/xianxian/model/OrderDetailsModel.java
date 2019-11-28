@@ -1,5 +1,7 @@
 package com.delivery.xianxian.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -45,7 +47,7 @@ public class OrderDetailsModel implements Serializable {
 
         private String id;
         private String sn;
-        private int created_at;
+        private long wait_time;
         private String use_type;
         private String car_type;
         private int is_plan;
@@ -57,6 +59,7 @@ public class OrderDetailsModel implements Serializable {
         private String remark;
         private String pay_status;
         private String total_price;
+        private String contacts_mobile;
         private ConfirmTextBean confirm_text;
         private List<AddrListBean> addr_list;
         private List<String> other_tag;
@@ -64,6 +67,11 @@ public class OrderDetailsModel implements Serializable {
 
         private String cancel_at;
         private String cancel_reason;
+        /**
+         * confirm_attach_data : {"id":32,"need_pay":1,"money":"1600","detail":[{"name":"逾时等候费","money":"200"},{"name":"路桥费","money":"300"},{"name":"搬运费","money":"500"},{"name":"阿斯顿","money":"600"}]}
+         */
+
+        private ConfirmAttachDataBean confirm_attach_data;
 
         public String getCancel_at() {
             return cancel_at;
@@ -89,6 +97,14 @@ public class OrderDetailsModel implements Serializable {
             this.id = id;
         }
 
+        public String getContacts_mobile() {
+            return contacts_mobile;
+        }
+
+        public void setContacts_mobile(String contacts_mobile) {
+            this.contacts_mobile = contacts_mobile;
+        }
+
         public String getSn() {
             return sn;
         }
@@ -97,12 +113,12 @@ public class OrderDetailsModel implements Serializable {
             this.sn = sn;
         }
 
-        public int getCreated_at() {
-            return created_at;
+        public long getWait_time() {
+            return wait_time;
         }
 
-        public void setCreated_at(int created_at) {
-            this.created_at = created_at;
+        public void setWait_time(long wait_time) {
+            this.wait_time = wait_time;
         }
 
         public String getUse_type() {
@@ -223,6 +239,14 @@ public class OrderDetailsModel implements Serializable {
 
         public void setPrice_detail(List<PriceDetailBean> price_detail) {
             this.price_detail = price_detail;
+        }
+
+        public ConfirmAttachDataBean getConfirm_attach_data() {
+            return confirm_attach_data;
+        }
+
+        public void setConfirm_attach_data(ConfirmAttachDataBean confirm_attach_data) {
+            this.confirm_attach_data = confirm_attach_data;
         }
 
         public static class DriverInfoBean {
@@ -515,6 +539,80 @@ public class OrderDetailsModel implements Serializable {
 
             public void setPrice(String price) {
                 this.price = price;
+            }
+        }
+
+
+        public static class ConfirmAttachDataBean {
+            /**
+             * id : 32
+             * need_pay : 1
+             * money : 1600
+             * detail : [{"name":"逾时等候费","money":"200"},{"name":"路桥费","money":"300"},{"name":"搬运费","money":"500"},{"name":"阿斯顿","money":"600"}]
+             */
+
+            @SerializedName("id")
+            private int idX;
+            private int need_pay;
+            private String money;
+            private List<DetailBean> detail;
+
+            public int getIdX() {
+                return idX;
+            }
+
+            public void setIdX(int idX) {
+                this.idX = idX;
+            }
+
+            public int getNeed_pay() {
+                return need_pay;
+            }
+
+            public void setNeed_pay(int need_pay) {
+                this.need_pay = need_pay;
+            }
+
+            public String getMoney() {
+                return money;
+            }
+
+            public void setMoney(String money) {
+                this.money = money;
+            }
+
+            public List<DetailBean> getDetail() {
+                return detail;
+            }
+
+            public void setDetail(List<DetailBean> detail) {
+                this.detail = detail;
+            }
+
+            public static class DetailBean {
+                /**
+                 * name : 逾时等候费
+                 * money : 200
+                 */
+
+                private String name;
+                private String money;
+
+                public String getName() {
+                    return name;
+                }
+
+                public void setName(String name) {
+                    this.name = name;
+                }
+
+                public String getMoney() {
+                    return money;
+                }
+
+                public void setMoney(String money) {
+                    this.money = money;
+                }
             }
         }
     }

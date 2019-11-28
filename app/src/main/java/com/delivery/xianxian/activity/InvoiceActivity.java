@@ -5,11 +5,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.InvoiceModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
+import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
@@ -17,6 +19,8 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -108,7 +112,7 @@ public class InvoiceActivity extends BaseActivity {
 
     private void Request(String string) {
         OkHttpClientManager.getAsyn(InvoiceActivity.this, URLs.Invoice + string,
-                new OkHttpClientManager.ResultCallback<InvoiceModel>() {
+                new OkHttpClientManager.ResultCallback<String>() {
                     @Override
                     public void onError(Request request, String info, Exception e) {
                         showErrorPage();
@@ -119,63 +123,85 @@ public class InvoiceActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onResponse(InvoiceModel response) {
+                    public void onResponse(String response) {
                         showContentPage();
                         MyLogger.i(">>>>>>>>>申请发票" + response);
-//                        list = response.getTindent_list();
-                        mAdapter = new CommonAdapter<InvoiceModel>
-                                (InvoiceActivity.this, R.layout.item_invoice, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, InvoiceModel model, int position) {
-                                //车型
-                                /*TextView textView1 = holder.getView(R.id.textView1);
-                                textView1.setText(model.getUse_type());
-                                switch (model.getUse_type_id()) {
-                                    case 1:
-                                        //专车
-                                        textView1.setBackgroundResource(R.drawable.yuanjiao_5_juse_topright_dwonleft);
-                                        break;
-                                    case 2:
-                                        //顺风车
-                                        textView1.setBackgroundResource(R.drawable.yuanjiao_5_lanse_topright_dwonleft);
-                                        break;
-                                    case 3:
-                                        //快递
-                                        textView1.setBackgroundResource(R.drawable.yuanjiao_5_hongse_topright_dwonleft);
-                                        break;
-                                }
-                                holder.setText(R.id.textView2, "时间：" + model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, "订单号：" + model.getCar_type());//订单号
-                                holder.setText(R.id.textView4, model.getStart_addr());//发货地
-                                holder.setText(R.id.textView5, model.getEnd_addr());//收货地
-                                holder.setText(R.id.textView6, "费用：¥ " + model.getPrice());//费用*/
-
+                        JSONObject jObj;
+                        try {
+                            jObj = new JSONObject(response);
+                            JSONArray jsonArray = jObj.getJSONArray("data");
+                            list = JSON.parseArray(jsonArray.toString(), InvoiceModel.class);
+                            for (int i = 0; i < list.size(); i++) {
+                                list.get(i).setIsgouxuan(0);
                             }
-                        };
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                                /*Bundle bundle = new Bundle();
-                                bundle.putString("id", list1.get(i).getId());
-                                CommonUtil.gotoActivityWithData(OrderListActivity.this, OrderDetailsActivity.class, bundle);*/
+                            isQuanXuan = false;
+                            imageView1.setImageResource(R.mipmap.ic_weixuan);
+                            if (list.size() > 0) {
+                                mAdapter = new CommonAdapter<InvoiceModel>
+                                        (InvoiceActivity.this, R.layout.item_invoice, list) {
+                                    @Override
+                                    protected void convert(ViewHolder holder, InvoiceModel model, int position) {
+                                        //车型
+                                        TextView textView1 = holder.getView(R.id.textView1);
+                                        textView1.setText(model.getUse_type_text());
+                                        switch (model.getUse_type()) {
+                                            case 1:
+                                                //专车
+                                                textView1.setBackgroundResource(R.drawable.yuanjiao_5_juse_topright_dwonleft);
+                                                break;
+                                            case 2:
+                                                //顺风车
+                                                textView1.setBackgroundResource(R.drawable.yuanjiao_5_lanse_topright_dwonleft);
+                                                break;
+                                            case 3:
+                                                //快递
+                                                textView1.setBackgroundResource(R.drawable.yuanjiao_5_hongse_topright_dwonleft);
+                                                break;
+                                        }
+                                        holder.setText(R.id.textView2, "时间：" + model.getCreated_at());//时间
+                                        holder.setText(R.id.textView3, "订单号：" + model.getSn());//订单号
+                                        holder.setText(R.id.textView4, model.getStart());//发货地
+                                        holder.setText(R.id.textView5, model.getEnd());//收货地
+                                        holder.setText(R.id.textView6, "费用：¥ " + model.getPrice());//费用
+
+                                        ImageView imageView1 = holder.getView(R.id.imageView1);
+                                        if (model.getIsgouxuan() ==1){
+                                            imageView1.setImageResource(R.mipmap.ic_xuanzhong);
+                                        }else {
+                                            imageView1.setImageResource(R.mipmap.ic_weixuan);
+                                        }
+                                    }
+                                };
+                                mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                                        if (list.get(i).getIsgouxuan() == 0) {
+                                            list.get(i).setIsgouxuan(1);
+                                        } else {
+                                            list.get(i).setIsgouxuan(0);
+                                        }
+                                        mAdapter.notifyDataSetChanged();
+
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("id", list.get(i).getT_indent_id());
+                                        CommonUtil.gotoActivityWithData(InvoiceActivity.this, AddInvoiceActivity.class, bundle);
+                                    }
+
+                                    @Override
+                                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                                        return false;
+                                    }
+                                });
+                                recyclerView.setAdapter(mAdapter);
+                            } else {
+                                showEmptyPage();//空数据
                             }
 
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                                return false;
-                            }
-                        });
-
-                        if (list.size() > 0) {
-                            showContentPage();
-                            recyclerView.setAdapter(mAdapter);
-                            mAdapter.notifyDataSetChanged();
-                        } else {
-                            showEmptyPage();//空数据
+                        } catch (JSONException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
                         }
-
                         hideProgress();
-
                     }
 
                 });
@@ -222,13 +248,19 @@ public class InvoiceActivity extends BaseActivity {
                 isQuanXuan = !isQuanXuan;
                 if (isQuanXuan){
                     imageView1.setImageResource(R.mipmap.ic_xuanzhong);
+                    for (int i = 0; i < list.size(); i++) {
+                        list.get(i).setIsgouxuan(1);
+                    }
                 }else {
                     imageView1.setImageResource(R.mipmap.ic_weixuan);
+                    for (int i = 0; i < list.size(); i++) {
+                        list.get(i).setIsgouxuan(0);
+                    }
                 }
+                mAdapter.notifyDataSetChanged();
                 break;
             case R.id.textView:
                 //确认开票
-
 
                 break;
 

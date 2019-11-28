@@ -6,8 +6,12 @@ import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +29,7 @@ import com.amap.api.services.route.TruckRouteRestult;
 import com.bumptech.glide.Glide;
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
+import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.OrderCancelModel;
@@ -41,10 +46,13 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -78,7 +86,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12, textView13, textView14, textView15, textView16,
             textView17, textView18, textView19,
-            tv_confirm;
+            tv_confirm, tv_fujiafei;
 
     boolean isOpen = false;
 
@@ -86,6 +94,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     double lat = 0, lng = 0;
     private DPoint mStartDPoint = null;
     private DPoint mEndDPoint = null;*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +175,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         tv_confirm = findViewByID_My(R.id.tv_confirm);
 
         tv_shouqi = findViewByID_My(R.id.tv_shouqi);
+        tv_fujiafei = findViewByID_My(R.id.tv_fujiafei);
 
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(OrderDetailsActivity.this);
@@ -248,7 +258,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                                 params.put("token", localUserInfo.getToken());
                                                 params.put("id", model.getTindent().getId());
                                                 params.put("type", "owner_cancel_get");
-                                                RequestQuXiao(params);
+                                                RequestQuXiao(params,1);
                                             }
                                         }, new View.OnClickListener() {
                                             @Override
@@ -258,24 +268,39 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                         });
                             }
                         });
+                        //计时器
+                        Handler startTimehandler = new Handler() {
+                            public void handleMessage(android.os.Message msg) {
+                                textView1.setText("已等待" + (String) msg.obj);
+                            }
+                        };
+                        new Timer("等待计时器").scheduleAtFixedRate(new TimerTask() {
+                            @Override
+                            public void run() {
+                                long time = (int) ((System.currentTimeMillis() - (response.getTindent().getWait_time() * 1000)) / 1000);
+                                String hh = new DecimalFormat("00").format(time / 3600);
+                                String mm = new DecimalFormat("00").format(time % 3600 / 60);
+                                String ss = new DecimalFormat("00").format(time % 60);
+                                String timeFormat = new String(hh + "小时" + mm + "分" + ss + "秒");
+                                Message msg = new Message();
+                                msg.obj = timeFormat;
+                                startTimehandler.sendMessage(msg);
+                            }
+
+                        }, 0, 1000L);
 
                         break;
                     case 7:
-                        showToast("该订单已配送完毕是否前往评价？", "确认", "取消",
-                                new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        dialog.dismiss();
-                                        Bundle bundle = new Bundle();
-                                        bundle.putString("id", model.getTindent().getId());
-                                        CommonUtil.gotoActivityWithData(OrderDetailsActivity.this,AppraiseActivity.class,bundle,false);
-                                    }
-                                }, new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        dialog.dismiss();
-                                    }
-                                });
+                        ll_hint1.setVisibility(View.VISIBLE);
+                        ll_hint2.setVisibility(View.GONE);
+                        titleView.showRightTextview("评价", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("id", model.getTindent().getId());
+                                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, AppraiseActivity.class, bundle, false);
+                            }
+                        });
                     default:
                         //已接单
                         ll_hint1.setVisibility(View.GONE);
@@ -297,7 +322,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                         textView6.setText("" + response.getTindent().getDriver_info().getCard_number());//车牌
                         textView7.setText(response.getTindent().getUse_type());//类型
 
-
                         break;
                 }
 
@@ -305,13 +329,13 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 textView11.setText("订单号：" + response.getTindent().getSn());//订单号：
                 textView12.setText(response.getTindent().getStatus_text());// 状态
                 textView13.setText(response.getTindent().getCar_type());// 订单车型
-//                textView14.setText(response.getTindent().get);//联系电话
+                textView14.setText(response.getTindent().getContacts_mobile());//联系电话
                 textView15.setText(response.getTindent().getTemperature());//温层
                 textView16.setText(response.getTindent().getRemark());//备注
                 textView17.setText(response.getTindent().getPay_status());//支付状态
                 textView18.setText("¥ " + response.getTindent().getTotal_price());//金额
 
-
+                //地址列表
                 list = response.getTindent().getAddr_list();
                 mAdapter = new CommonAdapter<OrderDetailsModel.TindentBean.AddrListBean>
                         (OrderDetailsActivity.this, R.layout.item_orderdetail, list) {
@@ -365,11 +389,19 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 };
                 ((FlowLayout) findViewByID_My(R.id.flowLayout)).setAdapter(flowLayoutAdapter);
 
+                //确认按钮
                 if (response.getTindent().getConfirm_text() != null) {
                     tv_confirm.setVisibility(View.VISIBLE);
                     tv_confirm.setText(response.getTindent().getConfirm_text().getName());
                 } else {
                     tv_confirm.setVisibility(View.GONE);
+                }
+
+                //附加费
+                if (response.getTindent().getConfirm_attach_data() != null) {
+                    tv_fujiafei.setVisibility(View.VISIBLE);
+                } else {
+                    tv_fujiafei.setVisibility(View.GONE);
                 }
 
             }
@@ -382,9 +414,66 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         switch (v.getId()) {
             case R.id.textView2:
                 //添加附加费
+                dialog = new BaseDialog(OrderDetailsActivity.this);
+                dialog.contentView(R.layout.dialog_jiajifei)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView textView1 = dialog.findViewById(R.id.textView1);
+                textView1.setText("添加附加费用");
+                final EditText editText1 = dialog.findViewById(R.id.editText1);
+                editText1.setHint("请输入附加费用");
+                /*TextView textView3 = dialog.findViewById(R.id.textView3);
+                textView3.setText("确认");*/
+                dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!editText1.getText().toString().trim().equals("")) {
+                            CommonUtil.hideSoftKeyboard_fragment(v, OrderDetailsActivity.this);
+                            dialog.dismiss();
+                            Map<String, String> params = new HashMap<>();
+                            params.put("token", localUserInfo.getToken());
+                            params.put("owner_fee", editText1.getText().toString().trim());
+                            params.put("id", model.getTindent().getId());
+                            params.put("type", "owner_add_attach");
+                            RequestQuXiao(params,2);
+
+                        } else {
+                            myToast("请输入与加急费用");
+                        }
+                    }
+                });
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
                 break;
             case R.id.textView3:
                 //立即发布给附近所有司机
+                showToast("立即发布给附近所有司机？", "确认", "取消",
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                /*Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+//                                params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
+                                params.put("t_indent_id", model.getTindent().getId());
+                                params.put("type", "2");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
+                                RequestConfirm(params);*/
+
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
                 break;
             case R.id.textView8:
                 //聊天
@@ -493,8 +582,103 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                     }
                                 });
                         break;
+                    case "confirm_finish":
+                        //订单完成
+                        showToast("确认订单完成吗？", "确认", "取消",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        Map<String, String> params = new HashMap<>();
+                                        params.put("token", localUserInfo.getToken());
+                                        params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
+                                        params.put("t_indent_id", model.getTindent().getId());
+                                        params.put("type", "7");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
+                                        RequestConfirm(params);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        break;
 
                 }
+                break;
+            case R.id.tv_fujiafei:
+                //附加费
+                dialog = new BaseDialog(OrderDetailsActivity.this);
+                dialog.contentView(R.layout.dialog_fujiafei)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView textView2 = dialog.findViewById(R.id.textView2);
+                textView2.setText("¥"+model.getTindent().getConfirm_attach_data().getMoney());
+                RecyclerView recyclerView = dialog.findViewById(R.id.recyclerView);
+                LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(OrderDetailsActivity.this);
+                recyclerView.setLayoutManager(mLinearLayoutManager);
+                CommonAdapter<OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean> mAdapter1 =
+                        new CommonAdapter<OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean>
+                        (OrderDetailsActivity.this, R.layout.item_feemodel,
+                                model.getTindent().getConfirm_attach_data().getDetail()) {
+                    @Override
+                    protected void convert(ViewHolder holder, OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean model, int position) {
+                        holder.setText(R.id.textView1, model.getName());
+                        holder.setText(R.id.textView2, "¥"+model.getMoney());
+                    }
+                };
+                recyclerView.setAdapter(mAdapter1);
+                dialog.findViewById(R.id.textView4).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (model.getTindent().getConfirm_attach_data().getNeed_pay() == 1){
+                            //可支付
+                            Map<String, String> params = new HashMap<>();
+                            params.put("token", localUserInfo.getToken());
+//                            params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
+                            params.put("t_indent_id", model.getTindent().getId());
+                            params.put("type", "5");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
+                            RequestConfirm(params);
+                        }
+                    }
+                });
+                dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.textView19:
+                //费用明细
+                dialog = new BaseDialog(OrderDetailsActivity.this);
+                dialog.contentView(R.layout.dialog_list)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView tv1 = dialog.findViewById(R.id.textView1);
+                tv1.setText("费用明细");
+                RecyclerView rv1 = dialog.findViewById(R.id.recyclerView);
+                LinearLayoutManager mLinearLayoutManager1 = new LinearLayoutManager(OrderDetailsActivity.this);
+                rv1.setLayoutManager(mLinearLayoutManager1);
+                CommonAdapter<OrderDetailsModel.TindentBean.PriceDetailBean> ap1 =
+                        new CommonAdapter<OrderDetailsModel.TindentBean.PriceDetailBean>
+                                (OrderDetailsActivity.this, R.layout.item_feemodel,
+                                        model.getTindent().getPrice_detail()) {
+                            @Override
+                            protected void convert(ViewHolder holder, OrderDetailsModel.TindentBean.PriceDetailBean model, int position) {
+                                holder.setText(R.id.textView1, model.getTitle());
+                                holder.setText(R.id.textView2, "¥"+model.getPrice());
+                            }
+                        };
+                rv1.setAdapter(ap1);
                 break;
         }
     }
@@ -538,7 +722,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         }, false);
     }
 
-    private void RequestQuXiao(Map<String, String> params) {
+    private void RequestQuXiao(Map<String, String> params,int type) {
         OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_QuXiao, params, new OkHttpClientManager.ResultCallback<OrderCancelModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -554,12 +738,16 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>取消" + response);
-//                myToast("取消订单成功");
-
-                Bundle bundle = new Bundle();
-                bundle.putString("id", model.getTindent().getId());
-                bundle.putSerializable("model", response);
-                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, OrderCancelActivity.class, bundle, true);
+                if (type ==1){
+                    //取消订单
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", model.getTindent().getId());
+                    bundle.putSerializable("model", response);
+                    CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, OrderCancelActivity.class, bundle, true);
+                }else {
+                    //添加附加费
+                    myToast("添加附加费成功");
+                }
 
             }
         }, false);
@@ -834,7 +1022,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     @Override
     public void onMyLocationChange(Location location) {
         MyLogger.i(">>>>>>>>我的位置：" + location.getLatitude());
-
+        requestServer();//30秒刷新一次数据
 //        lat = location.getLatitude();
 //        lng = location.getLongitude();
 //        requestServer();

@@ -16,6 +16,20 @@
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/tv_fujiafei"
+            android:onClick="onClick"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/yuanxingbiankuang_juse"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:text="附加费"
+            android:textSize="12sp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/orange" />
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

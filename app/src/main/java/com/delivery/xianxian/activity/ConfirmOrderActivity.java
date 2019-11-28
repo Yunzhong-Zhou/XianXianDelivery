@@ -51,7 +51,8 @@ public class ConfirmOrderActivity extends BaseActivity {
 
     AddFeeModel model;
     String city = "", car_type_id = "", use_type = "", is_plan = "", plan_time = "", addr_ids = "",
-            temperature = "", name = "", mobile = "", urgent_fee = "0", remark = "", other = "";
+            temperature = "", name = "", mobile = "", urgent_fee = "0", remark = "", other = "",
+            contacts_name = "",contacts_mobile = "";
     TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12;
 
@@ -314,7 +315,8 @@ public class ConfirmOrderActivity extends BaseActivity {
                     params.put("urgent_fee", urgent_fee);
                     params.put("other", other);
                     params.put("remark", remark);
-
+                    params.put("contacts_name", textView7.getText().toString().trim());
+                    params.put("contacts_mobile", textView8.getText().toString().trim());
                     params.put("urgent", "");
                     params.put("owner_fee", "");
                     params.put("other_fee", "");

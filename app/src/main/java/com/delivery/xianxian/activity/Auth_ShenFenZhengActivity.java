@@ -157,8 +157,7 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
         super.requestServer();
 //        this.showLoadingPage();
         showProgress(true, getString(R.string.app_loading));
-        String string = "?token=" + localUserInfo.getToken()
-                + "&type=" + "get_identity";
+        String string = "?token=" + localUserInfo.getToken();
         Request(string);
     }
 
@@ -177,6 +176,8 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
                     public void onResponse(final Auth_ShenFenZhengModel response) {
                         hideProgress();
                         MyLogger.i(">>>>>>>>>身份认证" + response);
+                        editText1.setText(response.getIdentity_name());
+                        editText2.setText(response.getIdentity_number());
                         if (!response.getIdentity_front_image().equals("")){
                             imageView1.setVisibility(View.VISIBLE);
                             linearLayout1.setVisibility(View.GONE);
