@@ -248,6 +248,35 @@
                             android:textSize="14sp" />
 
                     </LinearLayout>
+                    <!--发货人-->
+                    <LinearLayout
+                        android:id="@+id/ll_fahuo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:visibility="gone"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_fahuo_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="发货人："
+                            android:textColor="@color/black2"
+                            android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/tv_fahuo_mobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="电话号码："
+                            android:textColor="@color/black2"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
 
                     <!--途经点-->
                     <FrameLayout
@@ -297,7 +326,35 @@
                             android:textSize="14sp" />
 
                     </LinearLayout>
+                    <!--收货人-->
+                    <LinearLayout
+                        android:id="@+id/ll_shouhuo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:visibility="gone"
+                        android:paddingTop="10dp">
 
+                        <TextView
+                            android:id="@+id/tv_shouhuo_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="收货人："
+                            android:textColor="@color/black2"
+                            android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/tv_shouhuo_mobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="电话号码："
+                            android:textColor="@color/black2"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
@@ -329,6 +386,7 @@
                         android:layout_height="0.5dp"
                         android:background="@color/xian" />
 
+                    <!--预约时间-专车-->
                     <LinearLayout
                         android:id="@+id/ll_time2"
                         android:layout_width="match_parent"
@@ -362,6 +420,146 @@
                             android:textColorHint="@color/black3"
                             android:textSize="14sp" />
 
+                    </LinearLayout>
+
+                    <!--用车时间-顺风车-->
+                    <LinearLayout
+                        android:id="@+id/ll_time3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="用车时间"
+                            android:textColor="@color/black1"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_time3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableRight="@mipmap/ic_next_black"
+                            android:gravity="right"
+                            android:hint="请选择用车时间"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="15dp"
+                            android:paddingBottom="10dp"
+                            android:textColor="@color/black2"
+                            android:textColorHint="@color/black3"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <!--快递-->
+                    <LinearLayout
+                        android:id="@+id/ll_kuaidi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="完善货物信息，估价更精准" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_kuaidi_type1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="类型"
+                                android:textSize="12sp"
+                                android:textColorHint="@color/black3"
+                                android:textColor="@color/black1"
+                                android:padding="10dp"
+                                android:background="@drawable/yuanjiaobiankuang_5_huise"
+                                android:drawableRight="@mipmap/ic_next_black"/>
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="0dp"/>
+                            <TextView
+                                android:id="@+id/tv_kuaidi_type2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="总件数"
+                                android:textSize="12sp"
+                                android:textColorHint="@color/black3"
+                                android:textColor="@color/black1"
+                                android:padding="10dp"
+                                android:background="@drawable/yuanjiaobiankuang_5_huise"
+                                android:drawableRight="@mipmap/ic_next_black"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_kuaidi_type3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="总重量"
+                                android:textSize="12sp"
+                                android:textColorHint="@color/black3"
+                                android:textColor="@color/black1"
+                                android:padding="10dp"
+                                android:background="@drawable/yuanjiaobiankuang_5_huise"
+                                android:drawableRight="@mipmap/ic_next_black"/>
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="0dp"/>
+                            <TextView
+                                android:id="@+id/tv_kuaidi_type4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="总体积"
+                                android:textSize="12sp"
+                                android:textColorHint="@color/black3"
+                                android:textColor="@color/black1"
+                                android:padding="10dp"
+                                android:background="@drawable/yuanjiaobiankuang_5_huise"
+                                android:drawableRight="@mipmap/ic_next_black"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="是否需要送货上门" />
+                            <ImageView
+                                android:id="@+id/iv_kuaidi_kaiguan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:src="@mipmap/ic_kai"/>
+                        </LinearLayout>
                     </LinearLayout>
 
 

@@ -1,9 +1,11 @@
 package com.delivery.xianxian.activity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.bumptech.glide.Glide;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.MoneyListModel;
@@ -24,6 +26,8 @@ import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
 
 /**
  * Created by zyz on 2019-10-08.
@@ -121,14 +125,14 @@ public class MoneyListActivity extends BaseActivity {
                                     tv3.setTextColor(getResources().getColor(R.color.red));
                                 }
 
-                                /*ImageView imageView1 = holder.getView(R.id.imageView1);
-                                if (model.getImage() != null && !model.getImage().equals(""))
+                                ImageView imageView1 = holder.getView(R.id.imageView1);
+                                if (model.getIcon() != null && !model.getIcon().equals(""))
                                     Glide.with(MoneyListActivity.this)
-                                            .load(IMGHOST + model.getImage())
+                                            .load(IMGHOST + model.getIcon())
                                             .centerCrop()
 //                                    .placeholder(R.mipmap.headimg)//加载站位图
 //                                    .error(R.mipmap.headimg)//加载失败
-                                            .into(imageView1);//加载图片*/
+                                            .into(imageView1);//加载图片
                             }
                         };
                         recyclerView.setAdapter(mAdapter);

@@ -52,7 +52,8 @@ public class ConfirmOrderActivity extends BaseActivity {
     AddFeeModel model;
     String city = "", car_type_id = "", use_type = "", is_plan = "", plan_time = "", addr_ids = "",
             temperature = "", name = "", mobile = "", urgent_fee = "0", remark = "", other = "",
-            contacts_name = "",contacts_mobile = "";
+            contacts_name = "",contacts_mobile = "",
+            goods_name = "", goods_quantity = "", goods_weight = "", goods_bulk = "";
     TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12;
 
@@ -103,6 +104,10 @@ public class ConfirmOrderActivity extends BaseActivity {
         is_plan = getIntent().getStringExtra("is_plan");
         plan_time = getIntent().getStringExtra("plan_time");
         addr_ids = getIntent().getStringExtra("addr_ids");
+        goods_name = getIntent().getStringExtra("goods_name");
+        goods_weight = getIntent().getStringExtra("goods_weight");
+        goods_quantity = getIntent().getStringExtra("goods_quantity");
+        goods_bulk = getIntent().getStringExtra("goods_bulk");
 
         textView6.setText(plan_time);
         textView11.setText("合计费用：￥" + model.getPrice());
@@ -320,6 +325,10 @@ public class ConfirmOrderActivity extends BaseActivity {
                     params.put("urgent", "");
                     params.put("owner_fee", "");
                     params.put("other_fee", "");
+                    params.put("goods_name", goods_name);
+                    params.put("goods_weight", goods_weight);
+                    params.put("goods_quantity", goods_quantity);
+                    params.put("goods_bulk", goods_bulk);
                     RequestAdd(params);
                 }
 

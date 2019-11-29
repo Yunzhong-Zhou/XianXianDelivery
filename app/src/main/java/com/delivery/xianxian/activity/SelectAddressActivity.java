@@ -387,6 +387,8 @@ public class SelectAddressActivity extends BaseActivity {
 //                    MyLogger.i(">>>>>>>>"+jObj.getString("data"));
                     Intent resultIntent = new Intent();
                     Bundle bundle = new Bundle();
+                    bundle.putString("name", name);
+                    bundle.putString("mobile", mobile);
                     bundle.putString("addr", addr);
                     bundle.putString("addr_id", jObj.getString("data"));
                     resultIntent.putExtras(bundle);

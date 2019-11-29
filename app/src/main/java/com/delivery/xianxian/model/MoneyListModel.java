@@ -22,6 +22,15 @@ public class MoneyListModel implements Serializable {
     private String money;
     private String remark;
     private String created_at;
+    private String icon;
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
     public int getOut_in() {
         return out_in;

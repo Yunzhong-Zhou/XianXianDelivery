@@ -95,7 +95,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     private DPoint mStartDPoint = null;
     private DPoint mEndDPoint = null;*/
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -180,7 +179,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(OrderDetailsActivity.this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
-
 
     }
 
@@ -635,8 +633,10 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 dialog.findViewById(R.id.textView4).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         if (model.getTindent().getConfirm_attach_data().getNeed_pay() == 1){
                             //可支付
+                            dialog.dismiss();
                             Map<String, String> params = new HashMap<>();
                             params.put("token", localUserInfo.getToken());
 //                            params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());

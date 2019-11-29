@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,6 +26,7 @@ import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.bumptech.glide.Glide;
+import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.activity.ConfirmOrderActivity;
 import com.delivery.xianxian.activity.MainActivity;
@@ -101,12 +104,24 @@ public class Fragment1 extends BaseFragment {
     String addr_ids = "";
     TextView tv_qidian, tv_zhongdian, tv_tujingdian, tv_time;
     LinearLayout ll_add, ll_time2;
-    String startAddr_id = "", endAddr_id = "";
+    String startAddr_id = "", endAddr_id = "",plan_time = "";
     TimePickerView pvTime1;
 
     //下一步
     AddFeeModel model;
     TextView tv_detail, tv_nextStep;
+
+    //用车时间-顺风车
+    LinearLayout ll_time3;
+    TextView tv_time3;
+
+    //快递信息
+    LinearLayout ll_kuaidi, ll_fahuo, ll_shouhuo;
+    TextView tv_kuaidi_type1, tv_kuaidi_type2, tv_kuaidi_type3, tv_kuaidi_type4,
+            tv_fahuo_name, tv_fahuo_mobile, tv_shouhuo_name, tv_shouhuo_mobile;
+    ImageView iv_kuaidi_kaiguan;
+    boolean isShongHuo = true;
+    String goods_name = "", goods_quantity = "", goods_weight = "", goods_bulk = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -211,6 +226,29 @@ public class Fragment1 extends BaseFragment {
         tv_detail.setOnClickListener(this);
         tv_nextStep = findViewByID_My(R.id.tv_nextStep);
         tv_nextStep.setOnClickListener(this);
+
+        //用车时间-顺风车
+        ll_time3 = findViewByID_My(R.id.ll_time3);
+        tv_time3 = findViewByID_My(R.id.tv_time3);
+
+        //快递信息
+        ll_kuaidi = findViewByID_My(R.id.ll_kuaidi);
+        tv_kuaidi_type1 = findViewByID_My(R.id.tv_kuaidi_type1);
+        tv_kuaidi_type2 = findViewByID_My(R.id.tv_kuaidi_type2);
+        tv_kuaidi_type3 = findViewByID_My(R.id.tv_kuaidi_type3);
+        tv_kuaidi_type4 = findViewByID_My(R.id.tv_kuaidi_type4);
+        iv_kuaidi_kaiguan = findViewByID_My(R.id.iv_kuaidi_kaiguan);
+        tv_kuaidi_type1.setOnClickListener(this);
+        tv_kuaidi_type2.setOnClickListener(this);
+        tv_kuaidi_type3.setOnClickListener(this);
+        tv_kuaidi_type4.setOnClickListener(this);
+        iv_kuaidi_kaiguan.setOnClickListener(this);
+        ll_fahuo = findViewByID_My(R.id.ll_fahuo);
+        ll_shouhuo = findViewByID_My(R.id.ll_shouhuo);
+        tv_fahuo_name = findViewByID_My(R.id.tv_fahuo_name);
+        tv_fahuo_mobile = findViewByID_My(R.id.tv_fahuo_mobile);
+        tv_shouhuo_name = findViewByID_My(R.id.tv_shouhuo_name);
+        tv_shouhuo_mobile = findViewByID_My(R.id.tv_shouhuo_mobile);
     }
 
     @Override
@@ -506,7 +544,7 @@ public class Fragment1 extends BaseFragment {
                 break;
             case R.id.tv_time:
                 //预约时间
-                setDate(tv_time);
+                setDate("选择预约时间", tv_time);
                 break;
 
             /*case R.id.tv_detail:
@@ -530,7 +568,168 @@ public class Fragment1 extends BaseFragment {
                     RequestAdd(params);
                 }
                 break;
+            case R.id.tv_time3:
+                //用车时间-顺风车
+                setDate("选择用车时间", tv_time3);
+                break;
 
+            case R.id.tv_kuaidi_type1:
+                //类型
+                dialog = new BaseDialog(getActivity());
+                dialog.contentView(R.layout.dialog_edit)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView textView1 = dialog.findViewById(R.id.textView1);
+                textView1.setText("类型");
+                TextView textView2 = dialog.findViewById(R.id.textView2);
+                textView2.setText("");
+                final EditText editText1 = dialog.findViewById(R.id.editText1);
+                editText1.setHint("请输入类型");
+                editText1.setInputType(InputType.TYPE_CLASS_TEXT);
+                dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!editText1.getText().toString().trim().equals("")) {
+                            CommonUtil.hideSoftKeyboard_fragment(v, getActivity());
+                            dialog.dismiss();
+                            tv_kuaidi_type1.setText(editText1.getText().toString().trim());
+                            goods_name = editText1.getText().toString().trim();
+                        } else {
+                            myToast("请输入类型");
+                        }
+                    }
+                });
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.tv_kuaidi_type2:
+                //总件数
+                dialog = new BaseDialog(getActivity());
+                dialog.contentView(R.layout.dialog_edit)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView textView1_2 = dialog.findViewById(R.id.textView1);
+                textView1_2.setText("总件数");
+                TextView textView2_2 = dialog.findViewById(R.id.textView2);
+                textView2_2.setText("件");
+                final EditText editText1_2 = dialog.findViewById(R.id.editText1);
+                editText1_2.setHint("请输入总件数");
+                editText1_2.setInputType(InputType.TYPE_CLASS_NUMBER);
+                dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!editText1_2.getText().toString().trim().equals("")) {
+                            CommonUtil.hideSoftKeyboard_fragment(v, getActivity());
+                            dialog.dismiss();
+                            tv_kuaidi_type2.setText(editText1_2.getText().toString().trim() + "件");
+                            goods_quantity = editText1_2.getText().toString().trim();
+                        } else {
+                            myToast("请输入总件数");
+                        }
+                    }
+                });
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.tv_kuaidi_type3:
+                //总重量
+                dialog = new BaseDialog(getActivity());
+                dialog.contentView(R.layout.dialog_edit)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView textView1_3 = dialog.findViewById(R.id.textView1);
+                textView1_3.setText("总重量");
+                TextView textView2_3 = dialog.findViewById(R.id.textView2);
+                textView2_3.setText("kg");
+                final EditText editText1_3 = dialog.findViewById(R.id.editText1);
+                editText1_3.setHint("请输入总重量");
+                editText1_3.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!editText1_3.getText().toString().trim().equals("")) {
+                            CommonUtil.hideSoftKeyboard_fragment(v, getActivity());
+                            dialog.dismiss();
+                            tv_kuaidi_type3.setText(editText1_3.getText().toString().trim() + "kg");
+                            goods_weight = editText1_3.getText().toString().trim();
+                        } else {
+                            myToast("请输入总重量");
+                        }
+                    }
+                });
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.tv_kuaidi_type4:
+                //总体积
+                dialog = new BaseDialog(getActivity());
+                dialog.contentView(R.layout.dialog_edit)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView textView1_4 = dialog.findViewById(R.id.textView1);
+                textView1_4.setText("总体积");
+                TextView textView2_4 = dialog.findViewById(R.id.textView2);
+                textView2_4.setText("m³");
+                final EditText editText1_4 = dialog.findViewById(R.id.editText1);
+                editText1_4.setHint("请输入总体积");
+                editText1_4.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!editText1_4.getText().toString().trim().equals("")) {
+                            CommonUtil.hideSoftKeyboard_fragment(v, getActivity());
+                            dialog.dismiss();
+                            tv_kuaidi_type4.setText(editText1_4.getText().toString().trim() + "m³");
+                            goods_bulk = editText1_4.getText().toString().trim();
+                        } else {
+                            myToast("请输入总体积");
+                        }
+                    }
+                });
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.iv_kuaidi_kaiguan:
+                //是否需要送货上门
+                isShongHuo = !isShongHuo;
+                if (isShongHuo) {
+                    iv_kuaidi_kaiguan.setImageResource(R.mipmap.ic_kai);
+                } else {
+                    iv_kuaidi_kaiguan.setImageResource(R.mipmap.ic_guan);
+                }
+                break;
         }
     }
 
@@ -545,7 +744,18 @@ public class Fragment1 extends BaseFragment {
                 tv_type2.setTextColor(getResources().getColor(R.color.black2));
                 tv_type3.setTextColor(getResources().getColor(R.color.black2));
 
+                tv_tujingdian.setVisibility(View.VISIBLE);
                 ll_time1.setVisibility(View.VISIBLE);
+                if (is_plan.equals("1")) {
+                    ll_time2.setVisibility(View.VISIBLE);
+                } else {
+                    ll_time2.setVisibility(View.GONE);
+                }
+                ll_time3.setVisibility(View.GONE);
+                ll_kuaidi.setVisibility(View.GONE);
+                ll_fahuo.setVisibility(View.GONE);
+                ll_shouhuo.setVisibility(View.GONE);
+
                 break;
             case 2:
                 tv_type1.setBackgroundResource(R.drawable.yuanjiao_10_huiise_top);
@@ -555,8 +765,13 @@ public class Fragment1 extends BaseFragment {
                 tv_type2.setTextColor(getResources().getColor(R.color.black1));
                 tv_type3.setTextColor(getResources().getColor(R.color.black2));
 
+                tv_tujingdian.setVisibility(View.VISIBLE);
                 ll_time1.setVisibility(View.GONE);
-
+                ll_time2.setVisibility(View.GONE);
+                ll_time3.setVisibility(View.VISIBLE);
+                ll_kuaidi.setVisibility(View.GONE);
+                ll_fahuo.setVisibility(View.GONE);
+                ll_shouhuo.setVisibility(View.GONE);
                 break;
             case 3:
                 tv_type1.setBackgroundResource(R.drawable.yuanjiao_10_huiise_top);
@@ -566,8 +781,13 @@ public class Fragment1 extends BaseFragment {
                 tv_type2.setTextColor(getResources().getColor(R.color.black2));
                 tv_type3.setTextColor(getResources().getColor(R.color.black1));
 
+                tv_tujingdian.setVisibility(View.GONE);
                 ll_time1.setVisibility(View.GONE);
-
+                ll_time2.setVisibility(View.GONE);
+                ll_time3.setVisibility(View.GONE);
+                ll_kuaidi.setVisibility(View.VISIBLE);
+                ll_fahuo.setVisibility(View.VISIBLE);
+                ll_shouhuo.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -584,7 +804,7 @@ public class Fragment1 extends BaseFragment {
     }
 
     //预约时间
-    private void setDate(TextView textView) {
+    private void setDate(String string, TextView textView) {
         //获取当前时间
         Calendar calendar = Calendar.getInstance();
         //年
@@ -628,7 +848,7 @@ public class Fragment1 extends BaseFragment {
                 .setSubmitText("确定")//确认按钮文字
                 .setContentTextSize(15)//滚轮文字大小
                 .setTitleSize(16)//标题文字大小
-                .setTitleText("选择预约时间")//标题文字
+                .setTitleText(string)//标题文字
                 .setOutSideCancelable(true)//点击屏幕，点在控件外部范围时，是否取消显示
                 .isCyclic(false)//是否循环滚动
                 .setTitleColor(getResources().getColor(R.color.black2))//标题文字颜色
@@ -670,12 +890,44 @@ public class Fragment1 extends BaseFragment {
             myToast("请选择城市");
             return false;
         }
-        if (is_plan.equals("1")) {
-            if (tv_time.getText().toString().trim().equals("")) {
-                myToast("请选择预约时间");
-                return false;
-            }
+        switch (use_type) {
+            case 1:
+                if (is_plan.equals("1")) {
+                    plan_time = tv_time.getText().toString().trim();
+                    if (plan_time.equals("")) {
+                        myToast("请选择预约时间");
+                        return false;
+                    }
+                }
+                break;
+            case 2:
+                plan_time = tv_time3.getText().toString().trim();
+                if (plan_time.equals("")) {
+                    myToast("请选择用车时间");
+                    return false;
+                }
+                break;
+            case 3:
+                plan_time = "";
+                if (goods_name.equals("")) {
+                    myToast("请输入类型");
+                    return false;
+                }
+                if (goods_quantity.equals("")) {
+                    myToast("请输入总件数");
+                    return false;
+                }
+                if (goods_weight.equals("")) {
+                    myToast("请输入总重量");
+                    return false;
+                }
+                if (goods_bulk.equals("")) {
+                    myToast("请输入总体积");
+                    return false;
+                }
+                break;
         }
+
         if (startAddr_id.equals("")) {
             myToast("请选择发货地址");
             return false;
@@ -724,12 +976,17 @@ public class Fragment1 extends BaseFragment {
                 bundle5.putString("car_type_id", carTypeList.get(item).getId() + "");//车型id
                 bundle5.putString("use_type", use_type + "");//用车类型1专车2顺风车3快递
                 bundle5.putString("is_plan", is_plan + "");//用车时间类型1预约2现在
-                bundle5.putString("plan_time", tv_time.getText().toString().trim() + "");//用车时间
+                bundle5.putString("plan_time", plan_time);//预约时间
+
 //                bundle5.putString("mileage", response.getMillage() + "");//里程km
 //                bundle5.putString("pre_time", response.getDuration() + "");//预计耗时s
 //                bundle5.putString("price", response.getPrice() + "");//价格
                 bundle5.putString("addr_ids", addr_ids + "");//需要得位置起始地顺序id,逗号隔开(1,2,3)
-                bundle5.putSerializable("AddFeeModel",response);
+                bundle5.putString("goods_name", goods_name);//类型
+                bundle5.putString("goods_quantity", goods_quantity);//总件数
+                bundle5.putString("goods_weight", goods_weight);//总重量
+                bundle5.putString("goods_bulk", goods_bulk);//总体积
+                bundle5.putSerializable("AddFeeModel", response);
                 CommonUtil.gotoActivityWithData(getActivity(), ConfirmOrderActivity.class, bundle5, false);
             }
         });
@@ -768,6 +1025,10 @@ public class Fragment1 extends BaseFragment {
                     startAddr_id = bundle1.getString("addr_id");
                     MyLogger.i(">>>地址>>>>" + addr1);
                     tv_qidian.setText(addr1);
+
+                    tv_fahuo_name.setText("发货人：" + bundle1.getString("name"));
+                    tv_fahuo_mobile.setText("电话号码：" + bundle1.getString("mobile"));
+
                 }
                 break;
             case 10002:
@@ -778,6 +1039,9 @@ public class Fragment1 extends BaseFragment {
                     endAddr_id = bundle2.getString("addr_id");
                     MyLogger.i(">>>地址>>>>" + addr2);
                     tv_zhongdian.setText(addr2);
+
+                    tv_shouhuo_name.setText("收货人：" + bundle2.getString("name"));
+                    tv_shouhuo_mobile.setText("电话号码：" + bundle2.getString("mobile"));
                 }
                 break;
             case 10003:
