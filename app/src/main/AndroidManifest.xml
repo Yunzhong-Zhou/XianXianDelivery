@@ -217,7 +217,9 @@
         <activity
             android:name="com.delivery.xianxian.activity.Auth_ShenFenZhengActivity"
             android:label="身份证认证" />
-
+        <activity
+            android:name="com.delivery.xianxian.activity.MyDriverActivity"
+            android:label="我的司机" />
 
         <!--环信-->
         <activity

@@ -20,6 +20,7 @@ import com.delivery.xianxian.activity.InvoiceActivity;
 import com.delivery.xianxian.activity.JiFenShangChengActivity;
 import com.delivery.xianxian.activity.LoginActivity;
 import com.delivery.xianxian.activity.MainActivity;
+import com.delivery.xianxian.activity.MyDriverActivity;
 import com.delivery.xianxian.activity.MyProfileActivity;
 import com.delivery.xianxian.activity.OrderListActivity;
 import com.delivery.xianxian.activity.ServiceCenterActivity;
@@ -261,7 +262,7 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout7:
                 //我的司机
-
+                CommonUtil.gotoActivity(getActivity(), MyDriverActivity.class);
                 break;
             case R.id.linearLayout8:
                 //修改密码

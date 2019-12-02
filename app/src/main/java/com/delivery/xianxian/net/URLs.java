@@ -275,9 +275,9 @@ public class URLs {
      */
     public static final String Transfer = "/api/transfer/create";
     /**
-     * 转币记录
+     * 我的司机
      */
-    public static final String TransferRecord = "/api/transfer/record";
+    public static final String MyDriver = "/api/owner/center/my-driver";
     /**
      * 拼接请求路径
      *

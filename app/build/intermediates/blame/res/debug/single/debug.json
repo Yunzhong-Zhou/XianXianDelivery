@@ -3292,6 +3292,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_dot_emojicon_unselected.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_item_mydriver.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_mydriver.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_abc_slide_out_bottom.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/anim/abc_slide_out_bottom.xml"
     },
