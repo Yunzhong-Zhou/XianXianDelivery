@@ -47,9 +47,9 @@ public class URLs {
      */
     public static final String Registered2 = "/api/owner/identity";
     /**
-     * 注册-极验
+     * 修改手机号
      */
-    public static final String Registered_API1 = "/api/sms-code/send-code";
+    public static final String ChangePhoneNum = "/api/owner/center/bind-mobile";
     /**
      * 新人领取
      */

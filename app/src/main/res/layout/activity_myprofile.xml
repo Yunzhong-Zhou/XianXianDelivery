@@ -101,7 +101,6 @@
                 android:drawableRight="@mipmap/ic_next_black"
                 android:drawablePadding="5dp"
                 android:gravity="center"
-                android:onClick="onClick"
                 android:text=""
                 android:textColor="@color/black3" />
         </LinearLayout>
@@ -135,7 +134,6 @@
                 android:drawableRight="@mipmap/ic_next_black"
                 android:drawablePadding="5dp"
                 android:gravity="center"
-                android:onClick="onClick"
                 android:text=""
                 android:textColor="@color/black3" />
         </LinearLayout>
@@ -169,7 +167,6 @@
                 android:drawableRight="@mipmap/ic_next_black"
                 android:drawablePadding="5dp"
                 android:gravity="center"
-                android:onClick="onClick"
                 android:text=""
                 android:textColor="@color/black3" />
         </LinearLayout>

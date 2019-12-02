@@ -62,7 +62,7 @@ public class MyProfileActivity extends BaseActivity {
     TextView textView, textView1, textView2, textView3, textView4;
     private TimeCount time;
 
-    String phonenum = "", code = "",industry = "";
+    String phonenum = "", code = "", industry = "";
 
     MyProfileModel model;
     int i1 = 0;
@@ -96,6 +96,7 @@ public class MyProfileActivity extends BaseActivity {
     protected void initData() {
         time = new TimeCount(60000, 1000);//构造CountDownTimer对象
     }
+
     private void requestInfo(String string) {
         OkHttpClientManager.getAsyn(MyProfileActivity.this, URLs.Info + string, new OkHttpClientManager.ResultCallback<MyProfileModel>() {
             @Override
@@ -128,9 +129,9 @@ public class MyProfileActivity extends BaseActivity {
                 //行业
                 textView3.setText(response.getIndustry());
                 //实名认证//1已认证2未认证
-                if (response.getIs_certification() == 1){
+                if (response.getIs_certification() == 1) {
                     textView4.setText("已认证");
-                }else {
+                } else {
                     textView4.setText("未认证");
                 }
 
@@ -143,6 +144,7 @@ public class MyProfileActivity extends BaseActivity {
             }
         });
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -203,7 +205,7 @@ public class MyProfileActivity extends BaseActivity {
                 break;
             case R.id.linearLayout3:
                 //手机号
-
+                CommonUtil.gotoActivity(MyProfileActivity.this, ChangePhoneNumActivity.class, false);
                 break;
             case R.id.linearLayout4:
                 //行业
@@ -269,7 +271,7 @@ public class MyProfileActivity extends BaseActivity {
                 break;
             case R.id.linearLayout5:
                 //实名认证
-                CommonUtil.gotoActivity(MyProfileActivity.this,Auth_ShenFenZhengActivity.class,false);
+                CommonUtil.gotoActivity(MyProfileActivity.this, Auth_ShenFenZhengActivity.class, false);
                 break;
         }
     }

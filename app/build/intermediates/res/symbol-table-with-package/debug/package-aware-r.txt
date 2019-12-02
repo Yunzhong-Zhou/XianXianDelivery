@@ -2625,6 +2625,7 @@ layout activity_auth_shenfenzheng
 layout activity_capitalstatistics
 layout activity_capture1
 layout activity_changepassword
+layout activity_changephonenum
 layout activity_chat
 layout activity_chatmain
 layout activity_city_list_select
