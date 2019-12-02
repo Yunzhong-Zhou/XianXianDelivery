@@ -196,6 +196,12 @@
             android:name="com.delivery.xianxian.activity.WalletActivity"
             android:label="钱包" />
         <activity
+            android:name="com.delivery.xianxian.activity.RechargeActivity"
+            android:label="充值" />
+        <activity
+            android:name="com.delivery.xianxian.activity.MoneyListActivity"
+            android:label="余额明细" />
+        <activity
             android:name="com.delivery.xianxian.activity.JiangLiHuoDongActivity"
             android:label="奖励活动" />
         <activity
@@ -217,32 +223,8 @@
             android:name="com.delivery.xianxian.activity.ServiceCenterActivity"
             android:label="车主助手" />
         <activity
-            android:name="com.delivery.xianxian.activity.Auth_CheZhuActivity"
-            android:label="车主认证" />
-        <activity
             android:name="com.delivery.xianxian.activity.Auth_ShenFenZhengActivity"
             android:label="身份证认证" />
-        <activity
-            android:name="com.delivery.xianxian.activity.Auth_JiaShiZhengActivity"
-            android:label="驾驶证及行驶证认证" />
-        <activity
-            android:name="com.delivery.xianxian.activity.Auth_YinHangKaActivity"
-            android:label="银行卡" />
-        <activity
-            android:name="com.delivery.xianxian.activity.Auth_CheLiangBaoXianActivity"
-            android:label="车辆保险" />
-        <activity
-            android:name="com.delivery.xianxian.activity.Auth_ChongYeZhiGeActivity"
-            android:label="从业资格证认证" />
-        <activity
-            android:name="com.delivery.xianxian.activity.Auth_GuaKaoGongSiActivity"
-            android:label="挂靠公司告知书" />
-        <activity
-            android:name="com.delivery.xianxian.activity.Auth_ChePaiHaoMaActivity"
-            android:label="车牌号码" />
-        <activity
-            android:name="com.delivery.xianxian.activity.Auth_CheLiangZhaoPianActivity"
-            android:label="车牌照片" />
 
         <!-- 环信 -->
         <activity

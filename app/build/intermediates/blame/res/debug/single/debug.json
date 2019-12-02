@@ -8,12 +8,16 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_star_half_black_48dp.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_mm_title_remove.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_mm_title_remove.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_jpush_ic_richpush_actionbar_divider.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d0dc149e6977c989c6e375379486d4c/jpush-3.3.4/res/drawable-hdpi-v4/jpush_ic_richpush_actionbar_divider.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_mm_title_remove.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_mm_title_remove.png"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_bg_wallet_1.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/bg_wallet_1.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/color_mtrl_btn_stroke_color_selector.xml.flat",
@@ -40,20 +44,24 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-mdpi-v4/abc_ic_star_half_black_16dp.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_view_empty.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/view_empty.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-v21_abc_action_bar_item_background_material.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_view_empty.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/view_empty.xml"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_ease_row_sent_message.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/layout/ease_row_sent_message.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_guan.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xxhdpi/ic_guan.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_video_recorder_start_btn.png.flat",
@@ -76,16 +84,16 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/color/mtrl_text_btn_text_color_selector.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ee_18.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ee_18.png"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_record_animate_06.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_record_animate_06.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_record_animate_06.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_record_animate_06.png"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ee_18.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ee_18.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -96,12 +104,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_design_ic_visibility.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/drawable-xxhdpi-v4/design_ic_visibility.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -140,12 +148,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable-hdpi-v4/common_full_open_on_phone.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_mtrl_layout_snackbar.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/layout/mtrl_layout_snackbar.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_hold.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/anim/hold.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_mtrl_layout_snackbar.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/layout/mtrl_layout_snackbar.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_login_error_icon.png.flat",
@@ -208,12 +216,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/layout/ease_row_received_file.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ease_chat_location_normal.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_chat_location_normal.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_dir5.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/dir5.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ease_chat_location_normal.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_chat_location_normal.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
@@ -224,24 +232,24 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_chatting_biaoqing_btn_enable.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/interpolator_btn_checkbox_checked_mtrl_animation_interpolator_1.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/interpolator_btn_checkbox_checked_mtrl_animation_interpolator_1.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_progress.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/res/drawable-hdpi-v4/progress.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_cityitem_click.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/res/drawable/cityitem_click.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_chat.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_chat.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_cityitem_click.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/res/drawable/cityitem_click.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ease_group_icon.png.flat",
@@ -272,24 +280,24 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/anim/btn_checkbox_to_unchecked_icon_null_animation.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_pop_list_1.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/pop_list_1.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-ldrtl-xhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_design_snackbar_background.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/drawable/design_snackbar_background.xml"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_pop_list_1.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/pop_list_1.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark_focused.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable/common_google_signin_btn_text_dark_focused.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_ease_row_received_message.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/layout/ease_row_received_message.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark_focused.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable/common_google_signin_btn_text_dark_focused.xml"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_design_snackbar_background.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/drawable/design_snackbar_background.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_layout_basepickerview.xml.flat",
@@ -332,32 +340,28 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark_normal.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable/common_google_signin_btn_text_dark_normal.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_shadow_right.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9cd6594c952ca894584e41f3216236c/jetified-library-1.1.0/res/drawable-xhdpi-v4/shadow_right.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark_normal.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable/common_google_signin_btn_text_dark_normal.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_auth_chongyezhige.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_auth_chongyezhige.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_abc_dialog_material_background.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/abc_dialog_material_background.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_pickerview_options.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/25948c97beba7c09143b4750155b9a9b/jetified-Android-PickerView-4.1.8/res/layout/pickerview_options.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_chatfrom_bg_normal.9.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_chatfrom_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_pickerview_options.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/25948c97beba7c09143b4750155b9a9b/jetified-Android-PickerView-4.1.8/res/layout/pickerview_options.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_conversation_normal.png.flat",
@@ -424,12 +428,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/dir9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_focused_holo.9.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-mdpi-v4/abc_list_focused_holo.9.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xxxhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-mdpi-v4/abc_list_focused_holo.9.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
@@ -456,10 +460,6 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_auth_chezhu.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_auth_chezhu.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_push_top_out.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/anim/push_top_out.xml"
     },
@@ -480,16 +480,16 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_fragment5_2.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ee_27.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ee_27.png"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_pop_jdcitypicker_item.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/res/layout/pop_jdcitypicker_item.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_jianglihuodong_1.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_jianglihuodong_1.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_pop_jdcitypicker_item.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/res/layout/pop_jdcitypicker_item.xml"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ee_27.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ee_27.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_amap_through.png.flat",
@@ -544,12 +544,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/layout/design_layout_snackbar.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_abc_popup_enter.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/anim/abc_popup_enter.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_search_bar_icon_normal.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_search_bar_icon_normal.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_abc_popup_enter.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/anim/abc_popup_enter.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_ease_widget_emojicon_tab_bar.xml.flat",
@@ -572,12 +572,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/tab3_0.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_abc_ratingbar_material.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/abc_ratingbar_material.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_item_invoice.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_invoice.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_abc_ratingbar_material.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/abc_ratingbar_material.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_btn_radio_to_on_mtrl_ring_outer_path_animation.xml.flat",
@@ -600,24 +600,24 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_track_search.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_track_search.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_ease_type_select_btn.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable/ease_type_select_btn.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_track_search.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_track_search.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/color-v23_design_tint_password_toggle.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/color-v23/design_tint_password_toggle.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_input_bar_bg_active.9.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_input_bar_bg_active.9.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_input_bar_bg_active.9.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_input_bar_bg_active.9.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_auth_shenfenzheng.xml.flat",
@@ -664,12 +664,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_ic_launcher.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_ease_row_sent_picture.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/layout/ease_row_sent_picture.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_ease_scroll_tab_item.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/layout/ease_scroll_tab_item.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_ease_row_sent_picture.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/layout/ease_row_sent_picture.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_slide_out_to_right.xml.flat",
@@ -688,12 +688,16 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-hdpi/xuanzhong.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_ease_search_clear.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable/ease_search_clear.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_jpush_popwin_layout.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d0dc149e6977c989c6e375379486d4c/jpush-3.3.4/res/layout/jpush_popwin_layout.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_ease_search_clear.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable/ease_search_clear.xml"
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanxingbiankuang_juse.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanxingbiankuang_juse.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanxing_juse.xml.flat",
@@ -716,12 +720,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_weixin.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_ease_recording_hint_bg.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable/ease_recording_hint_bg.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/color-v23_abc_tint_switch_track.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_ease_recording_hint_bg.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable/ease_recording_hint_bg.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_chatfrom_voice_playing_f2.png.flat",
@@ -776,12 +780,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/layout/ease_row_sent_voice.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_ease_btn_cancel_bj.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable/ease_btn_cancel_bj.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_item_jifenliebiao_gridview.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_jifenliebiao_gridview.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_ease_btn_cancel_bj.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable/ease_btn_cancel_bj.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -804,12 +808,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_star_half_black_16dp.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_dialog_top_out.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/res/anim/dialog_top_out.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_invoice.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_invoice.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_dialog_top_out.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/res/anim/dialog_top_out.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
@@ -864,12 +868,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/abc_btn_borderless_material.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_progress.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/res/drawable-xhdpi-v4/progress.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_progress.png.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/res/drawable-xhdpi-v4/progress.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_fragment5_6.png.flat",
@@ -1124,12 +1128,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/layout/abc_search_view.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_btn_radio_on_to_off_mtrl_animation.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/btn_radio_on_to_off_mtrl_animation.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_btn_radio_on_to_off_mtrl_animation.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/btn_radio_on_to_off_mtrl_animation.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
@@ -1204,12 +1208,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_auth_xiangji.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_abc_tooltip.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/layout/abc_tooltip.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_mm_listitem_grey_normal.9.png.flat",
@@ -1264,12 +1268,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_unread_dot.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_voice_to_icon.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/anim/voice_to_icon.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_foreground.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_voice_to_icon.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/anim/voice_to_icon.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -1292,12 +1296,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/anim/abc_slide_in_top.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_registered.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_registered.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-mdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_registered.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_registered.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_bg_draw15.xml.flat",
@@ -1414,6 +1418,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ease_chatting_biaoqing_btn_normal.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_chatting_biaoqing_btn_normal.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_dialog_edit.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/dialog_edit.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
@@ -1556,12 +1564,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/layout/abc_screen_toolbar.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_design_ic_visibility_off.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/drawable-xxhdpi-v4/design_ic_visibility_off.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_design_ic_visibility.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/drawable-hdpi-v4/design_ic_visibility.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_design_ic_visibility_off.png.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/drawable-xxhdpi-v4/design_ic_visibility_off.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_push_bottom_in.xml.flat",
@@ -1696,12 +1704,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/anim/push_top_in.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_light.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable/common_google_signin_btn_text_light.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_launcher_background.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_light.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable/common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_to_group_details_normal.png.flat",
@@ -1780,6 +1788,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/dryuanjiao_5_huise_top.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_dialog_fujiafei.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/dialog_fujiafei.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ease_chat_send_btn_normal.9.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_chat_send_btn_normal.9.png"
     },
@@ -1816,6 +1828,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/dialog_temperature.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_bg_wallet_2.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/bg_wallet_2.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_design_ic_visibility.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/drawable-xxxhdpi-v4/design_ic_visibility.png"
     },
@@ -1844,12 +1860,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-hdpi-v4/abc_popup_background_mtrl_mult.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_dialog_right_in.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/res/anim/dialog_right_in.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanjiao_10_lanse_left.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanjiao_10_lanse_left.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_dialog_right_in.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/res/anim/dialog_right_in.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/animator_mtrl_btn_unelevated_state_list_anim.xml.flat",
@@ -1904,12 +1920,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanxing_huise.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_abc_slide_in_bottom.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/anim/abc_slide_in_bottom.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_bg_fragment1.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/bg_fragment1.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_abc_slide_in_bottom.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/anim/abc_slide_in_bottom.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_auth_chezhu_7.png.flat",
@@ -2112,12 +2128,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/color/mtrl_bottom_nav_item_tint.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanjiao_5_huise1.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanjiao_5_huise1.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_abc_ic_menu_overflow_material.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanjiao_5_huise1.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanjiao_5_huise1.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_design_layout_snackbar_include.xml.flat",
@@ -2344,12 +2360,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -2360,6 +2376,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_scoredetail.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_kai.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xxhdpi/ic_kai.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xxxhdpi-v4/abc_ic_star_black_36dp.png"
     },
@@ -2368,12 +2388,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/layout/abc_cascading_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_btn_checkbox_to_checked_icon_null_animation.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/anim/btn_checkbox_to_checked_icon_null_animation.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_shouhuo.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_shouhuo.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_btn_checkbox_to_checked_icon_null_animation.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/anim/btn_checkbox_to_checked_icon_null_animation.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
@@ -2430,10 +2450,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_dir11.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/dir11.png"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_auth_guakaogongsi.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_auth_guakaogongsi.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_citypicker_three_city.png.flat",
@@ -2592,6 +2608,10 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_item_selectaddress.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_selectaddress.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
@@ -2614,10 +2634,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/animator_mtrl_chip_state_list_anim.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/animator/mtrl_chip_state_list_anim.xml"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_auth_yinhangka.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_auth_yinhangka.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher_background.png.flat",
@@ -2668,12 +2684,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanjiao_10_lanse_right.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanjiao_10_lanse_right.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_dialog_beizhu.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/dialog_beizhu.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanjiao_10_lanse_right.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanjiao_10_lanse_right.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_swipeback_layout.xml.flat",
@@ -2682,10 +2698,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/color_mtrl_btn_ripple_color.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/color/mtrl_btn_ripple_color.xml"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_auth_chepaihaoma.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_auth_chepaihaoma.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_dialog_jiajifei.xml.flat",
@@ -2820,16 +2832,16 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_item_addaddress.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_addaddress.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_chatfrom_bg_focused.9.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ease_chatfrom_bg_focused.9.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_item_addaddress.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_addaddress.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-v21_design_bottom_navigation_item_background.xml.flat",
@@ -2960,12 +2972,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_dialog_bottom_in.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/res/anim/dialog_bottom_in.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_rating_on.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/rating_on.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_dialog_bottom_in.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/res/anim/dialog_bottom_in.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_dir14.png.flat",
@@ -2980,12 +2992,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/res/layout-sw600dp-v13/mtrl_layout_snackbar.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/interpolator_fast_out_slow_in.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/interpolator/fast_out_slow_in.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_close_white.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_close_white.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/interpolator_fast_out_slow_in.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/interpolator/fast_out_slow_in.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_abc_dialog_title_material.xml.flat",
@@ -3096,10 +3108,6 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/res/layout/notification_template_part_time.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_auth_cheliangbaoxian.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_auth_cheliangbaoxian.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ease_chat_voice_call_receive.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_chat_voice_call_receive.png"
     },
@@ -3166,6 +3174,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/color_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_item_moneylist.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_moneylist.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_down_white.png.flat",
@@ -3296,10 +3308,6 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_auth_jiashizheng.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_auth_jiashizheng.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/color_abc_tint_default.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/color/abc_tint_default.xml"
     },
@@ -3332,12 +3340,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ease_chat_edit_normal.9.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_chat_edit_normal.9.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher_background.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ease_chat_edit_normal.9.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_chat_edit_normal.9.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_ease_row_ding_ack_user.xml.flat",
@@ -3516,12 +3524,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_btn_radio_on_mtrl.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/btn_radio_on_mtrl.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_item_temperature.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_temperature.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_btn_radio_on_mtrl.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/btn_radio_on_mtrl.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_slide_in_from_right.xml.flat",
@@ -3552,12 +3560,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/res/drawable-xhdpi-v4/ic_citypicker_jingdong.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_citypicker_bar_back.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/res/drawable-xhdpi-v4/ic_citypicker_bar_back.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_launcher_background.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/generated/res/pngs/debug/drawable-ldpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_citypicker_bar_back.png.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/res/drawable-xhdpi-v4/ic_citypicker_bar_back.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
@@ -3740,6 +3748,10 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/color-v23/abc_tint_seek_thumb.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_recharge.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_recharge.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable-xhdpi-v4/common_full_open_on_phone.png"
     },
@@ -3864,12 +3876,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-ldrtl-mdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_addother.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_addother.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_fragment5_13.png.flat",
@@ -3912,12 +3924,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ease_chat_press_speak_btn_normal.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_forgetpassword.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_forgetpassword.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_tujingdian.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_tujingdian.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_forgetpassword.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_forgetpassword.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_input_bar_bg_normal.9.png.flat",
@@ -3928,12 +3940,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/rating_off.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_notification_template_lines_media.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a6ce3afbff3f1ae3fa1fe13048b173d9/media-1.0.0/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_ease_recording_text_hint_bg.xml.flat",
@@ -4084,6 +4096,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/start.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_item_recharge_gridview.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/item_recharge_gridview.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_ease_chat_takepic_selector.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable/ease_chat_takepic_selector.xml"
     },
@@ -4142,10 +4158,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xxxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_auth_cheliangzhaopian.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_auth_cheliangzhaopian.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_webcontent.xml.flat",
@@ -4244,12 +4256,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-mdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanjiao_3_huise.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanjiao_3_huise.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_fragment5_7.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_fragment5_7.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanjiao_3_huise.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanjiao_3_huise.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_abc_ic_voice_search_api_material.xml.flat",
@@ -4708,12 +4720,12 @@
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/res/drawable-xhdpi-v4/googleg_standard_color_18.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_rili.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_rili.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanjiao_5_hongse_topright_dwonleft.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanjiao_5_hongse_topright_dwonleft.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_rili.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_rili.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/color_mtrl_bottom_nav_colored_item_tint.xml.flat",

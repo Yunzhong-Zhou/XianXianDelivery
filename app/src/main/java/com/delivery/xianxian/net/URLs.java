@@ -123,6 +123,10 @@ public class URLs {
      * 添加地址
      */
     public static final String AddAddress = "/api/owner/addr-create";
+    /**
+     * 常用地址
+     */
+    public static final String SelectAddress = "/api/owner/addr";
 
     // 用户模块
     /**

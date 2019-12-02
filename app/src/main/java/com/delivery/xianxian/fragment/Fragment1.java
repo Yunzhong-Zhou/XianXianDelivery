@@ -373,8 +373,8 @@ public class Fragment1 extends BaseFragment {
                     TextView tv2 = pageViews.get(i).findViewById(R.id.tv2);
                     TextView tv3 = pageViews.get(i).findViewById(R.id.tv3);
                     tv1.setText("长宽高：" + carTypeList.get(i).getSize());
-                    tv2.setText("载重：" + carTypeList.get(i).getWeight());
-                    tv3.setText("承载体积：" + carTypeList.get(i).getBulk());
+                    tv2.setText("载重：" + carTypeList.get(i).getWeight()+"吨");
+                    tv3.setText("承载体积：" + carTypeList.get(i).getBulk()+"方");
                     if (!carTypeList.get(i).getImage().equals(""))
                         Glide.with(getActivity())
                                 .load(IMGHOST + carTypeList.get(i).getImage())

@@ -19,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ import com.amap.api.services.help.Tip;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.adapter.Pop_ListAdapter;
 import com.delivery.xianxian.base.BaseActivity;
+import com.delivery.xianxian.model.SelectAddressModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.MyLogger;
@@ -54,6 +56,9 @@ import com.zaaach.citypicker.model.City;
 import com.zaaach.citypicker.model.HotCity;
 import com.zaaach.citypicker.model.LocateState;
 import com.zaaach.citypicker.model.LocatedCity;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,6 +67,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import overlay.AMapUtil;
 
 import static com.delivery.xianxian.activity.OrderDetailsActivity.convertViewToBitmap;
@@ -81,10 +88,15 @@ public class SelectAddressActivity extends BaseActivity {
 
     String addr = "", addr_detail = "", lat = "", lng = "", name = "", mobile = "";
 
-    //顶部
+    //顶部 中部
     EditText et_addr;
-    TextView tv_city;
-
+    TextView tv_city, tv_lishi, tv_changyong, tv_ditu;
+    LinearLayout ll_center;
+    RecyclerView recyclerView;
+    List<SelectAddressModel.HistoryBean> list1 = new ArrayList<>();
+    CommonAdapter<SelectAddressModel.HistoryBean> mAdapter1;
+    List<SelectAddressModel.OftenUsedBean> list2 = new ArrayList<>();
+    CommonAdapter<SelectAddressModel.OftenUsedBean> mAdapter2;
     //底部
     EditText editText1, editText2, editText3, editText4;
     TextView textView2;
@@ -133,6 +145,14 @@ public class SelectAddressActivity extends BaseActivity {
         et_addr = findViewByID_My(R.id.et_addr);
         tv_city = findViewByID_My(R.id.tv_city);
 
+        tv_lishi = findViewByID_My(R.id.tv_lishi);
+        tv_changyong = findViewByID_My(R.id.tv_changyong);
+        tv_ditu = findViewByID_My(R.id.tv_ditu);
+        ll_center = findViewByID_My(R.id.ll_center);
+        recyclerView = findViewByID_My(R.id.recyclerView);
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(mLinearLayoutManager);
+
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
         editText3 = findViewByID_My(R.id.editText3);
@@ -172,6 +192,7 @@ public class SelectAddressActivity extends BaseActivity {
             }
         });
     }
+
     @Override
     protected void initData() {
         type = getIntent().getIntExtra("type", 0);
@@ -202,6 +223,101 @@ public class SelectAddressActivity extends BaseActivity {
                 textView2.setText("确认途经地");
                 break;
         }
+
+        requestServer();
+    }
+
+    @Override
+    public void requestServer() {
+        super.requestServer();
+//        this.showLoadingPage();
+        showProgress(true, getString(R.string.app_loading));
+        String string = "?page=" + 1//当前页号
+                + "&count=" + "50"//页面行数
+                + "&token=" + localUserInfo.getToken();
+        Request(string);
+    }
+
+    private void Request(String string) {
+        OkHttpClientManager.getAsyn(this, URLs.SelectAddress + string, new OkHttpClientManager.ResultCallback<SelectAddressModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(SelectAddressModel response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>常用地址" + response);
+                list1 = response.getHistory();
+                mAdapter1 = new CommonAdapter<SelectAddressModel.HistoryBean>
+                        (SelectAddressActivity.this, R.layout.item_selectaddress, list1) {
+                    @Override
+                    protected void convert(ViewHolder holder, SelectAddressModel.HistoryBean model, int position) {
+                        holder.setText(R.id.tv1, model.getAddr());
+                        holder.setText(R.id.tv2, model.getAddr_detail());
+                        holder.setText(R.id.tv3, model.getName());
+                        holder.setText(R.id.tv4, model.getMobile());
+                    }
+                };
+                mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        Intent resultIntent = new Intent();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("name", list1.get(i).getName());
+                        bundle.putString("mobile", list1.get(i).getMobile());
+                        bundle.putString("addr", list1.get(i).getAddr());
+                        bundle.putString("addr_id", list1.get(i).getId());
+                        resultIntent.putExtras(bundle);
+                        SelectAddressActivity.this.setResult(RESULT_OK, resultIntent);
+                        finish();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                recyclerView.setAdapter(mAdapter1);
+
+                list2 = response.getOften_used();
+                mAdapter2 = new CommonAdapter<SelectAddressModel.OftenUsedBean>
+                        (SelectAddressActivity.this, R.layout.item_selectaddress, list2) {
+                    @Override
+                    protected void convert(ViewHolder holder, SelectAddressModel.OftenUsedBean model, int position) {
+                        holder.setText(R.id.tv1, model.getAddr());
+                        holder.setText(R.id.tv2, model.getAddr_detail());
+                        holder.setText(R.id.tv3, model.getName());
+                        holder.setText(R.id.tv4, model.getMobile());
+                    }
+                };
+                mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        Intent resultIntent = new Intent();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("name", list2.get(i).getName());
+                        bundle.putString("mobile", list2.get(i).getMobile());
+                        bundle.putString("addr", list2.get(i).getAddr());
+                        bundle.putString("addr_id", list2.get(i).getId());
+                        resultIntent.putExtras(bundle);
+                        SelectAddressActivity.this.setResult(RESULT_OK, resultIntent);
+                        finish();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+            }
+        });
     }
 
     /**
@@ -239,8 +355,8 @@ public class SelectAddressActivity extends BaseActivity {
                 geocoderSearch.getFromLocationAsyn(query);
 
 
-                LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());//构造一个位置
-                aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,16));//设置地图放大级别
+                LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());//构造一个位置
+                aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));//设置地图放大级别
             }
         });
         aMap.setOnMapClickListener(new AMap.OnMapClickListener() {
@@ -271,7 +387,7 @@ public class SelectAddressActivity extends BaseActivity {
                         tv_city.setText(city);
                         cityCode = result.getRegeocodeAddress().getCityCode();//市代码
 
-                        MyLogger.i(">>选取地址>>>>" + addr+result.getRegeocodeQuery().getPoint().getLatitude());
+                        MyLogger.i(">>选取地址>>>>" + addr + result.getRegeocodeQuery().getPoint().getLatitude());
                         et_addr.setText(addr);
 
                         lat = result.getRegeocodeQuery().getPoint().getLatitude() + "";
@@ -308,6 +424,22 @@ public class SelectAddressActivity extends BaseActivity {
                 if (marker != null) {
                     marker.remove();
                 }
+                break;
+            case R.id.tv_lishi:
+                //历史地址
+                tv_lishi.setTextColor(getResources().getColor(R.color.black1));
+                tv_changyong.setTextColor(getResources().getColor(R.color.black3));
+                recyclerView.setAdapter(mAdapter1);
+                break;
+            case R.id.tv_changyong:
+                //常用地址
+                tv_lishi.setTextColor(getResources().getColor(R.color.black3));
+                tv_changyong.setTextColor(getResources().getColor(R.color.black1));
+                recyclerView.setAdapter(mAdapter2);
+                break;
+            case R.id.tv_ditu:
+                //地图上选地址
+                ll_center.setVisibility(View.GONE);
                 break;
             case R.id.tv_city:
                 //选择城市

@@ -52,20 +52,20 @@ public final class R {
         public static final int center_crop = 0x7f08007e;
         public static final int center_inside = 0x7f080080;
         public static final int circleIndicator = 0x7f08008e;
-        public static final int fit_center = 0x7f0800f2;
-        public static final int fit_end = 0x7f0800f3;
-        public static final int fit_start = 0x7f0800f4;
-        public static final int fit_xy = 0x7f0800f5;
-        public static final int indicatorInside = 0x7f080129;
-        public static final int matrix = 0x7f080179;
-        public static final int numIndicator = 0x7f080192;
-        public static final int numIndicatorInside = 0x7f080193;
-        public static final int titleView = 0x7f08024b;
+        public static final int fit_center = 0x7f0800f6;
+        public static final int fit_end = 0x7f0800f7;
+        public static final int fit_start = 0x7f0800f8;
+        public static final int fit_xy = 0x7f0800f9;
+        public static final int indicatorInside = 0x7f080128;
+        public static final int matrix = 0x7f080180;
+        public static final int numIndicator = 0x7f080199;
+        public static final int numIndicatorInside = 0x7f08019a;
+        public static final int titleView = 0x7f080252;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int banner = 0x7f0b0054;
+        public static final int banner = 0x7f0b004d;
     }
     public static final class styleable {
         private styleable() {}

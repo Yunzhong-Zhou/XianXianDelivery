@@ -10,8 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+
     <!--顶部布局-->
     <LinearLayout
+        android:id="@+id/ll_top"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/blue"
@@ -41,8 +43,8 @@
             android:background="@color/transparent"
             android:hint="请选择或输入地址"
             android:imeOptions="actionSearch"
-            android:singleLine="true"
             android:paddingLeft="10dp"
+            android:singleLine="true"
             android:textColor="@color/white"
             android:textColorHint="@color/white1"
             android:textSize="15sp" />
@@ -77,9 +79,79 @@
             android:textSize="15sp" />
 
     </LinearLayout>
+    <!--中部-->
+    <LinearLayout
+        android:id="@+id/ll_center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_bottom"
+        android:layout_below="@id/ll_top"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_lishi"
+                android:onClick="onClick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="14dp"
+                android:text="历史地址"
+                android:textColor="@color/black1" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/xian" />
+
+            <TextView
+                android:id="@+id/tv_changyong"
+                android:onClick="onClick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="14dp"
+                android:text="常用地址"
+                android:textColor="@color/black3" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/xian"/>
+        <TextView
+            android:id="@+id/tv_ditu"
+            android:onClick="onClick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="在地图上选址"
+            android:textColor="@color/blue"
+            android:background="@color/white"
+            android:drawableLeft="@mipmap/ic_down_black"
+            android:drawablePadding="4dp"
+            android:padding="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/xian"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 
     <!--底部-->
     <LinearLayout
+        android:id="@+id/ll_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -199,10 +271,10 @@
                     android:layout_weight="1"
                     android:background="@color/transparent"
                     android:hint="联系电话"
+                    android:inputType="phone"
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:inputType="phone"
                     android:textColor="@color/black1"
                     android:textColorHint="@color/black3"
                     android:textSize="12sp" />
