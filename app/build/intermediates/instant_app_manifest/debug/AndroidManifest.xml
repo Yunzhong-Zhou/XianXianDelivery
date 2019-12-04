@@ -3,7 +3,7 @@
     package="com.delivery.xianxian"
     android:targetSandboxVersion="2"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="Beta1.0.1" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -113,9 +113,6 @@
             android:name="com.delivery.xianxian.activity.ForgetPasswordActivity"
             android:label="忘记密码" />
         <activity
-            android:name="com.delivery.xianxian.activity.Registered2Activity"
-            android:label="注册1" />
-        <activity
             android:name="com.delivery.xianxian.activity.RegisteredActivity"
             android:label="注册1" />
         <activity
@@ -143,8 +140,8 @@
             android:name="com.delivery.xianxian.activity.AddOtherActivity"
             android:label="添加额外需求" />
         <activity
-            android:name="com.delivery.xianxian.activity.NoticeDetailActivity"
-            android:label="公告详情" />
+            android:name="com.delivery.xianxian.activity.NoticeListActivity"
+            android:label="公告列表" />
         <activity
             android:name="com.delivery.xianxian.activity.ScoreDetailActivity"
             android:label="评分详情" />
@@ -314,11 +311,54 @@
             android:name="notch.config"
             android:value="portrait|landscape" />
 
-        <!-- 极光推送 -->
+        <!-- 极光推送 开始 -->
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:exported="true"
+            android:theme="@style/MyDialogStyle" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="cn.jpush.android.ui.PopWinActivity" />
+
+                <category android:name="com.delivery.xianxian" />
+            </intent-filter>
+        </activity>
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.delivery.xianxian" />
+            </intent-filter>
+        </activity>
+        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
         <service
-            android:name="cn.jpush.android.service.PushService"
-            android:process=":multiprocess" />
-        <!-- 极光推送 -->
+            android:name="com.delivery.xianxian.utils.jpush.PushService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore" >
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+        <receiver
+            android:name="com.delivery.xianxian.utils.jpush.MyJPushMessageReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="com.delivery.xianxian" />
+            </intent-filter>
+        </receiver>
         <receiver
             android:name="com.delivery.xianxian.utils.jpush.MyReceiver"
             android:enabled="true"
@@ -333,13 +373,8 @@
                 <category android:name="com.delivery.xianxian" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.delivery.xianxian.utils.jpush.MyJPushMessageReceiver" >
-            <intent-filter>
-                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+        <!-- 极光推送  结束 -->
 
-                <category android:name="com.delivery.xianxian" />
-            </intent-filter>
-        </receiver>
 
         <!-- 7.0限制-私有目录被限制访问 -->
         <!--
@@ -390,23 +425,20 @@
             android:name="com.lljjcoder.style.citythreelist.AreaActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-        </activity> <!-- Rich push 核心功能 since 2.0.6 -->
-        <activity
-            android:name="cn.jpush.android.ui.PopWinActivity"
+        </activity> <!-- Required SDK 核心功能 -->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
             android:exported="false"
-            android:theme="@style/MyDialogStyle" /> <!-- Required SDK核心功能 -->
-        <activity
-            android:name="cn.jpush.android.ui.PushActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:exported="false"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:process=":pushcore" >
             <intent-filter>
-                <action android:name="cn.jpush.android.ui.PushActivity" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.delivery.xianxian" />
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
             </intent-filter>
-        </activity> <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        </service> <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
         <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
         <service
             android:name="cn.jpush.android.service.DaemonService"
@@ -466,7 +498,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="ba95d1496721e1aa9aff3e91" />
+            android:value="bf795f93df693df4a6be1548" />
 
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"

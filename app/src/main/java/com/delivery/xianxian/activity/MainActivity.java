@@ -26,6 +26,7 @@ import com.delivery.xianxian.model.UpgradeModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.CommonUtil;
+import com.delivery.xianxian.utils.LocalUserInfo;
 import com.delivery.xianxian.utils.MyLogger;
 import com.delivery.xianxian.utils.permission.PermissionsActivity;
 import com.delivery.xianxian.utils.permission.PermissionsChecker;
@@ -33,10 +34,13 @@ import com.hjm.bottomtabbar.BottomTabBar;
 import com.maning.updatelibrary.InstallUtils;
 import com.squareup.okhttp.Request;
 
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import androidx.appcompat.app.AlertDialog;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 public class MainActivity extends BaseActivity {
     public static BottomTabBar mBottomTabBar;
@@ -79,6 +83,26 @@ public class MainActivity extends BaseActivity {
 
         mPermissionsChecker = new PermissionsChecker(this);
 
+        //        JPushInterface.setAlias(this, 0, LocalUserInfo.getInstance(this).getUserId());//设置别名
+        JPushInterface.setAlias(this, LocalUserInfo.getInstance(this).getUserId(), new TagAliasCallback() {
+            @Override
+            public void gotResult(int code, String alias, Set<String> tags) {
+                switch (code) {
+                    case 0:
+                        MyLogger.i("极光推送 别名设置成功");
+                        // 建议这里往 SharePreference 里写一个成功设置的状态。成功设置一次后，以后不必再次设置了。
+                        break;
+                    case 6002:
+                        MyLogger.i("由于超时而无法设置别名和标签。");
+                        // 延迟 60 秒来调用 Handler 设置别名
+//                        mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_SET_ALIAS, alias), 1000 * 60);
+                        break;
+                    default:
+                        MyLogger.i("设置别名失败：" + code);
+                        break;
+                }
+            }
+        });
     }
 
     @Override

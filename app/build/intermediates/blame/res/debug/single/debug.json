@@ -13,7 +13,7 @@
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_jpush_ic_richpush_actionbar_divider.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d0dc149e6977c989c6e375379486d4c/jpush-3.3.4/res/drawable-hdpi-v4/jpush_ic_richpush_actionbar_divider.png"
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/res/drawable-hdpi-v4/jpush_ic_richpush_actionbar_divider.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_bg_wallet_1.png.flat",
@@ -693,7 +693,7 @@
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_jpush_popwin_layout.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d0dc149e6977c989c6e375379486d4c/jpush-3.3.4/res/layout/jpush_popwin_layout.xml"
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/res/layout/jpush_popwin_layout.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanxingbiankuang_juse.xml.flat",
@@ -1077,7 +1077,7 @@
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_jpush_richpush_progressbar.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d0dc149e6977c989c6e375379486d4c/jpush-3.3.4/res/drawable-hdpi-v4/jpush_richpush_progressbar.xml"
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/res/drawable-hdpi-v4/jpush_richpush_progressbar.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_auth_chezhu_2.png.flat",
@@ -1309,7 +1309,7 @@
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_push_notification.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d0dc149e6977c989c6e375379486d4c/jpush-3.3.4/res/layout/push_notification.xml"
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/res/layout/push_notification.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/anim_abc_tooltip_enter.xml.flat",
@@ -2760,10 +2760,6 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_registered2.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_registered2.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_amap_ride.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/amap_ride.png"
     },
@@ -3445,7 +3441,7 @@
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_jpush_webview_layout.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d0dc149e6977c989c6e375379486d4c/jpush-3.3.4/res/layout/jpush_webview_layout.xml"
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/res/layout/jpush_webview_layout.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_type_select_btn_pressed.png.flat",
@@ -4112,10 +4108,6 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable/ease_chat_takepic_selector.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_noticedetail.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_noticedetail.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_citypicker.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_citypicker.xml"
     },
@@ -4221,7 +4213,7 @@
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_jpush_richpush_btn_selector.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d0dc149e6977c989c6e375379486d4c/jpush-3.3.4/res/drawable-hdpi-v4/jpush_richpush_btn_selector.xml"
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/res/drawable-hdpi-v4/jpush_richpush_btn_selector.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_circle_text.xml.flat",
@@ -4282,6 +4274,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_city_list_select.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/res/layout/activity_city_list_select.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_activity_noticelist.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_noticelist.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_cp_overlay_bg.xml.flat",
@@ -4817,7 +4813,7 @@
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_jpush_ic_richpush_actionbar_back.png.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d0dc149e6977c989c6e375379486d4c/jpush-3.3.4/res/drawable-hdpi-v4/jpush_ic_richpush_actionbar_back.png"
+        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/res/drawable-hdpi-v4/jpush_ic_richpush_actionbar_back.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",

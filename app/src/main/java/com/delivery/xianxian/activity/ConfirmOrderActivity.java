@@ -288,7 +288,7 @@ public class ConfirmOrderActivity extends BaseActivity {
             case R.id.textView10:
                 //协议
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/api/driver/article/login");
+                bundle.putString("url", HOST + "/api/article/detail-html?id=8cfd6cf28dc97604e4d8b58461461e21");
                 CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this, WebContentActivity.class, bundle, false);
                 break;
             case R.id.textView12:

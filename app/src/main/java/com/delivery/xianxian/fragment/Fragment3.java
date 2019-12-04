@@ -22,9 +22,11 @@ import com.delivery.xianxian.activity.LoginActivity;
 import com.delivery.xianxian.activity.MainActivity;
 import com.delivery.xianxian.activity.MyDriverActivity;
 import com.delivery.xianxian.activity.MyProfileActivity;
+import com.delivery.xianxian.activity.NoticeListActivity;
 import com.delivery.xianxian.activity.OrderListActivity;
 import com.delivery.xianxian.activity.ServiceCenterActivity;
 import com.delivery.xianxian.activity.WalletActivity;
+import com.delivery.xianxian.activity.WebContentActivity;
 import com.delivery.xianxian.base.BaseFragment;
 import com.delivery.xianxian.model.Fragment3Model;
 import com.delivery.xianxian.net.OkHttpClientManager;
@@ -39,6 +41,7 @@ import com.squareup.okhttp.Request;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.delivery.xianxian.net.OkHttpClientManager.HOST;
 import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
 
 /**
@@ -47,9 +50,10 @@ import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
  */
 public class Fragment3 extends BaseFragment {
     ImageView imageView1;
-    TextView textView1, textView2;
+    TextView textView1, textView2,tv_banbenhao;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5, linearLayout6,
-            linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11, linearLayout12, linearLayout13, linearLayout14;
+            linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
+            linearLayout12, linearLayout13, linearLayout14,linearLayout15;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -130,6 +134,7 @@ public class Fragment3 extends BaseFragment {
         linearLayout12 = findViewByID_My(R.id.linearLayout12);
         linearLayout13 = findViewByID_My(R.id.linearLayout13);
         linearLayout14 = findViewByID_My(R.id.linearLayout14);
+        linearLayout15 = findViewByID_My(R.id.linearLayout15);
 
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
@@ -145,7 +150,10 @@ public class Fragment3 extends BaseFragment {
         linearLayout12.setOnClickListener(this);
         linearLayout13.setOnClickListener(this);
         linearLayout14.setOnClickListener(this);
+        linearLayout15.setOnClickListener(this);
 
+        tv_banbenhao = findViewByID_My(R.id.tv_banbenhao);
+        tv_banbenhao.setText("版本号："+CommonUtil.getVersionName(getActivity()));
     }
 
     @Override
@@ -270,7 +278,9 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout9:
                 //用户协议
-
+                Bundle bundle9 = new Bundle();
+                bundle9.putString("url",HOST+"/api/article/detail-html?id=39035577c19b435689f55fde51c1f72c");
+                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class,bundle9,false);
                 break;
             case R.id.linearLayout10:
                 //收费标准
@@ -278,6 +288,9 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout11:
                 //关于我们
+                Bundle bundle11 = new Bundle();
+                bundle11.putString("url",HOST+"/api/article/detail-html?id=ed3ac8ccc07b54a37f88d965e9c70cac");
+                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class,bundle11,false);
 //                CommonUtil.gotoActivity(getActivity(), JiangLiHuoDongActivity.class);
                 break;
             case R.id.linearLayout12:
@@ -295,6 +308,10 @@ public class Fragment3 extends BaseFragment {
             case R.id.linearLayout13:
                 //会话列表
                 CommonUtil.gotoActivity(getActivity(), ChatMainActivity.class);
+                break;
+            case R.id.linearLayout15:
+                //公告列表
+                CommonUtil.gotoActivity(getActivity(), NoticeListActivity.class);
                 break;
             case R.id.linearLayout14:
                 //退出登录

@@ -2196,6 +2196,7 @@ id linearLayout11
 id linearLayout12
 id linearLayout13
 id linearLayout14
+id linearLayout15
 id linearLayout2
 id linearLayout3
 id linearLayout4
@@ -2478,6 +2479,7 @@ id tv_add
 id tv_addr
 id tv_addr1
 id tv_addr2
+id tv_banbenhao
 id tv_baocun
 id tv_cancel
 id tv_changyong
@@ -2646,7 +2648,7 @@ layout activity_jifenshangcheng
 layout activity_login
 layout activity_main
 layout activity_myprofile
-layout activity_noticedetail
+layout activity_noticelist
 layout activity_ordercancel
 layout activity_ordercanceldetail
 layout activity_orderdetails
@@ -2655,7 +2657,6 @@ layout activity_permissions
 layout activity_recharge
 layout activity_registered
 layout activity_registered1
-layout activity_registered2
 layout activity_scoredetail
 layout activity_selectaddress
 layout activity_servicecenter

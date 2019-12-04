@@ -159,7 +159,7 @@ public class LoginActivity extends BaseActivity {
             case R.id.textView4:
                 //协议
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/api/driver/article/login");
+                bundle.putString("url", HOST + "/api/article/detail-html?id=695f319cf27fca852841071e6bb7948d");
                 CommonUtil.gotoActivityWithData(LoginActivity.this, WebContentActivity.class, bundle, false);
                 break;
 

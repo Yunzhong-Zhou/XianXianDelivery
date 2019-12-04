@@ -116,7 +116,7 @@ public class RegisteredActivity extends BaseActivity {
             case R.id.textView4:
                 //用户注册协议
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/api/owner/article/gvrp");
+                bundle.putString("url", HOST + "/api/article/detail-html?id=dc8e69cd0e22f7ceb7f737f003f3c947");
                 CommonUtil.gotoActivityWithData(RegisteredActivity.this, WebContentActivity.class, bundle, false);
 
                 break;
