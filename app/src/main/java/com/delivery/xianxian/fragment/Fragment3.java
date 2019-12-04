@@ -15,7 +15,6 @@ import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.activity.ChangePasswordActivity;
 import com.delivery.xianxian.activity.ChatMainActivity;
-import com.delivery.xianxian.activity.FeeModelActivity;
 import com.delivery.xianxian.activity.InvoiceActivity;
 import com.delivery.xianxian.activity.JiFenShangChengActivity;
 import com.delivery.xianxian.activity.LoginActivity;
@@ -284,7 +283,10 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout10:
                 //收费标准
-                CommonUtil.gotoActivity(getActivity(), FeeModelActivity.class);
+//                CommonUtil.gotoActivity(getActivity(), FeeModelActivity.class);
+                Bundle bundle10 = new Bundle();
+                bundle10.putString("url",HOST+"/api/article/detail-html?id=afde4f3f93b6b4444c62e000c5ea317d");
+                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class,bundle10,false);
                 break;
             case R.id.linearLayout11:
                 //关于我们

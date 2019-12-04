@@ -75,7 +75,7 @@ public class AppraiseModel implements Serializable {
         private String mobile;
         private String head;
         private String comment_score;
-        private String card_number;
+        private String car_number;
         private String hx_username;
         private String money;
         private String use_type;
@@ -112,12 +112,12 @@ public class AppraiseModel implements Serializable {
             this.comment_score = comment_score;
         }
 
-        public String getCard_number() {
-            return card_number;
+        public String getCar_number() {
+            return car_number;
         }
 
-        public void setCard_number(String card_number) {
-            this.card_number = card_number;
+        public void setCar_number(String car_number) {
+            this.car_number = car_number;
         }
 
         public String getHx_username() {

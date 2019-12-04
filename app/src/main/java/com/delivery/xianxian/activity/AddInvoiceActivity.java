@@ -10,13 +10,22 @@ import android.widget.TextView;
 
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
+import com.delivery.xianxian.model.ConfirmOrderModel;
+import com.delivery.xianxian.net.OkHttpClientManager;
+import com.delivery.xianxian.net.URLs;
+import com.delivery.xianxian.utils.MyLogger;
+import com.squareup.okhttp.Request;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by zyz on 2019-11-21.
  * 确认开票
  */
 public class AddInvoiceActivity extends BaseActivity {
-    String id = "", head_up = "", duty_paragraph = "", bank = "", reg_addr = "", phone = "", price = "", tax_point = "", tax_amount = "";
+    String t_indent_ids = "", head_up = "", duty_paragraph = "", bank = "",bank_account = "", reg_addr = "", phone = "", mobile = "", email = "",
+            price = "", tax_point = "", tax_amount = "";
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5, linearLayout6,
             linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11, linearLayout12;
     ImageView imageView1, imageView2, imageView3, imageView4;
@@ -69,7 +78,12 @@ public class AddInvoiceActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        id = getIntent().getStringExtra("id");
+        t_indent_ids = getIntent().getStringExtra("t_indent_ids");
+        /*price = getIntent().getStringExtra("price");
+        tax_point = getIntent().getStringExtra("tax_point");
+        tax_amount = getIntent().getStringExtra("tax_amount");
+        textView1.setText("价格：￥" + price + " 税点：" + tax_point + "% 税额：" + tax_amount+"元");*/
+
     }
 
     @Override
@@ -102,7 +116,23 @@ public class AddInvoiceActivity extends BaseActivity {
                 break;
             case R.id.textView2:
                 if (match()) {
-
+                    Map<String, String> params = new HashMap<>();
+                    params.put("token", localUserInfo.getToken());
+                    params.put("t_indent_ids", t_indent_ids);
+                    params.put("invoice_type", invoice_type + "");
+                    params.put("head_up_type", head_up_type + "");
+                    params.put("head_up", head_up);
+                    params.put("duty_paragraph", duty_paragraph);
+                    params.put("bank", bank);
+                    params.put("bank_account", bank_account);
+                    params.put("reg_addr", reg_addr);
+                    params.put("phone", phone);
+                    params.put("mobile", mobile);
+                    params.put("email", email);
+                    params.put("price", price);
+                    params.put("tax_point", tax_point);
+                    params.put("tax_amount", tax_amount);
+                    RequestAdd(params);
                 }
                 break;
         }
@@ -146,23 +176,60 @@ public class AddInvoiceActivity extends BaseActivity {
             myToast("请输入纳税人识别号");
             return false;
         }
-        bank = editText5.getText().toString().trim();
-        if (TextUtils.isEmpty(bank)) {
-            myToast("请输入开户银行");
-            return false;
+        if (invoice_type == 1){
+            mobile = editText3.getText().toString().trim();
+            if (TextUtils.isEmpty(mobile)) {
+                myToast("请输入接受号码");
+                return false;
+            }
+            email = editText4.getText().toString().trim();
+            if (TextUtils.isEmpty(email)) {
+                myToast("请输入接受邮箱");
+                return false;
+            }
+        }else {
+            bank = editText5.getText().toString().trim();
+            if (TextUtils.isEmpty(bank)) {
+                myToast("请输入开户银行");
+                return false;
+            }
+            bank_account = editText6.getText().toString().trim();
+            if (TextUtils.isEmpty(bank_account)) {
+                myToast("请输入银行卡号");
+                return false;
+            }
+            reg_addr = editText7.getText().toString().trim();
+            if (TextUtils.isEmpty(reg_addr)) {
+                myToast("请输入注册地址");
+                return false;
+            }
+            phone = editText8.getText().toString().trim();
+            if (TextUtils.isEmpty(phone)) {
+                myToast("请输入固定电话");
+                return false;
+            }
         }
-        reg_addr = editText7.getText().toString().trim();
-        if (TextUtils.isEmpty(reg_addr)) {
-            myToast("请输入注册地址");
-            return false;
-        }
-        phone = editText8.getText().toString().trim();
-        if (TextUtils.isEmpty(phone)) {
-            myToast("请输入固定电话");
-            return false;
-        }
-
         return true;
+    }
+
+    private void RequestAdd(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(AddInvoiceActivity.this, URLs.AddInvoice, params, new OkHttpClientManager.ResultCallback<ConfirmOrderModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(ConfirmOrderModel response) {
+                MyLogger.i(">>>>>>>>>开票" + response);
+                hideProgress();
+                myToast("开票成功");
+                finish();
+            }
+        });
     }
 
     @Override

@@ -147,7 +147,7 @@ public class AppraiseActivity extends BaseActivity {
                             .into(imageView1);//加载图片
                 textView1.setText(response.getDriver_info().getNickname());//昵称
                 textView2.setText("评分" + response.getDriver_info().getComment_score());//评分
-                textView3.setText("" + response.getDriver_info().getCard_number());//车牌
+                textView3.setText("" + response.getDriver_info().getCar_number());//车牌
                 textView4.setText(response.getDriver_info().getUse_type());//类型
                 textView5.setText("¥" + response.getDriver_info().getMoney());//金额
 

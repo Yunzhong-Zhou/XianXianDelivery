@@ -25,6 +25,24 @@ public class InvoiceModel implements Serializable {
     private String start;
     private String end;
     private String price;
+    private String tax_point;
+    private String tax_amount;
+
+    public String getTax_point() {
+        return tax_point;
+    }
+
+    public void setTax_point(String tax_point) {
+        this.tax_point = tax_point;
+    }
+
+    public String getTax_amount() {
+        return tax_amount;
+    }
+
+    public void setTax_amount(String tax_amount) {
+        this.tax_amount = tax_amount;
+    }
 
     private int isgouxuan;
 

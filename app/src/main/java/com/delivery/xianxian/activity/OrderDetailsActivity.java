@@ -633,14 +633,12 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 dialog.findViewById(R.id.textView4).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                         if (model.getTindent().getConfirm_attach_data().getNeed_pay() == 1){
                             //可支付
                             dialog.dismiss();
                             Map<String, String> params = new HashMap<>();
                             params.put("token", localUserInfo.getToken());
-//                            params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
-                            params.put("t_indent_id", model.getTindent().getId());
+                            params.put("t_indent_confirm_id", model.getTindent().getConfirm_attach_data().getIdX());
                             params.put("type", "5");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
                             RequestConfirm(params);
                         }

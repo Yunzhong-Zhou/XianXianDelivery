@@ -120,7 +120,7 @@ public class Fragment1 extends BaseFragment {
     TextView tv_kuaidi_type1, tv_kuaidi_type2, tv_kuaidi_type3, tv_kuaidi_type4,
             tv_fahuo_name, tv_fahuo_mobile, tv_shouhuo_name, tv_shouhuo_mobile;
     ImageView iv_kuaidi_kaiguan;
-    boolean isShongHuo = true;
+    String goods_send_home = "1";//1是2否
     String goods_name = "", goods_quantity = "", goods_weight = "", goods_bulk = "";
 
     @Override
@@ -723,10 +723,11 @@ public class Fragment1 extends BaseFragment {
                 break;
             case R.id.iv_kuaidi_kaiguan:
                 //是否需要送货上门
-                isShongHuo = !isShongHuo;
-                if (isShongHuo) {
+                if (goods_send_home.equals("2")) {
+                    goods_send_home = "1";
                     iv_kuaidi_kaiguan.setImageResource(R.mipmap.ic_kai);
                 } else {
+                    goods_send_home = "2";
                     iv_kuaidi_kaiguan.setImageResource(R.mipmap.ic_guan);
                 }
                 break;
@@ -986,6 +987,7 @@ public class Fragment1 extends BaseFragment {
                 bundle5.putString("goods_quantity", goods_quantity);//总件数
                 bundle5.putString("goods_weight", goods_weight);//总重量
                 bundle5.putString("goods_bulk", goods_bulk);//总体积
+                bundle5.putString("goods_send_home", goods_send_home);//是否送货
                 bundle5.putSerializable("AddFeeModel", response);
                 CommonUtil.gotoActivityWithData(getActivity(), ConfirmOrderActivity.class, bundle5, false);
             }

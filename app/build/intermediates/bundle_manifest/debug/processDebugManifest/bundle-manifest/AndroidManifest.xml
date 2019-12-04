@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
     android:versionCode="1"
-    android:versionName="Beta1.0.1" >
+    android:versionName="Beta1.0.3" >
 
     <uses-sdk
         android:minSdkVersion="19"

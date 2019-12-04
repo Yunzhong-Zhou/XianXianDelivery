@@ -552,16 +552,16 @@ public class OrderDetailsModel implements Serializable {
              */
 
             @SerializedName("id")
-            private int idX;
+            private String idX;
             private int need_pay;
             private String money;
             private List<DetailBean> detail;
 
-            public int getIdX() {
+            public String getIdX() {
                 return idX;
             }
 
-            public void setIdX(int idX) {
+            public void setIdX(String idX) {
                 this.idX = idX;
             }
 

@@ -271,9 +271,9 @@ public class URLs {
      */
     public static final String MyPoster = "/api/index/share";
     /**
-     * 创建转币（获取可用金额）
+     * 开票
      */
-    public static final String Transfer = "/api/transfer/create";
+    public static final String AddInvoice = "/api/owner/center/apply-invoice-create";
     /**
      * 我的司机
      */

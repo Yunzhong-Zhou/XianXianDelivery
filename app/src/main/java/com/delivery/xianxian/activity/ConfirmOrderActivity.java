@@ -53,7 +53,7 @@ public class ConfirmOrderActivity extends BaseActivity {
     String city = "", car_type_id = "", use_type = "", is_plan = "", plan_time = "", addr_ids = "",
             temperature = "", name = "", mobile = "", urgent_fee = "0", remark = "", other = "",
             contacts_name = "",contacts_mobile = "",
-            goods_name = "", goods_quantity = "", goods_weight = "", goods_bulk = "";
+            goods_name = "", goods_quantity = "", goods_weight = "", goods_bulk = "",goods_send_home = "";
     TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12;
 
@@ -108,6 +108,7 @@ public class ConfirmOrderActivity extends BaseActivity {
         goods_weight = getIntent().getStringExtra("goods_weight");
         goods_quantity = getIntent().getStringExtra("goods_quantity");
         goods_bulk = getIntent().getStringExtra("goods_bulk");
+        goods_send_home = getIntent().getStringExtra("goods_send_home");
 
         textView6.setText(plan_time);
         textView11.setText("合计费用：￥" + model.getPrice());
@@ -329,6 +330,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                     params.put("goods_weight", goods_weight);
                     params.put("goods_quantity", goods_quantity);
                     params.put("goods_bulk", goods_bulk);
+                    params.put("goods_send_home", goods_send_home);
                     RequestAdd(params);
                 }
 

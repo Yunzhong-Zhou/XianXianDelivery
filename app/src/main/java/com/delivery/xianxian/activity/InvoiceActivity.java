@@ -182,9 +182,12 @@ public class InvoiceActivity extends BaseActivity {
                                         }
                                         mAdapter.notifyDataSetChanged();
 
-                                        Bundle bundle = new Bundle();
+                                        /*Bundle bundle = new Bundle();
                                         bundle.putString("id", list.get(i).getT_indent_id());
-                                        CommonUtil.gotoActivityWithData(InvoiceActivity.this, AddInvoiceActivity.class, bundle);
+                                        bundle.putString("price", list.get(i).getPrice());
+                                        bundle.putString("tax_point", list.get(i).getTax_point());
+                                        bundle.putString("tax_amount", list.get(i).getTax_amount());
+                                        CommonUtil.gotoActivityWithData(InvoiceActivity.this, AddInvoiceActivity.class, bundle);*/
                                     }
 
                                     @Override
@@ -261,7 +264,16 @@ public class InvoiceActivity extends BaseActivity {
                 break;
             case R.id.textView:
                 //确认开票
-
+                String t_indent_ids = "";
+                for (int i = 0; i < list.size(); i++) {
+                    t_indent_ids = t_indent_ids + list.get(i).getT_indent_id() + ",";
+                }
+                if (t_indent_ids.length() > 0) {
+                    t_indent_ids = t_indent_ids.substring(0, t_indent_ids.length() - 1);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("t_indent_ids", t_indent_ids);
+                    CommonUtil.gotoActivityWithData(InvoiceActivity.this, AddInvoiceActivity.class, bundle);
+                }
                 break;
 
         }
