@@ -105,7 +105,7 @@ public class WalletActivity extends BaseActivity {
             public void onResponse(WalletModel response) {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>钱包" + response);
-                textView1.setText(response.getMoney());//昵称
+                textView1.setText(response.getMoney());//余额
                 list = response.getCoupon_list();
                 if (list.size() > 0) {
                     showContentPage();
@@ -117,6 +117,15 @@ public class WalletActivity extends BaseActivity {
                             holder.setText(R.id.textView2, model.getTitle());
 //                            TextView textView3 = holder.getView(R.id.textView3);
                             holder.setText(R.id.textView4, "有效期："+model.getExpired_at());
+
+                            TextView textView3 = holder.getView(R.id.textView3);
+                            textView3.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    MainActivity.item = 0;
+                                    CommonUtil.gotoActivityWithFinishOtherAll(WalletActivity.this,MainActivity.class,true);
+                                }
+                            });
                         }
                     };
                     recyclerView.setAdapter(mAdapter);

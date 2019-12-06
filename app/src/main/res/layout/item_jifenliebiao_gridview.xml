@@ -35,6 +35,7 @@
         android:layout_marginRight="5dp"
         android:layout_weight="1"
         android:minLines="2"
+        android:maxLines="2"
         android:text="详细描述，文案展示"
         android:textColor="@color/black3"
         android:textSize="12sp" />

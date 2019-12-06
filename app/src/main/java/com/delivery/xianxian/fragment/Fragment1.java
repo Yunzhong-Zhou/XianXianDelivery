@@ -218,9 +218,8 @@ public class Fragment1 extends BaseFragment {
         tv_tujingdian.setOnClickListener(this);
         ll_add = findViewByID_My(R.id.ll_add);
         tv_time = findViewByID_My(R.id.tv_time);
-        tv_time.setOnClickListener(this);
         ll_time2 = findViewByID_My(R.id.ll_time2);
-
+        ll_time2.setOnClickListener(this);
         //下一步
         tv_detail = findViewByID_My(R.id.tv_detail);
         tv_detail.setOnClickListener(this);
@@ -230,7 +229,7 @@ public class Fragment1 extends BaseFragment {
         //用车时间-顺风车
         ll_time3 = findViewByID_My(R.id.ll_time3);
         tv_time3 = findViewByID_My(R.id.tv_time3);
-
+        ll_time3.setOnClickListener(this);
         //快递信息
         ll_kuaidi = findViewByID_My(R.id.ll_kuaidi);
         tv_kuaidi_type1 = findViewByID_My(R.id.tv_kuaidi_type1);
@@ -542,7 +541,7 @@ public class Fragment1 extends BaseFragment {
                 intent3.putExtras(bundle3);
                 startActivityForResult(intent3, 10003, bundle3);
                 break;
-            case R.id.tv_time:
+            case R.id.ll_time2:
                 //预约时间
                 setDate("选择预约时间", tv_time);
                 break;
@@ -568,7 +567,7 @@ public class Fragment1 extends BaseFragment {
                     RequestAdd(params);
                 }
                 break;
-            case R.id.tv_time3:
+            case R.id.ll_time3:
                 //用车时间-顺风车
                 setDate("选择用车时间", tv_time3);
                 break;

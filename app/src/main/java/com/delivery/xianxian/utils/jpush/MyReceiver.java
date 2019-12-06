@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import com.delivery.xianxian.activity.NoticeListActivity;
+import com.delivery.xianxian.activity.OrderDetailsActivity;
 import com.delivery.xianxian.activity.WebContentActivity;
+import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 
 import org.json.JSONException;
@@ -26,7 +29,7 @@ import cn.jpush.android.api.JPushInterface;
 public class MyReceiver extends BroadcastReceiver {
 	private static final String TAG = "收到的消息推送";
 
-	static String url = "";
+	static String model = "";
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -51,7 +54,7 @@ public class MyReceiver extends BroadcastReceiver {
 			} else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
 				MyLogger.i(TAG, "[MyReceiver] 用户点击打开了通知");
 
-				//打开自定义的Activity
+				/*//打开自定义的Activity
 				Intent i = new Intent(context, WebContentActivity.class);
 				bundle.putString("url", url);
 //                    bundle.putString("article_id", "");
@@ -59,7 +62,33 @@ public class MyReceiver extends BroadcastReceiver {
 				i.putExtras(bundle);
 //				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
-				context.startActivity(i);
+				context.startActivity(i);*/
+				//解析数据
+				JSONObject jObj = new JSONObject(model);
+				String type = jObj.getString("type");
+				String t_indent_id = jObj.getString("t_indent_id");
+				String url = jObj.getString("url");
+				MyLogger.i(">>>>>>>>>type:" + type);
+				MyLogger.i(">>>>>>>>>t_indent_id:" + t_indent_id);
+				MyLogger.i(">>>>>>>>>url:" + url);
+				switch (type) {
+					case "1":
+						//订单详情
+						Bundle bundle1 = new Bundle();
+						bundle1.putString("id", t_indent_id);
+						CommonUtil.gotoActivityWithData(context, OrderDetailsActivity.class, bundle1);
+						break;
+					case "2":
+					case "4":
+						//网页
+						Bundle bundle2 = new Bundle();
+						bundle2.putString("url", url);
+						CommonUtil.gotoActivityWithData(context, WebContentActivity.class, bundle2);
+						break;
+					case "3":
+						CommonUtil.gotoActivity(context, NoticeListActivity.class);
+						break;
+				}
 
 			} else if (JPushInterface.ACTION_RICHPUSH_CALLBACK.equals(intent.getAction())) {
 				MyLogger.i(TAG, "[MyReceiver] 用户收到到RICH PUSH CALLBACK: " + bundle.getString(JPushInterface.EXTRA_EXTRA));
@@ -100,7 +129,7 @@ public class MyReceiver extends BroadcastReceiver {
 								myKey + " - " +json.optString(myKey) + "]");
 
 						MyLogger.i(">>>>>>>>>"+json.optString(myKey));
-						url = json.optString(myKey)+"";
+						model = json.optString(myKey)+"";
 
 					}
 				} catch (JSONException e) {

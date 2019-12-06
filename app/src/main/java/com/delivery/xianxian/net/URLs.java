@@ -156,7 +156,7 @@ public class URLs {
     /**
      * 修改密码
      */
-    public static final String ChangePassword = "/api/owner/center/reset-password";
+    public static final String ChangePassword = "/api/owner/center/update-password";
     /**
      * 钱包地址（get）
      */
@@ -241,7 +241,7 @@ public class URLs {
     /**
      * 公告详情
      */
-    public static final String NoticeDetail = "/api/owner/message";
+    public static final String NoticeDetail = "/api/owner/center/my-message";
     /**
      * 评分详情
      */
@@ -261,7 +261,7 @@ public class URLs {
     /**
      * 在线客服
      */
-    public static final String OnlineService = "/api/leave-message/record";
+    public static final String ServiceCenter = "/api/owner/server";
     /**
      * 添加留言
      */

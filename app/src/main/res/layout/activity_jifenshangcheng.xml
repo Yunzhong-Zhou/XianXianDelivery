@@ -125,37 +125,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"/>
-
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:onClick="onClick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="23dp"
-            android:paddingBottom="30dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_jifenshangcheng_2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="兑加油"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
             android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -174,6 +145,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="兑话费"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:onClick="onClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="23dp"
+            android:paddingBottom="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_jifenshangcheng_2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="兑加油"
                 android:textSize="14sp" />
 
         </LinearLayout>

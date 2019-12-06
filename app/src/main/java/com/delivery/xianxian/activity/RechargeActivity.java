@@ -189,7 +189,7 @@ public class RechargeActivity extends BaseActivity {
             public void onResponse(ConfirmOrderModel response) {
                 MyLogger.i(">>>>>>>>>充值" + response);
                 hideProgress();
-                myToast("获取充值信息成功");
+                myToast("订单提交成功，等待后台审核");
                 //弹出支付宝
 
             }

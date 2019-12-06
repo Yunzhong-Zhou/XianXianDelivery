@@ -65,7 +65,7 @@ public class MyProfileActivity extends BaseActivity {
     String phonenum = "", code = "", industry = "";
 
     MyProfileModel model;
-    int i1 = 0;
+    int i1 = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +77,6 @@ public class MyProfileActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //获取个人信息
-        showProgress(true, getString(R.string.app_loading));
-        requestInfo("?token=" + localUserInfo.getToken());
     }
 
     @Override
@@ -94,6 +91,9 @@ public class MyProfileActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        //获取个人信息
+        showProgress(true, getString(R.string.app_loading));
+        requestInfo("?token=" + localUserInfo.getToken());
         time = new TimeCount(60000, 1000);//构造CountDownTimer对象
     }
 

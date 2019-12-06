@@ -30,7 +30,6 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
         android:padding="15dp"
         android:src="@mipmap/ic_gouxuan" />
 
