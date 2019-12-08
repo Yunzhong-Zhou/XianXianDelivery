@@ -1,12 +1,17 @@
 package com.delivery.xianxian.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alipay.sdk.app.PayTask;
 import com.bumptech.glide.Glide;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.adapter.Recharge_GridViewAdapter;
@@ -16,6 +21,7 @@ import com.delivery.xianxian.model.RechargeModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.MyLogger;
+import com.delivery.xianxian.utils.alipay.PayResult;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
@@ -46,6 +52,35 @@ public class RechargeActivity extends BaseActivity {
 
     String pay_type = "", money = "";
 
+    private static final int SDK_PAY_FLAG = 1;
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler = new Handler() {
+        @SuppressWarnings("unused")
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SDK_PAY_FLAG: {
+                    @SuppressWarnings("unchecked")
+                    PayResult payResult = new PayResult((Map<String, String>) msg.obj);
+                    /**
+                     * 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。
+                     */
+                    String resultInfo = payResult.getResult();// 同步返回需要验证的信息
+                    String resultStatus = payResult.getResultStatus();
+                    // 判断resultStatus 为9000则代表支付成功
+                    if (TextUtils.equals(resultStatus, "9000")) {
+                        // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
+                        showToast("支付成功"+payResult);
+                    } else {
+                        // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
+                        showToast("支付失败" + payResult);
+                    }
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -189,9 +224,24 @@ public class RechargeActivity extends BaseActivity {
             public void onResponse(ConfirmOrderModel response) {
                 MyLogger.i(">>>>>>>>>充值" + response);
                 hideProgress();
-                myToast("订单提交成功，等待后台审核");
-                //弹出支付宝
+//                myToast("订单提交成功，等待后台审核");
 
+                //弹出支付宝
+                Runnable payRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        PayTask alipay = new PayTask(RechargeActivity.this);
+                        Map <String,String> result = alipay.payV2(response.get,true);
+
+                        Message msg = new Message();
+                        msg.what = SDK_PAY_FLAG;
+                        msg.obj = result;
+                        mHandler.sendMessage(msg);
+                    }
+                };
+                // 必须异步调用
+                Thread payThread = new Thread(payRunnable);
+                payThread.start();
             }
         });
     }
