@@ -155,6 +155,10 @@ com/alibaba/fastjson/support/spring/annotation/FastJsonFilter.class
 com/alibaba/fastjson/support/spring/annotation/FastJsonView.class
 com/alibaba/fastjson/support/spring/annotation/ResponseJSONP.class
 com/alibaba/idst/nls/internal/protocol/NlsRequest.class
+com/alipay/mobile/framework/service/annotation/OperationType.class
+com/alipay/mobile/framework/service/annotation/ResetCookie.class
+com/alipay/mobile/framework/service/annotation/UpdateDeviceInfo.class
+com/alipay/sdk/util/annotation/a.class
 com/amap/api/col/n3/be.class
 com/amap/api/col/n3/g$1.class
 com/amap/api/col/n3/g.class

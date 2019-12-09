@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
-    android:versionCode="1"
-    android:versionName="Beta1.0.3" >
+    android:versionCode="2"
+    android:versionName="Beta1.0.4" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -503,7 +503,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="bf795f93df693df4a6be1548" />
+            android:value="e3e139ef999980e9367ca143" />
 
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"

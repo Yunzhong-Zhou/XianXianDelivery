@@ -224,14 +224,14 @@ public class RechargeActivity extends BaseActivity {
             public void onResponse(ConfirmOrderModel response) {
                 MyLogger.i(">>>>>>>>>充值" + response);
                 hideProgress();
-//                myToast("订单提交成功，等待后台审核");
+                myToast("订单提交成功，等待后台审核");
 
                 //弹出支付宝
                 Runnable payRunnable = new Runnable() {
                     @Override
                     public void run() {
                         PayTask alipay = new PayTask(RechargeActivity.this);
-                        Map <String,String> result = alipay.payV2(response.get,true);
+                        Map <String,String> result = alipay.payV2("",true);
 
                         Message msg = new Message();
                         msg.what = SDK_PAY_FLAG;

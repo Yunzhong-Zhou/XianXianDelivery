@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.delivery.xianxian"
-4    android:versionCode="1"
-5    android:versionName="Beta1.0.3" >
+4    android:versionCode="2"
+5    android:versionName="Beta1.0.4" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
@@ -944,7 +944,7 @@
 504-->[cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:150:9-152:47
 505            android:name="JPUSH_APPKEY"
 505-->[cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:151:13-40
-506            android:value="bf795f93df693df4a6be1548" />
+506            android:value="e3e139ef999980e9367ca143" />
 506-->[cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:152:13-44
 507
 508        <activity

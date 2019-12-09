@@ -7,8 +7,8 @@ android {
         applicationId "com.delivery.xianxian"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 1
-        versionName "Beta1.0.3"
+        versionCode 2
+        versionName "Beta1.0.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
@@ -19,7 +19,7 @@ android {
 
         manifestPlaceholders = [
                 JPUSH_PKGNAME: applicationId,
-                JPUSH_APPKEY : "bf795f93df693df4a6be1548", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_APPKEY : "e3e139ef999980e9367ca143", //JPush 上注册的包名对应的 Appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
 
