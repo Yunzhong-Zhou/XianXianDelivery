@@ -499,6 +499,7 @@ public class Fragment1 extends BaseFragment {
             case R.id.tv_now:
                 //现在用车
                 is_plan = "2";
+                plan_time = "";
                 tv_now.setBackgroundResource(R.drawable.yuanjiao_10_lanse_left);
                 tv_next.setBackgroundResource(R.drawable.yuanjiao_10_huise_right);
                 tv_now.setTextColor(getResources().getColor(R.color.white));
@@ -569,6 +570,7 @@ public class Fragment1 extends BaseFragment {
                 break;
             case R.id.ll_time3:
                 //用车时间-顺风车
+                is_plan = "1";
                 setDate("选择用车时间", tv_time3);
                 break;
 

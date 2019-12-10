@@ -64,6 +64,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -263,6 +264,17 @@ public class SelectAddressActivity extends BaseActivity {
                         holder.setText(R.id.tv2, model.getAddr_detail());
                         holder.setText(R.id.tv3, model.getName());
                         holder.setText(R.id.tv4, model.getMobile());
+                        //删除地址
+                        TextView tv_delete = holder.getView(R.id.tv_delete);
+                        tv_delete.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("id", list1.get(position).getId() + "");
+                                RequestDelete(params,1,position);
+                            }
+                        });
                     }
                 };
                 mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
@@ -295,6 +307,17 @@ public class SelectAddressActivity extends BaseActivity {
                         holder.setText(R.id.tv2, model.getAddr_detail());
                         holder.setText(R.id.tv3, model.getName());
                         holder.setText(R.id.tv4, model.getMobile());
+                        //删除地址
+                        TextView tv_delete = holder.getView(R.id.tv_delete);
+                        tv_delete.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("id", list2.get(position).getId() + "");
+                                RequestDelete(params,2,position);
+                            }
+                        });
                     }
                 };
                 mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
@@ -529,6 +552,30 @@ public class SelectAddressActivity extends BaseActivity {
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
+                }
+            }
+        }, false);
+
+    }
+    private void RequestDelete(Map<String, String> params,int type,int position) {
+        OkHttpClientManager.postAsyn(SelectAddressActivity.this, URLs.DeleteAddress, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(final Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+                MyLogger.i(">>>>>>>>>删除地址" + response);
+                if (type ==1){
+                    list1.remove(position);
+                    mAdapter1.notifyDataSetChanged();
+                }else {
+                    list2.remove(position);
+                    mAdapter2.notifyDataSetChanged();
                 }
             }
         }, false);

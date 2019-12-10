@@ -110,7 +110,12 @@ public class ConfirmOrderActivity extends BaseActivity {
         goods_bulk = getIntent().getStringExtra("goods_bulk");
         goods_send_home = getIntent().getStringExtra("goods_send_home");
 
-        textView6.setText(plan_time);
+        if (is_plan.equals("1")&&!plan_time.equals("")){
+            textView6.setText(plan_time);
+        }else {
+            textView6.setText("现在用车");
+        }
+
         textView11.setText("合计费用：￥" + model.getPrice());
 
         textView7.setText(localUserInfo.getNickname());

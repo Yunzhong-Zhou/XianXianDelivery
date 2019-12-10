@@ -124,6 +124,10 @@ public class URLs {
      */
     public static final String AddAddress = "/api/owner/addr-create";
     /**
+     * 删除地址
+     */
+    public static final String DeleteAddress = "/api/owner/addr-delete";
+    /**
      * 常用地址
      */
     public static final String SelectAddress = "/api/owner/addr";
