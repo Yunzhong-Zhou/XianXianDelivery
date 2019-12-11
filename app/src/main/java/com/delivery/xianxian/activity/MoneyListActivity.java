@@ -118,10 +118,10 @@ public class MoneyListActivity extends BaseActivity {
                                 holder.setText(R.id.tv2, model.getCreated_at());
                                 TextView tv3 = holder.getView(R.id.tv3);
                                 if (model.getOut_in() == 1){
-                                    tv3.setText("-¥" + model.getMoney());
+                                    tv3.setText("+¥" + model.getMoney());
                                     tv3.setTextColor(getResources().getColor(R.color.black1));
                                 }else {
-                                    tv3.setText("+¥" + model.getMoney());
+                                    tv3.setText("-¥" + model.getMoney());
                                     tv3.setTextColor(getResources().getColor(R.color.red));
                                 }
 

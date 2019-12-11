@@ -49,6 +49,9 @@ public class LocalUserInfo {
 
     public static final String ISNEWCOMER = "isNewcomer";//是否为新用户
 
+    public static final String ISORDERTRUE = "isOrderTrue";//是否下单成功//0未成功，1成功
+
+
     private static SharedPreferences mSharedPreferences;
     private static LocalUserInfo localUserInfo;
     private static Editor editor;
@@ -190,6 +193,11 @@ public class LocalUserInfo {
     //设置是否为新人
     public void setIsnewcomer(String string) {
         editor.putString(ISNEWCOMER, string);
+        editor.commit();
+    }
+    //设置是否下单成功
+    public void setIsordertrue(String string) {
+        editor.putString(ISORDERTRUE, string);
         editor.commit();
     }
     //保存城市
@@ -598,12 +606,21 @@ public class LocalUserInfo {
         }
         return "";
     }
+    //是否为新人
     public String getIsnewcomer(){
         String string=getString(ISNEWCOMER);
         if (!TextUtils.isEmpty(string)) {
             return string;
         }
         return "";
+    }
+    //是否下单成功
+    public String getIsordertrue(){
+        String string=getString(ISORDERTRUE);
+        if (!TextUtils.isEmpty(string)) {
+            return string;
+        }
+        return "0";
     }
 
 

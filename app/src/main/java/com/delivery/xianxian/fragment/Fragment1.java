@@ -138,6 +138,23 @@ public class Fragment1 extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        if (localUserInfo.getIsordertrue().equals("1")){
+            //是否下单成功//0未成功，1成功
+            tv_qidian.setText("");
+            startAddr_id = "";
+
+            tv_zhongdian.setText("");
+            endAddr_id = "";
+
+            ll_add.removeAllViews();
+            addr_ids = "";
+
+            tv_time.setText("");
+            tv_time3.setText("");
+            plan_time = "";
+
+            localUserInfo.setIsordertrue("0");//是否下单成功//0未成功，1成功
+        }
         if (MainActivity.item == 0) {
             requestServer();
         }
@@ -845,7 +862,7 @@ public class Fragment1 extends BaseFragment {
                 textView.setText(CommonUtil.getTime1(date));
             }
         })
-                .setType(new boolean[]{false, true, true, true, true, false})// 默认全部显示
+                .setType(new boolean[]{true, true, true, true, true, false})// 默认全部显示
                 .setCancelText("取消")//取消按钮文字
                 .setSubmitText("确定")//确认按钮文字
                 .setContentTextSize(15)//滚轮文字大小
@@ -973,6 +990,8 @@ public class Fragment1 extends BaseFragment {
                 MyLogger.i(">>>>>>>>>计算费用" + response);
                 hideProgress();
                 model = response;
+                localUserInfo.setIsordertrue("0");//是否下单成功//0未成功，1成功
+
                 Bundle bundle5 = new Bundle();
                 bundle5.putString("city", city);
                 bundle5.putString("car_type_id", carTypeList.get(item).getId() + "");//车型id

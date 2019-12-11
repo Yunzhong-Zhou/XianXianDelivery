@@ -70,7 +70,7 @@ public class FeeDetailActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle("费用详情");
+        titleView.setTitle("价格明细");
         titleView.showRightTextview("收费标准", new View.OnClickListener() {
             @Override
             public void onClick(View v) {

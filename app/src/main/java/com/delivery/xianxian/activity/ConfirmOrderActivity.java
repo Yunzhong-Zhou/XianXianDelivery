@@ -52,8 +52,8 @@ public class ConfirmOrderActivity extends BaseActivity {
     AddFeeModel model;
     String city = "", car_type_id = "", use_type = "", is_plan = "", plan_time = "", addr_ids = "",
             temperature = "", name = "", mobile = "", urgent_fee = "0", remark = "", other = "",
-            contacts_name = "",contacts_mobile = "",
-            goods_name = "", goods_quantity = "", goods_weight = "", goods_bulk = "",goods_send_home = "";
+            contacts_name = "", contacts_mobile = "",
+            goods_name = "", goods_quantity = "", goods_weight = "", goods_bulk = "", goods_send_home = "";
     TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12;
 
@@ -61,6 +61,8 @@ public class ConfirmOrderActivity extends BaseActivity {
     boolean isgouxuan = true;
 
     int pay_item = 0;
+
+    double money = 0, money1 = 0, money2 = 0;//合计费用，提前预冷费，加急费
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,13 +112,14 @@ public class ConfirmOrderActivity extends BaseActivity {
         goods_bulk = getIntent().getStringExtra("goods_bulk");
         goods_send_home = getIntent().getStringExtra("goods_send_home");
 
-        if (is_plan.equals("1")&&!plan_time.equals("")){
+        if (is_plan.equals("1") && !plan_time.equals("")) {
             textView6.setText(plan_time);
-        }else {
+        } else {
             textView6.setText("现在用车");
         }
 
-        textView11.setText("合计费用：￥" + model.getPrice());
+        money = Double.valueOf(model.getPrice());
+        textView11.setText("合计费用：￥" + money);
 
         textView7.setText(localUserInfo.getNickname());
         textView8.setText(localUserInfo.getPhonenumber());
@@ -190,6 +193,10 @@ public class ConfirmOrderActivity extends BaseActivity {
                         temperature = list_h.get(position).getId();
                         textView1.setText(list_h.get(position).getTitle() + "：" + list_h.get(position).getTemperature());
                         textView2.setText("¥ " + list_h.get(position).getPrice());
+
+                        money1 = Double.valueOf(list_h.get(position).getPrice());
+
+                        textView11.setText("合计费用：￥" + (money + money1 + money2));
                     }
                 });
                 dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
@@ -220,8 +227,13 @@ public class ConfirmOrderActivity extends BaseActivity {
                         if (!editText1.getText().toString().trim().equals("")) {
                             CommonUtil.hideSoftKeyboard_fragment(v, ConfirmOrderActivity.this);
                             dialog.dismiss();
-                            urgent_fee = editText1.getText().toString().trim();
-                            textView3.setText("¥ " + editText1.getText().toString().trim());
+
+                            money1 = Double.valueOf(String.format("%.2f", Double.valueOf(editText1.getText().toString().trim())));
+
+                            urgent_fee = money1+"";
+                            textView3.setText("¥ " + money1);
+
+                            textView11.setText("合计费用：￥" + (money + money1 + money2));
                         } else {
                             myToast("请输入与加急费用");
                         }
@@ -310,7 +322,6 @@ public class ConfirmOrderActivity extends BaseActivity {
             case R.id.textView:
                 //确认下单
                 if (match()) {
-                    //先计算费用-返回路程等信息
                     Map<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
                     params.put("city", city);
@@ -453,6 +464,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>下单" + response);
                 hideProgress();
                 myToast("下单成功");
+                localUserInfo.setIsordertrue("1");//是否下单成功//0未成功，1成功
                 //跳转订单派送
                 Bundle bundle = new Bundle();
                 bundle.putString("id", id);
@@ -462,6 +474,10 @@ public class ConfirmOrderActivity extends BaseActivity {
     }
 
     private boolean match() {
+        if (!isgouxuan) {
+            myToast("下单请勾选同意遵守《货物托运居间服务协议》");
+            return false;
+        }
        /* if (temperature.equals("")) {
             myToast("请选择提前预冷");
             return false;
