@@ -31,7 +31,8 @@ import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
  * 评价
  */
 public class AppraiseActivity extends BaseActivity {
-    String id = "", score = "0";
+    String id = "";
+    float score = 5;
     ImageView imageView1;
     TextView textView, textView1, textView2, textView3, textView4, textView5;
     EditText editText1;
@@ -53,7 +54,7 @@ public class AppraiseActivity extends BaseActivity {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                score = rating + "";
+                score = rating;
             }
         });
         imageView1 = findViewByID_My(R.id.imageView1);
@@ -80,22 +81,10 @@ public class AppraiseActivity extends BaseActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String other = "";
-                String other_s = "";
-                int num = 0;
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i).getIsgouxuan() == 1) {
-                        num++;
-                        other = other + list.get(i).getKey() + ",";
-                        other_s = other_s + list.get(i).getVal() + ",";
-                    }
-                }
-                if (num > 3) {
-                    myToast("最多选择三个");
-                } else {
+                if (match()) {
                     Map<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
-                    params.put("score", score);
+                    params.put("score", score + "");
                     params.put("t_indent_id", id);
                     params.put("tag_id", other);
                     params.put("remark", editText1.getText().toString().trim());
@@ -104,6 +93,30 @@ public class AppraiseActivity extends BaseActivity {
 
             }
         });
+    }
+
+    String other = "";
+    private boolean match() {
+        if (score == 0) {
+            myToast("请给司机评星");
+            return false;
+        }
+
+        int num = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getIsgouxuan() == 1) {
+                num++;
+                other = other + list.get(i).getKey() + ",";
+            }
+        }
+        if (other.length() > 0) {
+            other = other.substring(0, other.length() - 1);
+        }
+        if (num > 3) {
+            myToast("最多选择三个标签");
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -161,6 +174,7 @@ public class AppraiseActivity extends BaseActivity {
             }
         });
     }
+
     private void RequestUpdata(Map<String, String> params) {
         OkHttpClientManager.postAsyn(AppraiseActivity.this, URLs.Appraise, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -190,6 +204,7 @@ public class AppraiseActivity extends BaseActivity {
             }
         }, false);
     }
+
     @Override
     protected void updateView() {
         titleView.setTitle("评价");

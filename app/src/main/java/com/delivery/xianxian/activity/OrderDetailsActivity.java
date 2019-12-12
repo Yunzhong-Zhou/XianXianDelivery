@@ -423,6 +423,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 TextView textView1 = dialog.findViewById(R.id.textView1);
                 textView1.setText("添加附加费用");
                 final EditText editText1 = dialog.findViewById(R.id.editText1);
+
                 editText1.setHint("请输入附加费用");
                 /*TextView textView3 = dialog.findViewById(R.id.textView3);
                 textView3.setText("确认");*/

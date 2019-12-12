@@ -42,6 +42,8 @@ public class InvoiceActivity extends BaseActivity {
     boolean isQuanXuan = false;
     ImageView imageView1;
     TextView textView,textView1;
+
+    String t_indent_ids = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,6 +128,7 @@ public class InvoiceActivity extends BaseActivity {
                     public void onResponse(String response) {
                         showContentPage();
                         MyLogger.i(">>>>>>>>>申请发票" + response);
+                        t_indent_ids = "";
                         JSONObject jObj;
                         try {
                             jObj = new JSONObject(response);
@@ -211,11 +214,11 @@ public class InvoiceActivity extends BaseActivity {
     }
 
     private void RequestMore(String string) {
-        OkHttpClientManager.getAsyn(InvoiceActivity.this, URLs.Invoice + string, new OkHttpClientManager.ResultCallback<InvoiceModel>() {
+        OkHttpClientManager.getAsyn(InvoiceActivity.this, URLs.Invoice + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 page--;
-                showErrorPage();
+//                showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
                     showToast(info);
@@ -223,20 +226,32 @@ public class InvoiceActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(InvoiceModel response) {
+            public void onResponse(String response) {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>订单列表更多" + response);
+                t_indent_ids = "";
                 JSONObject jObj;
                 List<InvoiceModel> list1_1 = new ArrayList<>();
-//                list1_1 = response;
-                if (list1_1.size() == 0) {
-                    page--;
-                    myToast(getString(R.string.app_nomore));
-                } else {
-                    list.addAll(list1_1);
-                    mAdapter.notifyDataSetChanged();
+                try {
+                    jObj = new JSONObject(response);
+                    JSONArray jsonArray = jObj.getJSONArray("data");
+                    list1_1 = JSON.parseArray(jsonArray.toString(), InvoiceModel.class);
+                    if (list1_1.size() == 0) {
+                        page--;
+                        myToast(getString(R.string.app_nomore));
+                    } else {
+                        list.addAll(list1_1);
+                        for (int i = 0; i < list.size(); i++) {
+                            list.get(i).setIsgouxuan(0);
+                        }
+                        mAdapter.notifyDataSetChanged();
+                    }
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
+
 
             }
         });
@@ -248,31 +263,37 @@ public class InvoiceActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.linearLayout1:
                 //全选
-                isQuanXuan = !isQuanXuan;
-                if (isQuanXuan){
-                    imageView1.setImageResource(R.mipmap.ic_xuanzhong);
-                    for (int i = 0; i < list.size(); i++) {
-                        list.get(i).setIsgouxuan(1);
+                if (list.size()>0){
+                    isQuanXuan = !isQuanXuan;
+                    if (isQuanXuan){
+                        imageView1.setImageResource(R.mipmap.ic_xuanzhong);
+                        for (int i = 0; i < list.size(); i++) {
+                            list.get(i).setIsgouxuan(1);
+                        }
+                    }else {
+                        imageView1.setImageResource(R.mipmap.ic_weixuan);
+                        for (int i = 0; i < list.size(); i++) {
+                            list.get(i).setIsgouxuan(0);
+                        }
                     }
-                }else {
-                    imageView1.setImageResource(R.mipmap.ic_weixuan);
-                    for (int i = 0; i < list.size(); i++) {
-                        list.get(i).setIsgouxuan(0);
-                    }
+                    mAdapter.notifyDataSetChanged();
                 }
-                mAdapter.notifyDataSetChanged();
+
                 break;
             case R.id.textView:
                 //确认开票
-                String t_indent_ids = "";
                 for (int i = 0; i < list.size(); i++) {
-                    t_indent_ids = t_indent_ids + list.get(i).getT_indent_id() + ",";
+                    if (list.get(i).getIsgouxuan() == 1){
+                        t_indent_ids = t_indent_ids + list.get(i).getT_indent_id() + ",";
+                    }
                 }
                 if (t_indent_ids.length() > 0) {
                     t_indent_ids = t_indent_ids.substring(0, t_indent_ids.length() - 1);
                     Bundle bundle = new Bundle();
                     bundle.putString("t_indent_ids", t_indent_ids);
                     CommonUtil.gotoActivityWithData(InvoiceActivity.this, AddInvoiceActivity.class, bundle);
+                }else {
+                    myToast("请选择需要开票的订单");
                 }
                 break;
 

@@ -130,7 +130,7 @@
             android:layout_marginTop="10dp"
             android:isIndicator="false"
             android:numStars="5"
-            android:rating="0"
+            android:rating="5"
             android:stepSize="1" />
 
         <TextView

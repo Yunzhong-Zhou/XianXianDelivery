@@ -202,6 +202,11 @@ public class ConfirmOrderActivity extends BaseActivity {
                 dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        temperature = "";
+                        textView1.setText("");
+                        textView2.setText("请选择");
+                        money1 = 0;
+                        textView11.setText("合计费用：￥" + (money + money1 + money2));
                         dialog.dismiss();
                     }
                 });
