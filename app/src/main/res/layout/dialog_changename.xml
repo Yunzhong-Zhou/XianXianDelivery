@@ -41,10 +41,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/transparent"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
+                    android:maxLength="8"
                     android:hint="请输入昵称"
                     android:padding="14dp"
-                    android:lineSpacingExtra="5dp"
                     android:textColor="@color/black1"
                     android:textColorHint="@color/black2"
                     android:textSize="15sp" />

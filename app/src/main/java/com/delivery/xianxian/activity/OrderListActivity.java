@@ -225,6 +225,8 @@ public class OrderListActivity extends BaseActivity {
                                 (OrderListActivity.this, R.layout.item_orderlist_1, list1) {
                             @Override
                             protected void convert(ViewHolder holder, OrderListModel.TindentListBean model, int position) {
+                                //订单号
+                                holder.setText(R.id.tv_ordernum, "订单号：" + model.getSn());
                                 //车型
                                 TextView textView1 = holder.getView(R.id.textView1);
                                 textView1.setText(model.getUse_type());

@@ -1170,15 +1170,15 @@ public final class R {
         public static final int tv_length = 0x7f080290;
         public static final int tv_location = 0x7f080292;
         public static final int tv_name = 0x7f080294;
-        public static final int tv_userid = 0x7f0802a9;
-        public static final int uniform = 0x7f0802ad;
-        public static final int unread_msg_number = 0x7f0802af;
-        public static final int up = 0x7f0802b0;
-        public static final int username = 0x7f0802b2;
-        public static final int vPager = 0x7f0802b3;
-        public static final int voice_recorder = 0x7f0802bd;
-        public static final int wide = 0x7f0802bf;
-        public static final int wrap_content = 0x7f0802c2;
+        public static final int tv_userid = 0x7f0802aa;
+        public static final int uniform = 0x7f0802ae;
+        public static final int unread_msg_number = 0x7f0802b0;
+        public static final int up = 0x7f0802b1;
+        public static final int username = 0x7f0802b3;
+        public static final int vPager = 0x7f0802b4;
+        public static final int voice_recorder = 0x7f0802be;
+        public static final int wide = 0x7f0802c0;
+        public static final int wrap_content = 0x7f0802c3;
     }
     public static final class integer {
         private integer() {}

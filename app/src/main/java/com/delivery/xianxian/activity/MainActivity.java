@@ -106,7 +106,15 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        item = 0;
+    }
+
+    @Override
     protected void initView() {
+        item = getIntent().getIntExtra("item", 0);
+
         mBottomTabBar = findViewByID_My(R.id.bottom_tab_bar);
 
         mBottomTabBar.init(getSupportFragmentManager())//初始化方法，必须第一个调用；传入参数为V4包下的FragmentManager

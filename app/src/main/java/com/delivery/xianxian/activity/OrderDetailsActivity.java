@@ -296,7 +296,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             public void onClick(View v) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("id", model.getTindent().getId());
-                                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, AppraiseActivity.class, bundle, false);
+                                CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, AppraiseActivity.class, bundle, true);
                             }
                         });
                     default:
@@ -694,7 +694,24 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
-                    myToast(info);
+                    if (info.contains("余额不足")) {
+                        showToast(info,
+                                "取消", "去充值",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(OrderDetailsActivity.this,RechargeActivity.class,false);
+                                    }
+                                });
+                    }else {
+                        showToast(info);
+                    }
                 }
             }
 

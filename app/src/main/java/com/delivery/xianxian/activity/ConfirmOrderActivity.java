@@ -47,7 +47,7 @@ import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
  */
 public class ConfirmOrderActivity extends BaseActivity {
     List<TemperatureModel.TemperatureListBean> list_h = new ArrayList<>();
-    int i1 = 0;
+    int i1 = -1;
 
     AddFeeModel model;
     String city = "", car_type_id = "", use_type = "", is_plan = "", plan_time = "", addr_ids = "",
@@ -224,6 +224,10 @@ public class ConfirmOrderActivity extends BaseActivity {
                 /*TextView textView1 = dialog.findViewById(R.id.textView1);
                 textView1.setText("加急费用");*/
                 final EditText editText1 = dialog.findViewById(R.id.editText1);
+                if (money2 > 0) {
+                    editText1.setText("" + money2);
+                }
+
                 /*TextView textView3 = dialog.findViewById(R.id.textView3);
                 textView3.setText("确认");*/
                 dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
@@ -233,10 +237,10 @@ public class ConfirmOrderActivity extends BaseActivity {
                             CommonUtil.hideSoftKeyboard_fragment(v, ConfirmOrderActivity.this);
                             dialog.dismiss();
 
-                            money1 = Double.valueOf(String.format("%.2f", Double.valueOf(editText1.getText().toString().trim())));
+                            money2 = Double.valueOf(String.format("%.2f", Double.valueOf(editText1.getText().toString().trim())));
 
-                            urgent_fee = money1+"";
-                            textView3.setText("¥ " + money1);
+                            urgent_fee = money2 + "";
+                            textView3.setText("¥ " + money2);
 
                             textView11.setText("合计费用：￥" + (money + money1 + money2));
                         } else {
@@ -365,7 +369,27 @@ public class ConfirmOrderActivity extends BaseActivity {
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
                 if (!info.equals("")) {
-                    showToast(info);
+                    if (info.contains("认证")) {
+                        showToast(info,
+                                "取消", "去认证",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        Bundle bundle = new Bundle();
+                                        bundle.putInt("item", 1);
+                                        CommonUtil.gotoActivityWithFinishOtherAllAndData(ConfirmOrderActivity.this,
+                                                MainActivity.class, bundle, true);
+                                    }
+                                });
+                    } else {
+                        showToast(info);
+                    }
                 }
             }
 

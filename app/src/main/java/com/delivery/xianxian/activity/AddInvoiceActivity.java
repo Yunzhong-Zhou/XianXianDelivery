@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
+import com.delivery.xianxian.model.AddInvoiceModel;
 import com.delivery.xianxian.model.ConfirmOrderModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
@@ -24,7 +25,7 @@ import java.util.Map;
  * 确认开票
  */
 public class AddInvoiceActivity extends BaseActivity {
-    String t_indent_ids = "", head_up = "", duty_paragraph = "", bank = "",bank_account = "", reg_addr = "", phone = "", mobile = "", email = "",
+    String t_indent_ids = "", head_up = "", duty_paragraph = "", bank = "", bank_account = "", reg_addr = "", phone = "", mobile = "", email = "",
             price = "", tax_point = "", tax_amount = "";
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5, linearLayout6,
             linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11, linearLayout12;
@@ -79,11 +80,47 @@ public class AddInvoiceActivity extends BaseActivity {
     @Override
     protected void initData() {
         t_indent_ids = getIntent().getStringExtra("t_indent_ids");
-        /*price = getIntent().getStringExtra("price");
-        tax_point = getIntent().getStringExtra("tax_point");
-        tax_amount = getIntent().getStringExtra("tax_amount");
-        textView1.setText("价格：￥" + price + " 税点：" + tax_point + "% 税额：" + tax_amount+"元");*/
 
+        requestServer();
+
+
+    }
+
+    @Override
+    public void requestServer() {
+        super.requestServer();
+//        this.showLoadingPage();
+
+        showProgress(true, getString(R.string.app_loading));
+        String string = "?token=" + localUserInfo.getToken()
+                + "&t_indent_ids=" + t_indent_ids;
+        Request(string);
+    }
+
+    private void Request(String string) {
+        OkHttpClientManager.getAsyn(AddInvoiceActivity.this, URLs.AddInvoice + string,
+                new OkHttpClientManager.ResultCallback<AddInvoiceModel>() {
+                    @Override
+                    public void onError(Request request, String info, Exception e) {
+                        showErrorPage();
+                        hideProgress();
+                        if (!info.equals("")) {
+                            myToast(info);
+                        }
+                    }
+
+                    @Override
+                    public void onResponse(AddInvoiceModel response) {
+                        showContentPage();
+                        MyLogger.i(">>>>>>>>>申请发票" + response);
+                        hideProgress();
+                        price = response.getPrice();
+                        tax_point = response.getTax_point();
+                        tax_amount = response.getTax_amount();
+                        textView1.setText("价格：￥" + price + " 税点：" + tax_point + "% 税额：" + tax_amount + "元");
+                    }
+
+                });
     }
 
     @Override
@@ -94,13 +131,11 @@ public class AddInvoiceActivity extends BaseActivity {
                 //普票 电子
                 invoice_type = 1;
                 changeUI();
-
                 break;
             case R.id.linearLayout2:
                 //专票 到付（到付）
                 invoice_type = 2;
                 changeUI();
-
                 break;
             case R.id.linearLayout3:
                 //企业单位
@@ -176,7 +211,7 @@ public class AddInvoiceActivity extends BaseActivity {
             myToast("请输入纳税人识别号");
             return false;
         }
-        if (invoice_type == 1){
+        if (invoice_type == 1) {
             mobile = editText3.getText().toString().trim();
             if (TextUtils.isEmpty(mobile)) {
                 myToast("请输入接受号码");
@@ -187,7 +222,7 @@ public class AddInvoiceActivity extends BaseActivity {
                 myToast("请输入接受邮箱");
                 return false;
             }
-        }else {
+        } else {
             bank = editText5.getText().toString().trim();
             if (TextUtils.isEmpty(bank)) {
                 myToast("请输入开户银行");

@@ -85,7 +85,7 @@ public class FeeModelActivity extends BaseActivity {
         car_type_id = getIntent().getStringExtra("car_type_id");
         use_type = getIntent().getStringExtra("use_type");
 
-        tv_title.setText("收费标准-"+city);
+        tv_title.setText("收费标准-" + city);
         //获取费用信息
         showProgress(true, getString(R.string.app_loading));
         Request("?token=" + localUserInfo.getToken()
@@ -159,26 +159,32 @@ public class FeeModelActivity extends BaseActivity {
 
                 //基本路费
                 list1 = response.getBase();
-                mAdapter1 = new CommonAdapter<FeeModel.BaseBean>
-                        (FeeModelActivity.this, R.layout.item_feemodel, list1) {
-                    @Override
-                    protected void convert(ViewHolder holder, FeeModel.BaseBean model, int position) {
-                        holder.setText(R.id.textView1, model.getTitle());//标题
-                        holder.setText(R.id.textView2, model.getPrice());//价格
-                    }
-                };
-                recyclerView1.setAdapter(mAdapter1);
+                if (list1 != null && list1.size() > 0) {
+                    mAdapter1 = new CommonAdapter<FeeModel.BaseBean>
+                            (FeeModelActivity.this, R.layout.item_feemodel, list1) {
+                        @Override
+                        protected void convert(ViewHolder holder, FeeModel.BaseBean model, int position) {
+                            holder.setText(R.id.textView1, model.getTitle());//标题
+                            holder.setText(R.id.textView2, model.getPrice());//价格
+                        }
+                    };
+                    recyclerView1.setAdapter(mAdapter1);
+                }
+
                 //基本路费
                 list2 = response.getOther();
-                mAdapter2= new CommonAdapter<FeeModel.OtherBean>
-                        (FeeModelActivity.this, R.layout.item_feemodel, list2) {
-                    @Override
-                    protected void convert(ViewHolder holder, FeeModel.OtherBean model, int position) {
-                        holder.setText(R.id.textView1, model.getTitle());//标题
-                        holder.setText(R.id.textView2, model.getPrice());//价格
-                    }
-                };
-                recyclerView2.setAdapter(mAdapter2);
+                if (list2 != null && list2.size() > 0) {
+                    mAdapter2 = new CommonAdapter<FeeModel.OtherBean>
+                            (FeeModelActivity.this, R.layout.item_feemodel, list2) {
+                        @Override
+                        protected void convert(ViewHolder holder, FeeModel.OtherBean model, int position) {
+                            holder.setText(R.id.textView1, model.getTitle());//标题
+                            holder.setText(R.id.textView2, model.getPrice());//价格
+                        }
+                    };
+                    recyclerView2.setAdapter(mAdapter2);
+                }
+
             }
         });
     }
@@ -186,7 +192,7 @@ public class FeeModelActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_left:
                 finish();
                 break;

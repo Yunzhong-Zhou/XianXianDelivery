@@ -191,7 +191,8 @@ public class AppraiseActivity extends BaseActivity {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>发布评论" + response);
-                myToast("发布成功");
+                myToast("评价发布成功");
+                finish();
                 /*JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
