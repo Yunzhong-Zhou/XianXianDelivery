@@ -7,8 +7,8 @@ android {
         applicationId "com.delivery.xianxian"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 5
-        versionName "Beta1.0.7"
+        versionCode 7
+        versionName "Beta1.0.9"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {

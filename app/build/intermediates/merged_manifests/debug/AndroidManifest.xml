@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
-    android:versionCode="5"
-    android:versionName="Beta1.0.7" >
+    android:versionCode="7"
+    android:versionName="Beta1.0.9" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -88,7 +88,6 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >

@@ -2,10 +2,12 @@ package com.delivery.xianxian.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cy.cyflowlayoutlibrary.FlowLayout;
 import com.cy.cyflowlayoutlibrary.FlowLayoutAdapter;
+import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.OrderDetailsModel;
@@ -59,6 +61,40 @@ public class OrderCancelDetailActivity extends BaseActivity {
     protected void initData() {
         id = getIntent().getStringExtra("id");
         requestServer();
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.textView:
+                //费用明细
+                dialog = new BaseDialog(OrderCancelDetailActivity.this);
+                dialog.contentView(R.layout.dialog_list)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView tv1 = dialog.findViewById(R.id.textView1);
+                tv1.setText("费用明细");
+                RecyclerView rv1 = dialog.findViewById(R.id.recyclerView);
+                LinearLayoutManager mLinearLayoutManager1 = new LinearLayoutManager(OrderCancelDetailActivity.this);
+                rv1.setLayoutManager(mLinearLayoutManager1);
+                CommonAdapter<OrderDetailsModel.TindentBean.PriceDetailBean> ap1 =
+                        new CommonAdapter<OrderDetailsModel.TindentBean.PriceDetailBean>
+                                (OrderCancelDetailActivity.this, R.layout.item_feemodel,
+                                        model.getTindent().getPrice_detail()) {
+                            @Override
+                            protected void convert(ViewHolder holder, OrderDetailsModel.TindentBean.PriceDetailBean model, int position) {
+                                holder.setText(R.id.textView1, model.getTitle());
+                                holder.setText(R.id.textView2, "¥"+model.getPrice());
+                            }
+                        };
+                rv1.setAdapter(ap1);
+                break;
+        }
     }
 
     @Override
