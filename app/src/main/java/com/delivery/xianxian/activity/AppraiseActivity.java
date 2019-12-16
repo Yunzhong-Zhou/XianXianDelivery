@@ -41,7 +41,7 @@ public class AppraiseActivity extends BaseActivity {
     List<AppraiseModel.TagListBean> list = new ArrayList<>();
 
     RatingBar ratingBar;
-
+    String other = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +82,7 @@ public class AppraiseActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (match()) {
+
                     Map<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
                     params.put("score", score + "");
@@ -95,7 +96,6 @@ public class AppraiseActivity extends BaseActivity {
         });
     }
 
-    String other = "";
     private boolean match() {
         if (score == 0) {
             myToast("请给司机评星");
@@ -103,6 +103,7 @@ public class AppraiseActivity extends BaseActivity {
         }
 
         int num = 0;
+        other = "";
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getIsgouxuan() == 1) {
                 num++;
@@ -112,6 +113,7 @@ public class AppraiseActivity extends BaseActivity {
         if (other.length() > 0) {
             other = other.substring(0, other.length() - 1);
         }
+
         if (num > 3) {
             myToast("最多选择三个标签");
             return false;

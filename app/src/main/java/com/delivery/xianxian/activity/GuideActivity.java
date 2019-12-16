@@ -47,8 +47,6 @@ public class GuideActivity extends Activity {
      */
     private ImageView[] imageViews;
 
-    //包裹滑动图片的LinearLayout
-    private ViewGroup viewPics;
 
     //包裹小圆点的LinearLayout
     private ViewGroup viewPoints;
@@ -77,15 +75,33 @@ public class GuideActivity extends Activity {
         configuration.locale = new Locale("en","US");
         resources.updateConfiguration(configuration,displayMetrics);*/
 
-
         //将要分页显示的View装入数组中
         inflater = getLayoutInflater();
-        //从指定的XML文件加载视图
-        viewPics = (ViewGroup) inflater.inflate(R.layout.activity_guide, null);
+        //显示滑动图片的视图
+        setContentView(R.layout.activity_guide);
 
         //实例化小圆点的linearLayout和viewpager
-        viewPoints = (ViewGroup) viewPics.findViewById(R.id.viewGroup);
-        viewPager = (ViewPager) viewPics.findViewById(R.id.guidePages);
+        viewPoints = (ViewGroup) findViewById(R.id.viewGroup);
+        viewPager = (ViewPager) findViewById(R.id.guidePages);
+
+        //跳过
+        findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isfirst) {
+                    isfirst = !isfirst;
+                    //设置已经引导
+                    setGuided();
+                    //跳转
+                    Intent mIntent = new Intent();
+                    mIntent.setClass(GuideActivity.this, LoginActivity.class);
+//                    mIntent.setClass(GuideActivity.this, MainActivity.class);
+                    mIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(mIntent);
+                    finish();
+                }
+            }
+        });
 
         Map<String, String> params = new HashMap<>();
         Request(params);
@@ -145,31 +161,12 @@ public class GuideActivity extends Activity {
                     viewPoints.addView(imageViews[i]);
                 }
 
-                //显示滑动图片的视图
-                setContentView(viewPics);
 
                 //设置viewpager的适配器和监听事件
                 viewPager.setAdapter(new GuidePageAdapter());
                 viewPager.setOnPageChangeListener(new GuidePageChangeListener());
 
-                //跳过
-                findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (isfirst) {
-                            isfirst = !isfirst;
-                            //设置已经引导
-                            setGuided();
-                            //跳转
-                            Intent mIntent = new Intent();
-                            mIntent.setClass(GuideActivity.this, LoginActivity.class);
-//                    mIntent.setClass(GuideActivity.this, MainActivity.class);
-                            mIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(mIntent);
-                            finish();
-                        }
-                    }
-                });
+
             }
         });
     }

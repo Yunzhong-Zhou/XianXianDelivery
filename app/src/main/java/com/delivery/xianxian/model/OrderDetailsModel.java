@@ -59,6 +59,7 @@ public class OrderDetailsModel implements Serializable {
         private String remark;
         private String pay_status;
         private String total_price;
+        private String owner_fee;
         private String contacts_mobile;
         private ConfirmTextBean confirm_text;
         private List<AddrListBean> addr_list;
@@ -72,6 +73,14 @@ public class OrderDetailsModel implements Serializable {
          */
 
         private ConfirmAttachDataBean confirm_attach_data;
+
+        public String getOwner_fee() {
+            return owner_fee;
+        }
+
+        public void setOwner_fee(String owner_fee) {
+            this.owner_fee = owner_fee;
+        }
 
         public String getCancel_at() {
             return cancel_at;

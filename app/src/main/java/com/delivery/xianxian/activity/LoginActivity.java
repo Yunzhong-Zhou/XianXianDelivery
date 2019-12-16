@@ -70,14 +70,14 @@ public class LoginActivity extends BaseActivity {
             //录音权限
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.VIBRATE
-
-            /*Manifest.permission.INTERNET,
-            Manifest.permission.ACCESS_NETWORK_STATE,
-            Manifest.permission.WAKE_LOCK,
-            Manifest.permission.CHANGE_WIFI_STATE,
-            Manifest.permission.ACCESS_WIFI_STATE,
-            Manifest.permission.WRITE_SETTINGS,
-            Manifest.permission.VIBRATE*/
+            /* //网络
+             Manifest.permission.INTERNET
+             Manifest.permission.ACCESS_NETWORK_STATE,
+             Manifest.permission.WAKE_LOCK,
+             Manifest.permission.CHANGE_WIFI_STATE,
+             Manifest.permission.ACCESS_WIFI_STATE,
+             Manifest.permission.WRITE_SETTINGS,
+             Manifest.permission.VIBRATE*/
     };
     private PermissionsChecker mPermissionsChecker; // 权限检测器
 

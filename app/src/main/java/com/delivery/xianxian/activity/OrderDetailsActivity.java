@@ -423,8 +423,12 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 TextView textView1 = dialog.findViewById(R.id.textView1);
                 textView1.setText("添加附加费用");
                 final EditText editText1 = dialog.findViewById(R.id.editText1);
+                if (!model.getTindent().getOwner_fee().equals("")){
+                    editText1.setText(model.getTindent().getOwner_fee());
+                }else {
+                    editText1.setHint("请输入附加费用");
+                }
 
-                editText1.setHint("请输入附加费用");
                 /*TextView textView3 = dialog.findViewById(R.id.textView3);
                 textView3.setText("确认");*/
                 dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
@@ -530,7 +534,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                         params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                         params.put("t_indent_id", model.getTindent().getId());
                                         params.put("type", "1");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                                        RequestConfirm(params);
+                                        RequestConfirm(params,1);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -551,7 +555,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                         params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                         params.put("t_indent_id", model.getTindent().getId());
                                         params.put("type", "3");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                                        RequestConfirm(params);
+                                        RequestConfirm(params,3);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -572,7 +576,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                         params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                         params.put("t_indent_id", model.getTindent().getId());
                                         params.put("type", "5");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                                        RequestConfirm(params);
+                                        RequestConfirm(params,5);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -593,7 +597,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                         params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                         params.put("t_indent_id", model.getTindent().getId());
                                         params.put("type", "7");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                                        RequestConfirm(params);
+                                        RequestConfirm(params,7);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -641,7 +645,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             params.put("token", localUserInfo.getToken());
                             params.put("t_indent_confirm_id", model.getTindent().getConfirm_attach_data().getIdX());
                             params.put("type", "5");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                            RequestConfirm(params);
+                            RequestConfirm(params,5);
                         }
                     }
                 });
@@ -678,6 +682,12 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             }
                         };
                 rv1.setAdapter(ap1);
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
                 break;
         }
     }
@@ -687,7 +697,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         titleView.setTitle("订单详情");
     }
 
-    private void RequestConfirm(Map<String, String> params) {
+    private void RequestConfirm(Map<String, String> params,int type) {
         OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_Confirm, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -729,6 +739,12 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
                     MyLogger.i(">>>>>>>" + list.size());*/
                     myToast(jObj.getString("msg"));
+                    if (type == 7){
+                        //去评价
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", model.getTindent().getId());
+                        CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, AppraiseActivity.class, bundle, true);
+                    }
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -763,6 +779,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 }else {
                     //添加附加费
                     myToast("添加附加费成功");
+                    requestServer();
                 }
 
             }
