@@ -108,7 +108,7 @@
     <string name="fragment5">我的</string>
 
     <string name="fragment5_u1"><u>立即发布给附近所有司机</u></string>
-
+    <string name="shishiwendu"><u>查看实时温度</u></string>
 
     <!--自动更新提示框-->
     <string name="update_hint">版本更新</string>

@@ -177,8 +177,6 @@ public class JiFenMingXiActivity extends BaseActivity {
         });
 
     }
-
-
     @Override
     protected void updateView() {
         titleView.setTitle("积分明细");

@@ -218,6 +218,9 @@
         <activity
             android:name="com.delivery.xianxian.activity.MyDriverActivity"
             android:label="我的司机" />
+        <activity
+            android:name="com.delivery.xianxian.activity.TemperatureActivity"
+            android:label="实时温度" />
 
         <!--环信-->
         <activity

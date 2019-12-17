@@ -368,8 +368,17 @@
                             android:id="@+id/textView15"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:layout_marginLeft="20dp"
                             android:text="温层"
+                            android:textColor="@color/black1"
+                            android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/tv_shishiwendu"
+                            android:onClick="onClick"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/shishiwendu"
                             android:textColor="@color/black1"
                             android:textSize="12sp" />
                     </LinearLayout>

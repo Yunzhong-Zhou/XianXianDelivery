@@ -2521,6 +2521,7 @@ id tv_now
 id tv_ordernum
 id tv_qidian
 id tv_queren
+id tv_shishiwendu
 id tv_shouhuo_mobile
 id tv_shouhuo_name
 id tv_shouqi
@@ -2662,6 +2663,7 @@ layout activity_scoredetail
 layout activity_selectaddress
 layout activity_servicecenter
 layout activity_takecash
+layout activity_temperature
 layout activity_track_search
 layout activity_track_service
 layout activity_wallet
@@ -2799,6 +2801,7 @@ layout item_recharge_gridview
 layout item_scoredetail
 layout item_selectaddress
 layout item_temperature
+layout item_temperature1
 layout item_wallet
 layout jpush_popwin_layout
 layout jpush_webview_layout
@@ -3436,6 +3439,7 @@ string set
 string setting
 string setting_nickname
 string shake
+string shishiwendu
 string status_bar_notification_info_overflow
 string sure_to_empty_this
 string temporary_does_not

@@ -690,9 +690,9 @@ public final class R {
         public static final int titleDividerNoCustom = 0x7f080252;
         public static final int title_template = 0x7f080255;
         public static final int topPanel = 0x7f08025b;
-        public static final int uniform = 0x7f0802ae;
-        public static final int up = 0x7f0802b1;
-        public static final int wrap_content = 0x7f0802c3;
+        public static final int uniform = 0x7f0802af;
+        public static final int up = 0x7f0802b2;
+        public static final int wrap_content = 0x7f0802c4;
     }
     public static final class integer {
         private integer() {}
@@ -732,25 +732,25 @@ public final class R {
         public static final int abc_search_dropdown_item_icons_2line = 0x7f0b0018;
         public static final int abc_search_view = 0x7f0b0019;
         public static final int abc_select_dialog_material = 0x7f0b001a;
-        public static final int notification_action = 0x7f0b00d6;
-        public static final int notification_action_tombstone = 0x7f0b00d7;
-        public static final int notification_media_action = 0x7f0b00d8;
-        public static final int notification_media_cancel_action = 0x7f0b00d9;
-        public static final int notification_template_big_media = 0x7f0b00da;
-        public static final int notification_template_big_media_custom = 0x7f0b00db;
-        public static final int notification_template_big_media_narrow = 0x7f0b00dc;
-        public static final int notification_template_big_media_narrow_custom = 0x7f0b00dd;
-        public static final int notification_template_custom_big = 0x7f0b00de;
-        public static final int notification_template_icon_group = 0x7f0b00df;
-        public static final int notification_template_lines_media = 0x7f0b00e0;
-        public static final int notification_template_media = 0x7f0b00e1;
-        public static final int notification_template_media_custom = 0x7f0b00e2;
-        public static final int notification_template_part_chronometer = 0x7f0b00e3;
-        public static final int notification_template_part_time = 0x7f0b00e4;
-        public static final int select_dialog_item_material = 0x7f0b00ed;
-        public static final int select_dialog_multichoice_material = 0x7f0b00ee;
-        public static final int select_dialog_singlechoice_material = 0x7f0b00ef;
-        public static final int support_simple_spinner_dropdown_item = 0x7f0b00f1;
+        public static final int notification_action = 0x7f0b00d8;
+        public static final int notification_action_tombstone = 0x7f0b00d9;
+        public static final int notification_media_action = 0x7f0b00da;
+        public static final int notification_media_cancel_action = 0x7f0b00db;
+        public static final int notification_template_big_media = 0x7f0b00dc;
+        public static final int notification_template_big_media_custom = 0x7f0b00dd;
+        public static final int notification_template_big_media_narrow = 0x7f0b00de;
+        public static final int notification_template_big_media_narrow_custom = 0x7f0b00df;
+        public static final int notification_template_custom_big = 0x7f0b00e0;
+        public static final int notification_template_icon_group = 0x7f0b00e1;
+        public static final int notification_template_lines_media = 0x7f0b00e2;
+        public static final int notification_template_media = 0x7f0b00e3;
+        public static final int notification_template_media_custom = 0x7f0b00e4;
+        public static final int notification_template_part_chronometer = 0x7f0b00e5;
+        public static final int notification_template_part_time = 0x7f0b00e6;
+        public static final int select_dialog_item_material = 0x7f0b00ef;
+        public static final int select_dialog_multichoice_material = 0x7f0b00f0;
+        public static final int select_dialog_singlechoice_material = 0x7f0b00f1;
+        public static final int support_simple_spinner_dropdown_item = 0x7f0b00f3;
     }
     public static final class string {
         private string() {}
@@ -774,7 +774,7 @@ public final class R {
         public static final int abc_toolbar_collapse_description = 0x7f0e008a;
         public static final int app_name = 0x7f0e00b3;
         public static final int search_menu_title = 0x7f0e01d3;
-        public static final int status_bar_notification_info_overflow = 0x7f0e01e1;
+        public static final int status_bar_notification_info_overflow = 0x7f0e01e2;
     }
     public static final class style {
         private style() {}

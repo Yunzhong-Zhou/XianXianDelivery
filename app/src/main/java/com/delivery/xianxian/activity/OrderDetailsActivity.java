@@ -86,7 +86,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12, textView13, textView14, textView15, textView16,
             textView17, textView18, textView19,
-            tv_confirm, tv_fujiafei;
+            tv_confirm, tv_fujiafei,tv_shishiwendu;
 
     boolean isOpen = false;
 
@@ -175,6 +175,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 
         tv_shouqi = findViewByID_My(R.id.tv_shouqi);
         tv_fujiafei = findViewByID_My(R.id.tv_fujiafei);
+        tv_shishiwendu = findViewByID_My(R.id.tv_shishiwendu);
 
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(OrderDetailsActivity.this);
@@ -423,7 +424,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 TextView textView1 = dialog.findViewById(R.id.textView1);
                 textView1.setText("添加附加费用");
                 final EditText editText1 = dialog.findViewById(R.id.editText1);
-                if (!model.getTindent().getOwner_fee().equals("")){
+                if (!model.getTindent().getOwner_fee().equals("") && !model.getTindent().getOwner_fee().equals("0.00")){
                     editText1.setText(model.getTindent().getOwner_fee());
                 }else {
                     editText1.setHint("请输入附加费用");
@@ -689,6 +690,10 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     }
                 });
                 break;
+
+            case R.id.tv_shishiwendu:
+                CommonUtil.gotoActivity(OrderDetailsActivity.this,TemperatureActivity.class);
+                break;
         }
     }
 
@@ -717,6 +722,21 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                     public void onClick(View view) {
                                         dialog.dismiss();
                                         CommonUtil.gotoActivity(OrderDetailsActivity.this,RechargeActivity.class,false);
+                                    }
+                                });
+                    }else if (info.contains("认证")){
+                        showToast(info,
+                                "取消", "去认证",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(OrderDetailsActivity.this,Auth_ShenFenZhengActivity.class,false);
                                     }
                                 });
                     }else {

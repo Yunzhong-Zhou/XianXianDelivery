@@ -190,5 +190,9 @@
     <orderEntry type="library" name="Gradle: :alipaySdk-15.6.8-20191021122514:@aar" level="project" />
     <orderEntry type="module" module-name="easeui" />
     <orderEntry type="library" name="Gradle: org.apache.http.legacy-android-29" level="project" />
+    <orderEntry type="module" module-name="easeui" />
+    <orderEntry type="module" module-name="easeui" />
+    <orderEntry type="module" module-name="easeui" />
+    <orderEntry type="module" module-name="easeui" />
   </component>
 </module>

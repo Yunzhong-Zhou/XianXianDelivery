@@ -704,12 +704,12 @@ public final class R {
         public static final int topPanel = 0x7f08025b;
         public static final int tv_cancel = 0x7f080273;
         public static final int tv_confirm = 0x7f080277;
-        public static final int tv_title = 0x7f0802a3;
-        public static final int up = 0x7f0802b1;
-        public static final int useLogo = 0x7f0802b2;
-        public static final int withText = 0x7f0802c1;
-        public static final int wrap = 0x7f0802c2;
-        public static final int wrap_content = 0x7f0802c3;
+        public static final int tv_title = 0x7f0802a4;
+        public static final int up = 0x7f0802b2;
+        public static final int useLogo = 0x7f0802b3;
+        public static final int withText = 0x7f0802c2;
+        public static final int wrap = 0x7f0802c3;
+        public static final int wrap_content = 0x7f0802c4;
     }
     public static final class integer {
         private integer() {}
@@ -748,24 +748,24 @@ public final class R {
         public static final int abc_select_dialog_material = 0x7f0b001a;
         public static final int activity_city_list_select = 0x7f0b0027;
         public static final int activity_citylist = 0x7f0b0028;
-        public static final int default_item_city = 0x7f0b005a;
-        public static final int dialog_alarm_ui = 0x7f0b0069;
-        public static final int item_citylist = 0x7f0b00b6;
-        public static final int notification_media_action = 0x7f0b00d8;
-        public static final int notification_media_cancel_action = 0x7f0b00d9;
-        public static final int notification_template_big_media = 0x7f0b00da;
-        public static final int notification_template_big_media_narrow = 0x7f0b00dc;
-        public static final int notification_template_media = 0x7f0b00e1;
-        public static final int notification_template_part_chronometer = 0x7f0b00e3;
-        public static final int notification_template_part_time = 0x7f0b00e4;
-        public static final int pop_citypicker = 0x7f0b00e7;
-        public static final int pop_jdcitypicker = 0x7f0b00e8;
-        public static final int pop_jdcitypicker_item = 0x7f0b00e9;
-        public static final int select_dialog_item_material = 0x7f0b00ed;
-        public static final int select_dialog_multichoice_material = 0x7f0b00ee;
-        public static final int select_dialog_singlechoice_material = 0x7f0b00ef;
-        public static final int sortlistview_item = 0x7f0b00f0;
-        public static final int support_simple_spinner_dropdown_item = 0x7f0b00f1;
+        public static final int default_item_city = 0x7f0b005b;
+        public static final int dialog_alarm_ui = 0x7f0b006a;
+        public static final int item_citylist = 0x7f0b00b7;
+        public static final int notification_media_action = 0x7f0b00da;
+        public static final int notification_media_cancel_action = 0x7f0b00db;
+        public static final int notification_template_big_media = 0x7f0b00dc;
+        public static final int notification_template_big_media_narrow = 0x7f0b00de;
+        public static final int notification_template_media = 0x7f0b00e3;
+        public static final int notification_template_part_chronometer = 0x7f0b00e5;
+        public static final int notification_template_part_time = 0x7f0b00e6;
+        public static final int pop_citypicker = 0x7f0b00e9;
+        public static final int pop_jdcitypicker = 0x7f0b00ea;
+        public static final int pop_jdcitypicker_item = 0x7f0b00eb;
+        public static final int select_dialog_item_material = 0x7f0b00ef;
+        public static final int select_dialog_multichoice_material = 0x7f0b00f0;
+        public static final int select_dialog_singlechoice_material = 0x7f0b00f1;
+        public static final int sortlistview_item = 0x7f0b00f2;
+        public static final int support_simple_spinner_dropdown_item = 0x7f0b00f3;
     }
     public static final class string {
         private string() {}
@@ -788,7 +788,7 @@ public final class R {
         public static final int abc_shareactionprovider_share_with_application = 0x7f0e0089;
         public static final int abc_toolbar_collapse_description = 0x7f0e008a;
         public static final int app_name = 0x7f0e00b3;
-        public static final int status_bar_notification_info_overflow = 0x7f0e01e1;
+        public static final int status_bar_notification_info_overflow = 0x7f0e01e2;
     }
     public static final class style {
         private style() {}

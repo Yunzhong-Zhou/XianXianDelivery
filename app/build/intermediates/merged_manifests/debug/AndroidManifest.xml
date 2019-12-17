@@ -89,6 +89,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >
@@ -235,6 +236,9 @@
         <activity
             android:name="com.delivery.xianxian.activity.MyDriverActivity"
             android:label="我的司机" />
+        <activity
+            android:name="com.delivery.xianxian.activity.TemperatureActivity"
+            android:label="实时温度" />
 
         <!-- 环信 -->
         <activity

@@ -189,7 +189,10 @@ public class URLs {
      * 奖励记录
      */
     public static final String JiangLiList = "/api/owner/center/award";
-
+    /**
+     * 实时温度
+     */
+    public static final String Temperature = "/api/goods/tscore-search";
     /**
      * 认证
      */

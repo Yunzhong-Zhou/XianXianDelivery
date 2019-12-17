@@ -45,14 +45,14 @@ public final class R {
         public static final int push_root_view = 0x7f0801cb;
         public static final int rlRichpushTitleBar = 0x7f0801df;
         public static final int tvRichpushTitle = 0x7f08026a;
-        public static final int wvPopwin = 0x7f0802c4;
+        public static final int wvPopwin = 0x7f0802c5;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int jpush_popwin_layout = 0x7f0b00d0;
-        public static final int jpush_webview_layout = 0x7f0b00d1;
-        public static final int push_notification = 0x7f0b00ec;
+        public static final int jpush_popwin_layout = 0x7f0b00d2;
+        public static final int jpush_webview_layout = 0x7f0b00d3;
+        public static final int push_notification = 0x7f0b00ee;
     }
     public static final class string {
         private string() {}
