@@ -2538,6 +2538,7 @@ id tv_type1
 id tv_type2
 id tv_type3
 id tv_userid
+id tv_xiaoxinum
 id tv_zhongdian
 id txt_tixian
 id unchecked
@@ -2554,6 +2555,7 @@ id view2
 id view3
 id viewGroup
 id viewPager
+id view_dian
 id view_offset_helper
 id viewfinder_view
 id visible

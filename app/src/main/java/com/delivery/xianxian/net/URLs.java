@@ -250,6 +250,10 @@ public class URLs {
      */
     public static final String NoticeDetail = "/api/owner/center/my-message";
     /**
+     * 消息详情取消红点
+     */
+    public static final String Detail = "/api/owner/tindent/detail";
+    /**
      * 评分详情
      */
     public static final String ScoreDetail = "/api/owner/tcomment";

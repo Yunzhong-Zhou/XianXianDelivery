@@ -1,10 +1,14 @@
 package com.delivery.xianxian.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.ContactsContract;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.alipay.sdk.app.PayTask;
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
@@ -25,6 +30,7 @@ import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
+import com.delivery.xianxian.utils.alipay.PayResult;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
@@ -63,6 +69,37 @@ public class ConfirmOrderActivity extends BaseActivity {
     int pay_item = 0;
 
     double money = 0, money1 = 0, money2 = 0;//合计费用，提前预冷费，加急费
+
+
+    private static final int SDK_PAY_FLAG = 1;
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler = new Handler() {
+        @SuppressWarnings("unused")
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SDK_PAY_FLAG: {
+                    @SuppressWarnings("unchecked")
+                    PayResult payResult = new PayResult((Map<String, String>) msg.obj);
+                    /**
+                     * 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。
+                     */
+                    String resultInfo = payResult.getResult();// 同步返回需要验证的信息
+                    String resultStatus = payResult.getResultStatus();
+                    // 判断resultStatus 为9000则代表支付成功
+                    if (TextUtils.equals(resultStatus, "9000")) {
+                        // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
+                        showToast("支付成功"+payResult);
+                    } else {
+                        // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
+                        showToast("支付失败" + payResult);
+                    }
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +174,7 @@ public class ConfirmOrderActivity extends BaseActivity {
         Map<String, String> params = new HashMap<>();
         params.put("token", localUserInfo.getToken());
         params.put("type", "get_temperature");
-        params.put("car_type_id", "1");
+        params.put("car_type_id", car_type_id);
         Request(params);
     }
 
@@ -331,6 +368,7 @@ public class ConfirmOrderActivity extends BaseActivity {
             case R.id.textView:
                 //确认下单
                 if (match()) {
+                    textView.setClickable(false);
                     Map<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
                     params.put("city", city);
@@ -391,12 +429,14 @@ public class ConfirmOrderActivity extends BaseActivity {
                         showToast(info);
                     }
                 }
+                textView.setClickable(true);
             }
 
             @Override
             public void onResponse(ConfirmOrderModel response) {
                 MyLogger.i(">>>>>>>>>下单" + response);
                 hideProgress();
+                textView.setClickable(true);
 //                myToast("下单成功");
                 //弹出支付框
 //                showToast("下单成功，确认支付");
@@ -459,12 +499,15 @@ public class ConfirmOrderActivity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
+
                         showProgress(true, "正在获取支付订单...");
+
                         Map<String, String> params = new HashMap<>();
                         params.put("token", localUserInfo.getToken());
                         params.put("pay_type", response.getPay_type_list().get(pay_item).getType() + "");
                         params.put("t_indent_id", response.getId());
                         RequestPay(params, response.getId());
+
                     }
                 });
 
@@ -494,6 +537,27 @@ public class ConfirmOrderActivity extends BaseActivity {
                 hideProgress();
                 myToast("下单成功");
                 localUserInfo.setIsordertrue("1");//是否下单成功//0未成功，1成功
+
+
+                //弹出支付宝
+                Runnable payRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        PayTask alipay = new PayTask(ConfirmOrderActivity.this);
+                        Map <String,String> result = alipay.payV2("",true);
+
+                        Message msg = new Message();
+                        msg.what = SDK_PAY_FLAG;
+                        msg.obj = result;
+                        mHandler.sendMessage(msg);
+                    }
+                };
+                // 必须异步调用
+                Thread payThread = new Thread(payRunnable);
+                payThread.start();
+
+
+
                 //跳转订单派送
                 Bundle bundle = new Bundle();
                 bundle.putString("id", id);

@@ -29,17 +29,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by zyz on 2019-10-03.
- * 公告详情
+ * 消息列表
  */
 public class NoticeListActivity extends BaseActivity {
     int page = 1;
     private RecyclerView recyclerView;
     List<NoticeDetailModel> list = new ArrayList<>();
     CommonAdapter<NoticeDetailModel> mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticelist);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        requestServer();
     }
 
     @Override
@@ -72,9 +79,10 @@ public class NoticeListActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        requestServer();
+
 
     }
+
     @Override
     public void requestServer() {
         super.requestServer();
@@ -85,6 +93,7 @@ public class NoticeListActivity extends BaseActivity {
                 + "&token=" + localUserInfo.getToken();
         Request(string);
     }
+
     private void Request(String string) {
         OkHttpClientManager.getAsyn(NoticeListActivity.this, URLs.NoticeDetail + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -100,7 +109,7 @@ public class NoticeListActivity extends BaseActivity {
             public void onResponse(String response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>公告详情" + response);
+                MyLogger.i(">>>>>>>>>消息列表" + response);
                 JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
@@ -114,25 +123,35 @@ public class NoticeListActivity extends BaseActivity {
                                 holder.setText(R.id.tv1, model.getTitle());
                                 holder.setText(R.id.tv2, model.getMessage());
                                 holder.setText(R.id.tv3, model.getCreated_at());
+                                View view_dian = holder.getView(R.id.view_dian);
+                                if (model.getStatus() == 1) {
+                                    view_dian.setVisibility(View.VISIBLE);
+                                } else {
+                                    view_dian.setVisibility(View.GONE);
+                                }
                             }
                         };
                         mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                                switch (list.get(i).getType()){
+                                //调消息详情接口，取消红点
+                                String string = "?id=" + list.get(i).getDetail()
+                                        + "&token=" + localUserInfo.getToken();
+                                RequestDetail(string);
+                                switch (list.get(i).getType()) {
                                     case 1:
                                         //订单消息跳转订单详情
                                         Bundle bundle1 = new Bundle();
-                                        bundle1.putString("id",list.get(i).getDetail());
-                                        CommonUtil.gotoActivityWithData(NoticeListActivity.this,OrderDetailsActivity.class,bundle1);
+                                        bundle1.putString("id", list.get(i).getDetail());
+                                        CommonUtil.gotoActivityWithData(NoticeListActivity.this, OrderDetailsActivity.class, bundle1);
                                         break;
                                     case 2:
                                         //图文跳转url
                                     case 4:
                                         // 跳转url
                                         Bundle bundle2 = new Bundle();
-                                        bundle2.putString("url",list.get(i).getDetail());
-                                        CommonUtil.gotoActivityWithData(NoticeListActivity.this,WebContentActivity.class,bundle2);
+                                        bundle2.putString("url", list.get(i).getDetail());
+                                        CommonUtil.gotoActivityWithData(NoticeListActivity.this, WebContentActivity.class, bundle2);
                                         break;
                                     case 3:
                                         //文字消息直接显示
@@ -157,6 +176,7 @@ public class NoticeListActivity extends BaseActivity {
             }
         });
     }
+
     private void RequestMore(String string) {
         OkHttpClientManager.getAsyn(this, URLs.NoticeDetail + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -173,7 +193,7 @@ public class NoticeListActivity extends BaseActivity {
             public void onResponse(String response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>积分明细更多" + response);
+                MyLogger.i(">>>>>>>>>消息列表更多" + response);
                 JSONObject jObj;
                 List<NoticeDetailModel> list1 = new ArrayList<>();
                 try {
@@ -192,6 +212,20 @@ public class NoticeListActivity extends BaseActivity {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+            }
+        });
+
+    }
+    private void RequestDetail(String string) {
+        OkHttpClientManager.getAsyn(this, URLs.Detail + string, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(String response) {
+
             }
         });
 

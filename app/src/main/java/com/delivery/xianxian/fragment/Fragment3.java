@@ -49,7 +49,7 @@ import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
  */
 public class Fragment3 extends BaseFragment {
     ImageView imageView1;
-    TextView textView1, textView2,tv_banbenhao;
+    TextView textView1, textView2,tv_banbenhao,tv_xiaoxinum;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5, linearLayout6,
             linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
             linearLayout12, linearLayout13, linearLayout14,linearLayout15;
@@ -76,6 +76,7 @@ public class Fragment3 extends BaseFragment {
         if (MainActivity.item == 1) {
             requestServer();
         }
+        tv_xiaoxinum.setText(EMClient.getInstance().chatManager().getUnreadMessageCount()+"");
     }
 
     @Override
@@ -153,6 +154,8 @@ public class Fragment3 extends BaseFragment {
 
         tv_banbenhao = findViewByID_My(R.id.tv_banbenhao);
         tv_banbenhao.setText("版本号："+CommonUtil.getVersionName(getActivity()));
+
+        tv_xiaoxinum = findViewByID_My(R.id.tv_xiaoxinum);
     }
 
     @Override
@@ -398,6 +401,7 @@ public class Fragment3 extends BaseFragment {
                 myToast("修改昵称成功");
                 localUserInfo.setNickname(string);
                 textView1.setText(string);
+
             }
         }, false);
 
