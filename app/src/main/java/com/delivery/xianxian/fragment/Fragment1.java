@@ -142,9 +142,13 @@ public class Fragment1 extends BaseFragment {
             //是否下单成功//0未成功，1成功
             tv_qidian.setText("");
             startAddr_id = "";
+            tv_fahuo_name.setText("");
+            tv_fahuo_mobile.setText("");
 
             tv_zhongdian.setText("");
             endAddr_id = "";
+            tv_shouhuo_name.setText("");
+            tv_shouhuo_mobile.setText("");
 
             ll_add.removeAllViews();
             addr_ids = "";
@@ -772,8 +776,8 @@ public class Fragment1 extends BaseFragment {
                 }
                 ll_time3.setVisibility(View.GONE);
                 ll_kuaidi.setVisibility(View.GONE);
-                ll_fahuo.setVisibility(View.GONE);
-                ll_shouhuo.setVisibility(View.GONE);
+//                ll_fahuo.setVisibility(View.GONE);
+//                ll_shouhuo.setVisibility(View.GONE);
 
                 break;
             case 2:
@@ -789,8 +793,8 @@ public class Fragment1 extends BaseFragment {
                 ll_time2.setVisibility(View.GONE);
                 ll_time3.setVisibility(View.VISIBLE);
                 ll_kuaidi.setVisibility(View.GONE);
-                ll_fahuo.setVisibility(View.GONE);
-                ll_shouhuo.setVisibility(View.GONE);
+//                ll_fahuo.setVisibility(View.GONE);
+//                ll_shouhuo.setVisibility(View.GONE);
                 break;
             case 3:
                 tv_type1.setBackgroundResource(R.drawable.yuanjiao_10_huiise_top);
@@ -805,8 +809,8 @@ public class Fragment1 extends BaseFragment {
                 ll_time2.setVisibility(View.GONE);
                 ll_time3.setVisibility(View.GONE);
                 ll_kuaidi.setVisibility(View.VISIBLE);
-                ll_fahuo.setVisibility(View.VISIBLE);
-                ll_shouhuo.setVisibility(View.VISIBLE);
+//                ll_fahuo.setVisibility(View.VISIBLE);
+//                ll_shouhuo.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -1072,7 +1076,8 @@ public class Fragment1 extends BaseFragment {
                     Bundle bundle3 = data.getExtras();
                     /*String addr1 = bundle3.getString("addr");
                     MyLogger.i(">>>地址>>>>" + addr1);*/
-                    addView(bundle3.getString("addr"), bundle3.getString("addr_id"));
+                    addView(bundle3.getString("addr"), bundle3.getString("addr_id"),
+                            bundle3.getString("name"),bundle3.getString("mobile"));
                 }
                 break;
         }
@@ -1080,7 +1085,7 @@ public class Fragment1 extends BaseFragment {
     }
 
     //添加布局
-    private void addView(String addr, String addr_id) {
+    private void addView(String addr, String addr_id,String name,String mobile) {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         LayoutInflater inflater = LayoutInflater.from(getActivity());
@@ -1090,9 +1095,13 @@ public class Fragment1 extends BaseFragment {
         TextView tv_id = (TextView) view.findViewById(R.id.tv_id);
         TextView tv_dizhi = (TextView) view.findViewById(R.id.tv_dizhi);
         TextView tv_delete = (TextView) view.findViewById(R.id.tv_delete);
+        TextView tv_tujingdian_name = (TextView) view.findViewById(R.id.tv_tujingdian_name);
+        TextView tv_tujingdian_mobile = (TextView) view.findViewById(R.id.tv_tujingdian_mobile);
 
         tv_id.setText(addr_id);
         tv_dizhi.setText(addr);
+        tv_tujingdian_name.setText("收货人："+name);
+        tv_tujingdian_mobile.setText("电话号码："+mobile);
 
         tv_delete.setOnClickListener(new View.OnClickListener() {
             @Override

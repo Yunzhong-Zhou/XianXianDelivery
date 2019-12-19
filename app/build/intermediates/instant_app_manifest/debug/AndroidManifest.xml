@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
     android:targetSandboxVersion="2"
-    android:versionCode="10"
-    android:versionName="Beta1.0.12" >
+    android:versionCode="1"
+    android:versionName="1.0.0" >
 
     <uses-sdk
         android:minSdkVersion="19"

@@ -2233,6 +2233,7 @@ id ll_time3
 id ll_title
 id ll_title_background
 id ll_top
+id ll_tujing
 id loading_layout
 id loading_view
 id localCity
@@ -2534,6 +2535,8 @@ id tv_title
 id tv_title1
 id tv_title2
 id tv_tujingdian
+id tv_tujingdian_mobile
+id tv_tujingdian_name
 id tv_type1
 id tv_type2
 id tv_type3

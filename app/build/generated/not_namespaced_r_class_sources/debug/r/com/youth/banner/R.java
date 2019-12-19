@@ -57,10 +57,10 @@ public final class R {
         public static final int fit_start = 0x7f0800f8;
         public static final int fit_xy = 0x7f0800f9;
         public static final int indicatorInside = 0x7f080128;
-        public static final int matrix = 0x7f080181;
-        public static final int numIndicator = 0x7f08019a;
-        public static final int numIndicatorInside = 0x7f08019b;
-        public static final int titleView = 0x7f080253;
+        public static final int matrix = 0x7f080182;
+        public static final int numIndicator = 0x7f08019b;
+        public static final int numIndicatorInside = 0x7f08019c;
+        public static final int titleView = 0x7f080254;
     }
     public static final class layout {
         private layout() {}
