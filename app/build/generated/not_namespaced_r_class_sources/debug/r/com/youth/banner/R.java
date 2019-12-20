@@ -36,10 +36,10 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int black_background = 0x7f07006a;
-        public static final int gray_radius = 0x7f07015b;
-        public static final int no_banner = 0x7f070173;
-        public static final int white_radius = 0x7f070190;
+        public static final int black_background = 0x7f070069;
+        public static final int gray_radius = 0x7f07015a;
+        public static final int no_banner = 0x7f070170;
+        public static final int white_radius = 0x7f07018d;
     }
     public static final class id {
         private id() {}

@@ -81,7 +81,6 @@
     </LinearLayout>
     <!--中部-->
     <LinearLayout
-        android:id="@+id/ll_center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/ll_bottom"
@@ -95,15 +94,15 @@
 
             <TextView
                 android:id="@+id/tv_lishi"
-                android:onClick="onClick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:padding="14dp"
                 android:text="历史地址"
-                android:textColor="@color/black1" />
+                android:textColor="@color/black3" />
 
             <View
                 android:layout_width="0.5dp"
@@ -112,40 +111,51 @@
 
             <TextView
                 android:id="@+id/tv_changyong"
-                android:onClick="onClick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
+                android:onClick="onClick"
                 android:padding="14dp"
                 android:text="常用地址"
                 android:textColor="@color/black3" />
 
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/xian"/>
-        <TextView
-            android:id="@+id/tv_ditu"
-            android:onClick="onClick"
+            android:background="@color/xian" />
+
+        <LinearLayout
+            android:id="@+id/ll_center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="在地图上选址"
-            android:textColor="@color/blue"
-            android:background="@color/white"
-            android:drawableLeft="@mipmap/ic_down_black"
-            android:drawablePadding="4dp"
-            android:padding="10dp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/xian"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_ditu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/ic_down_black"
+                android:drawablePadding="4dp"
+                android:onClick="onClick"
+                android:padding="10dp"
+                android:text="在地图上选址"
+                android:textColor="@color/blue" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/xian" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -63,6 +63,8 @@ public class OrderListActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
+        status = getIntent().getIntExtra("status",1);
+        changeUI();
         requestServer();
     }
 

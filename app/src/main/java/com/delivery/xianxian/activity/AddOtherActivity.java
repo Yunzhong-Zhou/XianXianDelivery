@@ -11,6 +11,7 @@ import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.AddOtherModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
+import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -22,6 +23,8 @@ import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static com.delivery.xianxian.net.OkHttpClientManager.HOST;
 
 /**
  * Created by zyz on 2019-11-19.
@@ -134,6 +137,24 @@ public class AddOtherActivity extends BaseActivity {
         });
     }
 
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.textView1:
+                Bundle bundle = new Bundle();
+                bundle.putString("url", HOST + "/api/article/detail-html?id=");
+                CommonUtil.gotoActivityWithData(AddOtherActivity.this, WebContentActivity.class, bundle, false);
+
+                break;
+            case R.id.textView2:
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("url", HOST + "/api/article/detail-html?id=");
+                CommonUtil.gotoActivityWithData(AddOtherActivity.this, WebContentActivity.class, bundle1, false);
+
+                break;
+        }
+    }
 
     @Override
     protected void updateView() {

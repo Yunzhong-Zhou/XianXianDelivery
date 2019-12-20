@@ -52,7 +52,7 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int selector_pickerview_btn = 0x7f070186;
+        public static final int selector_pickerview_btn = 0x7f070183;
     }
     public static final class id {
         private id() {}

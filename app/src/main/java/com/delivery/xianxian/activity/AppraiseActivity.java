@@ -16,6 +16,7 @@ import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.AppraiseModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
+import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
@@ -194,7 +195,10 @@ public class AppraiseActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>发布评论" + response);
                 myToast("评价发布成功");
-                finish();
+//                finish();
+                Bundle bundle = new Bundle();
+                bundle.putInt("status",3);
+                CommonUtil.gotoActivityWithFinishOtherAllAndData(AppraiseActivity.this,OrderListActivity.class,bundle,true);
                 /*JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);

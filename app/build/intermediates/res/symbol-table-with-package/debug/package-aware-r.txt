@@ -1765,8 +1765,6 @@ drawable ic_citypicker_onecity
 drawable ic_citypicker_three_city
 drawable ic_close
 drawable ic_launcher
-drawable ic_launcher_background
-drawable ic_launcher_foreground
 drawable ic_left_white
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle

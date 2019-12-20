@@ -196,6 +196,9 @@ public class LoginActivity extends BaseActivity {
                 localUserInfo.setToken(response.getFresh_token());
                 //保存电话号码
                 localUserInfo.setPhoneNumber(response.getMobile());
+                //保存是否认证
+                localUserInfo.setIsVerified(response.getIs_certification()+"");//1 认证 2 未认证
+
                 //环信登录-为了登录成功，先退出登录
                 EMClient.getInstance().logout(false);
                 EMClient.getInstance().login(response.getHx_username(), "123456", new EMCallBack() {

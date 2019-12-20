@@ -2,21 +2,23 @@ package com.delivery.xianxian.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.squareup.okhttp.Request;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.AddSurchargeModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.MyLogger;
+import com.squareup.okhttp.Request;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -93,6 +95,7 @@ public class AddSurchargeActivity extends BaseActivity {
                 }
             }
         });
+
     }
 
     @Override
@@ -105,6 +108,7 @@ public class AddSurchargeActivity extends BaseActivity {
                 break;
             case R.id.tv_baocun:
                 //保存
+                addMoney();
                 if (match()) {
                     showProgress(true, "正在上传数据，请稍后...");
                     params.put("token", localUserInfo.getToken());//token
@@ -117,6 +121,7 @@ public class AddSurchargeActivity extends BaseActivity {
                 break;
             case R.id.tv_queren:
                 //发送客户确认
+                addMoney();
                 if (match()) {
                     showProgress(true, "正在上传数据，请稍后...");
                     params.put("token", localUserInfo.getToken());//token
@@ -268,6 +273,18 @@ public class AddSurchargeActivity extends BaseActivity {
                 }
             }
         });
+        editText_2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_DONE) {
+                    MyLogger.i(">>>>>>>>>"+editText_2.getText().toString().trim());
+                    addMoney();
+                }
+                return true;
+            }
+        });
+
+
         add_ll.addView(view);
     }
 
@@ -280,22 +297,22 @@ public class AddSurchargeActivity extends BaseActivity {
         }*/
         //逾时等候费
         money1 = editText2.getText().toString().trim();
-        if (TextUtils.isEmpty(money1)) {
+        /*if (TextUtils.isEmpty(money1)) {
             showToast("请输入逾时等候费");
             return false;
-        }
+        }*/
         //路桥费
         money2 = editText3.getText().toString().trim();
-        if (TextUtils.isEmpty(money2)) {
+        /*if (TextUtils.isEmpty(money2)) {
             showToast("请输入路桥费");
             return false;
-        }
+        }*/
         //搬运费
         money3 = editText4.getText().toString().trim();
-        if (TextUtils.isEmpty(money3)) {
+        /*if (TextUtils.isEmpty(money3)) {
             showToast("请输入搬运费");
             return false;
-        }
+        }*/
 
         //材料消耗
         JSONArray moneyArray = new JSONArray();

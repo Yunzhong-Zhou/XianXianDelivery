@@ -150,6 +150,7 @@ public class SelectAddressActivity extends BaseActivity {
         tv_changyong = findViewByID_My(R.id.tv_changyong);
         tv_ditu = findViewByID_My(R.id.tv_ditu);
         ll_center = findViewByID_My(R.id.ll_center);
+        ll_center.setVisibility(View.GONE);
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
@@ -450,12 +451,14 @@ public class SelectAddressActivity extends BaseActivity {
                 break;
             case R.id.tv_lishi:
                 //历史地址
+                ll_center.setVisibility(View.VISIBLE);
                 tv_lishi.setTextColor(getResources().getColor(R.color.black1));
                 tv_changyong.setTextColor(getResources().getColor(R.color.black3));
                 recyclerView.setAdapter(mAdapter1);
                 break;
             case R.id.tv_changyong:
                 //常用地址
+                ll_center.setVisibility(View.VISIBLE);
                 tv_lishi.setTextColor(getResources().getColor(R.color.black3));
                 tv_changyong.setTextColor(getResources().getColor(R.color.black1));
                 recyclerView.setAdapter(mAdapter2);

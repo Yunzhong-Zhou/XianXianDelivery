@@ -134,10 +134,6 @@ public class NoticeListActivity extends BaseActivity {
                         mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                                //调消息详情接口，取消红点
-                                String string = "?id=" + list.get(i).getDetail()
-                                        + "&token=" + localUserInfo.getToken();
-                                RequestDetail(string);
                                 switch (list.get(i).getType()) {
                                     case 1:
                                         //订单消息跳转订单详情
@@ -157,6 +153,10 @@ public class NoticeListActivity extends BaseActivity {
                                         //文字消息直接显示
                                         break;
                                 }
+                                //调消息详情接口，取消红点
+                                String string = "?id=" + list.get(i).getId()
+                                        + "&token=" + localUserInfo.getToken();
+                                RequestDetail(string);
                             }
 
                             @Override
@@ -225,7 +225,7 @@ public class NoticeListActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response) {
-
+                requestServer();
             }
         });
 

@@ -128,6 +128,9 @@ public class MyProfileActivity extends BaseActivity {
                 textView2.setText(response.getMobile());
                 //行业
                 textView3.setText(response.getIndustry());
+
+                //保存是否认证
+                localUserInfo.setIsVerified(response.getIs_certification()+"");//1 认证 2 未认证
                 //实名认证//1已认证2未认证
                 if (response.getIs_certification() == 1) {
                     textView4.setText("已认证");

@@ -185,29 +185,26 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        isShowAd = getIntent().getIntExtra("isShowAd", 0);
+        /*isShowAd = getIntent().getIntExtra("isShowAd", 0);
         if (isShowAd == 1) {
-            /*//弹出广告窗 - 去完成
-            final BaseDialog dialog = new BaseDialog(MainActivity.this);
-            dialog.config(R.layout.dialog_showad1, 0.8f, Gravity.CENTER,
-                    BaseDialog.AnimInType.CENTER, WindowManager.LayoutParams.MATCH_PARENT,
-                    WindowManager.LayoutParams.WRAP_CONTENT, true).show();
-            dialog.findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                    MainActivity.mBottomTabBar.setCurrentTab(1);//跳转到借款
-//                    CommonUtil.gotoActivity(MainActivity.this, CommissionAccountActivity.class, false);
-                }
-            });
-            dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                }
-            });*/
-        }
+            //弹出去认证
 
+        }*/
+        if (localUserInfo.getIsVerified().equals("2")){
+            showToast("您暂未完成认证，确定前往认证？", "确定", "取消",
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            CommonUtil.gotoActivity(MainActivity.this,Auth_ShenFenZhengActivity.class,false);
+                        }
+                    }, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+        }
         RequestUpgrade("?app_type=" + 1
                 + "&type=" + "owner");//检查更新//"driver 司机 owner货主端"
     }

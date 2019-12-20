@@ -252,7 +252,7 @@ public class URLs {
     /**
      * 消息详情取消红点
      */
-    public static final String Detail = "/api/owner/tindent/detail";
+    public static final String Detail = "/api/owner/center/my-message-detail";
     /**
      * 评分详情
      */
