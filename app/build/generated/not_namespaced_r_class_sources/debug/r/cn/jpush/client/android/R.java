@@ -43,16 +43,16 @@ public final class R {
         public static final int push_notification_sub_title = 0x7f0801ca;
         public static final int push_notification_title = 0x7f0801cb;
         public static final int push_root_view = 0x7f0801cc;
-        public static final int rlRichpushTitleBar = 0x7f0801e0;
-        public static final int tvRichpushTitle = 0x7f08026b;
-        public static final int wvPopwin = 0x7f0802ca;
+        public static final int rlRichpushTitleBar = 0x7f0801e2;
+        public static final int tvRichpushTitle = 0x7f08026d;
+        public static final int wvPopwin = 0x7f0802cc;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int jpush_popwin_layout = 0x7f0b00d2;
-        public static final int jpush_webview_layout = 0x7f0b00d3;
-        public static final int push_notification = 0x7f0b00ee;
+        public static final int jpush_popwin_layout = 0x7f0b00d3;
+        public static final int jpush_webview_layout = 0x7f0b00d4;
+        public static final int push_notification = 0x7f0b00ef;
     }
     public static final class string {
         private string() {}

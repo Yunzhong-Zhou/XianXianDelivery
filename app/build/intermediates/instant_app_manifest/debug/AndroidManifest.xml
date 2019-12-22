@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
     android:targetSandboxVersion="2"
-    android:versionCode="11"
-    android:versionName="Beta1.0.13" >
+    android:versionCode="12"
+    android:versionName="Beta1.0.14" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -90,7 +90,6 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >

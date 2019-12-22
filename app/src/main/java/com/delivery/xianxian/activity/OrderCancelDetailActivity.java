@@ -93,6 +93,12 @@ public class OrderCancelDetailActivity extends BaseActivity {
                             }
                         };
                 rv1.setAdapter(ap1);
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
                 break;
         }
     }

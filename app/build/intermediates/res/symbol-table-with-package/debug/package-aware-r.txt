@@ -2323,6 +2323,8 @@ id rectangle
 id recyclerView
 id recyclerView1
 id recyclerView2
+id recyclerView_addr
+id relativeLayout
 id restart_preview
 id return_scan_result
 id right
@@ -2792,6 +2794,7 @@ layout item_fragment2_3
 layout item_invoice
 layout item_jifenliebiao_gridview
 layout item_jifenmingxi
+layout item_mapaddr_list
 layout item_moneylist
 layout item_mydriver
 layout item_noticedetail

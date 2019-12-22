@@ -8,7 +8,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -103,6 +106,13 @@ public class SelectAddressActivity extends BaseActivity {
     TextView textView2;
     ImageView imageView1;
 
+
+    Handler handler = new Handler();
+    Runnable runnable;
+
+    RecyclerView recyclerView_addr;
+    CommonAdapter<String> mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,6 +156,20 @@ public class SelectAddressActivity extends BaseActivity {
         et_addr = findViewByID_My(R.id.et_addr);
         tv_city = findViewByID_My(R.id.tv_city);
 
+        recyclerView_addr = findViewByID_My(R.id.recyclerView_addr);
+        LinearLayoutManager mLinearLayoutManager1 = new LinearLayoutManager(this);
+        recyclerView_addr.setLayoutManager(mLinearLayoutManager1);
+        recyclerView_addr.setVisibility(View.GONE);
+        /*recyclerView_addr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+                // TODO Auto-generated method stub
+                recyclerView_addr.setVisibility(View.GONE);
+                return false;
+            }
+        });*/
+
+
         tv_lishi = findViewByID_My(R.id.tv_lishi);
         tv_changyong = findViewByID_My(R.id.tv_changyong);
         tv_ditu = findViewByID_My(R.id.tv_ditu);
@@ -161,6 +185,67 @@ public class SelectAddressActivity extends BaseActivity {
         editText4 = findViewByID_My(R.id.editText4);
         textView2 = findViewByID_My(R.id.textView2);
         imageView1 = findViewByID_My(R.id.imageView1);
+
+        et_addr.clearFocus();
+        et_addr.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 此处为得到焦点时的处理内容
+                    et_addr.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                        }
+
+                        @Override
+                        public void afterTextChanged(final Editable s) {
+                            if (runnable != null) {
+                                handler.removeCallbacks(runnable);
+                                Log.v("tag", "---" + s.toString());
+                            }
+                            runnable = new Runnable() {
+                                @Override
+                                public void run() {
+                                    MyLogger.i("tag", "输入>>>>>>" + s.toString());
+                                    if (!et_addr.getText().toString().trim().equals("")) {
+                                        //第二个参数传入null或者“”代表在全国进行检索，否则按照传入的city进行检索
+                                        InputtipsQuery inputquery = new InputtipsQuery(et_addr.getText().toString().trim(), city);
+                                        inputquery.setCityLimit(true);//限制在当前城市
+                                        Inputtips inputTips = new Inputtips(SelectAddressActivity.this, inputquery);
+                                        inputTips.setInputtipsListener(new Inputtips.InputtipsListener() {
+                                            @Override
+                                            public void onGetInputtips(List<Tip> list, int i) {
+                                                MyLogger.i(">>>>>"+list.size());
+                                                if (list.size() > 0) {
+                                                    //显示弹窗
+//                                        showPopupWindow1(et_addr, list);
+                                                    showMapAddr(list);
+                                                }
+                                            }
+                                        });
+                                        inputTips.requestInputtipsAsyn();
+                                    } else {
+                                        recyclerView_addr.setVisibility(View.GONE);
+                                    }
+                                }
+                            };
+                            Log.v("tag", "(((((" + s.toString());
+                            handler.postDelayed(runnable, 800);
+
+                        }
+                    });
+                } else {
+                    // 此处为失去焦点时的处理内容
+                    recyclerView_addr.setVisibility(View.GONE);
+                }
+            }
+        });
 
         et_addr.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -181,11 +266,14 @@ public class SelectAddressActivity extends BaseActivity {
                             public void onGetInputtips(List<Tip> list, int i) {
                                 if (list.size() > 0) {
                                     //显示弹窗
-                                    showPopupWindow1(et_addr, list);
+//                                    showPopupWindow1(et_addr, list);
+                                    showMapAddr(list);
                                 }
                             }
                         });
                         inputTips.requestInputtipsAsyn();
+                    } else {
+                        recyclerView_addr.setVisibility(View.GONE);
                     }
 
                     return true;
@@ -273,7 +361,7 @@ public class SelectAddressActivity extends BaseActivity {
                                 Map<String, String> params = new HashMap<>();
                                 params.put("token", localUserInfo.getToken());
                                 params.put("id", list1.get(position).getId() + "");
-                                RequestDelete(params,1,position);
+                                RequestDelete(params, 1, position);
                             }
                         });
                     }
@@ -316,7 +404,7 @@ public class SelectAddressActivity extends BaseActivity {
                                 Map<String, String> params = new HashMap<>();
                                 params.put("token", localUserInfo.getToken());
                                 params.put("id", list2.get(position).getId() + "");
-                                RequestDelete(params,2,position);
+                                RequestDelete(params, 2, position);
                             }
                         });
                     }
@@ -448,6 +536,7 @@ public class SelectAddressActivity extends BaseActivity {
                 if (marker != null) {
                     marker.remove();
                 }
+                recyclerView_addr.setVisibility(View.GONE);
                 break;
             case R.id.tv_lishi:
                 //历史地址
@@ -560,7 +649,8 @@ public class SelectAddressActivity extends BaseActivity {
         }, false);
 
     }
-    private void RequestDelete(Map<String, String> params,int type,int position) {
+
+    private void RequestDelete(Map<String, String> params, int type, int position) {
         OkHttpClientManager.postAsyn(SelectAddressActivity.this, URLs.DeleteAddress, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(final Request request, String info, Exception e) {
@@ -573,10 +663,10 @@ public class SelectAddressActivity extends BaseActivity {
             @Override
             public void onResponse(String response) {
                 MyLogger.i(">>>>>>>>>删除地址" + response);
-                if (type ==1){
+                if (type == 1) {
                     list1.remove(position);
                     mAdapter1.notifyDataSetChanged();
-                }else {
+                } else {
                     list2.remove(position);
                     mAdapter2.notifyDataSetChanged();
                 }
@@ -618,6 +708,64 @@ public class SelectAddressActivity extends BaseActivity {
     @Override
     protected void updateView() {
         titleView.setVisibility(View.GONE);
+    }
+
+    private void showMapAddr(List<Tip> tips) {
+        List<String> list = new ArrayList<String>();
+        List<LatLonPoint> pointList = new ArrayList<>();//途经点
+        for (int i = 0; i < tips.size(); i++) {
+            if (!tips.get(i).getAddress().equals("")) {
+                list.add(tips.get(i).getAddress());
+                pointList.add(tips.get(i).getPoint());
+            }
+        }
+        mAdapter = new CommonAdapter<String>
+                (SelectAddressActivity.this, R.layout.item_mapaddr_list, list) {
+            @Override
+            protected void convert(ViewHolder holder, String model, int position) {
+                holder.setText(R.id.textView1, model);
+
+            }
+        };
+        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                et_addr.setText(list.get(i));
+                //获取位置信息
+                point = pointList.get(i);
+                // 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
+                RegeocodeQuery query = new RegeocodeQuery(point, 200, GeocodeSearch.AMAP);
+                geocoderSearch.getFromLocationAsyn(query);
+
+                recyclerView_addr.setVisibility(View.GONE);
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                return false;
+            }
+        });
+        recyclerView_addr.setAdapter(mAdapter);
+        recyclerView_addr.setVisibility(View.VISIBLE);
+/*// mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
+        relativeLayout.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                int height = recyclerView_addr.getTop();
+                int height1 = recyclerView_addr.getBottom();
+                int y = (int) event.getY();
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (y < height) {
+                        recyclerView_addr.setVisibility(View.GONE);
+                    }
+                    if (y > height1) {
+                        recyclerView_addr.setVisibility(View.GONE);
+                    }
+                }
+                return true;
+            }
+        });*/
+
+
     }
 
     private void showPopupWindow1(View v, List<Tip> tips) {
