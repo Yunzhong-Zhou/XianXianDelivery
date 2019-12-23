@@ -55,4 +55,22 @@
         <attr name="rv_textColor" format="color|reference"/>
     </declare-styleable>
 
+
+    <!--阴影属性-->
+    <!--containerShadowColor:设置阴影颜色
+        containerShadowRadius:设置阴影的扩展距离
+        containerDeltaLength:设置子View到ShadowContainer的距离
+        containerCornerRadius:设置子View背景的圆角大小
+        deltaX: 设置阴影向下移动距离
+        deltaY: 设置阴影在Y轴移动距离-->
+    <declare-styleable name="ShadowContainer">
+        <attr name="containerShadowColor" format="color"/>
+        <attr name="containerShadowRadius" format="dimension"/>
+        <attr name="containerDeltaLength" format="dimension"/>
+        <attr name="containerCornerRadius" format="dimension"/>
+        <attr name="deltaX" format="dimension"/>
+        <attr name="deltaY" format="dimension"/>
+        <attr name="enable" format="boolean"/>
+    </declare-styleable>
+
 </resources>

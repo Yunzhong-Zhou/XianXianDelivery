@@ -18,6 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/blue"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="horizontal">
 
         <ImageView
@@ -42,8 +44,6 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:hint="请选择或输入地址"
             android:imeOptions="actionSearch"
             android:paddingLeft="10dp"
@@ -182,6 +182,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/yuanjiao_5_baise"
+            android:elevation="5dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -208,7 +209,7 @@
                     android:textColor="@color/black1"
                     android:textColorHint="@color/black3"
                     android:textSize="12sp" />
-
+x
             </LinearLayout>
 
             <View

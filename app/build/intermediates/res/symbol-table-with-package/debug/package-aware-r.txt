@@ -238,6 +238,10 @@ attr colorSwitchThumbNormal
 attr commitIcon
 attr constraintSet
 attr constraint_referenced_ids
+attr containerCornerRadius
+attr containerDeltaLength
+attr containerShadowColor
+attr containerShadowRadius
 attr content
 attr contentDescription
 attr contentInsetEnd
@@ -305,6 +309,8 @@ attr cvsListTimeTextColor
 attr cvsListTimeTextSize
 attr defaultQueryHint
 attr delay_time
+attr deltaX
+attr deltaY
 attr dialogCornerRadius
 attr dialogPreferredPadding
 attr dialogTheme
@@ -340,6 +346,7 @@ attr elevation
 attr emojiconColumns
 attr emptyView
 attr emptyVisibility
+attr enable
 attr enforceMaterialTheme
 attr enforceTextAppearance
 attr errorEnabled
@@ -4151,6 +4158,7 @@ styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable SelectableRoundedImageView android_scaleType sriv_border_color sriv_border_width sriv_left_bottom_corner_radius sriv_left_top_corner_radius sriv_oval sriv_right_bottom_corner_radius sriv_right_top_corner_radius
+styleable ShadowContainer containerCornerRadius containerDeltaLength containerShadowColor containerShadowRadius deltaX deltaY enable
 styleable SignInButton buttonSize colorScheme scopeUris
 styleable Snackbar snackbarButtonStyle snackbarStyle
 styleable SnackbarLayout android_maxWidth elevation maxActionInlineWidth

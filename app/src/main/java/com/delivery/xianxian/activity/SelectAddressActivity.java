@@ -186,7 +186,7 @@ public class SelectAddressActivity extends BaseActivity {
         textView2 = findViewByID_My(R.id.textView2);
         imageView1 = findViewByID_My(R.id.imageView1);
 
-        et_addr.clearFocus();
+
         et_addr.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -237,7 +237,6 @@ public class SelectAddressActivity extends BaseActivity {
                             };
                             Log.v("tag", "(((((" + s.toString());
                             handler.postDelayed(runnable, 800);
-
                         }
                     });
                 } else {
@@ -505,10 +504,17 @@ public class SelectAddressActivity extends BaseActivity {
                         lat = result.getRegeocodeQuery().getPoint().getLatitude() + "";
                         lng = result.getRegeocodeQuery().getPoint().getLongitude() + "";
 
+                        //移动到指定点
+                        LatLng marker1 = new LatLng(result.getRegeocodeQuery().getPoint().getLatitude(),
+                                result.getRegeocodeQuery().getPoint().getLongitude());
+                        //设置中心点
+                        aMap.moveCamera(CameraUpdateFactory.changeLatLng(marker1));
+
                         //绘制Marker
                         setfromandtoMarker(city + district,//市+区
                                 addr,
                                 point);
+
                     }
 
                 }

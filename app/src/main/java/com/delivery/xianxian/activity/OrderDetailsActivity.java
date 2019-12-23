@@ -242,7 +242,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                searchRouteResult(RouteSearch.DRIVING_MULTI_STRATEGY_FASTEST_SHORTEST_AVOID_CONGESTION);//默认避免拥堵、设置车辆信息
 
                 switch (model.getTindent().getStatus()) {
-                    case 0://未接单
+                    case -1://未接单
                         ll_hint1.setVisibility(View.VISIBLE);
                         ll_hint2.setVisibility(View.GONE);
                         titleView.showRightTextview("取消订单", new View.OnClickListener() {

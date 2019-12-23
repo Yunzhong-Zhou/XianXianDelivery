@@ -5,18 +5,19 @@
     <item>
         <shape android:shape="rectangle">
             <padding
-                android:bottom="5dp"
-                android:left="0.5dp"
-                android:right="0.5dp"
+                android:bottom="2dp"
+                android:left="2dp"
+                android:right="2dp"
                 android:top="0dp" />
-            <!--<solid android:color="#267AA2F0" />-->
-            <gradient
+            <solid android:color="@color/transparentblack4" />
+            <!--<gradient
                 android:angle="270"
                 android:centerY="1"
                 android:centerColor="#1A7AA2F0"
                 android:endColor="#0D7AA2F0"
-                android:startColor="#337AA2F0" />
+                android:startColor="#337AA2F0" />-->
             <corners android:radius="6dp" />
+
         </shape>
     </item>
 

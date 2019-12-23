@@ -19,19 +19,19 @@ public final class R {
 
         public static final int banner_default_image = 0x7f030037;
         public static final int banner_layout = 0x7f030038;
-        public static final int delay_time = 0x7f0300e7;
-        public static final int image_scale_type = 0x7f030153;
-        public static final int indicator_drawable_selected = 0x7f030155;
-        public static final int indicator_drawable_unselected = 0x7f030156;
-        public static final int indicator_height = 0x7f030157;
-        public static final int indicator_margin = 0x7f030158;
-        public static final int indicator_width = 0x7f030159;
-        public static final int is_auto_play = 0x7f03015d;
-        public static final int scroll_time = 0x7f0301fd;
-        public static final int title_background = 0x7f030290;
-        public static final int title_height = 0x7f030291;
-        public static final int title_textcolor = 0x7f030292;
-        public static final int title_textsize = 0x7f030293;
+        public static final int delay_time = 0x7f0300eb;
+        public static final int image_scale_type = 0x7f03015a;
+        public static final int indicator_drawable_selected = 0x7f03015c;
+        public static final int indicator_drawable_unselected = 0x7f03015d;
+        public static final int indicator_height = 0x7f03015e;
+        public static final int indicator_margin = 0x7f03015f;
+        public static final int indicator_width = 0x7f030160;
+        public static final int is_auto_play = 0x7f030164;
+        public static final int scroll_time = 0x7f030204;
+        public static final int title_background = 0x7f030297;
+        public static final int title_height = 0x7f030298;
+        public static final int title_textcolor = 0x7f030299;
+        public static final int title_textsize = 0x7f03029a;
     }
     public static final class drawable {
         private drawable() {}
@@ -70,7 +70,7 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] Banner = { 0x7f030037, 0x7f030038, 0x7f0300e7, 0x7f030153, 0x7f030155, 0x7f030156, 0x7f030157, 0x7f030158, 0x7f030159, 0x7f03015d, 0x7f0301fd, 0x7f030290, 0x7f030291, 0x7f030292, 0x7f030293 };
+        public static final int[] Banner = { 0x7f030037, 0x7f030038, 0x7f0300eb, 0x7f03015a, 0x7f03015c, 0x7f03015d, 0x7f03015e, 0x7f03015f, 0x7f030160, 0x7f030164, 0x7f030204, 0x7f030297, 0x7f030298, 0x7f030299, 0x7f03029a };
         public static final int Banner_banner_default_image = 0;
         public static final int Banner_banner_layout = 1;
         public static final int Banner_delay_time = 2;
