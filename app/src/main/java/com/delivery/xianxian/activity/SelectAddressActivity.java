@@ -37,6 +37,8 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.services.core.LatLonPoint;
+import com.amap.api.services.geocoder.GeocodeAddress;
+import com.amap.api.services.geocoder.GeocodeQuery;
 import com.amap.api.services.geocoder.GeocodeResult;
 import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeQuery;
@@ -86,6 +88,8 @@ public class SelectAddressActivity extends BaseActivity {
     private MapView mMapView;//地图控件
     private GeocodeSearch geocoderSearch;//查询控制器
     LatLonPoint point = null;
+
+//    double latitude = 0, longititude = 0;
 
     List<HotCity> hotCities = new ArrayList<>();//热门城市
     String province = "", city = "", cityCode = "", district = "";
@@ -216,12 +220,12 @@ public class SelectAddressActivity extends BaseActivity {
                                     if (!et_addr.getText().toString().trim().equals("")) {
                                         //第二个参数传入null或者“”代表在全国进行检索，否则按照传入的city进行检索
                                         InputtipsQuery inputquery = new InputtipsQuery(et_addr.getText().toString().trim(), city);
-                                        inputquery.setCityLimit(true);//限制在当前城市
+                                        inputquery.setCityLimit(false);//限制在当前城市
                                         Inputtips inputTips = new Inputtips(SelectAddressActivity.this, inputquery);
                                         inputTips.setInputtipsListener(new Inputtips.InputtipsListener() {
                                             @Override
                                             public void onGetInputtips(List<Tip> list, int i) {
-                                                MyLogger.i(">>>>>"+list.size());
+                                                MyLogger.i(">>>>>" + list.size());
                                                 if (list.size() > 0) {
                                                     //显示弹窗
 //                                        showPopupWindow1(et_addr, list);
@@ -258,7 +262,7 @@ public class SelectAddressActivity extends BaseActivity {
                     if (!et_addr.getText().toString().trim().equals("")) {
                         //第二个参数传入null或者“”代表在全国进行检索，否则按照传入的city进行检索
                         InputtipsQuery inputquery = new InputtipsQuery(et_addr.getText().toString().trim(), city);
-                        inputquery.setCityLimit(true);//限制在当前城市
+                        inputquery.setCityLimit(false);//限制在当前城市
                         Inputtips inputTips = new Inputtips(SelectAddressActivity.this, inputquery);
                         inputTips.setInputtipsListener(new Inputtips.InputtipsListener() {
                             @Override
@@ -459,6 +463,8 @@ public class SelectAddressActivity extends BaseActivity {
         aMap.setOnMyLocationChangeListener(new AMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location location) {
+//                latitude = location.getLatitude();
+//                longititude = location.getLongitude();
                 //获取位置信息
                 point = new LatLonPoint(location.getLatitude(), location.getLongitude());
                 // 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
@@ -473,6 +479,8 @@ public class SelectAddressActivity extends BaseActivity {
         aMap.setOnMapClickListener(new AMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
+//                latitude = latLng.latitude;
+//                longititude = latLng.longitude;
                 //获取位置信息
                 point = new LatLonPoint(latLng.latitude, latLng.longitude);
                 // 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
@@ -574,6 +582,7 @@ public class SelectAddressActivity extends BaseActivity {
                             public void onPick(int position, City data) {
                                 //选择的城市
                                 tv_city.setText(data.getName() + "");
+                                getLatlon(data.getName());
                             }
 
                             @Override
@@ -855,6 +864,69 @@ public class SelectAddressActivity extends BaseActivity {
         if (null != v) {
             imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
         }
+    }
+
+    //切换城市
+    private void getLatlon(String cityName) {
+        //构造 GeocodeSearch 对象，并设置监听。
+        GeocodeSearch geocodeSearch = new GeocodeSearch(SelectAddressActivity.this);
+        geocodeSearch.setOnGeocodeSearchListener(new GeocodeSearch.OnGeocodeSearchListener() {
+
+            //------------------------坐标转地址/坐标转地址的监听回调-----------------------
+            @Override
+            public void onRegeocodeSearched(RegeocodeResult regeocodeResult, int i) {
+
+            }
+
+            @Override
+            public void onGeocodeSearched(GeocodeResult geocodeResult, int i) {
+                if (i == 1000) {
+                    if (geocodeResult != null && geocodeResult.getGeocodeAddressList() != null &&
+                            geocodeResult.getGeocodeAddressList().size() > 0) {
+                        GeocodeAddress geocodeAddress = geocodeResult.getGeocodeAddressList().get(0);
+                        double latitude = geocodeAddress.getLatLonPoint().getLatitude();//纬度
+                        double longititude = geocodeAddress.getLatLonPoint().getLongitude();//经度
+                        String adcode = geocodeAddress.getAdcode();//区域编码
+
+                       /* LogUtils.e("地理编码", geocodeAddress.getAdcode() + "");
+                        LogUtils.e("纬度latitude", latitude + "");
+                        LogUtils.e("经度longititude", longititude + "");*/
+
+                       /* LatLng lng = new LatLng(latitude, longititude);
+                        aMap.moveCamera(CameraUpdateFactory.changeLatLng(lng));*/
+
+                        addr = geocodeAddress.getFormatAddress(); // 逆转地里编码不是每次都可以得到对应地图上的opi
+                        province = geocodeAddress.getProvince();//省
+                        city = geocodeAddress.getCity();//市
+                        district = geocodeAddress.getDistrict();//区
+
+                        tv_city.setText(city);
+                        et_addr.setText(addr);
+                        cityCode = geocodeAddress.getAdcode();//区域编码
+
+
+                        lat = latitude + "";
+                        lng = longititude + "";
+
+                        //移动到指定点
+                        LatLng marker1 = new LatLng(latitude, longititude);
+                        //设置中心点
+                        aMap.moveCamera(CameraUpdateFactory.changeLatLng(marker1));
+
+                        //绘制Marker
+                        setfromandtoMarker(city + district,//市+区
+                                addr,
+                                point);
+
+                    } else {
+                        myToast("地址名出错");
+                    }
+                }
+            }
+        });
+
+        GeocodeQuery geocodeQuery = new GeocodeQuery(cityName.trim(), "30000");
+        geocodeSearch.getFromLocationNameAsyn(geocodeQuery);
     }
 
     /**

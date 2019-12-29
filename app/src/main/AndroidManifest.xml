@@ -58,7 +58,9 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-
+    <!--Android 10 停用过滤视图，使用旧版存储模式
+        android:requestLegacyExternalStorage="true"
+        -->
     <application
         android:name="com.delivery.xianxian.MyApplication"
         android:allowBackup="true"
@@ -69,6 +71,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false">
         <activity
