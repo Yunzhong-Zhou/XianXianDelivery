@@ -261,7 +261,7 @@ public class AddInvoiceActivity extends BaseActivity {
             public void onResponse(ConfirmOrderModel response) {
                 MyLogger.i(">>>>>>>>>开票" + response);
                 hideProgress();
-                myToast("“开票成功，待后台审核");
+                myToast("开票成功，待后台审核");
                 finish();
             }
         });

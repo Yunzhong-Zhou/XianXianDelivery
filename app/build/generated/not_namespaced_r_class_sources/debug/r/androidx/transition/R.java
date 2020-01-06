@@ -111,11 +111,11 @@ public final class R {
         public static final int text2 = 0x7f080234;
         public static final int time = 0x7f080251;
         public static final int title = 0x7f080254;
-        public static final int transition_current_scene = 0x7f080260;
-        public static final int transition_layout_save = 0x7f080261;
-        public static final int transition_position = 0x7f080262;
-        public static final int transition_scene_layoutid_cache = 0x7f080263;
-        public static final int transition_transform = 0x7f080264;
+        public static final int transition_current_scene = 0x7f08025f;
+        public static final int transition_layout_save = 0x7f080260;
+        public static final int transition_position = 0x7f080261;
+        public static final int transition_scene_layoutid_cache = 0x7f080262;
+        public static final int transition_transform = 0x7f080263;
     }
     public static final class integer {
         private integer() {}
@@ -145,8 +145,8 @@ public final class R {
         public static final int TextAppearance_Compat_Notification_Line2 = 0x7f0f012b;
         public static final int TextAppearance_Compat_Notification_Time = 0x7f0f012e;
         public static final int TextAppearance_Compat_Notification_Title = 0x7f0f0130;
-        public static final int Widget_Compat_NotificationActionContainer = 0x7f0f01db;
-        public static final int Widget_Compat_NotificationActionText = 0x7f0f01dc;
+        public static final int Widget_Compat_NotificationActionContainer = 0x7f0f01da;
+        public static final int Widget_Compat_NotificationActionText = 0x7f0f01db;
     }
     public static final class styleable {
         private styleable() {}

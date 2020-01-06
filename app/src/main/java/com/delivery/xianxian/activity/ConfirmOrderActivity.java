@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alipay.sdk.app.PayTask;
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
@@ -539,7 +538,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                 localUserInfo.setIsordertrue("1");//是否下单成功//0未成功，1成功
 
 
-                //弹出支付宝
+                /*//弹出支付宝
                 Runnable payRunnable = new Runnable() {
                     @Override
                     public void run() {
@@ -554,7 +553,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                 };
                 // 必须异步调用
                 Thread payThread = new Thread(payRunnable);
-                payThread.start();
+                payThread.start();*/
 
 
 

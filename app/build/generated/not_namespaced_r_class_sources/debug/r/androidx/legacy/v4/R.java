@@ -133,7 +133,7 @@ public final class R {
         public static final int text2 = 0x7f080234;
         public static final int time = 0x7f080251;
         public static final int title = 0x7f080254;
-        public static final int top = 0x7f08025d;
+        public static final int top = 0x7f08025c;
     }
     public static final class integer {
         private integer() {}
@@ -178,9 +178,9 @@ public final class R {
         public static final int TextAppearance_Compat_Notification_Time_Media = 0x7f0f012f;
         public static final int TextAppearance_Compat_Notification_Title = 0x7f0f0130;
         public static final int TextAppearance_Compat_Notification_Title_Media = 0x7f0f0131;
-        public static final int Widget_Compat_NotificationActionContainer = 0x7f0f01db;
-        public static final int Widget_Compat_NotificationActionText = 0x7f0f01dc;
-        public static final int Widget_Support_CoordinatorLayout = 0x7f0f020b;
+        public static final int Widget_Compat_NotificationActionContainer = 0x7f0f01da;
+        public static final int Widget_Compat_NotificationActionText = 0x7f0f01db;
+        public static final int Widget_Support_CoordinatorLayout = 0x7f0f020a;
     }
     public static final class styleable {
         private styleable() {}

@@ -197,7 +197,7 @@ public class AppraiseActivity extends BaseActivity {
                 myToast("评价发布成功");
 //                finish();
                 Bundle bundle = new Bundle();
-                bundle.putInt("status",3);
+                bundle.putInt("status",2);
                 CommonUtil.gotoActivityWithFinishOtherAllAndData(AppraiseActivity.this,OrderListActivity.class,bundle,true);
                 /*JSONObject jObj;
                 try {

@@ -639,6 +639,8 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     }
                 };
                 recyclerView.setAdapter(mAdapter1);
+
+
                 dialog.findViewById(R.id.textView4).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

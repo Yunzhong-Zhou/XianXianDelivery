@@ -75,8 +75,8 @@ public final class R {
         public static final int rv_topbar = 0x7f0801eb;
         public static final int second = 0x7f080205;
         public static final int timepicker = 0x7f080252;
-        public static final int tvTitle = 0x7f08026e;
-        public static final int year = 0x7f0802cd;
+        public static final int tvTitle = 0x7f08026d;
+        public static final int year = 0x7f0802cc;
     }
     public static final class integer {
         private integer() {}
@@ -107,9 +107,9 @@ public final class R {
     public static final class style {
         private style() {}
 
-        public static final int custom_dialog2 = 0x7f0f0210;
-        public static final int picker_view_scale_anim = 0x7f0f021a;
-        public static final int picker_view_slide_anim = 0x7f0f021b;
+        public static final int custom_dialog2 = 0x7f0f020f;
+        public static final int picker_view_scale_anim = 0x7f0f0219;
+        public static final int picker_view_slide_anim = 0x7f0f021a;
     }
     public static final class styleable {
         private styleable() {}

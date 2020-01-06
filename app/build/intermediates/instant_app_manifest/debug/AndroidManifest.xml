@@ -78,7 +78,10 @@
         android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true" />
-
+    <!--
+Android 10 停用过滤视图，使用旧版存储模式
+        android:requestLegacyExternalStorage="true"
+    -->
     <application
         android:name="com.delivery.xianxian.MyApplication"
         android:allowBackup="true"
@@ -88,8 +91,10 @@
         android:label="@string/app_name"
         android:maxAspectRatio="2.4"
         android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >

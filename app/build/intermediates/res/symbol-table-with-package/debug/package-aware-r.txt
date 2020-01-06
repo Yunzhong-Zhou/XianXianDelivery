@@ -2463,7 +2463,6 @@ id title_template
 id title_text
 id title_view
 id titleview
-id toast_main_text_view_id
 id top
 id topPanel
 id touch_outside
@@ -3940,7 +3939,6 @@ style ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox
 style ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense
-style ToastAnimation
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar

@@ -1,31 +1,31 @@
 -- Merging decision tree log ---
 category#com.delivery.xianxian
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:314:17-61
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:327:17-61
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:346:17-61
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:17-61
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:317:17-61
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:330:17-61
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:349:17-61
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:363:17-61
 	android:name
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:314:27-58
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:317:27-58
 provider#androidx.core.content.FileProvider
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:368:9-376:20
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:371:9-379:20
 	android:grantUriPermissions
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:372:13-47
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:375:13-47
 	android:authorities
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:370:13-64
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:373:13-64
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:371:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:374:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:369:13-62
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:372:13-62
 manifest
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-384:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-384:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-384:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-384:12
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b91caa209798608d45cf197b8483ea61/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c3f192a73f35beee3ddb57dca8be6dfe/jetified-AliHeader-1.5.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/AndroidManifest.xml:2:1-17:12
@@ -47,7 +47,7 @@ MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/tran
 MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c0bf7af98cec7880a03631d83f09dbd/jetified-banner-1.4.10/AndroidManifest.xml:2:1-11:12
 MERGED from [com.gyf.immersionbar:immersionbar:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e4f9fff5e1de94160e14ed40057020bf/jetified-immersionbar-3.0.0-beta05/AndroidManifest.xml:2:1-10:12
 MERGED from [com.gyf.immersionbar:immersionbar-components:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b50d8109028f679412cdc630b079b715/jetified-immersionbar-components-3.0.0-beta05/AndroidManifest.xml:2:1-9:12
-MERGED from [com.hjq:toast:3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1902ef25b39b5eba85cca5c1720408cc/toast-3.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6b03a7b326fc03a9860417c9066ad289/toast-8.0/AndroidManifest.xml:2:1-11:12
 MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9cd6594c952ca894584e41f3216236c/jetified-library-1.1.0/AndroidManifest.xml:2:1-15:12
 MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:2:1-156:12
 MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/de7fa83c5498747b05725e5307e93bf2/jcore-2.2.4/AndroidManifest.xml:2:1-14:12
@@ -93,22 +93,22 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/YunZhong/.gradl
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66e997bde0b6ece28f7fd36f5f4a1584/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8787729f29cf7add1bc29c81caccddfd/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:2:1-20:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-384:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-384:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-384:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
 	package
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:4:5-36
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-384:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-384:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:11-69
@@ -263,7 +263,7 @@ ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDeliver
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:59:22-68
 application
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:62:5-382:19
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:64:5-385:19
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
 MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/AndroidManifest.xml:22:5-20
@@ -307,553 +307,555 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradl
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9c8616d74aa0ab3eb457d24b669c685/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9c8616d74aa0ab3eb457d24b669c685/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 	android:windowIsTranslucent
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:73:9-44
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:76:9-44
 	android:maxAspectRatio
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:67:9-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:69:9-37
+	android:requestLegacyExternalStorage
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:74:9-52
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:70:9-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:72:9-35
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:66:9-41
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:68:9-41
 	android:roundIcon
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:69:9-54
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:71:9-54
 	android:icon
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:65:9-43
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:67:9-43
 	android:allowBackup
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:64:9-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:66:9-35
 	android:theme
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:71:9-40
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:73:9-40
 	android:networkSecurityConfig
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:68:9-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:70:9-69
 	android:usesCleartextTraffic
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:72:9-44
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:75:9-44
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:63:9-59
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:65:9-59
 activity#com.delivery.xianxian.activity.HelloActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:74:9-82:20
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:77:9-85:20
 	android:theme
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:76:13-71
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:79:13-71
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:75:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:78:13-72
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:77:13-81:29
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:80:13-84:29
 action#android.intent.action.MAIN
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:78:17-69
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:81:17-69
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:78:25-66
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:81:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:80:17-77
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:83:17-77
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:80:27-74
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:83:27-74
 activity#com.delivery.xianxian.utils.permission.PermissionsActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:83:9-85:35
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:85:13-32
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:84:13-86
-activity#com.delivery.xianxian.activity.GuideActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:86:9-89:74
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:86:9-88:35
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:88:13-32
-	android:theme
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:89:13-71
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:87:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:87:13-86
+activity#com.delivery.xianxian.activity.GuideActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:89:9-92:74
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:91:13-32
+	android:theme
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:92:13-71
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:90:13-72
 activity#com.delivery.xianxian.activity.MainActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:90:9-93:61
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:93:9-96:61
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:92:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:95:13-31
 	android:theme
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:93:13-58
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:96:13-58
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:91:13-71
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:94:13-71
 activity#com.delivery.xianxian.activity.LoginActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:94:9-96:34
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:97:9-99:34
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:96:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:99:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:95:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:98:13-72
 activity#com.delivery.xianxian.activity.ForgetPasswordActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:97:9-99:36
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:100:9-102:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:99:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:102:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:98:13-81
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:101:13-81
 activity#com.delivery.xianxian.activity.RegisteredActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:100:9-102:35
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:103:9-105:35
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:102:13-32
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:101:13-77
-activity#com.delivery.xianxian.activity.WebContentActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:103:9-105:34
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:105:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:105:13-32
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:104:13-77
+activity#com.delivery.xianxian.activity.WebContentActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:106:9-108:34
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:108:13-31
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:107:13-77
 activity#com.delivery.xianxian.zxing.CaptureActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:106:9-108:35
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:109:9-111:35
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:108:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:111:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:107:13-71
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:110:13-71
 activity#com.delivery.xianxian.activity.SelectAddressActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:111:9-114:61
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:114:9-117:61
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:113:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:116:13-33
 	android:theme
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:114:13-58
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:117:13-58
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:112:13-80
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:115:13-80
 activity#com.delivery.xianxian.activity.ConfirmOrderActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:115:9-117:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:117:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:116:13-79
-activity#com.delivery.xianxian.activity.FeeDetailActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:118:9-120:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:120:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:119:13-76
-activity#com.delivery.xianxian.activity.FeeModelActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:119:13-79
+activity#com.delivery.xianxian.activity.FeeDetailActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:121:9-123:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:123:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:122:13-75
-activity#com.delivery.xianxian.activity.AddOtherActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:124:9-126:38
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:122:13-76
+activity#com.delivery.xianxian.activity.FeeModelActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:124:9-126:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:126:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:126:13-33
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:125:13-75
-activity#com.delivery.xianxian.activity.NoticeListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:130:9-132:36
+activity#com.delivery.xianxian.activity.AddOtherActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:127:9-129:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:132:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:129:13-35
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:131:13-77
-activity#com.delivery.xianxian.activity.ScoreDetailActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:128:13-75
+activity#com.delivery.xianxian.activity.NoticeListActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:133:9-135:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:135:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:134:13-78
-activity#com.delivery.xianxian.activity.CapitalStatisticsActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:134:13-77
+activity#com.delivery.xianxian.activity.ScoreDetailActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:136:9-138:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:138:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:137:13-84
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:137:13-78
+activity#com.delivery.xianxian.activity.CapitalStatisticsActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:139:9-141:36
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:141:13-33
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:140:13-84
 activity#com.delivery.xianxian.activity.TakeCashActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:139:9-141:34
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:142:9-144:34
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:141:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:144:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:140:13-75
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:143:13-75
 activity#com.delivery.xianxian.activity.OrderListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:144:9-146:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:146:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:145:13-76
-activity#com.delivery.xianxian.activity.OrderDetailsActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:147:9-149:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:149:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:148:13-79
-activity#com.delivery.xianxian.activity.OrderCancelActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:148:13-76
+activity#com.delivery.xianxian.activity.OrderDetailsActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:150:9-152:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:152:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:151:13-78
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:151:13-79
+activity#com.delivery.xianxian.activity.OrderCancelActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:153:9-155:36
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:155:13-33
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:154:13-78
 activity#com.delivery.xianxian.activity.OrderCancelDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:153:9-155:38
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:156:9-158:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:155:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:158:13-35
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:154:13-84
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:157:13-84
 activity#com.delivery.xianxian.activity.InvoiceActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:156:9-158:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:158:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:157:13-74
-activity#com.delivery.xianxian.activity.AddInvoiceActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:159:9-161:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:161:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:160:13-77
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:160:13-74
+activity#com.delivery.xianxian.activity.AddInvoiceActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:162:9-164:36
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:164:13-33
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:163:13-77
 activity#com.delivery.xianxian.activity.AppraiseActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:162:9-164:34
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:165:9-167:34
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:164:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:167:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:163:13-75
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:166:13-75
 activity#com.delivery.xianxian.activity.AddSurchargeActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:165:9-167:37
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:168:9-170:37
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:167:13-34
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:170:13-34
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:166:13-79
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:169:13-79
 activity#com.delivery.xianxian.activity.TrackServiceActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:169:9-171:38
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:172:9-174:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:171:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:174:13-35
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:170:13-79
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:173:13-79
 activity#com.delivery.xianxian.activity.TrackSearchActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:172:9-174:36
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:175:9-177:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:174:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:177:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:173:13-78
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:176:13-78
 activity#com.delivery.xianxian.activity.MyProfileActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:176:9-178:39
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:179:9-181:39
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:178:13-36
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:181:13-36
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:177:13-76
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:180:13-76
 activity#com.delivery.xianxian.activity.ChangePhoneNumActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:179:9-181:37
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:182:9-184:37
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:181:13-34
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:180:13-81
-activity#com.delivery.xianxian.activity.ChangePasswordActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:182:9-184:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:184:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:184:13-34
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:183:13-81
-activity#com.delivery.xianxian.activity.WalletActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:185:9-187:34
+activity#com.delivery.xianxian.activity.ChangePasswordActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:185:9-187:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:187:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:187:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:186:13-73
-activity#com.delivery.xianxian.activity.RechargeActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:186:13-81
+activity#com.delivery.xianxian.activity.WalletActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:188:9-190:34
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:190:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:189:13-75
-activity#com.delivery.xianxian.activity.MoneyListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:191:9-193:36
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:189:13-73
+activity#com.delivery.xianxian.activity.RechargeActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:191:9-193:34
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:193:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:193:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:192:13-76
-activity#com.delivery.xianxian.activity.JiangLiHuoDongActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:192:13-75
+activity#com.delivery.xianxian.activity.MoneyListActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:194:9-196:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:196:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:195:13-81
-activity#com.delivery.xianxian.activity.JiangLiListActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:195:13-76
+activity#com.delivery.xianxian.activity.JiangLiHuoDongActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:197:9-199:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:199:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:198:13-78
-activity#com.delivery.xianxian.activity.JiFenShangChengActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:198:13-81
+activity#com.delivery.xianxian.activity.JiangLiListActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:200:9-202:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:202:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:201:13-82
-activity#com.delivery.xianxian.activity.JiFenLieBiaoActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:201:13-78
+activity#com.delivery.xianxian.activity.JiFenShangChengActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:203:9-205:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:205:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:204:13-79
-activity#com.delivery.xianxian.activity.DuiHuanListActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:204:13-82
+activity#com.delivery.xianxian.activity.JiFenLieBiaoActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:206:9-208:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:208:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:207:13-78
-activity#com.delivery.xianxian.activity.JiFenMingXiActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:207:13-79
+activity#com.delivery.xianxian.activity.DuiHuanListActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:209:9-211:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:211:13-33
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:210:13-78
-activity#com.delivery.xianxian.activity.ServiceCenterActivity
+activity#com.delivery.xianxian.activity.JiFenMingXiActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:212:9-214:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:214:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:213:13-80
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:213:13-78
+activity#com.delivery.xianxian.activity.ServiceCenterActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:215:9-217:36
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:217:13-33
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:216:13-80
 activity#com.delivery.xianxian.activity.Auth_ShenFenZhengActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:215:9-217:37
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:218:9-220:37
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:217:13-34
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:220:13-34
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:216:13-84
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:219:13-84
 activity#com.delivery.xianxian.activity.MyDriverActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:218:9-220:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:220:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:219:13-75
-activity#com.delivery.xianxian.activity.TemperatureActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:221:9-223:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:223:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:222:13-78
-activity#com.delivery.xianxian.activity.ChatMainActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:226:9-228:36
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:222:13-75
+activity#com.delivery.xianxian.activity.TemperatureActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:224:9-226:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:228:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:226:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:227:13-75
-activity#com.delivery.xianxian.activity.ChatActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:225:13-78
+activity#com.delivery.xianxian.activity.ChatMainActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:229:9-231:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:231:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:230:13-71
-activity#com.hyphenate.easeui.ui.EaseBaiduMapActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:232:9-235:52
-	android:screenOrientation
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:235:13-49
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:230:13-75
+activity#com.delivery.xianxian.activity.ChatActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:232:9-234:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:234:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:233:13-72
-activity#com.hyphenate.easeui.ui.EaseShowBigImageActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:9-239:52
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:233:13-71
+activity#com.hyphenate.easeui.ui.EaseBaiduMapActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:235:9-238:52
 	android:screenOrientation
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:13-49
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:238:13-49
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:238:13-76
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:236:13-72
+activity#com.hyphenate.easeui.ui.EaseShowBigImageActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:240:9-242:52
+	android:screenOrientation
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:242:13-49
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:241:13-76
 meta-data#EASEMOB_APPKEY
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:242:9-244:54
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:245:9-247:54
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:244:13-51
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:247:13-51
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:243:13-42
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:246:13-42
 service#com.hyphenate.chat.EMChatService
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:246:9-248:39
-	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:248:13-36
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:247:13-60
-service#com.hyphenate.chat.EMJobService
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:249:9-252:72
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:249:9-251:39
 	android:exported
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:251:13-36
-	android:permission
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:252:13-69
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:250:13-59
-receiver#com.hyphenate.chat.EMMonitorReceiver
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:254:9-264:20
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:254:19-70
-intent-filter#action:name:android.intent.action.PACKAGE_REMOVED+data:scheme:package
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:255:13-258:29
-action#android.intent.action.PACKAGE_REMOVED
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:256:17-80
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:256:25-77
-data
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:257:17-50
-	android:scheme
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:257:23-47
-intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.USER_PRESENT
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:260:13-263:29
-action#android.intent.action.BOOT_COMPLETED
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:261:17-79
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:261:25-76
-action#android.intent.action.USER_PRESENT
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:262:17-77
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:262:25-74
-activity#com.amap.api.navi.AmapRouteActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:267:9-270:63
-	android:configChanges
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:269:13-74
-	android:theme
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:270:13-60
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:268:13-63
-meta-data#com.amap.api.v2.apikey
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:271:9-273:64
-	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:273:13-61
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:272:13-50
-service#com.delivery.xianxian.service.LocationService
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:275:9-278:39
-	android:enabled
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:277:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:250:13-60
+service#com.hyphenate.chat.EMJobService
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:252:9-255:72
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:278:13-36
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:254:13-36
+	android:permission
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:255:13-69
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:276:13-73
-service#com.amap.api.location.APSService
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:279:9-68
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:253:13-59
+receiver#com.hyphenate.chat.EMMonitorReceiver
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:257:9-267:20
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:279:18-65
-service#com.amap.api.track.AMapTrackService
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:280:9-71
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:257:19-70
+intent-filter#action:name:android.intent.action.PACKAGE_REMOVED+data:scheme:package
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:258:13-261:29
+action#android.intent.action.PACKAGE_REMOVED
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:259:17-80
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:280:18-68
-service#com.baidu.location.f
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:283:9-286:41
-	android:process
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:286:13-38
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:259:25-77
+data
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:260:17-50
+	android:scheme
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:260:23-47
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.USER_PRESENT
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:263:13-266:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:264:17-79
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:264:25-76
+action#android.intent.action.USER_PRESENT
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:265:17-77
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:265:25-74
+activity#com.amap.api.navi.AmapRouteActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:270:9-273:63
+	android:configChanges
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:272:13-74
+	android:theme
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:273:13-60
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:271:13-63
+meta-data#com.amap.api.v2.apikey
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:274:9-276:64
+	android:value
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:276:13-61
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:275:13-50
+service#com.delivery.xianxian.service.LocationService
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:278:9-281:39
 	android:enabled
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:285:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:280:13-35
+	android:exported
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:281:13-36
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:284:13-48
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:279:13-73
+service#com.amap.api.location.APSService
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:282:9-68
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:282:18-65
+service#com.amap.api.track.AMapTrackService
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:283:9-71
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:283:18-68
+service#com.baidu.location.f
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:286:9-289:41
+	android:process
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:289:13-38
+	android:enabled
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:288:13-35
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:287:13-48
 meta-data#com.baidu.lbsapi.API_KEY
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:287:9-289:64
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:290:9-292:64
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:289:13-61
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:292:13-61
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:288:13-52
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:291:13-52
 meta-data#android.max_aspect
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:292:9-294:35
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:295:9-297:35
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:294:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:297:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:293:13-46
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:296:13-46
 meta-data#android.notch_support
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:296:9-298:36
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:299:9-301:36
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:298:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:301:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:297:13-49
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:300:13-49
 meta-data#notch.config
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:300:9-302:50
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:303:9-305:50
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:302:13-47
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:305:13-47
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:301:13-40
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:304:13-40
 activity#cn.jpush.android.ui.PopWinActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:306:9-316:20
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:309:9-319:20
 REJECTED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:41:9-52:20
 	tools:node
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:309:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:312:13-33
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:308:13-36
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:311:13-36
 	android:theme
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:310:13-49
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:313:13-49
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:307:13-62
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:310:13-62
 intent-filter#action:name:cn.jpush.android.ui.PopWinActivity+category:name:android.intent.category.DEFAULT+category:name:com.delivery.xianxian
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:311:13-315:29
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:314:13-318:29
 category#android.intent.category.DEFAULT
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:312:17-76
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:315:17-76
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:312:27-73
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:315:27-73
 action#cn.jpush.android.ui.PopWinActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:313:17-77
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:316:17-77
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:313:25-74
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:316:25-74
 activity#cn.jpush.android.ui.PushActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:318:9-329:20
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:321:9-332:20
 REJECTED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:55:9-66:20
 	tools:node
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:322:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:325:13-33
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:321:13-36
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:324:13-36
 	android:configChanges
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:320:13-63
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:323:13-63
 	android:theme
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:323:13-60
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:326:13-60
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:319:13-60
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:322:13-60
 intent-filter#action:name:cn.jpush.android.ui.PushActivity+category:name:android.intent.category.DEFAULT+category:name:com.delivery.xianxian
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:324:13-328:29
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:327:13-331:29
 action#cn.jpush.android.ui.PushActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:325:17-75
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:328:17-75
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:325:25-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:328:25-72
 service#com.delivery.xianxian.utils.jpush.PushService
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:331:9-338:19
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:334:9-341:19
 	android:process
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:334:13-40
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:337:13-40
 	android:enabled
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:332:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:335:13-35
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:333:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:336:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:331:18-57
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:334:18-57
 intent-filter#action:name:cn.jiguang.user.service.action
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:335:13-337:29
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:338:13-340:29
 action#cn.jiguang.user.service.action
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:336:17-73
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:339:17-73
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:336:25-70
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:339:25-70
 receiver#com.delivery.xianxian.utils.jpush.MyJPushMessageReceiver
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:340:9-348:20
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:9-351:20
 	android:enabled
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:342:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:345:13-35
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:346:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:341:13-63
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:344:13-63
 intent-filter#action:name:cn.jpush.android.intent.RECEIVE_MESSAGE+category:name:com.delivery.xianxian
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:344:13-347:29
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:347:13-350:29
 action#cn.jpush.android.intent.RECEIVE_MESSAGE
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:345:17-82
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:348:17-82
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:345:25-79
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:348:25-79
 receiver#com.delivery.xianxian.utils.jpush.MyReceiver
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:349:9-362:20
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:352:9-365:20
 	android:enabled
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:351:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:354:13-35
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:352:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:355:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:350:13-51
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:353:13-51
 intent-filter#action:name:cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK+action:name:cn.jpush.android.intent.CONNECTION+action:name:cn.jpush.android.intent.MESSAGE_RECEIVED+action:name:cn.jpush.android.intent.NOTIFICATION_OPENED+action:name:cn.jpush.android.intent.NOTIFICATION_RECEIVED+action:name:cn.jpush.android.intent.REGISTRATION+category:name:com.delivery.xianxian
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:353:13-361:29
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:356:13-364:29
 action#cn.jpush.android.intent.REGISTRATION
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:354:17-79
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:357:17-79
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:354:25-76
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:357:25-76
 action#cn.jpush.android.intent.MESSAGE_RECEIVED
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:355:17-83
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:358:17-83
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:355:25-80
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:358:25-80
 action#cn.jpush.android.intent.NOTIFICATION_RECEIVED
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:356:17-88
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:359:17-88
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:356:25-85
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:359:25-85
 action#cn.jpush.android.intent.NOTIFICATION_OPENED
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:357:17-86
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:17-86
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:357:25-83
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:25-83
 action#cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:358:17-91
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:361:17-91
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:358:25-88
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:361:25-88
 action#cn.jpush.android.intent.CONNECTION
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:359:17-77
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:362:17-77
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:359:25-74
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:362:25-74
 uses-library#org.apache.http.legacy
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:379:9-381:40
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:382:9-384:40
 MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:23:9-25:40
 MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:23:9-25:40
 	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:381:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:384:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:380:13-50
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:383:13-50
 uses-sdk
 INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
@@ -900,8 +902,8 @@ MERGED from [com.gyf.immersionbar:immersionbar:3.0.0-beta05] /Users/YunZhong/.gr
 MERGED from [com.gyf.immersionbar:immersionbar:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e4f9fff5e1de94160e14ed40057020bf/jetified-immersionbar-3.0.0-beta05/AndroidManifest.xml:6:5-8:41
 MERGED from [com.gyf.immersionbar:immersionbar-components:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b50d8109028f679412cdc630b079b715/jetified-immersionbar-components-3.0.0-beta05/AndroidManifest.xml:5:5-7:41
 MERGED from [com.gyf.immersionbar:immersionbar-components:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b50d8109028f679412cdc630b079b715/jetified-immersionbar-components-3.0.0-beta05/AndroidManifest.xml:5:5-7:41
-MERGED from [com.hjq:toast:3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1902ef25b39b5eba85cca5c1720408cc/toast-3.0/AndroidManifest.xml:7:5-47
-MERGED from [com.hjq:toast:3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1902ef25b39b5eba85cca5c1720408cc/toast-3.0/AndroidManifest.xml:7:5-47
+MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6b03a7b326fc03a9860417c9066ad289/toast-8.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6b03a7b326fc03a9860417c9066ad289/toast-8.0/AndroidManifest.xml:7:5-9:41
 MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9cd6594c952ca894584e41f3216236c/jetified-library-1.1.0/AndroidManifest.xml:9:5-11:41
 MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9cd6594c952ca894584e41f3216236c/jetified-library-1.1.0/AndroidManifest.xml:9:5-11:41
 MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:7:5-9:41
@@ -1003,14 +1005,13 @@ INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDeli
 	android:minSdkVersion
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
-		MERGED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:373:13-375:57
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:376:13-378:57
 	android:resource
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:375:17-54
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:378:17-54
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:374:17-67
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:377:17-67
 provider#com.maning.updatelibrary.MNUpdateApkFileProvider
 ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
 	android:grantUriPermissions

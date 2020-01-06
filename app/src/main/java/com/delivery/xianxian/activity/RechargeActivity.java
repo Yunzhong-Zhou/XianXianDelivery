@@ -11,7 +11,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.alipay.sdk.app.PayTask;
 import com.bumptech.glide.Glide;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.adapter.Recharge_GridViewAdapter;
@@ -226,7 +225,7 @@ public class RechargeActivity extends BaseActivity {
                 hideProgress();
                 myToast("订单提交成功，等待后台审核");
 
-                //弹出支付宝
+                /*//弹出支付宝
                 Runnable payRunnable = new Runnable() {
                     @Override
                     public void run() {
@@ -241,7 +240,7 @@ public class RechargeActivity extends BaseActivity {
                 };
                 // 必须异步调用
                 Thread payThread = new Thread(payRunnable);
-                payThread.start();
+                payThread.start();*/
             }
         });
     }
