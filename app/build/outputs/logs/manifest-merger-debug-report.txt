@@ -2,184 +2,201 @@
 category#com.delivery.xianxian
 INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:317:17-61
 INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:330:17-61
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:349:17-61
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:363:17-61
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:361:17-60
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:376:17-60
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:396:17-61
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:416:17-61
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:430:17-61
 	android:name
+		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:317:27-58
-provider#androidx.core.content.FileProvider
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:371:9-379:20
-	android:grantUriPermissions
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:375:13-47
+provider#cn.jpush.android.service.DownloadProvider
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:366:9-370:15
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:132:9-135:39
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:132:9-135:39
 	android:authorities
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:373:13-64
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:367:13-68
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:374:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:369:13-36
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:372:13-62
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:368:13-69
+provider#androidx.core.content.FileProvider
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:438:9-446:20
+	android:grantUriPermissions
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:442:13-47
+	android:authorities
+		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:440:13-64
+	android:exported
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:441:13-37
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:439:13-62
 manifest
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
-MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b91caa209798608d45cf197b8483ea61/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c3f192a73f35beee3ddb57dca8be6dfe/jetified-AliHeader-1.5.1/AndroidManifest.xml:2:1-11:12
-MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/AndroidManifest.xml:2:1-17:12
-MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/edfcf39d20c1a00a78281d637502932e/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:2:1-17:12
-MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ab35a137a02f09fcd7e37efd23292e5e/MultiFlowLayout-V1.1.2/AndroidManifest.xml:2:1-17:12
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:2:1-30:12
-MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:2:1-17:12
-MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:2:1-37:12
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-454:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-454:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-454:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-454:12
+MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ad9b04747fee410f8b2a24dce3cc4abe/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4258f2f74402892fd31ad0e73d0a7288/jetified-AliHeader-1.5.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d58d56a8dc72b62a62aa12111a893291/jetified-library-1.5.1/AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c7eb9cd3508ac3959447c14fd76c9fb9/material-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e75ca3bc6affb1f9f4983ddd618f531/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/506a20625df4efeba1688141cb47946a/MultiFlowLayout-V1.1.2/AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:2:1-30:12
+MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfa36965ccf7c937785f4968aff42a37/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:2:1-17:12
+MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:2:1-37:12
 MERGED from [:easeui] /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8392647ca9531c13a8f0d6b7ad086e7e/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
-MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/298f68a091ae7374fc281bdee89cc838/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:2:1-12:12
-MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bbc51c53aec70aeae5178e82f15e817a/recyclerview-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5eab63e3e217f33e4882f2fa7cd985ff/glide-4.10.0/AndroidManifest.xml:2:1-12:12
-MERGED from [id.zelory:compressor:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/88a913bf81a16901131511258a4e4825/compressor-2.1.0/AndroidManifest.xml:2:1-12:12
-MERGED from [com.joooonho:selectableroundedimageview:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3d38ad39d47aa4b202c2b3c989d8fcbe/selectableroundedimageview-1.0.1/AndroidManifest.xml:2:1-11:12
-MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5d846bedb67fa5c1dc44437b06566864/library-1.4.1/AndroidManifest.xml:2:1-14:12
-MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c0bf7af98cec7880a03631d83f09dbd/jetified-banner-1.4.10/AndroidManifest.xml:2:1-11:12
-MERGED from [com.gyf.immersionbar:immersionbar:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e4f9fff5e1de94160e14ed40057020bf/jetified-immersionbar-3.0.0-beta05/AndroidManifest.xml:2:1-10:12
-MERGED from [com.gyf.immersionbar:immersionbar-components:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b50d8109028f679412cdc630b079b715/jetified-immersionbar-components-3.0.0-beta05/AndroidManifest.xml:2:1-9:12
-MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6b03a7b326fc03a9860417c9066ad289/toast-8.0/AndroidManifest.xml:2:1-11:12
-MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9cd6594c952ca894584e41f3216236c/jetified-library-1.1.0/AndroidManifest.xml:2:1-15:12
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:2:1-156:12
-MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/de7fa83c5498747b05725e5307e93bf2/jcore-2.2.4/AndroidManifest.xml:2:1-14:12
-MERGED from [com.tencent.bugly:crashreport:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e64dec3a5c22a15f3fccbbba6c2b1289/crashreport-3.1.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4c72d6014e64eb3e574161653f17e639/jetified-citypicker-2.0.3/AndroidManifest.xml:2:1-17:12
-MERGED from [com.contrarywind:Android-PickerView:4.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/25948c97beba7c09143b4750155b9a9b/jetified-Android-PickerView-4.1.8/AndroidManifest.xml:2:1-11:12
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:2:1-57:12
-MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/AndroidManifest.xml:16:1-21:12
-MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0e2dddd4e237b154999f8181453539a6/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:2:1-5:12
-MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54b1300d7fb8e24c61ad19b59ea2445a/jetified-play-services-basement-11.4.0/AndroidManifest.xml:16:1-23:12
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1964611a1907e3ea07b40ce4c516c284/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.fragment:fragment:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/add2bdb41de46d90e5d3bd4e75929820/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dd07e922b5233b833d82ee834e6becf7/appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/abc680e55824c418c024460e31034ed4/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/34085af895daa23049fd0af188e6a001/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ba2af06f417607d7ef1ca9f201a0d139/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.transition:transition:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/402e2fb3baa5e6ca3b4a0d7ccbd7cd5b/transition-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f3997ce16a5c00ae84a772d300d0e1e8/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/331f61861c2d3a925f2252286afb1f53/loader-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/daa47187fb0f0a7c419d1b10e1677cdd/activity-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/beed28e19d4f55ab2c17aff66e0bc400/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e0d80e5c178a0db065288a448fc598ef/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/04087833f388d5ffa97a080d757646c2/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/eb11c4797d5d5b24d5dcbbebe26babf4/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.customview:customview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/740a70a0c89c8c085b6e012b4bd7790e/customview-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/31dc29ba3158cee4b1ca2bf2f6ff141b/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/435f1166e6a428a0025d9cd273cb35a2/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.media:media:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a6ce3afbff3f1ae3fa1fe13048b173d9/media-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa91d8d2653c363bbd5da9d9892260d3/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cardview:cardview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc4f60e4549c263b614feec2a027fa2/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e90be152f08ce99fb09048a87e58bfc3/gifdecoder-4.10.0/AndroidManifest.xml:2:1-11:12
-MERGED from [com.contrarywind:wheelview:4.0.9] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fc41e7157877dd98db2bb0ce339b1f89/wheelview-4.0.9/AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9c8616d74aa0ab3eb457d24b669c685/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d4ef17d609918d2a5f5a86d1ea02678f/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9d52be8c254a228a91eaf05f51d52923/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9093771a98b01557e81860f4122d7892/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7ec682ca46f5c90ea9a9e0cba0c0310a/print-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0554424e228349ffc3db0700d1324aa1/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bad233a64070d55cab9a83b26afbf154/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7acef2a7bfef3795312317efec15d83e/savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/420f294924962582b4c42c622af43461/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66e997bde0b6ece28f7fd36f5f4a1584/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8787729f29cf7add1bc29c81caccddfd/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:2:1-20:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
+MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/55e9aa69f32ebd20c37212d7339ee465/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:2:1-12:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ceb81553a8d4d1147c847656f2ca2121/recyclerview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/87cc0020caff993913d2a7e25a4ed169/glide-4.10.0/AndroidManifest.xml:2:1-12:12
+MERGED from [id.zelory:compressor:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ebe49e8e9ce3f9e98371bae2c27cfc7/compressor-2.1.0/AndroidManifest.xml:2:1-12:12
+MERGED from [com.joooonho:selectableroundedimageview:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc33c11ef787d594d164706bbda1b18f/selectableroundedimageview-1.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b1fdcf2d7aed57978154da26d6ce7359/library-1.4.1/AndroidManifest.xml:2:1-14:12
+MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/45ad8a4435dd225b5b9a2595457516bf/jetified-banner-1.4.10/AndroidManifest.xml:2:1-11:12
+MERGED from [com.gyf.immersionbar:immersionbar:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e99e0b2c8e71ac6ed256bb343da5dc69/jetified-immersionbar-3.0.0-beta05/AndroidManifest.xml:2:1-10:12
+MERGED from [com.gyf.immersionbar:immersionbar-components:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e24ef68ab95a776c8f157fb67a43070/jetified-immersionbar-components-3.0.0-beta05/AndroidManifest.xml:2:1-9:12
+MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e49119546b1630b4d42ff90d5a2b72c/toast-8.0/AndroidManifest.xml:2:1-11:12
+MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e7fb783d17dfdcb994f012335b71237b/jetified-library-1.1.0/AndroidManifest.xml:2:1-15:12
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:2:1-160:12
+MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c26a9d5b4492b6f4ab8b48d979dcc00f/jcore-2.2.4/AndroidManifest.xml:2:1-14:12
+MERGED from [com.tencent.bugly:crashreport:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db66f61f147601b891626c417d558b54/crashreport-3.1.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7234c21d933f1351fe021367290ac140/jetified-citypicker-2.0.3/AndroidManifest.xml:2:1-17:12
+MERGED from [com.contrarywind:Android-PickerView:4.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8e606446afa6598d7a8627c0210f8b49/jetified-Android-PickerView-4.1.8/AndroidManifest.xml:2:1-11:12
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:2:1-57:12
+MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08044841b11c1b3287f81b5c5fd6aa40/jetified-play-services-base-11.4.0/AndroidManifest.xml:16:1-21:12
+MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f4039fca87df02ad284b834bf0f9dbb8/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1aeaff5f7805b66514c96d26c1d89e4c/jetified-play-services-basement-11.4.0/AndroidManifest.xml:16:1-23:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/062eb74c1a6fe650432564db4113c6b5/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0362ff4d8672321347a402c32368f192/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ddf6a25e6e3e5e2af441269b48288beb/appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ec593f8d91037f6ef1bbcd6a177afa1c/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/00bc847ce5b9e3ce7b40d465bffbf9e9/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4f8b5527496d67480951cc322460db7f/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d2cae29ea156ecc28d8f5099dc624ed2/transition-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4932f7e67b26f042b51fa62f1aa4816d/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5276819c062a92c029464122749254f1/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dbbcc99072b5616db9e0106b8ed65934/activity-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d1ca7cd3905794bed09cb92934ccd6c2/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4276267baf989d651cf25177c247ad49/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8849109129fcb2f39779166fb64480b1/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5ad830c9e1047f79e3f0f7e9e42ab8ab/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a3c457ded457b98b207b4f227d629399/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3d4a3c67e39fa8d6d0c0f126c28b81d8/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/82b148795609bbbaf8e825fc2ff2a6bf/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/767612e54049c1347a891905a7e9d5e4/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fb2fbe77879a57ea0c5dfd6fe59ba874/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4fe44ae24daa7cfa2dd483a5d3b65a2f/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e671e9f00c2780be6d3d0096a67e519b/gifdecoder-4.10.0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.contrarywind:wheelview:4.0.9] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e026b604e6be6d5911a62184f888e869/wheelview-4.0.9/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78be57497ca2a8dd090798c529f3e53d/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a992d8307f21a8f15eb649383ba6a6a/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f582580d3eb247a74d915a27810a4674/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c75155371656c04dff3a027cdeb13e8a/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/53b4a4cf87c0ff501a8c414cec884555/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ffa46f3d6480310395b7b525cf59ccde/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/64ed055c454b36433d45a77285ee24d6/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3819fb4fef2e012192b32762458ba145/savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/63647da4654da12a6f2785cfbbad8123/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/733fc1d306cee2c05d3e1fb0b7527020/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fdd65d8b6066fd289a68b42931dc03a2/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:2:1-20:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-454:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-454:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-454:12
 	package
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:4:5-36
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-454:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-387:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:1-454:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:7:5-67
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:18:5-67
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:18:5-67
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:18:5-67
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:18:5-67
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:16:5-67
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:16:5-67
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:18:5-67
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:18:5-67
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:18:5-67
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:18:5-67
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:16:5-67
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:16:5-67
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:7:22-64
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:9:5-76
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:25:5-76
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:25:5-76
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:20:5-76
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:20:5-76
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:15:5-76
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:15:5-76
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:25:5-76
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:25:5-76
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:20:5-76
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:20:5-76
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:15:5-76
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:15:5-76
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:9:22-73
 uses-permission#android.permission.CHANGE_WIFI_STATE
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:10:5-76
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:31:5-76
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:31:5-76
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:31:5-76
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:31:5-76
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:10:22-73
 uses-permission#android.permission.CHANGE_NETWORK_STATE
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:12:5-78
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:35:5-79
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:35:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:35:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:35:5-79
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:12:22-76
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:13:5-78
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:24:5-79
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:24:5-79
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:19:5-79
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:19:5-79
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:17:5-79
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:17:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:24:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:24:5-79
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:19:5-79
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:19:5-79
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:17:5-79
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:17:5-79
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:13:22-76
 uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:16:5-83
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:11:5-83
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:11:5-83
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:11:5-83
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:11:5-83
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:16:22-80
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:18:5-80
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:13:5-80
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:13:5-80
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:21:5-80
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:21:5-80
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:13:5-80
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:13:5-80
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:21:5-80
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:21:5-80
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:18:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:20:5-81
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:12:5-81
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:12:5-81
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:20:5-81
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:20:5-81
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:12:5-81
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:12:5-81
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:20:5-81
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:20:5-81
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:20:22-78
 uses-permission#android.permission.READ_PHONE_STATE
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:22:5-75
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:19:5-75
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:19:5-75
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:19:5-75
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:19:5-75
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:22:22-72
 uses-permission#android.permission.CALL_PHONE
@@ -196,26 +213,26 @@ ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDeliver
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:29:22-74
 uses-permission#android.permission.VIBRATE
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:34:5-66
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:28:5-66
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:28:5-66
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:28:5-66
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:28:5-66
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:34:22-63
 uses-permission#android.permission.RECEIVE_USER_PRESENT
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:37:5-79
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:17:5-79
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:17:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:17:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:17:5-79
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:37:22-76
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:39:5-78
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:29:5-78
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:29:5-78
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:29:5-78
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:29:5-78
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:39:22-75
 uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:41:5-89
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:34:5-89
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:34:5-89
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:34:5-89
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:34:5-89
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:41:22-86
 uses-permission#android.permission.BLUETOOTH
@@ -228,30 +245,30 @@ ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDeliver
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:47:22-71
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:50:5-81
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:30:5-81
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:30:5-81
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:13:5-81
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:13:5-81
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:30:5-81
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:30:5-81
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:13:5-81
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:13:5-81
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:50:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:52:5-79
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:32:5-79
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:32:5-79
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:14:5-79
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:14:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:32:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:32:5-79
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:14:5-79
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:14:5-79
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:52:22-76
 uses-permission#android.permission.GET_TASKS
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:56:5-68
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:36:5-68
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:36:5-68
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:36:5-68
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:36:5-68
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:56:22-65
 uses-permission#android.permission.WAKE_LOCK
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:57:5-68
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:18:5-68
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:18:5-68
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:18:5-68
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:18:5-68
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:57:22-65
 uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
@@ -263,49 +280,49 @@ ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDeliver
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:59:22-68
 application
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:64:5-385:19
-MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
-MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
-MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/AndroidManifest.xml:22:5-20
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/edfcf39d20c1a00a78281d637502932e/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:11:5-15:19
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/edfcf39d20c1a00a78281d637502932e/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ab35a137a02f09fcd7e37efd23292e5e/MultiFlowLayout-V1.1.2/AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ab35a137a02f09fcd7e37efd23292e5e/MultiFlowLayout-V1.1.2/AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:15:5-28:19
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:15:5-28:19
-MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:11:5-15:19
-MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:11:5-35:19
-MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:11:5-35:19
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8392647ca9531c13a8f0d6b7ad086e7e/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8392647ca9531c13a8f0d6b7ad086e7e/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
-MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5eab63e3e217f33e4882f2fa7cd985ff/glide-4.10.0/AndroidManifest.xml:10:5-20
-MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5eab63e3e217f33e4882f2fa7cd985ff/glide-4.10.0/AndroidManifest.xml:10:5-20
-MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5d846bedb67fa5c1dc44437b06566864/library-1.4.1/AndroidManifest.xml:11:5-12:19
-MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5d846bedb67fa5c1dc44437b06566864/library-1.4.1/AndroidManifest.xml:11:5-12:19
-MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9cd6594c952ca894584e41f3216236c/jetified-library-1.1.0/AndroidManifest.xml:13:5-20
-MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9cd6594c952ca894584e41f3216236c/jetified-library-1.1.0/AndroidManifest.xml:13:5-20
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:38:5-154:19
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:38:5-154:19
-MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/de7fa83c5498747b05725e5307e93bf2/jcore-2.2.4/AndroidManifest.xml:11:5-12:19
-MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/de7fa83c5498747b05725e5307e93bf2/jcore-2.2.4/AndroidManifest.xml:11:5-12:19
-MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4c72d6014e64eb3e574161653f17e639/jetified-citypicker-2.0.3/AndroidManifest.xml:11:5-15:19
-MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4c72d6014e64eb3e574161653f17e639/jetified-citypicker-2.0.3/AndroidManifest.xml:11:5-15:19
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:22:5-55:19
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:22:5-55:19
-MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0e2dddd4e237b154999f8181453539a6/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0e2dddd4e237b154999f8181453539a6/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54b1300d7fb8e24c61ad19b59ea2445a/jetified-play-services-basement-11.4.0/AndroidManifest.xml:19:5-21:19
-MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54b1300d7fb8e24c61ad19b59ea2445a/jetified-play-services-basement-11.4.0/AndroidManifest.xml:19:5-21:19
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/AndroidManifest.xml:24:5-89
-MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e90be152f08ce99fb09048a87e58bfc3/gifdecoder-4.10.0/AndroidManifest.xml:9:5-20
-MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e90be152f08ce99fb09048a87e58bfc3/gifdecoder-4.10.0/AndroidManifest.xml:9:5-20
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9c8616d74aa0ab3eb457d24b669c685/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9c8616d74aa0ab3eb457d24b669c685/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:64:5-452:19
+MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d58d56a8dc72b62a62aa12111a893291/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
+MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d58d56a8dc72b62a62aa12111a893291/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
+MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c7eb9cd3508ac3959447c14fd76c9fb9/material-1.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c7eb9cd3508ac3959447c14fd76c9fb9/material-1.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e75ca3bc6affb1f9f4983ddd618f531/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:11:5-15:19
+MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e75ca3bc6affb1f9f4983ddd618f531/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/506a20625df4efeba1688141cb47946a/MultiFlowLayout-V1.1.2/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/506a20625df4efeba1688141cb47946a/MultiFlowLayout-V1.1.2/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:15:5-28:19
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:15:5-28:19
+MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfa36965ccf7c937785f4968aff42a37/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfa36965ccf7c937785f4968aff42a37/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:11:5-15:19
+MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:11:5-35:19
+MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:11:5-35:19
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/87cc0020caff993913d2a7e25a4ed169/glide-4.10.0/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/87cc0020caff993913d2a7e25a4ed169/glide-4.10.0/AndroidManifest.xml:10:5-20
+MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b1fdcf2d7aed57978154da26d6ce7359/library-1.4.1/AndroidManifest.xml:11:5-12:19
+MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b1fdcf2d7aed57978154da26d6ce7359/library-1.4.1/AndroidManifest.xml:11:5-12:19
+MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e7fb783d17dfdcb994f012335b71237b/jetified-library-1.1.0/AndroidManifest.xml:13:5-20
+MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e7fb783d17dfdcb994f012335b71237b/jetified-library-1.1.0/AndroidManifest.xml:13:5-20
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:38:5-158:19
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:38:5-158:19
+MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c26a9d5b4492b6f4ab8b48d979dcc00f/jcore-2.2.4/AndroidManifest.xml:11:5-12:19
+MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c26a9d5b4492b6f4ab8b48d979dcc00f/jcore-2.2.4/AndroidManifest.xml:11:5-12:19
+MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7234c21d933f1351fe021367290ac140/jetified-citypicker-2.0.3/AndroidManifest.xml:11:5-15:19
+MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7234c21d933f1351fe021367290ac140/jetified-citypicker-2.0.3/AndroidManifest.xml:11:5-15:19
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:22:5-55:19
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:22:5-55:19
+MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08044841b11c1b3287f81b5c5fd6aa40/jetified-play-services-base-11.4.0/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08044841b11c1b3287f81b5c5fd6aa40/jetified-play-services-base-11.4.0/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f4039fca87df02ad284b834bf0f9dbb8/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f4039fca87df02ad284b834bf0f9dbb8/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1aeaff5f7805b66514c96d26c1d89e4c/jetified-play-services-basement-11.4.0/AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1aeaff5f7805b66514c96d26c1d89e4c/jetified-play-services-basement-11.4.0/AndroidManifest.xml:19:5-21:19
+MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/AndroidManifest.xml:24:5-89
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e671e9f00c2780be6d3d0096a67e519b/gifdecoder-4.10.0/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e671e9f00c2780be6d3d0096a67e519b/gifdecoder-4.10.0/AndroidManifest.xml:9:5-20
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78be57497ca2a8dd090798c529f3e53d/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78be57497ca2a8dd090798c529f3e53d/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 	android:windowIsTranslucent
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:76:9-44
 	android:maxAspectRatio
@@ -313,7 +330,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZ
 	android:requestLegacyExternalStorage
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:74:9-52
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:72:9-35
 	android:label
@@ -746,7 +763,7 @@ ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDeliver
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:304:13-40
 activity#cn.jpush.android.ui.PopWinActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:309:9-319:20
-REJECTED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:41:9-52:20
+REJECTED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:41:9-52:20
 	tools:node
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:312:13-33
 	android:exported
@@ -767,7 +784,7 @@ ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDeliver
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:316:25-74
 activity#cn.jpush.android.ui.PushActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:321:9-332:20
-REJECTED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:55:9-66:20
+REJECTED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:55:9-66:20
 	tools:node
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:325:13-33
 	android:exported
@@ -800,200 +817,294 @@ action#cn.jiguang.user.service.action
 ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:339:17-73
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:339:25-70
-receiver#com.delivery.xianxian.utils.jpush.MyJPushMessageReceiver
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:9-351:20
+service#cn.jpush.android.service.PushService
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:9-353:19
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:69:9-80:19
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:69:9-80:19
+	android:process
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:73:13-40
 	android:enabled
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:345:13-35
 	android:exported
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:346:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:344:13-63
-intent-filter#action:name:cn.jpush.android.intent.RECEIVE_MESSAGE+category:name:com.delivery.xianxian
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:347:13-350:29
-action#cn.jpush.android.intent.RECEIVE_MESSAGE
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:348:17-82
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:344:13-64
+intent-filter#action:name:cn.jpush.android.intent.PUSH_TIME+action:name:cn.jpush.android.intent.PushService+action:name:cn.jpush.android.intent.REGISTER+action:name:cn.jpush.android.intent.REPORT
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:347:13-352:29
+action#cn.jpush.android.intent.REGISTER
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:348:17-75
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:348:25-79
-receiver#com.delivery.xianxian.utils.jpush.MyReceiver
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:352:9-365:20
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:348:25-72
+action#cn.jpush.android.intent.REPORT
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:349:17-73
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:349:25-70
+action#cn.jpush.android.intent.PushService
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:350:17-78
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:350:25-75
+action#cn.jpush.android.intent.PUSH_TIME
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:351:17-76
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:351:25-73
+service#cn.jpush.android.service.DaemonService
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:355:9-363:19
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:84:9-93:19
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:84:9-93:19
 	android:enabled
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:354:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:357:13-35
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:355:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:358:13-36
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:353:13-51
-intent-filter#action:name:cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK+action:name:cn.jpush.android.intent.CONNECTION+action:name:cn.jpush.android.intent.MESSAGE_RECEIVED+action:name:cn.jpush.android.intent.NOTIFICATION_OPENED+action:name:cn.jpush.android.intent.NOTIFICATION_RECEIVED+action:name:cn.jpush.android.intent.REGISTRATION+category:name:com.delivery.xianxian
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:356:13-364:29
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:356:13-66
+intent-filter#action:name:cn.jpush.android.intent.DaemonService+category:name:com.delivery.xianxian
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:359:13-362:29
+action#cn.jpush.android.intent.DaemonService
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:17-80
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:25-77
+receiver#cn.jpush.android.service.PushReceiver
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:371:9-388:20
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:96:9-115:20
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:96:9-115:20
+	android:enabled
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:373:13-35
+	android:exported
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:99:13-37
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:372:13-65
+intent-filter#action:name:cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY+category:name:com.delivery.xianxian
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:374:13-377:29
+	android:priority
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:374:28-51
+action#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:375:17-94
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:375:25-91
+intent-filter#action:name:android.intent.action.USER_PRESENT+action:name:android.net.conn.CONNECTIVITY_CHANGE
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:378:13-381:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:380:17-79
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:380:25-76
+intent-filter#action:name:android.intent.action.PACKAGE_ADDED+action:name:android.intent.action.PACKAGE_REMOVED+data:scheme:package
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:383:13-387:29
+action#android.intent.action.PACKAGE_ADDED
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:384:17-78
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:384:25-75
+activity#cn.jpush.android.service.JNotifyActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:389:9-398:20
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:138:9-148:20
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:138:9-148:20
+	android:exported
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:391:13-36
+	android:theme
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:393:13-72
+	android:taskAffinity
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:392:13-48
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:390:13-68
+intent-filter#action:name:cn.jpush.android.intent.JNotifyActivity+category:name:com.delivery.xianxian
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:394:13-397:29
+action#cn.jpush.android.intent.JNotifyActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:395:17-82
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:395:25-79
+receiver#com.delivery.xianxian.utils.jpush.MyJPushMessageReceiver
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:400:9-418:20
+	android:enabled
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:402:13-35
+	android:exported
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:403:13-37
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:401:13-63
+intent-filter#action:name:cn.jpush.android.intent.CONNECTION+action:name:cn.jpush.android.intent.MESSAGE_RECEIVED+action:name:cn.jpush.android.intent.NOTIFICATION_OPENED+action:name:cn.jpush.android.intent.NOTIFICATION_RECEIVED+action:name:cn.jpush.android.intent.RECEIVE_MESSAGE+action:name:cn.jpush.android.intent.REGISTRATION+category:name:com.delivery.xianxian
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:404:13-417:29
 action#cn.jpush.android.intent.REGISTRATION
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:357:17-79
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:406:17-79
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:357:25-76
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:406:25-76
 action#cn.jpush.android.intent.MESSAGE_RECEIVED
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:358:17-83
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:408:17-83
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:358:25-80
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:408:25-80
 action#cn.jpush.android.intent.NOTIFICATION_RECEIVED
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:359:17-88
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:410:17-88
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:359:25-85
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:410:25-85
 action#cn.jpush.android.intent.NOTIFICATION_OPENED
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:17-86
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:412:17-86
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:25-83
-action#cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:361:17-91
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:361:25-88
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:412:25-83
 action#cn.jpush.android.intent.CONNECTION
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:362:17-77
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:414:17-77
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:362:25-74
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:414:25-74
+action#cn.jpush.android.intent.RECEIVE_MESSAGE
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:415:17-82
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:415:25-79
+receiver#com.delivery.xianxian.utils.jpush.MyReceiver
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:419:9-432:20
+	android:enabled
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:421:13-35
+	android:exported
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:422:13-37
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:420:13-51
+intent-filter#action:name:cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK+action:name:cn.jpush.android.intent.CONNECTION+action:name:cn.jpush.android.intent.MESSAGE_RECEIVED+action:name:cn.jpush.android.intent.NOTIFICATION_OPENED+action:name:cn.jpush.android.intent.NOTIFICATION_RECEIVED+action:name:cn.jpush.android.intent.REGISTRATION+category:name:com.delivery.xianxian
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:423:13-431:29
+action#cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:428:17-91
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:428:25-88
 uses-library#org.apache.http.legacy
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:382:9-384:40
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:23:9-25:40
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:23:9-25:40
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:449:9-451:40
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:23:9-25:40
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:23:9-25:40
 	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:384:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:451:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:383:13-50
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:450:13-50
 uses-sdk
 INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
-MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b91caa209798608d45cf197b8483ea61/multidex-2.0.0/AndroidManifest.xml:20:5-43
-MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b91caa209798608d45cf197b8483ea61/multidex-2.0.0/AndroidManifest.xml:20:5-43
-MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c3f192a73f35beee3ddb57dca8be6dfe/jetified-AliHeader-1.5.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c3f192a73f35beee3ddb57dca8be6dfe/jetified-AliHeader-1.5.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/654ab240da8484552291d70a390ffb98/jetified-library-1.5.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cb634fe4b4d1fdfcd5255e485d30a0c1/material-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/edfcf39d20c1a00a78281d637502932e/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/edfcf39d20c1a00a78281d637502932e/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ab35a137a02f09fcd7e37efd23292e5e/MultiFlowLayout-V1.1.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ab35a137a02f09fcd7e37efd23292e5e/MultiFlowLayout-V1.1.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0d27dae8609043dadb48bed2589fa855/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:7:5-9:41
-MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:7:5-9:41
-MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ad9b04747fee410f8b2a24dce3cc4abe/multidex-2.0.0/AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ad9b04747fee410f8b2a24dce3cc4abe/multidex-2.0.0/AndroidManifest.xml:20:5-43
+MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4258f2f74402892fd31ad0e73d0a7288/jetified-AliHeader-1.5.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4258f2f74402892fd31ad0e73d0a7288/jetified-AliHeader-1.5.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d58d56a8dc72b62a62aa12111a893291/jetified-library-1.5.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d58d56a8dc72b62a62aa12111a893291/jetified-library-1.5.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c7eb9cd3508ac3959447c14fd76c9fb9/material-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c7eb9cd3508ac3959447c14fd76c9fb9/material-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e75ca3bc6affb1f9f4983ddd618f531/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e75ca3bc6affb1f9f4983ddd618f531/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/506a20625df4efeba1688141cb47946a/MultiFlowLayout-V1.1.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/506a20625df4efeba1688141cb47946a/MultiFlowLayout-V1.1.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfa36965ccf7c937785f4968aff42a37/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfa36965ccf7c937785f4968aff42a37/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:7:5-9:41
+MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:7:5-9:41
+MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:7:5-9:41
 MERGED from [:easeui] /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:easeui] /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8392647ca9531c13a8f0d6b7ad086e7e/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8392647ca9531c13a8f0d6b7ad086e7e/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
-MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/298f68a091ae7374fc281bdee89cc838/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:8:5-10:41
-MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/298f68a091ae7374fc281bdee89cc838/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:8:5-10:41
-MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bbc51c53aec70aeae5178e82f15e817a/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bbc51c53aec70aeae5178e82f15e817a/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5eab63e3e217f33e4882f2fa7cd985ff/glide-4.10.0/AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5eab63e3e217f33e4882f2fa7cd985ff/glide-4.10.0/AndroidManifest.xml:6:5-8:41
-MERGED from [id.zelory:compressor:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/88a913bf81a16901131511258a4e4825/compressor-2.1.0/AndroidManifest.xml:8:5-10:41
-MERGED from [id.zelory:compressor:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/88a913bf81a16901131511258a4e4825/compressor-2.1.0/AndroidManifest.xml:8:5-10:41
-MERGED from [com.joooonho:selectableroundedimageview:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3d38ad39d47aa4b202c2b3c989d8fcbe/selectableroundedimageview-1.0.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.joooonho:selectableroundedimageview:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3d38ad39d47aa4b202c2b3c989d8fcbe/selectableroundedimageview-1.0.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5d846bedb67fa5c1dc44437b06566864/library-1.4.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5d846bedb67fa5c1dc44437b06566864/library-1.4.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c0bf7af98cec7880a03631d83f09dbd/jetified-banner-1.4.10/AndroidManifest.xml:7:5-9:41
-MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c0bf7af98cec7880a03631d83f09dbd/jetified-banner-1.4.10/AndroidManifest.xml:7:5-9:41
-MERGED from [com.gyf.immersionbar:immersionbar:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e4f9fff5e1de94160e14ed40057020bf/jetified-immersionbar-3.0.0-beta05/AndroidManifest.xml:6:5-8:41
-MERGED from [com.gyf.immersionbar:immersionbar:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e4f9fff5e1de94160e14ed40057020bf/jetified-immersionbar-3.0.0-beta05/AndroidManifest.xml:6:5-8:41
-MERGED from [com.gyf.immersionbar:immersionbar-components:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b50d8109028f679412cdc630b079b715/jetified-immersionbar-components-3.0.0-beta05/AndroidManifest.xml:5:5-7:41
-MERGED from [com.gyf.immersionbar:immersionbar-components:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b50d8109028f679412cdc630b079b715/jetified-immersionbar-components-3.0.0-beta05/AndroidManifest.xml:5:5-7:41
-MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6b03a7b326fc03a9860417c9066ad289/toast-8.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6b03a7b326fc03a9860417c9066ad289/toast-8.0/AndroidManifest.xml:7:5-9:41
-MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9cd6594c952ca894584e41f3216236c/jetified-library-1.1.0/AndroidManifest.xml:9:5-11:41
-MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9cd6594c952ca894584e41f3216236c/jetified-library-1.1.0/AndroidManifest.xml:9:5-11:41
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/de7fa83c5498747b05725e5307e93bf2/jcore-2.2.4/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/de7fa83c5498747b05725e5307e93bf2/jcore-2.2.4/AndroidManifest.xml:7:5-9:41
-MERGED from [com.tencent.bugly:crashreport:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e64dec3a5c22a15f3fccbbba6c2b1289/crashreport-3.1.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.tencent.bugly:crashreport:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e64dec3a5c22a15f3fccbbba6c2b1289/crashreport-3.1.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4c72d6014e64eb3e574161653f17e639/jetified-citypicker-2.0.3/AndroidManifest.xml:7:5-9:41
-MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4c72d6014e64eb3e574161653f17e639/jetified-citypicker-2.0.3/AndroidManifest.xml:7:5-9:41
-MERGED from [com.contrarywind:Android-PickerView:4.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/25948c97beba7c09143b4750155b9a9b/jetified-Android-PickerView-4.1.8/AndroidManifest.xml:7:5-9:41
-MERGED from [com.contrarywind:Android-PickerView:4.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/25948c97beba7c09143b4750155b9a9b/jetified-Android-PickerView-4.1.8/AndroidManifest.xml:7:5-9:41
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:7:5-9:41
-MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0e2dddd4e237b154999f8181453539a6/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0e2dddd4e237b154999f8181453539a6/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54b1300d7fb8e24c61ad19b59ea2445a/jetified-play-services-basement-11.4.0/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54b1300d7fb8e24c61ad19b59ea2445a/jetified-play-services-basement-11.4.0/AndroidManifest.xml:17:5-43
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1964611a1907e3ea07b40ce4c516c284/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1964611a1907e3ea07b40ce4c516c284/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.fragment:fragment:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/add2bdb41de46d90e5d3bd4e75929820/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/add2bdb41de46d90e5d3bd4e75929820/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dd07e922b5233b833d82ee834e6becf7/appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dd07e922b5233b833d82ee834e6becf7/appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/abc680e55824c418c024460e31034ed4/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/abc680e55824c418c024460e31034ed4/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/34085af895daa23049fd0af188e6a001/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/34085af895daa23049fd0af188e6a001/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ba2af06f417607d7ef1ca9f201a0d139/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ba2af06f417607d7ef1ca9f201a0d139/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/402e2fb3baa5e6ca3b4a0d7ccbd7cd5b/transition-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/402e2fb3baa5e6ca3b4a0d7ccbd7cd5b/transition-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f3997ce16a5c00ae84a772d300d0e1e8/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f3997ce16a5c00ae84a772d300d0e1e8/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/331f61861c2d3a925f2252286afb1f53/loader-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/331f61861c2d3a925f2252286afb1f53/loader-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/daa47187fb0f0a7c419d1b10e1677cdd/activity-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/daa47187fb0f0a7c419d1b10e1677cdd/activity-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/beed28e19d4f55ab2c17aff66e0bc400/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/beed28e19d4f55ab2c17aff66e0bc400/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e0d80e5c178a0db065288a448fc598ef/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e0d80e5c178a0db065288a448fc598ef/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/04087833f388d5ffa97a080d757646c2/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/04087833f388d5ffa97a080d757646c2/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/eb11c4797d5d5b24d5dcbbebe26babf4/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/eb11c4797d5d5b24d5dcbbebe26babf4/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/740a70a0c89c8c085b6e012b4bd7790e/customview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/740a70a0c89c8c085b6e012b4bd7790e/customview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/31dc29ba3158cee4b1ca2bf2f6ff141b/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/31dc29ba3158cee4b1ca2bf2f6ff141b/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/435f1166e6a428a0025d9cd273cb35a2/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/435f1166e6a428a0025d9cd273cb35a2/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.media:media:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a6ce3afbff3f1ae3fa1fe13048b173d9/media-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.media:media:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a6ce3afbff3f1ae3fa1fe13048b173d9/media-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa91d8d2653c363bbd5da9d9892260d3/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa91d8d2653c363bbd5da9d9892260d3/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc4f60e4549c263b614feec2a027fa2/cardview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc4f60e4549c263b614feec2a027fa2/cardview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e90be152f08ce99fb09048a87e58bfc3/gifdecoder-4.10.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e90be152f08ce99fb09048a87e58bfc3/gifdecoder-4.10.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.contrarywind:wheelview:4.0.9] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fc41e7157877dd98db2bb0ce339b1f89/wheelview-4.0.9/AndroidManifest.xml:7:5-9:41
-MERGED from [com.contrarywind:wheelview:4.0.9] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fc41e7157877dd98db2bb0ce339b1f89/wheelview-4.0.9/AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9c8616d74aa0ab3eb457d24b669c685/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9c8616d74aa0ab3eb457d24b669c685/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d4ef17d609918d2a5f5a86d1ea02678f/interpolator-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d4ef17d609918d2a5f5a86d1ea02678f/interpolator-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9d52be8c254a228a91eaf05f51d52923/documentfile-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9d52be8c254a228a91eaf05f51d52923/documentfile-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9093771a98b01557e81860f4122d7892/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9093771a98b01557e81860f4122d7892/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7ec682ca46f5c90ea9a9e0cba0c0310a/print-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7ec682ca46f5c90ea9a9e0cba0c0310a/print-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0554424e228349ffc3db0700d1324aa1/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0554424e228349ffc3db0700d1324aa1/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bad233a64070d55cab9a83b26afbf154/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bad233a64070d55cab9a83b26afbf154/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7acef2a7bfef3795312317efec15d83e/savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7acef2a7bfef3795312317efec15d83e/savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/420f294924962582b4c42c622af43461/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/420f294924962582b4c42c622af43461/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66e997bde0b6ece28f7fd36f5f4a1584/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66e997bde0b6ece28f7fd36f5f4a1584/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8787729f29cf7add1bc29c81caccddfd/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8787729f29cf7add1bc29c81caccddfd/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:8:5-11:39
-MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:8:5-11:39
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/55e9aa69f32ebd20c37212d7339ee465/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:8:5-10:41
+MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/55e9aa69f32ebd20c37212d7339ee465/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:8:5-10:41
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ceb81553a8d4d1147c847656f2ca2121/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ceb81553a8d4d1147c847656f2ca2121/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/87cc0020caff993913d2a7e25a4ed169/glide-4.10.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/87cc0020caff993913d2a7e25a4ed169/glide-4.10.0/AndroidManifest.xml:6:5-8:41
+MERGED from [id.zelory:compressor:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ebe49e8e9ce3f9e98371bae2c27cfc7/compressor-2.1.0/AndroidManifest.xml:8:5-10:41
+MERGED from [id.zelory:compressor:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ebe49e8e9ce3f9e98371bae2c27cfc7/compressor-2.1.0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.joooonho:selectableroundedimageview:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc33c11ef787d594d164706bbda1b18f/selectableroundedimageview-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.joooonho:selectableroundedimageview:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc33c11ef787d594d164706bbda1b18f/selectableroundedimageview-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b1fdcf2d7aed57978154da26d6ce7359/library-1.4.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b1fdcf2d7aed57978154da26d6ce7359/library-1.4.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/45ad8a4435dd225b5b9a2595457516bf/jetified-banner-1.4.10/AndroidManifest.xml:7:5-9:41
+MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/45ad8a4435dd225b5b9a2595457516bf/jetified-banner-1.4.10/AndroidManifest.xml:7:5-9:41
+MERGED from [com.gyf.immersionbar:immersionbar:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e99e0b2c8e71ac6ed256bb343da5dc69/jetified-immersionbar-3.0.0-beta05/AndroidManifest.xml:6:5-8:41
+MERGED from [com.gyf.immersionbar:immersionbar:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e99e0b2c8e71ac6ed256bb343da5dc69/jetified-immersionbar-3.0.0-beta05/AndroidManifest.xml:6:5-8:41
+MERGED from [com.gyf.immersionbar:immersionbar-components:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e24ef68ab95a776c8f157fb67a43070/jetified-immersionbar-components-3.0.0-beta05/AndroidManifest.xml:5:5-7:41
+MERGED from [com.gyf.immersionbar:immersionbar-components:3.0.0-beta05] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e24ef68ab95a776c8f157fb67a43070/jetified-immersionbar-components-3.0.0-beta05/AndroidManifest.xml:5:5-7:41
+MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e49119546b1630b4d42ff90d5a2b72c/toast-8.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e49119546b1630b4d42ff90d5a2b72c/toast-8.0/AndroidManifest.xml:7:5-9:41
+MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e7fb783d17dfdcb994f012335b71237b/jetified-library-1.1.0/AndroidManifest.xml:9:5-11:41
+MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e7fb783d17dfdcb994f012335b71237b/jetified-library-1.1.0/AndroidManifest.xml:9:5-11:41
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c26a9d5b4492b6f4ab8b48d979dcc00f/jcore-2.2.4/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c26a9d5b4492b6f4ab8b48d979dcc00f/jcore-2.2.4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.tencent.bugly:crashreport:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db66f61f147601b891626c417d558b54/crashreport-3.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.tencent.bugly:crashreport:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db66f61f147601b891626c417d558b54/crashreport-3.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7234c21d933f1351fe021367290ac140/jetified-citypicker-2.0.3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7234c21d933f1351fe021367290ac140/jetified-citypicker-2.0.3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.contrarywind:Android-PickerView:4.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8e606446afa6598d7a8627c0210f8b49/jetified-Android-PickerView-4.1.8/AndroidManifest.xml:7:5-9:41
+MERGED from [com.contrarywind:Android-PickerView:4.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8e606446afa6598d7a8627c0210f8b49/jetified-Android-PickerView-4.1.8/AndroidManifest.xml:7:5-9:41
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:7:5-9:41
+MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08044841b11c1b3287f81b5c5fd6aa40/jetified-play-services-base-11.4.0/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08044841b11c1b3287f81b5c5fd6aa40/jetified-play-services-base-11.4.0/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f4039fca87df02ad284b834bf0f9dbb8/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f4039fca87df02ad284b834bf0f9dbb8/jetified-play-services-tasks-11.4.0/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1aeaff5f7805b66514c96d26c1d89e4c/jetified-play-services-basement-11.4.0/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1aeaff5f7805b66514c96d26c1d89e4c/jetified-play-services-basement-11.4.0/AndroidManifest.xml:17:5-43
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/062eb74c1a6fe650432564db4113c6b5/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/062eb74c1a6fe650432564db4113c6b5/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0362ff4d8672321347a402c32368f192/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0362ff4d8672321347a402c32368f192/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ddf6a25e6e3e5e2af441269b48288beb/appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ddf6a25e6e3e5e2af441269b48288beb/appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ec593f8d91037f6ef1bbcd6a177afa1c/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ec593f8d91037f6ef1bbcd6a177afa1c/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/00bc847ce5b9e3ce7b40d465bffbf9e9/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/00bc847ce5b9e3ce7b40d465bffbf9e9/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4f8b5527496d67480951cc322460db7f/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4f8b5527496d67480951cc322460db7f/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d2cae29ea156ecc28d8f5099dc624ed2/transition-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d2cae29ea156ecc28d8f5099dc624ed2/transition-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4932f7e67b26f042b51fa62f1aa4816d/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4932f7e67b26f042b51fa62f1aa4816d/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5276819c062a92c029464122749254f1/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5276819c062a92c029464122749254f1/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dbbcc99072b5616db9e0106b8ed65934/activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dbbcc99072b5616db9e0106b8ed65934/activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d1ca7cd3905794bed09cb92934ccd6c2/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d1ca7cd3905794bed09cb92934ccd6c2/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4276267baf989d651cf25177c247ad49/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4276267baf989d651cf25177c247ad49/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8849109129fcb2f39779166fb64480b1/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8849109129fcb2f39779166fb64480b1/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5ad830c9e1047f79e3f0f7e9e42ab8ab/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5ad830c9e1047f79e3f0f7e9e42ab8ab/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a3c457ded457b98b207b4f227d629399/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a3c457ded457b98b207b4f227d629399/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3d4a3c67e39fa8d6d0c0f126c28b81d8/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3d4a3c67e39fa8d6d0c0f126c28b81d8/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/82b148795609bbbaf8e825fc2ff2a6bf/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/82b148795609bbbaf8e825fc2ff2a6bf/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/767612e54049c1347a891905a7e9d5e4/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/767612e54049c1347a891905a7e9d5e4/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fb2fbe77879a57ea0c5dfd6fe59ba874/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fb2fbe77879a57ea0c5dfd6fe59ba874/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4fe44ae24daa7cfa2dd483a5d3b65a2f/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4fe44ae24daa7cfa2dd483a5d3b65a2f/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e671e9f00c2780be6d3d0096a67e519b/gifdecoder-4.10.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.10.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e671e9f00c2780be6d3d0096a67e519b/gifdecoder-4.10.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.contrarywind:wheelview:4.0.9] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e026b604e6be6d5911a62184f888e869/wheelview-4.0.9/AndroidManifest.xml:7:5-9:41
+MERGED from [com.contrarywind:wheelview:4.0.9] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e026b604e6be6d5911a62184f888e869/wheelview-4.0.9/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78be57497ca2a8dd090798c529f3e53d/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78be57497ca2a8dd090798c529f3e53d/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a992d8307f21a8f15eb649383ba6a6a/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a992d8307f21a8f15eb649383ba6a6a/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f582580d3eb247a74d915a27810a4674/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f582580d3eb247a74d915a27810a4674/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c75155371656c04dff3a027cdeb13e8a/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c75155371656c04dff3a027cdeb13e8a/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/53b4a4cf87c0ff501a8c414cec884555/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/53b4a4cf87c0ff501a8c414cec884555/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ffa46f3d6480310395b7b525cf59ccde/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ffa46f3d6480310395b7b525cf59ccde/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/64ed055c454b36433d45a77285ee24d6/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/64ed055c454b36433d45a77285ee24d6/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3819fb4fef2e012192b32762458ba145/savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3819fb4fef2e012192b32762458ba145/savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/63647da4654da12a6f2785cfbbad8123/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/63647da4654da12a6f2785cfbbad8123/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/733fc1d306cee2c05d3e1fb0b7527020/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/733fc1d306cee2c05d3e1fb0b7527020/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fdd65d8b6066fd289a68b42931dc03a2/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fdd65d8b6066fd289a68b42931dc03a2/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:8:5-11:39
+MERGED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:8:5-11:39
 INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
@@ -1001,296 +1112,192 @@ INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDeli
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 	tools:ignore
-		ADDED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:11:9-36
+		ADDED from [com.hyphenate:hyphenate-sdk:3.6.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/AndroidManifest.xml:11:9-36
 	android:minSdkVersion
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:376:13-378:57
+ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:443:13-445:57
 	android:resource
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:378:17-54
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:445:17-54
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:377:17-67
+		ADDED from /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:444:17-67
 provider#com.maning.updatelibrary.MNUpdateApkFileProvider
-ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
+ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
 	android:grantUriPermissions
-		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
+		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
 	android:authorities
-		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
+		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
 	android:exported
-		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
+		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
 	android:name
-		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be816b11cfc94430b0ea3c3d4a7e378b/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
+		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6a1a53e687f19ea2d10e227998e04109/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
 activity#com.lljjcoder.style.citylist.CityListSelectActivity
-ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
+ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
 	android:screenOrientation
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
 	android:windowSoftInputMode
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
 	android:name
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
 activity#com.lljjcoder.style.citythreelist.ProvinceActivity
-ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
+ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
 	android:screenOrientation
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
 	android:windowSoftInputMode
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
 	android:name
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
 activity#com.lljjcoder.style.citythreelist.CityActivity
-ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
+ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
 	android:screenOrientation
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
 	android:windowSoftInputMode
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
 	android:name
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
 activity#com.lljjcoder.style.citythreelist.AreaActivity
-ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
+ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
 	android:screenOrientation
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
 	android:windowSoftInputMode
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
 	android:name
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c9192dbcd00f1bd37ca4787d43d0c6c4/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ccc29a1e2ce3a951e6d0a6fd2b353906/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
 permission#${JPUSH_PKGNAME}.permission.JPUSH_MESSAGE
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:11:5-13:47
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:11:5-13:47
 	android:protectionLevel
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:13:9-44
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:13:9-44
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:12:9-65
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:12:9-65
 permission#com.delivery.xianxian.permission.JPUSH_MESSAGE
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:11:5-13:47
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:11:5-13:47
 	android:protectionLevel
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:13:9-44
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:13:9-44
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:12:9-65
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:12:9-65
 uses-permission#${JPUSH_PKGNAME}.permission.JPUSH_MESSAGE
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:16:5-81
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:16:5-81
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:16:22-78
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:16:22-78
 uses-permission#com.delivery.xianxian.permission.JPUSH_MESSAGE
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:16:5-81
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:16:5-81
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:16:22-78
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:16:22-78
 uses-permission#android.permission.WRITE_SETTINGS
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:22:5-73
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:22:5-73
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:22:22-70
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:22:22-70
 uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:23:5-84
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:23:5-84
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:23:22-81
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:23:22-81
 uses-permission#android.permission.ACCESS_BACKGROUND_LOCATION
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:33:5-85
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:33:5-85
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:33:22-82
-service#cn.jpush.android.service.PushService
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:69:9-80:19
-	android:process
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:73:13-40
-	android:enabled
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:71:13-35
-	android:exported
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:72:13-37
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:70:13-64
-intent-filter#action:name:cn.jpush.android.intent.PUSH_TIME+action:name:cn.jpush.android.intent.PushService+action:name:cn.jpush.android.intent.REGISTER+action:name:cn.jpush.android.intent.REPORT
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:74:13-79:29
-action#cn.jpush.android.intent.REGISTER
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:75:17-75
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:75:25-72
-action#cn.jpush.android.intent.REPORT
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:76:17-73
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:76:25-70
-action#cn.jpush.android.intent.PushService
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:77:17-78
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:77:25-75
-action#cn.jpush.android.intent.PUSH_TIME
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:78:17-76
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:78:25-73
-service#cn.jpush.android.service.DaemonService
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:84:9-93:19
-	android:enabled
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:86:13-35
-	android:exported
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:87:13-36
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:85:13-66
-intent-filter#action:name:cn.jpush.android.intent.DaemonService+category:name:${JPUSH_PKGNAME}
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:88:13-92:29
-intent-filter#action:name:cn.jpush.android.intent.DaemonService+category:name:com.delivery.xianxian
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:88:13-92:29
-action#cn.jpush.android.intent.DaemonService
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:89:17-80
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:89:25-77
-category#${JPUSH_PKGNAME}
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:91:17-61
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:91:27-58
-receiver#cn.jpush.android.service.PushReceiver
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:96:9-115:20
-	android:enabled
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:98:13-35
-	android:exported
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:99:13-37
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:97:13-65
-intent-filter#action:name:cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY+category:name:${JPUSH_PKGNAME}
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:100:13-103:29
-	android:priority
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:100:28-51
-intent-filter#action:name:cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY+category:name:com.delivery.xianxian
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:100:13-103:29
-	android:priority
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:100:28-51
-action#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:101:17-94
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:101:25-91
-intent-filter#action:name:android.intent.action.USER_PRESENT+action:name:android.net.conn.CONNECTIVITY_CHANGE
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:104:13-107:29
-action#android.net.conn.CONNECTIVITY_CHANGE
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:106:17-79
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:106:25-76
-intent-filter#action:name:android.intent.action.PACKAGE_ADDED+action:name:android.intent.action.PACKAGE_REMOVED+data:scheme:package
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:109:13-114:29
-action#android.intent.action.PACKAGE_ADDED
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:110:17-78
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:110:25-75
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:33:22-82
 receiver#cn.jpush.android.service.AlarmReceiver
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:118:9-120:40
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:118:9-120:40
 	android:exported
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:120:13-37
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:120:13-37
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:119:13-66
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:119:13-66
+receiver#cn.jpush.android.service.SchedulerReceiver
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:121:9-123:40
+	android:exported
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:123:13-37
+	android:name
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:122:13-70
 provider#cn.jpush.android.service.DataProvider
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:122:9-126:43
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:126:9-130:43
 	android:process
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:126:13-40
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:130:13-40
 	android:authorities
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:124:13-64
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:128:13-64
 	android:exported
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:125:13-37
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:129:13-37
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:123:13-65
-provider#cn.jpush.android.service.DownloadProvider
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:128:9-131:39
-	android:authorities
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:130:13-68
-	android:exported
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:131:13-36
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:129:13-69
-activity#cn.jpush.android.service.JNotifyActivity
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:134:9-144:20
-	android:exported
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:136:13-36
-	android:theme
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:138:13-72
-	android:taskAffinity
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:137:13-48
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:135:13-68
-intent-filter#action:name:cn.jpush.android.intent.JNotifyActivity+category:name:${applicationId}
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:139:13-143:29
-intent-filter#action:name:cn.jpush.android.intent.JNotifyActivity+category:name:com.delivery.xianxian
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:139:13-143:29
-action#cn.jpush.android.intent.JNotifyActivity
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:140:17-82
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:140:25-79
-category#${applicationId}
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:142:17-61
-	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:142:27-58
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:127:13-65
 meta-data#JPUSH_CHANNEL
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:147:9-149:48
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:151:9-153:48
 	android:value
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:149:13-45
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:153:13-45
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:148:13-41
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:152:13-41
 meta-data#JPUSH_APPKEY
-ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:150:9-152:47
+ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:154:9-156:47
 	android:value
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:152:13-44
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:156:13-44
 	android:name
-		ADDED from [cn.jiguang.sdk:jpush:3.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1cd627f4e9f28b1a280b84b8bc42cb3d/jpush-3.4.1/AndroidManifest.xml:151:13-40
+		ADDED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:155:13-40
 supports-screens
-ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:11:5-16:39
+ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:11:5-16:39
 	android:largeScreens
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:13:9-36
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:13:9-36
 	android:smallScreens
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:16:9-36
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:16:9-36
 	android:normalScreens
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:14:9-37
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:14:9-37
 	android:resizeable
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:15:9-34
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:15:9-34
 	android:anyDensity
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:12:9-34
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:12:9-34
 activity#com.alipay.sdk.app.H5PayActivity
-ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:27:9-32:20
+ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:27:9-32:20
 	android:screenOrientation
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:31:13-47
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:31:13-47
 	android:exported
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:30:13-37
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:30:13-37
 	android:configChanges
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:29:13-74
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:29:13-74
 	android:name
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:28:13-60
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:28:13-60
 activity#com.alipay.sdk.app.H5AuthActivity
-ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:33:9-38:20
+ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:33:9-38:20
 	android:screenOrientation
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:37:13-47
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:37:13-47
 	android:exported
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:36:13-37
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:36:13-37
 	android:configChanges
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:35:13-85
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:35:13-85
 	android:name
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:34:13-61
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:34:13-61
 activity#com.alipay.sdk.app.PayResultActivity
-ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:39:9-48:20
+ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:39:9-48:20
 	android:launchMode
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:43:13-48
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:43:13-48
 	android:exported
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:42:13-36
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:42:13-36
 	android:configChanges
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:41:13-85
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:41:13-85
 	android:theme
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:44:13-72
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:44:13-72
 	android:name
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:40:13-64
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:40:13-64
 intent-filter#category:name:android.intent.category.DEFAULT
-ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:45:13-47:29
+ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:45:13-47:29
 activity#com.alipay.sdk.app.AlipayResultActivity
-ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:49:9-54:20
+ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:49:9-54:20
 	android:launchMode
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:52:13-44
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:52:13-44
 	android:exported
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:51:13-36
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:51:13-36
 	android:theme
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:53:13-72
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:53:13-72
 	android:name
-		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2a78305bb8ac7bef527e0f2e7655a1fa/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:50:13-67
+		ADDED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:50:13-67
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:9-172
+ADDED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08044841b11c1b3287f81b5c5fd6aa40/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:9-172
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:146-170
+		ADDED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08044841b11c1b3287f81b5c5fd6aa40/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:146-170
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:86-145
+		ADDED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08044841b11c1b3287f81b5c5fd6aa40/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:86-145
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ae8d328170e300bab0232387d820ba9e/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:19-85
+		ADDED from [com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08044841b11c1b3287f81b5c5fd6aa40/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:19-85
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54b1300d7fb8e24c61ad19b59ea2445a/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:9-121
+ADDED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1aeaff5f7805b66514c96d26c1d89e4c/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54b1300d7fb8e24c61ad19b59ea2445a/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:66-119
+		ADDED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1aeaff5f7805b66514c96d26c1d89e4c/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:66-119
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54b1300d7fb8e24c61ad19b59ea2445a/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:20-65
+		ADDED from [com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1aeaff5f7805b66514c96d26c1d89e4c/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:20-65

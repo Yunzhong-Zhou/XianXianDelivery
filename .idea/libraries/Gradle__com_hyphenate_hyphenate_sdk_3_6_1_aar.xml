@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.hyphenate:hyphenate-sdk:3.6.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3051e9a4d45fcfa9a6fb148027e4b6e7/jetified-hyphenate-sdk-3.6.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d341884f226d33629c8214836543411d/jetified-hyphenate-sdk-3.6.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hyphenate/hyphenate-sdk/3.6.1/3e32088229583a766d337602b22ffeec0eb73ed4/hyphenate-sdk-3.6.1-javadoc.jar!/" />
