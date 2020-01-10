@@ -4,7 +4,7 @@
             "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh/values-zh.xml",
             "map": [
                 {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0bf26829bf0a050ee219699c0a0d5b67/jpush-3.5.4/res/values-zh/values-zh.xml",
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/res/values-zh/values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

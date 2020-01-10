@@ -86,7 +86,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12, textView13, textView14, textView15, textView16,
             textView17, textView18, textView19,
-            tv_confirm, tv_fujiafei,tv_shishiwendu;
+            tv_confirm, tv_fujiafei, tv_shishiwendu;
 
     boolean isOpen = false;
 
@@ -257,7 +257,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                                 params.put("token", localUserInfo.getToken());
                                                 params.put("id", model.getTindent().getId());
                                                 params.put("type", "owner_cancel_get");
-                                                RequestQuXiao(params,1);
+                                                RequestQuXiao(params, 1);
                                             }
                                         }, new View.OnClickListener() {
                                             @Override
@@ -427,9 +427,9 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 TextView textView1 = dialog.findViewById(R.id.textView1);
                 textView1.setText("添加附加费用");
                 final EditText editText1 = dialog.findViewById(R.id.editText1);
-                if (!model.getTindent().getOwner_fee().equals("") && !model.getTindent().getOwner_fee().equals("0.00")){
+                if (!model.getTindent().getOwner_fee().equals("") && !model.getTindent().getOwner_fee().equals("0.00")) {
                     editText1.setText(model.getTindent().getOwner_fee());
-                }else {
+                } else {
                     editText1.setHint("请输入附加费用");
                 }
 
@@ -446,7 +446,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             params.put("owner_fee", editText1.getText().toString().trim());
                             params.put("id", model.getTindent().getId());
                             params.put("type", "owner_add_attach");
-                            RequestQuXiao(params,2);
+                            RequestQuXiao(params, 2);
 
                         } else {
                             myToast("请输入与加急费用");
@@ -538,7 +538,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                         params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                         params.put("t_indent_id", model.getTindent().getId());
                                         params.put("type", "1");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                                        RequestConfirm(params,1);
+                                        RequestConfirm(params, 1);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -559,7 +559,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                         params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                         params.put("t_indent_id", model.getTindent().getId());
                                         params.put("type", "3");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                                        RequestConfirm(params,3);
+                                        RequestConfirm(params, 3);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -580,7 +580,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                         params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                         params.put("t_indent_id", model.getTindent().getId());
                                         params.put("type", "5");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                                        RequestConfirm(params,5);
+                                        RequestConfirm(params, 5);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -601,7 +601,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                         params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                         params.put("t_indent_id", model.getTindent().getId());
                                         params.put("type", "7");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                                        RequestConfirm(params,7);
+                                        RequestConfirm(params, 7);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -624,34 +624,58 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                         .dimAmount(0.8f)
                         .show();
                 TextView textView2 = dialog.findViewById(R.id.textView2);
-                textView2.setText("¥"+model.getTindent().getConfirm_attach_data().getMoney());
+                textView2.setText("¥" + model.getTindent().getConfirm_attach_data().getMoney());
                 RecyclerView recyclerView = dialog.findViewById(R.id.recyclerView);
                 LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(OrderDetailsActivity.this);
                 recyclerView.setLayoutManager(mLinearLayoutManager);
                 CommonAdapter<OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean> mAdapter1 =
                         new CommonAdapter<OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean>
-                        (OrderDetailsActivity.this, R.layout.item_feemodel,
-                                model.getTindent().getConfirm_attach_data().getDetail()) {
-                    @Override
-                    protected void convert(ViewHolder holder, OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean model, int position) {
-                        holder.setText(R.id.textView1, model.getName());
-                        holder.setText(R.id.textView2, "¥"+model.getMoney());
-                    }
-                };
+                                (OrderDetailsActivity.this, R.layout.item_feemodel,
+                                        model.getTindent().getConfirm_attach_data().getDetail()) {
+                            @Override
+                            protected void convert(ViewHolder holder, OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean model, int position) {
+                                holder.setText(R.id.textView1, model.getName());
+                                holder.setText(R.id.textView2, "¥" + model.getMoney());
+                            }
+                        };
                 recyclerView.setAdapter(mAdapter1);
 
-
+                TextView textView3 = dialog.findViewById(R.id.textView3);
+                TextView textView4 = dialog.findViewById(R.id.textView4);
+                if (model.getTindent().getConfirm_attach_data().getNeed_pay() == 1) {
+                    //需要支付
+                    textView3.setText("稍后付款");
+                    textView4.setText("现在付款");
+                } else {
+                    //不需要支付
+                    textView3.setText("关闭");
+                    textView4.setText("已支付");
+                }
                 dialog.findViewById(R.id.textView4).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (model.getTindent().getConfirm_attach_data().getNeed_pay() == 1){
+                        if (model.getTindent().getConfirm_attach_data().getNeed_pay() == 1) {
                             //可支付
                             dialog.dismiss();
-                            Map<String, String> params = new HashMap<>();
-                            params.put("token", localUserInfo.getToken());
-                            params.put("t_indent_confirm_id", model.getTindent().getConfirm_attach_data().getIdX());
-                            params.put("type", "5");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                            RequestConfirm(params,5);
+                            showToast("是否现在支付（余额支付）", "是", "否", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    showProgress(true, "正在支付，请稍后...");
+                                    Map<String, String> params = new HashMap<>();
+                                    params.put("token", localUserInfo.getToken());
+                                    params.put("t_indent_confirm_id", model.getTindent().getConfirm_attach_data().getIdX());
+                                    params.put("type", "5");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
+                                    RequestConfirm(params, 5);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                        } else {
+                            dialog.dismiss();
                         }
                     }
                 });
@@ -684,7 +708,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             @Override
                             protected void convert(ViewHolder holder, OrderDetailsModel.TindentBean.PriceDetailBean model, int position) {
                                 holder.setText(R.id.textView1, model.getTitle());
-                                holder.setText(R.id.textView2, "¥"+model.getPrice());
+                                holder.setText(R.id.textView2, "¥" + model.getPrice());
                             }
                         };
                 rv1.setAdapter(ap1);
@@ -697,7 +721,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 break;
 
             case R.id.tv_shishiwendu:
-                CommonUtil.gotoActivity(OrderDetailsActivity.this,TemperatureActivity.class);
+                CommonUtil.gotoActivity(OrderDetailsActivity.this, TemperatureActivity.class);
                 break;
         }
     }
@@ -707,7 +731,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         titleView.setTitle("订单详情");
     }
 
-    private void RequestConfirm(Map<String, String> params,int type) {
+    private void RequestConfirm(Map<String, String> params, int type) {
         OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_Confirm, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -726,10 +750,10 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(OrderDetailsActivity.this,RechargeActivity.class,false);
+                                        CommonUtil.gotoActivity(OrderDetailsActivity.this, RechargeActivity.class, false);
                                     }
                                 });
-                    }else if (info.contains("认证")){
+                    } else if (info.contains("认证")) {
                         showToast(info,
                                 "取消", "去认证",
                                 new View.OnClickListener() {
@@ -741,10 +765,10 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(OrderDetailsActivity.this,Auth_ShenFenZhengActivity.class,false);
+                                        CommonUtil.gotoActivity(OrderDetailsActivity.this, Auth_ShenFenZhengActivity.class, false);
                                     }
                                 });
-                    }else {
+                    } else {
                         showToast(info);
                     }
                 }
@@ -764,7 +788,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                     list = JSON.parseArray(jsonArray.toString(), Fragment1ListModel.class);
                     MyLogger.i(">>>>>>>" + list.size());*/
                     myToast(jObj.getString("msg"));
-                    if (type == 7){
+                    if (type == 7) {
                         //去评价
                         Bundle bundle = new Bundle();
                         bundle.putString("id", model.getTindent().getId());
@@ -779,7 +803,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         }, false);
     }
 
-    private void RequestQuXiao(Map<String, String> params,int type) {
+    private void RequestQuXiao(Map<String, String> params, int type) {
         OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_QuXiao, params, new OkHttpClientManager.ResultCallback<OrderCancelModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -795,13 +819,13 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>取消" + response);
-                if (type ==1){
+                if (type == 1) {
                     //取消订单
                     Bundle bundle = new Bundle();
                     bundle.putString("id", model.getTindent().getId());
                     bundle.putSerializable("model", response);
                     CommonUtil.gotoActivityWithData(OrderDetailsActivity.this, OrderCancelActivity.class, bundle, true);
-                }else {
+                } else {
                     //添加附加费
                     myToast("添加附加费成功");
                     requestServer();
