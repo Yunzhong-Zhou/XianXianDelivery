@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.liaoinstan.springview:AliHeader:1.5.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4258f2f74402892fd31ad0e73d0a7288/jetified-AliHeader-1.5.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4258f2f74402892fd31ad0e73d0a7288/jetified-AliHeader-1.5.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a6ee21572a8da19f2028e92c711f3c59/jetified-AliHeader-1.5.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a6ee21572a8da19f2028e92c711f3c59/jetified-AliHeader-1.5.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.liaoinstan.springview/AliHeader/1.5.1/a97dda4553e4f93a7f6964052b8b6b6722bb68b8/AliHeader-1.5.1-javadoc.jar!/" />

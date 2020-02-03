@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.alipay.sdk.app.PayTask;
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
@@ -67,6 +68,9 @@ public class ConfirmOrderActivity extends BaseActivity {
 
     int pay_item = 0;
 
+    List<ConfirmOrderModel.PayTypeListBean> list_pay = new ArrayList<>();
+    String pay_type = "",order_id = "";
+
     double money = 0, money1 = 0, money2 = 0;//合计费用，提前预冷费，加急费
 
 
@@ -87,10 +91,16 @@ public class ConfirmOrderActivity extends BaseActivity {
                     // 判断resultStatus 为9000则代表支付成功
                     if (TextUtils.equals(resultStatus, "9000")) {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
-                        showToast("支付成功"+payResult);
+                        MyLogger.i("支付成功"+payResult);
+                        showToast("支付成功");
+                        //跳转订单派送
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", order_id);
+                        CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this, OrderDetailsActivity.class, bundle, true);
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
-                        showToast("支付失败" + payResult);
+                        MyLogger.i("支付失败" + payResult);
+                        showToast("支付失败");
                     }
                     break;
                 }
@@ -450,11 +460,12 @@ public class ConfirmOrderActivity extends BaseActivity {
                 TextView tv1 = dialog.findViewById(R.id.tv1);
                 tv1.setText(response.getTotal_price());
 
+                list_pay = response.getPay_type_list();
                 RecyclerView rv = dialog.findViewById(R.id.rv);
                 LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(ConfirmOrderActivity.this);
                 rv.setLayoutManager(mLinearLayoutManager);
                 CommonAdapter<ConfirmOrderModel.PayTypeListBean> mAdapter = new CommonAdapter<ConfirmOrderModel.PayTypeListBean>
-                        (ConfirmOrderActivity.this, R.layout.item_pay, response.getPay_type_list()) {
+                        (ConfirmOrderActivity.this, R.layout.item_pay, list_pay) {
                     @Override
                     protected void convert(ViewHolder holder, ConfirmOrderModel.PayTypeListBean model, int position) {
                         holder.setText(R.id.tv1, model.getTitle());//标题
@@ -483,6 +494,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                         pay_item = i;
+                        pay_type = list_pay.get(i).getType();
                         mAdapter.notifyDataSetChanged();
                     }
 
@@ -537,30 +549,31 @@ public class ConfirmOrderActivity extends BaseActivity {
                 myToast("下单成功");
                 localUserInfo.setIsordertrue("1");//是否下单成功//0未成功，1成功
 
+                order_id = id;
+                switch (pay_type){
+                    case "3":
+                        //支付宝
+                        //弹出支付宝
+                        Runnable payRunnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                PayTask alipay = new PayTask(ConfirmOrderActivity.this);
+                                Map <String,String> result = alipay.payV2("alipay_root_cert_sn=687b59193f3f462dd5336e5abf83c5d8_02941eef3187dddf3d3b83462e1dfcf6&alipay_sdk=alipay-sdk-php-easyalipay-20190926&app_cert_sn=cd0f5cf1d482e5e0e8c6942c9e18ceb6&app_id=2021001105699402&biz_content=%7B%22body%22%3A%22%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%22%2C%22subject%22%3A+%22App%E6%94%AF%E4%BB%98%E6%B5%8B%E8%AF%95%22%2C%22out_trade_no%22%3A+%2220170125test03%22%2C%22timeout_express%22%3A+%2230m%22%2C%22total_amount%22%3A+%220.01%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&charset=utf-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fwuliu.zhenyongkj.com%2Fapi%2Faplipay%2Fnotify&sign_type=RSA2&timestamp=2020-02-03+14%3A07%3A19&version=1.0&sign=Ee5jTbwBu9WbOrC10a%2FP7q%2BanhF6EemgaMtKRHCLGBB0XfnFTN2Tsj0O8bjcPmaZHJkKfy02vhUCEA7HOc0vHnm6%2FzyeMypVhLajn9%2BOiUZoOQfip24Q2bBUSEzfbCymkK%2BoTMYfX%2Bj9m5GVJKoyrVp7FDPbMWhfw8%2FwoAsQ6XL00NbkpulUObsZn0XMQYjIaKRIpRsegQggFhQeoMDclf%2Bspyb9XGgzIGIxuEbixuaXUe53NmlYeTTv%2FvTn4VhI6CkAWWLRS8rnq7xz9Ty50qYfNqYIXf03zJRfwn1RXGvhOKp8g5AD7VNOn94b7uvR%2F%2BLk5avBgO6knjT%2FX3qFwQ%3D%3D",true);
+                                Message msg = new Message();
+                                msg.what = SDK_PAY_FLAG;
+                                msg.obj = result;
+                                mHandler.sendMessage(msg);
+                            }
+                        };
+                        // 必须异步调用
+                        Thread payThread = new Thread(payRunnable);
+                        payThread.start();
+                        break;
+                    case "2":
+                        //微信
+                        break;
+                }
 
-                /*//弹出支付宝
-                Runnable payRunnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        PayTask alipay = new PayTask(ConfirmOrderActivity.this);
-                        Map <String,String> result = alipay.payV2("",true);
-
-                        Message msg = new Message();
-                        msg.what = SDK_PAY_FLAG;
-                        msg.obj = result;
-                        mHandler.sendMessage(msg);
-                    }
-                };
-                // 必须异步调用
-                Thread payThread = new Thread(payRunnable);
-                payThread.start();*/
-
-
-
-                //跳转订单派送
-                Bundle bundle = new Bundle();
-                bundle.putString("id", id);
-                CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this, OrderDetailsActivity.class, bundle, true);
             }
         });
     }

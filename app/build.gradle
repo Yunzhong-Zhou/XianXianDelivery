@@ -164,5 +164,5 @@ dependencies {
 
 
     //支付宝
-    implementation (name: 'alipaySdk-15.6.8-20191021122514', ext: 'aar')
+    implementation(name: 'alipaySdk-15.6.8-20191021122514', ext: 'aar')
 }

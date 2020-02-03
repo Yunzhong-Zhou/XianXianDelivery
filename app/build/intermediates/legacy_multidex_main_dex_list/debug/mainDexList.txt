@@ -166,8 +166,8 @@ com/amap/api/col/n3/h.class
 com/amap/api/col/n3/i.class
 com/amap/api/col/n3/j.class
 com/amap/api/col/n3/n.class
-com/amap/api/col/n3/nl.class
-com/amap/api/col/n3/nm.class
+com/amap/api/col/n3/nu.class
+com/amap/api/col/n3/nv.class
 com/amap/api/col/tl/bz.class
 com/amap/api/col/tl/ca.class
 com/amap/api/services/a/cg.class

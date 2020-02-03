@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alipay.sdk.app.PayTask;
 import com.bumptech.glide.Glide;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.adapter.Recharge_GridViewAdapter;
@@ -68,10 +69,12 @@ public class RechargeActivity extends BaseActivity {
                     // 判断resultStatus 为9000则代表支付成功
                     if (TextUtils.equals(resultStatus, "9000")) {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
-                        showToast("支付成功"+payResult);
+                        MyLogger.i("支付成功"+payResult);
+                        showToast("支付成功");
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
-                        showToast("支付失败" + payResult);
+                        MyLogger.i("支付失败" + payResult);
+                        showToast("支付失败");
                     }
                     break;
                 }
@@ -224,23 +227,30 @@ public class RechargeActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>充值" + response);
                 hideProgress();
                 myToast("订单提交成功，等待后台审核");
+                switch (pay_type){
+                    case "3":
+                        //支付宝
+                        //弹出支付宝
+                        Runnable payRunnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                PayTask alipay = new PayTask(RechargeActivity.this);
+                                Map <String,String> result = alipay.payV2("alipay_root_cert_sn=687b59193f3f462dd5336e5abf83c5d8_02941eef3187dddf3d3b83462e1dfcf6&alipay_sdk=alipay-sdk-php-easyalipay-20190926&app_cert_sn=cd0f5cf1d482e5e0e8c6942c9e18ceb6&app_id=2021001105699402&biz_content=%7B%22body%22%3A%22%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%22%2C%22subject%22%3A+%22App%E6%94%AF%E4%BB%98%E6%B5%8B%E8%AF%95%22%2C%22out_trade_no%22%3A+%2220170125test03%22%2C%22timeout_express%22%3A+%2230m%22%2C%22total_amount%22%3A+%220.01%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&charset=utf-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fwuliu.zhenyongkj.com%2Fapi%2Faplipay%2Fnotify&sign_type=RSA2&timestamp=2020-02-03+14%3A07%3A19&version=1.0&sign=Ee5jTbwBu9WbOrC10a%2FP7q%2BanhF6EemgaMtKRHCLGBB0XfnFTN2Tsj0O8bjcPmaZHJkKfy02vhUCEA7HOc0vHnm6%2FzyeMypVhLajn9%2BOiUZoOQfip24Q2bBUSEzfbCymkK%2BoTMYfX%2Bj9m5GVJKoyrVp7FDPbMWhfw8%2FwoAsQ6XL00NbkpulUObsZn0XMQYjIaKRIpRsegQggFhQeoMDclf%2Bspyb9XGgzIGIxuEbixuaXUe53NmlYeTTv%2FvTn4VhI6CkAWWLRS8rnq7xz9Ty50qYfNqYIXf03zJRfwn1RXGvhOKp8g5AD7VNOn94b7uvR%2F%2BLk5avBgO6knjT%2FX3qFwQ%3D%3D",true);
+                                Message msg = new Message();
+                                msg.what = SDK_PAY_FLAG;
+                                msg.obj = result;
+                                mHandler.sendMessage(msg);
+                            }
+                        };
+                        // 必须异步调用
+                        Thread payThread = new Thread(payRunnable);
+                        payThread.start();
+                        break;
+                    case "2":
+                        //微信
+                        break;
+                }
 
-                /*//弹出支付宝
-                Runnable payRunnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        PayTask alipay = new PayTask(RechargeActivity.this);
-                        Map <String,String> result = alipay.payV2("",true);
-
-                        Message msg = new Message();
-                        msg.what = SDK_PAY_FLAG;
-                        msg.obj = result;
-                        mHandler.sendMessage(msg);
-                    }
-                };
-                // 必须异步调用
-                Thread payThread = new Thread(payRunnable);
-                payThread.start();*/
             }
         });
     }
