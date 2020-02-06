@@ -142,13 +142,13 @@ public class Fragment1 extends BaseFragment {
             //是否下单成功//0未成功，1成功
             tv_qidian.setText("");
             startAddr_id = "";
-            tv_fahuo_name.setText("");
-            tv_fahuo_mobile.setText("");
+            tv_fahuo_name.setText("发货人：");
+            tv_fahuo_mobile.setText("电话号码：");
 
             tv_zhongdian.setText("");
             endAddr_id = "";
-            tv_shouhuo_name.setText("");
-            tv_shouhuo_mobile.setText("");
+            tv_shouhuo_name.setText("收货人：");
+            tv_shouhuo_mobile.setText("电话号码：");
 
             ll_add.removeAllViews();
             addr_ids = "";

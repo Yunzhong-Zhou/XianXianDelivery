@@ -25,6 +25,7 @@ import com.delivery.xianxian.adapter.TemperatureAdapter;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.AddFeeModel;
 import com.delivery.xianxian.model.ConfirmOrderModel;
+import com.delivery.xianxian.model.ConfirmOrderPayModel;
 import com.delivery.xianxian.model.TemperatureModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
@@ -69,10 +70,9 @@ public class ConfirmOrderActivity extends BaseActivity {
     int pay_item = 0;
 
     List<ConfirmOrderModel.PayTypeListBean> list_pay = new ArrayList<>();
-    String pay_type = "",order_id = "";
+    String pay_type = "", order_id = "";
 
     double money = 0, money1 = 0, money2 = 0;//合计费用，提前预冷费，加急费
-
 
     private static final int SDK_PAY_FLAG = 1;
     @SuppressLint("HandlerLeak")
@@ -91,8 +91,10 @@ public class ConfirmOrderActivity extends BaseActivity {
                     // 判断resultStatus 为9000则代表支付成功
                     if (TextUtils.equals(resultStatus, "9000")) {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
-                        MyLogger.i("支付成功"+payResult);
+                        MyLogger.i("支付成功" + payResult);
                         showToast("支付成功");
+
+                        localUserInfo.setIsordertrue("1");//是否下单成功//0未成功，1成功
                         //跳转订单派送
                         Bundle bundle = new Bundle();
                         bundle.putString("id", order_id);
@@ -533,7 +535,7 @@ public class ConfirmOrderActivity extends BaseActivity {
     }
 
     private void RequestPay(Map<String, String> params, String id) {
-        OkHttpClientManager.postAsyn(ConfirmOrderActivity.this, URLs.ConfirmOrder_Pay, params, new OkHttpClientManager.ResultCallback<ConfirmOrderModel>() {
+        OkHttpClientManager.postAsyn(ConfirmOrderActivity.this, URLs.ConfirmOrder_Pay, params, new OkHttpClientManager.ResultCallback<ConfirmOrderPayModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -543,14 +545,24 @@ public class ConfirmOrderActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(ConfirmOrderModel response) {
+            public void onResponse(ConfirmOrderPayModel response) {
                 MyLogger.i(">>>>>>>>>下单" + response);
                 hideProgress();
-                myToast("下单成功");
-                localUserInfo.setIsordertrue("1");//是否下单成功//0未成功，1成功
-
+//                myToast("下单成功");
                 order_id = id;
-                switch (pay_type){
+                MyLogger.i(">>>>>>" + response.getResult());
+                switch (pay_type) {
+                    case "1":
+                        //余额
+                    case "2":
+                        //微信
+                        showToast("支付成功");
+                        localUserInfo.setIsordertrue("1");//是否下单成功//0未成功，1成功
+                        //跳转订单派送
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", order_id);
+                        CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this, OrderDetailsActivity.class, bundle, true);
+                        break;
                     case "3":
                         //支付宝
                         //弹出支付宝
@@ -558,7 +570,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                             @Override
                             public void run() {
                                 PayTask alipay = new PayTask(ConfirmOrderActivity.this);
-                                Map <String,String> result = alipay.payV2("alipay_root_cert_sn=687b59193f3f462dd5336e5abf83c5d8_02941eef3187dddf3d3b83462e1dfcf6&alipay_sdk=alipay-sdk-php-easyalipay-20190926&app_cert_sn=cd0f5cf1d482e5e0e8c6942c9e18ceb6&app_id=2021001105699402&biz_content=%7B%22body%22%3A%22%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%22%2C%22subject%22%3A+%22App%E6%94%AF%E4%BB%98%E6%B5%8B%E8%AF%95%22%2C%22out_trade_no%22%3A+%2220170125test03%22%2C%22timeout_express%22%3A+%2230m%22%2C%22total_amount%22%3A+%220.01%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&charset=utf-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fwuliu.zhenyongkj.com%2Fapi%2Faplipay%2Fnotify&sign_type=RSA2&timestamp=2020-02-03+14%3A07%3A19&version=1.0&sign=Ee5jTbwBu9WbOrC10a%2FP7q%2BanhF6EemgaMtKRHCLGBB0XfnFTN2Tsj0O8bjcPmaZHJkKfy02vhUCEA7HOc0vHnm6%2FzyeMypVhLajn9%2BOiUZoOQfip24Q2bBUSEzfbCymkK%2BoTMYfX%2Bj9m5GVJKoyrVp7FDPbMWhfw8%2FwoAsQ6XL00NbkpulUObsZn0XMQYjIaKRIpRsegQggFhQeoMDclf%2Bspyb9XGgzIGIxuEbixuaXUe53NmlYeTTv%2FvTn4VhI6CkAWWLRS8rnq7xz9Ty50qYfNqYIXf03zJRfwn1RXGvhOKp8g5AD7VNOn94b7uvR%2F%2BLk5avBgO6knjT%2FX3qFwQ%3D%3D",true);
+                                Map<String, String> result = alipay.payV2(response.getResult(), true);
                                 Message msg = new Message();
                                 msg.what = SDK_PAY_FLAG;
                                 msg.obj = result;
@@ -568,9 +580,6 @@ public class ConfirmOrderActivity extends BaseActivity {
                         // 必须异步调用
                         Thread payThread = new Thread(payRunnable);
                         payThread.start();
-                        break;
-                    case "2":
-                        //微信
                         break;
                 }
 
