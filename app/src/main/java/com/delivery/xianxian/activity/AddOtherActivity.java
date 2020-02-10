@@ -142,12 +142,14 @@ public class AddOtherActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()){
             case R.id.textView1:
+                //平台标准定价
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST + "/api/article/detail-html?id=");
+                bundle.putString("url", HOST + "/api/article/detail-html?id=afde4f3f93b6b4444c62e000c5ea317d");
                 CommonUtil.gotoActivityWithData(AddOtherActivity.this, WebContentActivity.class, bundle, false);
 
                 break;
             case R.id.textView2:
+                //和司机商议价格
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("url", HOST + "/api/article/detail-html?id=");
                 CommonUtil.gotoActivityWithData(AddOtherActivity.this, WebContentActivity.class, bundle1, false);

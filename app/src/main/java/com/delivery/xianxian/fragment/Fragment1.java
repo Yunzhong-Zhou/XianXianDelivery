@@ -340,8 +340,10 @@ public class Fragment1 extends BaseFragment {
                                 + "\n地址:" + aMapLocation.getAddress());
 
                         tv_addr.setText(aMapLocation.getCity() + "");
+
                         province = aMapLocation.getProvince();//省信息
                         city = aMapLocation.getCity();//城市信息
+
                         cityCode = aMapLocation.getCityCode();//城市编码
 
                     } else {

@@ -150,7 +150,7 @@ public class ConfirmOrderActivity extends BaseActivity {
         model = (AddFeeModel) getIntent().getSerializableExtra("AddFeeModel");
         city = getIntent().getStringExtra("city");
         car_type_id = getIntent().getStringExtra("car_type_id");
-        use_type = getIntent().getStringExtra("use_type");
+        use_type = getIntent().getStringExtra("use_type");//用车类型1专车2顺风车3快递
         is_plan = getIntent().getStringExtra("is_plan");
         plan_time = getIntent().getStringExtra("plan_time");
         addr_ids = getIntent().getStringExtra("addr_ids");
@@ -165,6 +165,8 @@ public class ConfirmOrderActivity extends BaseActivity {
         } else {
             textView6.setText("现在用车");
         }
+
+
 
         money = Double.valueOf(model.getPrice());
         textView11.setText("合计费用：￥" + money);
