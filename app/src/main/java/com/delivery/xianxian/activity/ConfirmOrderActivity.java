@@ -92,7 +92,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                     if (TextUtils.equals(resultStatus, "9000")) {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
                         MyLogger.i("支付成功" + payResult);
-                        showToast("支付成功");
+                        myToast("支付成功");
 
                         localUserInfo.setIsordertrue("1");//是否下单成功//0未成功，1成功
                         //跳转订单派送
@@ -552,13 +552,13 @@ public class ConfirmOrderActivity extends BaseActivity {
                 hideProgress();
 //                myToast("下单成功");
                 order_id = id;
-                MyLogger.i(">>>>>>" + response.getResult());
-                switch (pay_type) {
+                switch (response.getPay_type()) {
                     case "1":
                         //余额
                     case "2":
                         //微信
-                        showToast("支付成功");
+                        MyLogger.i(">>>>>>余额、微信");
+                        myToast("支付成功");
                         localUserInfo.setIsordertrue("1");//是否下单成功//0未成功，1成功
                         //跳转订单派送
                         Bundle bundle = new Bundle();
@@ -566,6 +566,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                         CommonUtil.gotoActivityWithData(ConfirmOrderActivity.this, OrderDetailsActivity.class, bundle, true);
                         break;
                     case "3":
+                        MyLogger.i(">>>>>>支付宝" + response.getResult());
                         //支付宝
                         //弹出支付宝
                         Runnable payRunnable = new Runnable() {
