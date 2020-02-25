@@ -284,6 +284,99 @@ public class SelectAddressActivity extends BaseActivity {
                 return false;
             }
         });
+        editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 此处为得到焦点时的处理内容
+                    editText1.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                        }
+
+                        @Override
+                        public void afterTextChanged(final Editable s) {
+                            if (runnable != null) {
+                                handler.removeCallbacks(runnable);
+                                Log.v("tag", "---" + s.toString());
+                            }
+                            runnable = new Runnable() {
+                                @Override
+                                public void run() {
+                                    MyLogger.i("tag", "输入>>>>>>" + s.toString());
+                                    if (!editText1.getText().toString().trim().equals("")) {
+                                        //第二个参数传入null或者“”代表在全国进行检索，否则按照传入的city进行检索
+                                        InputtipsQuery inputquery = new InputtipsQuery(editText1.getText().toString().trim(), city);
+                                        inputquery.setCityLimit(false);//限制在当前城市
+                                        Inputtips inputTips = new Inputtips(SelectAddressActivity.this, inputquery);
+                                        inputTips.setInputtipsListener(new Inputtips.InputtipsListener() {
+                                            @Override
+                                            public void onGetInputtips(List<Tip> list, int i) {
+                                                MyLogger.i(">>>>>" + list.size());
+                                                if (list.size() > 0) {
+                                                    //显示弹窗
+//                                        showPopupWindow1(et_addr, list);
+                                                    showMapAddr(list);
+                                                }
+                                            }
+                                        });
+                                        inputTips.requestInputtipsAsyn();
+                                    } else {
+                                        recyclerView_addr.setVisibility(View.GONE);
+                                    }
+                                }
+                            };
+                            Log.v("tag", "(((((" + s.toString());
+                            handler.postDelayed(runnable, 800);
+                        }
+                    });
+                } else {
+                    // 此处为失去焦点时的处理内容
+                    recyclerView_addr.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    //关闭软键盘
+                    hideInput();
+                    //do something
+                    //doSearch();
+                    MyLogger.i(">>>>>>>>输入后：" + editText1.getText().toString().trim());
+                    if (!editText1.getText().toString().trim().equals("")) {
+                        //第二个参数传入null或者“”代表在全国进行检索，否则按照传入的city进行检索
+                        InputtipsQuery inputquery = new InputtipsQuery(editText1.getText().toString().trim(), city);
+                        inputquery.setCityLimit(false);//限制在当前城市
+                        Inputtips inputTips = new Inputtips(SelectAddressActivity.this, inputquery);
+                        inputTips.setInputtipsListener(new Inputtips.InputtipsListener() {
+                            @Override
+                            public void onGetInputtips(List<Tip> list, int i) {
+                                if (list.size() > 0) {
+                                    //显示弹窗
+//                                    showPopupWindow1(et_addr, list);
+                                    showMapAddr(list);
+                                }
+                            }
+                        });
+                        inputTips.requestInputtipsAsyn();
+                    } else {
+                        recyclerView_addr.setVisibility(View.GONE);
+                    }
+
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -300,19 +393,19 @@ public class SelectAddressActivity extends BaseActivity {
             case 10001:
                 //起点
                 imageView1.setImageResource(R.mipmap.ic_quan_blue);
-                editText1.setHint("发货地信息（选填）");
+                editText1.setHint("发货地信息");
                 textView2.setText("确认发货地");
                 break;
             case 10002:
                 //终点
                 imageView1.setImageResource(R.mipmap.ic_quan_red);
-                editText1.setHint("收货地信息（选填）");
+                editText1.setHint("收货地信息");
                 textView2.setText("确认收货地");
                 break;
             case 10003:
                 //途经点
                 imageView1.setImageResource(R.mipmap.ic_quan_blue);
-                editText1.setHint("途经地信息（选填）");
+                editText1.setHint("途经地信息");
                 textView2.setText("确认途经地");
                 break;
         }
@@ -508,6 +601,7 @@ public class SelectAddressActivity extends BaseActivity {
 
                         MyLogger.i(">>选取地址>>>>" + addr + result.getRegeocodeQuery().getPoint().getLatitude());
                         et_addr.setText(addr);
+                        editText1.setText(addr);
 
                         lat = result.getRegeocodeQuery().getPoint().getLatitude() + "";
                         lng = result.getRegeocodeQuery().getPoint().getLongitude() + "";
@@ -547,6 +641,7 @@ public class SelectAddressActivity extends BaseActivity {
             case R.id.iv_close:
                 //删除地址
                 et_addr.setText("");
+                editText1.setText("");
                 if (marker != null) {
                     marker.remove();
                 }
@@ -622,7 +717,8 @@ public class SelectAddressActivity extends BaseActivity {
                     params.put("lng", lng);
                     params.put("name", name);
                     params.put("mobile", mobile);
-                    RequestAdd(params);//登录
+                    params.put("city", city);//根据这个值判断是都为同一个城市，是否为长途
+                    RequestAdd(params);
                 }
                 break;
         }

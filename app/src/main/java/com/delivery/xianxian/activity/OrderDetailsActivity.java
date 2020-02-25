@@ -432,13 +432,13 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 } else {
                     editText1.setHint("请输入附加费用");
                 }
-
                 /*TextView textView3 = dialog.findViewById(R.id.textView3);
                 textView3.setText("确认");*/
                 dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (!editText1.getText().toString().trim().equals("")) {
+                            //增加
                             CommonUtil.hideSoftKeyboard_fragment(v, OrderDetailsActivity.this);
                             dialog.dismiss();
                             Map<String, String> params = new HashMap<>();

@@ -181,7 +181,7 @@
     <orderEntry type="library" name="Gradle: com.liaoinstan.springview:AliHeader:1.5.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: cn.jiguang.sdk:jpush:3.5.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: cn.jiguang.sdk:jcore:2.2.4@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.tencent.bugly:crashreport:3.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.tencent.bugly:crashreport:3.1.7@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.maning0303:MNUpdateAPK:V2.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.zaaach:citypicker:2.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.contrarywind:Android-PickerView:4.1.8@aar" level="project" />
@@ -190,6 +190,5 @@
     <orderEntry type="library" name="Gradle: :alipaySdk-15.6.8-20191021122514:@aar" level="project" />
     <orderEntry type="module" module-name="easeui" />
     <orderEntry type="library" name="Gradle: org.apache.http.legacy-android-29" level="project" />
-    <orderEntry type="module" module-name="easeui" />
   </component>
 </module>

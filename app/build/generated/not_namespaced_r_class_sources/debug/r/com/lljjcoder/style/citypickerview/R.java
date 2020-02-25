@@ -705,11 +705,11 @@ public final class R {
         public static final int tv_cancel = 0x7f080275;
         public static final int tv_confirm = 0x7f080279;
         public static final int tv_title = 0x7f0802a6;
-        public static final int up = 0x7f0802b7;
-        public static final int useLogo = 0x7f0802b8;
-        public static final int withText = 0x7f0802c8;
-        public static final int wrap = 0x7f0802c9;
-        public static final int wrap_content = 0x7f0802ca;
+        public static final int up = 0x7f0802b8;
+        public static final int useLogo = 0x7f0802b9;
+        public static final int withText = 0x7f0802c9;
+        public static final int wrap = 0x7f0802ca;
+        public static final int wrap_content = 0x7f0802cb;
     }
     public static final class integer {
         private integer() {}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
-    android:versionCode="14"
-    android:versionName="Beta1.0.16" >
+    android:versionCode="15"
+    android:versionName="Beta1.0.17" >
 
     <uses-sdk
         android:minSdkVersion="19"

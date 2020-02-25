@@ -568,7 +568,7 @@ public class CommonUtil {
      * @return
      */
     public static String dataOne(String time) {
-        SimpleDateFormat sdr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdr = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date;
         String times = null;
         try {

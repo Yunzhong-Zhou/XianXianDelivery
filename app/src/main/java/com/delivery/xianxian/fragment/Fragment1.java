@@ -924,11 +924,19 @@ public class Fragment1 extends BaseFragment {
                         return false;
                     }
                 }
+                if (Long.valueOf(CommonUtil.dataOne(plan_time))*1000<= System.currentTimeMillis()){
+                    myToast("预约时间不能低于当前时间");
+                    return false;
+                }
                 break;
             case 2:
                 plan_time = tv_time3.getText().toString().trim();
                 if (plan_time.equals("")) {
                     myToast("请选择用车时间");
+                    return false;
+                }
+                if (Long.valueOf(CommonUtil.dataOne(plan_time))*1000<= System.currentTimeMillis()){
+                    myToast("用车时间不能低于当前时间");
                     return false;
                 }
                 break;

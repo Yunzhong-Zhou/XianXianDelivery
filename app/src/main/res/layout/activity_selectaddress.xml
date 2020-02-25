@@ -291,7 +291,7 @@ x
                     android:layout_weight="1"
                     android:background="@color/transparent"
                     android:hint="联系电话"
-                    android:inputType="phone"
+                    android:inputType="number"
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"

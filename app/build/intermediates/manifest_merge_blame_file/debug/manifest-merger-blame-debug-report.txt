@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.delivery.xianxian"
-4    android:versionCode="14"
-5    android:versionName="Beta1.0.16" >
+4    android:versionCode="15"
+5    android:versionName="Beta1.0.17" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
@@ -903,15 +903,15 @@
 486-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:451:13-37
 487
 488        <provider
-488-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be1e86d8e50b19e40abacd0a41c68982/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
+488-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/969825d2953103b30a75f3b872991da6/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
 489            android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"
-489-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be1e86d8e50b19e40abacd0a41c68982/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
+489-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/969825d2953103b30a75f3b872991da6/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
 490            android:authorities="com.delivery.xianxian.updateFileProvider"
-490-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be1e86d8e50b19e40abacd0a41c68982/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
+490-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/969825d2953103b30a75f3b872991da6/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
 491            android:exported="false"
-491-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be1e86d8e50b19e40abacd0a41c68982/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
+491-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/969825d2953103b30a75f3b872991da6/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
 492            android:grantUriPermissions="true" >
-492-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/be1e86d8e50b19e40abacd0a41c68982/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
+492-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/969825d2953103b30a75f3b872991da6/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
 493            <meta-data
 493-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:443:13-445:57
 494                android:name="android.support.FILE_PROVIDER_PATHS"
@@ -921,40 +921,40 @@
 496        </provider>
 497
 498        <activity
-498-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
+498-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
 499            android:name="com.lljjcoder.style.citylist.CityListSelectActivity"
-499-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
+499-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
 500            android:screenOrientation="portrait"
-500-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
+500-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
 501            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-501-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
+501-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
 502        </activity>
 503        <activity
-503-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
+503-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
 504            android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"
-504-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
+504-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
 505            android:screenOrientation="portrait"
-505-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
+505-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
 506            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-506-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
+506-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
 507        </activity>
 508        <activity
-508-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
+508-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
 509            android:name="com.lljjcoder.style.citythreelist.CityActivity"
-509-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
+509-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
 510            android:screenOrientation="portrait"
-510-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
+510-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
 511            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-511-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
+511-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
 512        </activity>
 513        <activity
-513-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
+513-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
 514            android:name="com.lljjcoder.style.citythreelist.AreaActivity"
-514-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
+514-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
 515            android:screenOrientation="portrait"
-515-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
+515-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
 516            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-516-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3ed7494a8bd389677061be4507af2d/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
+516-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
 517        </activity> <!-- Required SDK核心功能 -->
 518        <receiver
 518-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:118:9-120:40
@@ -1044,20 +1044,20 @@
 562-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:53:13-72
 563        </activity>
 564        <activity
-564-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/510084f6921084b4104b9759d80760a0/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:9-172
+564-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6411d919efb08ce9592bc7df48f46e40/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:9-172
 565            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-565-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/510084f6921084b4104b9759d80760a0/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:19-85
+565-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6411d919efb08ce9592bc7df48f46e40/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:19-85
 566            android:exported="false"
-566-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/510084f6921084b4104b9759d80760a0/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:146-170
+566-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6411d919efb08ce9592bc7df48f46e40/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:146-170
 567            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-567-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/510084f6921084b4104b9759d80760a0/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:86-145
+567-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6411d919efb08ce9592bc7df48f46e40/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:86-145
 568
 569        <meta-data
-569-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e6a508dab87a54b36f5d67d76872579/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:9-121
+569-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/35f4423af427b00a25a77b76c8c68ace/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:9-121
 570            android:name="com.google.android.gms.version"
-570-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e6a508dab87a54b36f5d67d76872579/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:20-65
+570-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/35f4423af427b00a25a77b76c8c68ace/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:20-65
 571            android:value="@integer/google_play_services_version" />
-571-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e6a508dab87a54b36f5d67d76872579/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:66-119
+571-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/35f4423af427b00a25a77b76c8c68ace/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:66-119
 572    </application>
 573
 574</manifest>

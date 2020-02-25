@@ -151,7 +151,7 @@ public class AddOtherActivity extends BaseActivity {
             case R.id.textView2:
                 //和司机商议价格
                 Bundle bundle1 = new Bundle();
-                bundle1.putString("url", HOST + "/api/article/detail-html?id=");
+                bundle1.putString("url", HOST + "/api/article/detail-html?id=49f098c213617b08f81fe4ce880ef98c");
                 CommonUtil.gotoActivityWithData(AddOtherActivity.this, WebContentActivity.class, bundle1, false);
 
                 break;
