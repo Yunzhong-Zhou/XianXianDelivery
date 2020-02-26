@@ -104,6 +104,10 @@ public class URLs {
      */
     public static final String OrderDetails_QuXiao = "/api/owner/tindent/update";
     /**
+     * 发布给附件司机
+     */
+    public static final String OrderDetails_Push = "/api/owner/tindent/publish";
+    /**
      * 订单
      */
     public static final String OrderList = "/api/owner/tindent/search";

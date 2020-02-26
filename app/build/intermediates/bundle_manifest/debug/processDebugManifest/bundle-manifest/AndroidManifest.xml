@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
-    android:versionCode="15"
-    android:versionName="Beta1.0.17" >
+    android:versionCode="19"
+    android:versionName="Beta1.0.19" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -93,7 +93,6 @@ Android 10 停用过滤视图，使用旧版存储模式
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >

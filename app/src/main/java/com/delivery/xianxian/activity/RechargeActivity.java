@@ -227,8 +227,8 @@ public class RechargeActivity extends BaseActivity {
             public void onResponse(ConfirmOrderPayModel response) {
                 MyLogger.i(">>>>>>>>>充值" + response);
                 hideProgress();
-                myToast("订单提交成功，等待后台审核");
-                switch (pay_type) {
+//                myToast("订单提交成功，等待后台审核");
+                switch (response.getPay_type()) {
                     case "1":
                         //余额
                     case "2":

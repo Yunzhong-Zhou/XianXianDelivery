@@ -199,6 +199,8 @@ public class LoginActivity extends BaseActivity {
                 localUserInfo.setPhoneNumber(response.getMobile());
                 //保存是否认证
                 localUserInfo.setIsVerified(response.getIs_certification()+"");//1 认证 2 未认证
+                //保存昵称
+                localUserInfo.setNickname(response.getNickname());
 
                 //环信登录-为了登录成功，先退出登录
                 EMClient.getInstance().logout(false);

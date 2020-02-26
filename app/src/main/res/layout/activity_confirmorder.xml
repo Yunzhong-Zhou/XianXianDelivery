@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="提前预冷" />
+            android:text="温层选择" />
 
         <TextView
             android:id="@+id/textView1"

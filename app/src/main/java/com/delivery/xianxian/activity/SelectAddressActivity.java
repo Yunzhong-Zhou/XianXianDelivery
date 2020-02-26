@@ -470,6 +470,7 @@ public class SelectAddressActivity extends BaseActivity {
                         bundle.putString("name", list1.get(i).getName());
                         bundle.putString("mobile", list1.get(i).getMobile());
                         bundle.putString("addr", list1.get(i).getAddr());
+                        bundle.putString("city", list1.get(i).getCity());
                         bundle.putString("addr_id", list1.get(i).getId());
                         resultIntent.putExtras(bundle);
                         SelectAddressActivity.this.setResult(RESULT_OK, resultIntent);
@@ -513,6 +514,7 @@ public class SelectAddressActivity extends BaseActivity {
                         bundle.putString("name", list2.get(i).getName());
                         bundle.putString("mobile", list2.get(i).getMobile());
                         bundle.putString("addr", list2.get(i).getAddr());
+                        bundle.putString("city", list2.get(i).getCity());
                         bundle.putString("addr_id", list2.get(i).getId());
                         resultIntent.putExtras(bundle);
                         SelectAddressActivity.this.setResult(RESULT_OK, resultIntent);
@@ -738,6 +740,7 @@ public class SelectAddressActivity extends BaseActivity {
             @Override
             public void onResponse(String response) {
                 MyLogger.i(">>>>>>>>>添加地址" + response);
+                hideProgress();
                 textView2.setClickable(true);
                 JSONObject jObj;
                 try {
@@ -748,6 +751,7 @@ public class SelectAddressActivity extends BaseActivity {
                     bundle.putString("name", name);
                     bundle.putString("mobile", mobile);
                     bundle.putString("addr", addr);
+                    bundle.putString("city", city);
                     bundle.putString("addr_id", jObj.getString("data"));
                     resultIntent.putExtras(bundle);
                     SelectAddressActivity.this.setResult(RESULT_OK, resultIntent);

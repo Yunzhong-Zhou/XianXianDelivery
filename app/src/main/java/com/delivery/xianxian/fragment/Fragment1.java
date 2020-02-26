@@ -95,7 +95,7 @@ public class Fragment1 extends BaseFragment {
     GuidePageAdapter mPageAdapter;
     ImageView iv_left, iv_right;
 
-    //现在、预约
+    //1、有预约时间、2、无预约时间
     String is_plan = "2";
     LinearLayout ll_time1;
     TextView tv_now, tv_next;
@@ -104,7 +104,7 @@ public class Fragment1 extends BaseFragment {
     String addr_ids = "";
     TextView tv_qidian, tv_zhongdian, tv_tujingdian, tv_time;
     LinearLayout ll_add, ll_time2;
-    String startAddr_id = "", endAddr_id = "",plan_time = "";
+    String startAddr_id = "", endAddr_id = "", plan_time = "";
     TimePickerView pvTime1;
 
     //下一步
@@ -138,7 +138,7 @@ public class Fragment1 extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (localUserInfo.getIsordertrue().equals("1")){
+        if (localUserInfo.getIsordertrue().equals("1")) {
             //是否下单成功//0未成功，1成功
             tv_qidian.setText("");
             startAddr_id = "";
@@ -156,6 +156,16 @@ public class Fragment1 extends BaseFragment {
             tv_time.setText("");
             tv_time3.setText("");
             plan_time = "";
+
+
+            tv_kuaidi_type1.setText("");
+            tv_kuaidi_type2.setText("");
+            tv_kuaidi_type3.setText("");
+            tv_kuaidi_type4.setText("");
+            goods_name = "";
+            goods_quantity = "";
+            goods_weight = "";
+            goods_bulk = "";
 
             localUserInfo.setIsordertrue("0");//是否下单成功//0未成功，1成功
         }
@@ -395,8 +405,8 @@ public class Fragment1 extends BaseFragment {
                     TextView tv2 = pageViews.get(i).findViewById(R.id.tv2);
                     TextView tv3 = pageViews.get(i).findViewById(R.id.tv3);
                     tv1.setText("长宽高：" + carTypeList.get(i).getSize());
-                    tv2.setText("载重：" + carTypeList.get(i).getWeight()+"吨");
-                    tv3.setText("承载体积：" + carTypeList.get(i).getBulk()+"方");
+                    tv2.setText("载重：" + carTypeList.get(i).getWeight() + "吨");
+                    tv3.setText("承载体积：" + carTypeList.get(i).getBulk() + "方");
                     if (!carTypeList.get(i).getImage().equals(""))
                         Glide.with(getActivity())
                                 .load(IMGHOST + carTypeList.get(i).getImage())
@@ -567,6 +577,7 @@ public class Fragment1 extends BaseFragment {
                 break;
             case R.id.ll_time2:
                 //预约时间
+                is_plan = "1";
                 setDate("选择预约时间", tv_time);
                 break;
 
@@ -654,7 +665,7 @@ public class Fragment1 extends BaseFragment {
                 dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (!editText1_2.getText().toString().trim().equals("")) {
+                        if (!editText1_2.getText().toString().trim().equals("") && Integer.valueOf(editText1_2.getText().toString().trim()) > 0) {
                             CommonUtil.hideSoftKeyboard_fragment(v, getActivity());
                             dialog.dismiss();
                             tv_kuaidi_type2.setText(editText1_2.getText().toString().trim() + "件");
@@ -691,7 +702,7 @@ public class Fragment1 extends BaseFragment {
                 dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (!editText1_3.getText().toString().trim().equals("")) {
+                        if (!editText1_3.getText().toString().trim().equals("") && Integer.valueOf(editText1_3.getText().toString().trim()) > 0) {
                             CommonUtil.hideSoftKeyboard_fragment(v, getActivity());
                             dialog.dismiss();
                             tv_kuaidi_type3.setText(editText1_3.getText().toString().trim() + "kg");
@@ -728,7 +739,7 @@ public class Fragment1 extends BaseFragment {
                 dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (!editText1_4.getText().toString().trim().equals("")) {
+                        if (!editText1_4.getText().toString().trim().equals("") && Integer.valueOf(editText1_4.getText().toString().trim()) > 0) {
                             CommonUtil.hideSoftKeyboard_fragment(v, getActivity());
                             dialog.dismiss();
                             tv_kuaidi_type4.setText(editText1_4.getText().toString().trim() + "m³");
@@ -771,13 +782,26 @@ public class Fragment1 extends BaseFragment {
 
                 tv_tujingdian.setVisibility(View.VISIBLE);
                 ll_time1.setVisibility(View.VISIBLE);
-                if (is_plan.equals("1")) {
-                    ll_time2.setVisibility(View.VISIBLE);
-                } else {
+                if (is_plan.equals("2")) {
                     ll_time2.setVisibility(View.GONE);
+
+                    plan_time = "";
+
+                    tv_now.setBackgroundResource(R.drawable.yuanjiao_10_lanse_left);
+                    tv_next.setBackgroundResource(R.drawable.yuanjiao_10_huise_right);
+                    tv_now.setTextColor(getResources().getColor(R.color.white));
+                    tv_next.setTextColor(getResources().getColor(R.color.black2));
+                } else {
+                    ll_time2.setVisibility(View.VISIBLE);
+
+                    tv_now.setBackgroundResource(R.drawable.yuanjiao_10_huise_left);
+                    tv_next.setBackgroundResource(R.drawable.yuanjiao_10_lanse_right);
+                    tv_now.setTextColor(getResources().getColor(R.color.black2));
+                    tv_next.setTextColor(getResources().getColor(R.color.white));
                 }
                 ll_time3.setVisibility(View.GONE);
                 ll_kuaidi.setVisibility(View.GONE);
+
 //                ll_fahuo.setVisibility(View.GONE);
 //                ll_shouhuo.setVisibility(View.GONE);
 
@@ -923,10 +947,12 @@ public class Fragment1 extends BaseFragment {
                         myToast("请选择预约时间");
                         return false;
                     }
-                    if (Long.valueOf(CommonUtil.dataOne(plan_time))*1000<= System.currentTimeMillis()){
+                    if (Long.valueOf(CommonUtil.dataOne(plan_time)) * 1000 <= System.currentTimeMillis()) {
                         myToast("预约时间不能低于当前时间");
                         return false;
                     }
+                } else {
+                    plan_time = "";
                 }
 
                 break;
@@ -936,7 +962,7 @@ public class Fragment1 extends BaseFragment {
                     myToast("请选择用车时间");
                     return false;
                 }
-                if (Long.valueOf(CommonUtil.dataOne(plan_time))*1000<= System.currentTimeMillis()){
+                if (Long.valueOf(CommonUtil.dataOne(plan_time)) * 1000 <= System.currentTimeMillis()) {
                     myToast("用车时间不能低于当前时间");
                     return false;
                 }
@@ -1066,6 +1092,7 @@ public class Fragment1 extends BaseFragment {
                     tv_fahuo_name.setText("发货人：" + bundle1.getString("name"));
                     tv_fahuo_mobile.setText("电话号码：" + bundle1.getString("mobile"));
 
+                    tv_addr.setText(bundle1.getString("city"));
                 }
                 break;
             case 10002:
@@ -1088,7 +1115,7 @@ public class Fragment1 extends BaseFragment {
                     /*String addr1 = bundle3.getString("addr");
                     MyLogger.i(">>>地址>>>>" + addr1);*/
                     addView(bundle3.getString("addr"), bundle3.getString("addr_id"),
-                            bundle3.getString("name"),bundle3.getString("mobile"));
+                            bundle3.getString("name"), bundle3.getString("mobile"));
                 }
                 break;
         }
@@ -1096,7 +1123,7 @@ public class Fragment1 extends BaseFragment {
     }
 
     //添加布局
-    private void addView(String addr, String addr_id,String name,String mobile) {
+    private void addView(String addr, String addr_id, String name, String mobile) {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         LayoutInflater inflater = LayoutInflater.from(getActivity());
@@ -1111,8 +1138,8 @@ public class Fragment1 extends BaseFragment {
 
         tv_id.setText(addr_id);
         tv_dizhi.setText(addr);
-        tv_tujingdian_name.setText("收货人："+name);
-        tv_tujingdian_mobile.setText("电话号码："+mobile);
+        tv_tujingdian_name.setText("收货人：" + name);
+        tv_tujingdian_mobile.setText("电话号码：" + mobile);
 
         tv_delete.setOnClickListener(new View.OnClickListener() {
             @Override

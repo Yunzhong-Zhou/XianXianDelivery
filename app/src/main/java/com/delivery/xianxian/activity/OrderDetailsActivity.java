@@ -467,12 +467,11 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                             @Override
                             public void onClick(View v) {
                                 dialog.dismiss();
-                                /*Map<String, String> params = new HashMap<>();
+                                Map<String, String> params = new HashMap<>();
                                 params.put("token", localUserInfo.getToken());
 //                                params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                 params.put("t_indent_id", model.getTindent().getId());
-                                params.put("type", "2");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
-                                RequestConfirm(params);*/
+                                RequestPush(params);
 
                             }
                         }, new View.OnClickListener() {
@@ -724,6 +723,28 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 CommonUtil.gotoActivity(OrderDetailsActivity.this, TemperatureActivity.class);
                 break;
         }
+    }
+
+    //发布给附近司机
+    private void RequestPush(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_Push, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+//                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>发布给附近司机" + response);
+                showToast("已发布信息给附近司机");
+            }
+        }, false);
     }
 
     @Override

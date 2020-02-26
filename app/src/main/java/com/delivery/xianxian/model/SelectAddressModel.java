@@ -55,12 +55,21 @@ public class SelectAddressModel implements Serializable {
 
         private String id;
         private String addr;
+        private String city;
         private String addr_detail;
         private String lat;
         private String lng;
         private String mobile;
         private String name;
         private String created_at;
+
+        public String getCity() {
+            return city;
+        }
+
+        public void setCity(String city) {
+            this.city = city;
+        }
 
         public String getId() {
             return id;
@@ -141,12 +150,21 @@ public class SelectAddressModel implements Serializable {
 
         private String id;
         private String addr;
+        private String city;
         private String addr_detail;
         private String lat;
         private String lng;
         private String mobile;
         private String name;
         private String created_at;
+
+        public String getCity() {
+            return city;
+        }
+
+        public void setCity(String city) {
+            this.city = city;
+        }
 
         public String getId() {
             return id;

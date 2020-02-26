@@ -48,11 +48,12 @@ import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
  * 我的
  */
 public class Fragment3 extends BaseFragment {
+    Fragment3Model model;
     ImageView imageView1;
-    TextView textView1, textView2,tv_banbenhao,tv_xiaoxinum,tv_xiaoxinum2;
+    TextView textView1, textView2, tv_banbenhao, tv_xiaoxinum, tv_xiaoxinum2;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5, linearLayout6,
             linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12, linearLayout13, linearLayout14,linearLayout15;
+            linearLayout12, linearLayout13, linearLayout14, linearLayout15;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,10 +77,10 @@ public class Fragment3 extends BaseFragment {
         if (MainActivity.item == 1) {
             requestServer();
         }
-        if (EMClient.getInstance().chatManager().getUnreadMessageCount() >0){
+        if (EMClient.getInstance().chatManager().getUnreadMessageCount() > 0) {
             tv_xiaoxinum.setVisibility(View.VISIBLE);
-            tv_xiaoxinum.setText(EMClient.getInstance().chatManager().getUnreadMessageCount()+"");
-        }else {
+            tv_xiaoxinum.setText(EMClient.getInstance().chatManager().getUnreadMessageCount() + "");
+        } else {
             tv_xiaoxinum.setVisibility(View.GONE);
         }
 
@@ -159,7 +160,7 @@ public class Fragment3 extends BaseFragment {
         linearLayout15.setOnClickListener(this);
 
         tv_banbenhao = findViewByID_My(R.id.tv_banbenhao);
-        tv_banbenhao.setText("版本号："+CommonUtil.getVersionName(getActivity()));
+        tv_banbenhao.setText("版本号：" + CommonUtil.getVersionName(getActivity()));
 
         tv_xiaoxinum = findViewByID_My(R.id.tv_xiaoxinum);
         tv_xiaoxinum2 = findViewByID_My(R.id.tv_xiaoxinum2);
@@ -183,6 +184,7 @@ public class Fragment3 extends BaseFragment {
             @Override
             public void onResponse(Fragment3Model response) {
                 MyLogger.i(">>>>>>>>>我的" + response);
+                model = response;
                 //昵称
                 if (!response.getNickname().equals("")) {
                     textView1.setText(response.getNickname());
@@ -199,10 +201,10 @@ public class Fragment3 extends BaseFragment {
                 else
                     imageView1.setImageResource(R.mipmap.headimg);
                 //未读信息
-                if (response.getMsg() > 0){
+                if (response.getMsg() > 0) {
                     tv_xiaoxinum2.setVisibility(View.VISIBLE);
-                    tv_xiaoxinum2.setText(response.getMsg()+"");
-                }else {
+                    tv_xiaoxinum2.setText(response.getMsg() + "");
+                } else {
                     tv_xiaoxinum2.setVisibility(View.GONE);
                 }
 
@@ -295,21 +297,21 @@ public class Fragment3 extends BaseFragment {
             case R.id.linearLayout9:
                 //用户协议
                 Bundle bundle9 = new Bundle();
-                bundle9.putString("url",HOST+"/api/article/detail-html?id=39035577c19b435689f55fde51c1f72c");
-                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class,bundle9,false);
+                bundle9.putString("url", HOST + "/api/article/detail-html?id=39035577c19b435689f55fde51c1f72c");
+                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle9, false);
                 break;
             case R.id.linearLayout10:
                 //收费标准
 //                CommonUtil.gotoActivity(getActivity(), FeeModelActivity.class);
                 Bundle bundle10 = new Bundle();
-                bundle10.putString("url",HOST+"/api/article/detail-html?id=afde4f3f93b6b4444c62e000c5ea317d");
-                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class,bundle10,false);
+                bundle10.putString("url", HOST + "/api/article/detail-html?id=afde4f3f93b6b4444c62e000c5ea317d");
+                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle10, false);
                 break;
             case R.id.linearLayout11:
                 //关于我们
                 Bundle bundle11 = new Bundle();
-                bundle11.putString("url",HOST+"/api/article/detail-html?id=ed3ac8ccc07b54a37f88d965e9c70cac");
-                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class,bundle11,false);
+                bundle11.putString("url", HOST + "/api/article/detail-html?id=ed3ac8ccc07b54a37f88d965e9c70cac");
+                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle11, false);
 //                CommonUtil.gotoActivity(getActivity(), JiangLiHuoDongActivity.class);
                 break;
             case R.id.linearLayout12:
@@ -318,9 +320,8 @@ public class Fragment3 extends BaseFragment {
                 share_intent1.setAction(Intent.ACTION_SEND);
 //                    share_intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 share_intent1.setType("text/plain");
-                share_intent1.putExtra(Intent.EXTRA_TEXT, "鲜鲜拉\n"
-                        +"www.baidu.com");
-
+                share_intent1.putExtra(Intent.EXTRA_TEXT, model.getShare().getText() + "\n"
+                        + model.getShare().getUrl());
                 share_intent1 = Intent.createChooser(share_intent1, "分享");
                 startActivity(share_intent1);
                 break;

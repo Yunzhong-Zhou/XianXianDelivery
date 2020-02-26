@@ -38,6 +38,7 @@
             android:hint="输入备注（如货物类别，或需要什么协助）"
             android:minLines="3"
             android:padding="14dp"
+            android:maxLength="64"
             android:textColor="@color/black1"
             android:textColorHint="@color/black2"
             android:textSize="15sp" />

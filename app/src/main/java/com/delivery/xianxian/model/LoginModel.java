@@ -19,6 +19,7 @@ public class LoginModel implements Serializable {
     private int is_certification;
     private String fresh_token;
     private String hx_username;
+    private String nickname;
 
     public String getHx_username() {
         return hx_username;
@@ -58,5 +59,13 @@ public class LoginModel implements Serializable {
 
     public void setFresh_token(String fresh_token) {
         this.fresh_token = fresh_token;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

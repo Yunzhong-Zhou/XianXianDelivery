@@ -160,12 +160,13 @@ public class ConfirmOrderActivity extends BaseActivity {
         goods_bulk = getIntent().getStringExtra("goods_bulk");
         goods_send_home = getIntent().getStringExtra("goods_send_home");
 
-        if (is_plan.equals("1") && !plan_time.equals("")) {
+
+        MyLogger.i(">>>>>>"+is_plan +">>>>>>"+plan_time);
+        if (is_plan.equals("1") || !plan_time.equals("")) {
             textView6.setText(plan_time);
         } else {
             textView6.setText("现在用车");
         }
-
 
 
         money = Double.valueOf(model.getPrice());
@@ -220,7 +221,7 @@ public class ConfirmOrderActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.linearLayout1:
-                //提前预冷
+                //温层选择
                 dialog = new BaseDialog(ConfirmOrderActivity.this);
                 dialog.contentView(R.layout.dialog_temperature)
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -394,6 +395,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                     params.put("price", model.getPrice());
                     params.put("addr_ids", addr_ids);
                     params.put("temperature", temperature);
+                    params.put("temperature_fee", money1 + "");
                     params.put("urgent_fee", urgent_fee);
                     params.put("other", other);
                     params.put("remark", remark);

@@ -36,6 +36,7 @@
                         android:textColorHint="@color/black3"
                         android:textColor="@color/black1"
                         android:inputType="number"
+                        android:maxLength="11"
                         android:padding="13dp"
                         android:textSize="15sp" />
 

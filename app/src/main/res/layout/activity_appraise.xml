@@ -157,6 +157,7 @@
             android:layout_marginRight="45dp"
             android:background="@drawable/yuanjiaobiankuang_5_huise"
             android:gravity="top"
+            android:maxLength="128"
             android:lineSpacingExtra="4dp"
             android:lines="7"
             android:padding="10dp" />

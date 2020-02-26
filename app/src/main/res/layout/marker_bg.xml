@@ -17,15 +17,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:text="标题标题标题标题标题标题"
+            android:text="Title"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxWidth="200dp"
             android:layout_marginTop="4dp"
-            android:text="描述"
+            android:text="Content"
             android:textSize="13sp" />
     </LinearLayout>
 
