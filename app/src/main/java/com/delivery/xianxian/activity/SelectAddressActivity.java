@@ -173,7 +173,6 @@ public class SelectAddressActivity extends BaseActivity {
             }
         });*/
 
-
         tv_lishi = findViewByID_My(R.id.tv_lishi);
         tv_changyong = findViewByID_My(R.id.tv_changyong);
         tv_ditu = findViewByID_My(R.id.tv_ditu);
@@ -189,7 +188,6 @@ public class SelectAddressActivity extends BaseActivity {
         editText4 = findViewByID_My(R.id.editText4);
         textView2 = findViewByID_My(R.id.textView2);
         imageView1 = findViewByID_My(R.id.imageView1);
-
 
         et_addr.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -549,7 +547,9 @@ public class SelectAddressActivity extends BaseActivity {
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE_NO_CENTER);//连续定位、蓝点不会移动到地图中心点，定位点依照设备方向旋转，并且蓝点会跟随设备移动。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_FOLLOW_NO_CENTER);//连续定位、蓝点不会移动到地图中心点，并且蓝点会跟随设备移动。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_MAP_ROTATE_NO_CENTER);//连续定位、蓝点不会移动到地图中心点，地图依照设备方向旋转，并且蓝点会跟随设备移动。
-        myLocationStyle.showMyLocation(true);
+
+        myLocationStyle.showMyLocation(true);//显示自己的位置
+
         aMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
         aMap.getUiSettings().setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
         aMap.getUiSettings().setScaleControlsEnabled(true);//控制比例尺控件是否显示
@@ -560,15 +560,21 @@ public class SelectAddressActivity extends BaseActivity {
             public void onMyLocationChange(Location location) {
 //                latitude = location.getLatitude();
 //                longititude = location.getLongitude();
-                //获取位置信息
-                point = new LatLonPoint(location.getLatitude(), location.getLongitude());
-                // 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
-                RegeocodeQuery query = new RegeocodeQuery(point, 200, GeocodeSearch.AMAP);
-                geocoderSearch.getFromLocationAsyn(query);
 
+                //根据首页传入的地址进行展示地图
+                MyLogger.i(">>>>>>" + getIntent().getStringExtra("city"));
+                if (!getIntent().getStringExtra("city").equals("")) {
+                    getLatlon(getIntent().getStringExtra("city"));
+                }else {
+                    //获取位置信息
+                    point = new LatLonPoint(location.getLatitude(), location.getLongitude());
+                    // 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
+                    RegeocodeQuery query = new RegeocodeQuery(point, 200, GeocodeSearch.AMAP);
+                    geocoderSearch.getFromLocationAsyn(query);
+                    LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());//构造一个位置
+                    aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));//设置地图放大级别
+                }
 
-                LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());//构造一个位置
-                aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));//设置地图放大级别
             }
         });
         aMap.setOnMapClickListener(new AMap.OnMapClickListener() {
@@ -605,6 +611,7 @@ public class SelectAddressActivity extends BaseActivity {
                         et_addr.setText(addr);
                         editText1.setText(addr);
 
+
                         lat = result.getRegeocodeQuery().getPoint().getLatitude() + "";
                         lng = result.getRegeocodeQuery().getPoint().getLongitude() + "";
 
@@ -629,6 +636,7 @@ public class SelectAddressActivity extends BaseActivity {
 
             }
         });
+
 
     }
 
@@ -814,6 +822,10 @@ public class SelectAddressActivity extends BaseActivity {
         mobile = editText4.getText().toString().trim();
         if (TextUtils.isEmpty(mobile)) {
             myToast("请输入联系电话");
+            return false;
+        }
+        if (mobile.length() != 11) {
+            myToast("请输入11位手机号");
             return false;
         }
 

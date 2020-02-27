@@ -471,7 +471,8 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                                 params.put("token", localUserInfo.getToken());
 //                                params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                 params.put("t_indent_id", model.getTindent().getId());
-                                RequestPush(params);
+                                params.put("type", "publish");
+                                RequestConfirm(params,0);
 
                             }
                         }, new View.OnClickListener() {
@@ -723,28 +724,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 CommonUtil.gotoActivity(OrderDetailsActivity.this, TemperatureActivity.class);
                 break;
         }
-    }
-
-    //发布给附近司机
-    private void RequestPush(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(OrderDetailsActivity.this, URLs.OrderDetails_Push, params, new OkHttpClientManager.ResultCallback<String>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-//                showErrorPage();
-                hideProgress();
-                if (!info.equals("")) {
-                    myToast(info);
-                }
-            }
-
-            @Override
-            public void onResponse(String response) {
-//                showContentPage();
-                hideProgress();
-                MyLogger.i(">>>>>>>>>发布给附近司机" + response);
-                showToast("已发布信息给附近司机");
-            }
-        }, false);
     }
 
     @Override

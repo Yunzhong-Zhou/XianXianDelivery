@@ -157,7 +157,6 @@ public class Fragment1 extends BaseFragment {
             tv_time3.setText("");
             plan_time = "";
 
-
             tv_kuaidi_type1.setText("");
             tv_kuaidi_type2.setText("");
             tv_kuaidi_type3.setText("");
@@ -556,6 +555,12 @@ public class Fragment1 extends BaseFragment {
                 Intent intent1 = new Intent(getActivity(), SelectAddressActivity.class);
                 Bundle bundle1 = new Bundle();
                 bundle1.putInt("type", 10001);
+                bundle1.putString("city", tv_addr.getText().toString());
+               /* if (!startAddr_id.equals("")){
+
+                }else {
+                    bundle1.putString("city", "");
+                }*/
                 intent1.putExtras(bundle1);
                 startActivityForResult(intent1, 10001, bundle1);
                 break;
@@ -564,6 +569,12 @@ public class Fragment1 extends BaseFragment {
                 Intent intent2 = new Intent(getActivity(), SelectAddressActivity.class);
                 Bundle bundle2 = new Bundle();
                 bundle2.putInt("type", 10002);
+                bundle2.putString("city", tv_addr.getText().toString());
+                /*if (!startAddr_id.equals("")){
+
+                }else {
+                    bundle2.putString("city", "");
+                }*/
                 intent2.putExtras(bundle2);
                 startActivityForResult(intent2, 10002, bundle2);
                 break;
@@ -572,6 +583,12 @@ public class Fragment1 extends BaseFragment {
                 Intent intent3 = new Intent(getActivity(), SelectAddressActivity.class);
                 Bundle bundle3 = new Bundle();
                 bundle3.putInt("type", 10003);
+                bundle3.putString("city", tv_addr.getText().toString());
+                /*if (!startAddr_id.equals("")){
+
+                }else {
+                    bundle3.putString("city", "");
+                }*/
                 intent3.putExtras(bundle3);
                 startActivityForResult(intent3, 10003, bundle3);
                 break;
@@ -935,6 +952,7 @@ public class Fragment1 extends BaseFragment {
     }
 
     private boolean match() {
+        city =  tv_addr.getText().toString();
         if (city.equals("")) {
             myToast("请选择城市");
             return false;
@@ -1034,7 +1052,7 @@ public class Fragment1 extends BaseFragment {
                 localUserInfo.setIsordertrue("0");//是否下单成功//0未成功，1成功
 
                 Bundle bundle5 = new Bundle();
-                bundle5.putString("city", city);
+                bundle5.putString("city", tv_addr.getText().toString());
                 bundle5.putString("car_type_id", carTypeList.get(item).getId() + "");//车型id
                 bundle5.putString("use_type", use_type + "");//用车类型1专车2顺风车3快递
                 bundle5.putString("is_plan", is_plan + "");//用车时间类型1预约2现在
