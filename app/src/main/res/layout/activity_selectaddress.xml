@@ -292,7 +292,6 @@ x
                     android:background="@color/transparent"
                     android:hint="联系电话"
                     android:inputType="number"
-                    android:maxLength="11"
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"

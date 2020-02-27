@@ -824,10 +824,10 @@ public class SelectAddressActivity extends BaseActivity {
             myToast("请输入联系电话");
             return false;
         }
-        if (mobile.length() != 11) {
+        /*if (mobile.length() != 11) {
             myToast("请输入11位手机号");
             return false;
-        }
+        }*/
 
         return true;
     }
@@ -1070,7 +1070,7 @@ public class SelectAddressActivity extends BaseActivity {
                 int numberIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
 
                 name = cursor.getString(nameIndex);      //联系人姓名
-                mobile = cursor.getString(numberIndex);  //联系人号码
+                mobile = cursor.getString(numberIndex).trim();  //联系人号码
                 editText3.setText(name);
                 editText4.setText(mobile);
 

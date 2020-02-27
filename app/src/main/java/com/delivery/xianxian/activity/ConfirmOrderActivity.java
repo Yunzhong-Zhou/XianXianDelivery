@@ -637,7 +637,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                 int numberIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
 
                 name = cursor.getString(nameIndex);      //联系人姓名
-                mobile = cursor.getString(numberIndex);  //联系人号码
+                mobile = cursor.getString(numberIndex).trim();  //联系人号码
                 textView7.setText(name);
                 textView8.setText(mobile);
 
