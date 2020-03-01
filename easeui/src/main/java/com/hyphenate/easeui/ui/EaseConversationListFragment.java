@@ -38,6 +38,8 @@ import java.util.Map;
 /**
  * conversation list fragment
  *
+ * 会话列表
+ *
  */
 public class EaseConversationListFragment extends EaseBaseFragment{
 	private final static int MSG_REFRESH = 2;

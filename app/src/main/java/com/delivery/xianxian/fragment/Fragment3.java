@@ -34,6 +34,8 @@ import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.easeui.EaseUI;
+import com.hyphenate.easeui.domain.EaseUser;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
@@ -164,6 +166,8 @@ public class Fragment3 extends BaseFragment {
 
         tv_xiaoxinum = findViewByID_My(R.id.tv_xiaoxinum);
         tv_xiaoxinum2 = findViewByID_My(R.id.tv_xiaoxinum2);
+
+
     }
 
     @Override
@@ -207,6 +211,8 @@ public class Fragment3 extends BaseFragment {
                 } else {
                     tv_xiaoxinum2.setVisibility(View.GONE);
                 }
+
+                setEaseUser();//设置环信昵称、头像
 
                 hideProgress();
             }
@@ -431,4 +437,28 @@ public class Fragment3 extends BaseFragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
+    private void setEaseUser() {
+        EaseUI easeUI = EaseUI.getInstance();
+        easeUI.setUserProfileProvider(new EaseUI.EaseUserProfileProvider() {
+            @Override
+            public EaseUser getUser(String username) {
+                return getUserInfo(username);
+            }
+        });
+    }
+
+    private EaseUser getUserInfo(String username) {
+        EaseUser easeUser = new EaseUser(username);
+        if (username.equals(localUserInfo.getHxid())) {
+            easeUser.setNickname(localUserInfo.getNickname());
+            easeUser.setAvatar(OkHttpClientManager.IMGHOST + localUserInfo.getUserImage());
+        } else {
+           /* Connections friend = new FriendDao(getApplicationContext()).getFriendByUsername(username);
+            easeUser.setNickname(friend.getRealname());
+            easeUser.setAvatar(friend.getHeadimg());*/
+        }
+        return easeUser;
+    }//即可正常显示头像昵称
 }

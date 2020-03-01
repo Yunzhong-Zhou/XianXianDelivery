@@ -65,6 +65,7 @@ import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
  * Created by zyz on 2019-10-23.
  * 订单详情
  */
+
 public class OrderDetailsActivity extends BaseActivity implements RouteSearch.OnTruckRouteSearchListener, AMap.OnMyLocationChangeListener {
     String id = "";
     OrderDetailsModel model;
@@ -234,7 +235,6 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 
                     } else {
                         //途经点
-
                     }
                 }
                 setfromandtoMarker();//显示标注物
@@ -425,12 +425,12 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                         .dimAmount(0.8f)
                         .show();
                 TextView textView1 = dialog.findViewById(R.id.textView1);
-                textView1.setText("添加附加费用");
+                textView1.setText("添加加急费用");
                 final EditText editText1 = dialog.findViewById(R.id.editText1);
                 if (!model.getTindent().getOwner_fee().equals("") && !model.getTindent().getOwner_fee().equals("0.00")) {
                     editText1.setText(model.getTindent().getOwner_fee());
                 } else {
-                    editText1.setHint("请输入附加费用");
+                    editText1.setHint("请输入加急费用");
                 }
                 /*TextView textView3 = dialog.findViewById(R.id.textView3);
                 textView3.setText("确认");*/
@@ -472,7 +472,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
 //                                params.put("t_indent_confirm_id", model.getTindent().getConfirm_text().getId());
                                 params.put("t_indent_id", model.getTindent().getId());
                                 params.put("type", "publish");
-                                RequestConfirm(params,0);
+                                RequestConfirm(params, 0);
 
                             }
                         }, new View.OnClickListener() {
@@ -844,7 +844,7 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
         }
         MyLocationStyle myLocationStyle;
         myLocationStyle = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
-        myLocationStyle.interval(30 * 1000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
+        myLocationStyle.interval(5 * 60 * 1000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_SHOW);//只定位一次。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATE) ;//定位一次，且将视角移动到地图中心点。
 //        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_FOLLOW) ;//连续定位、且将视角移动到地图中心点，定位蓝点跟随设备移动。（1秒1次定位）

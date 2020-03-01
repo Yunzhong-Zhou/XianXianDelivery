@@ -97,7 +97,7 @@
                         android:paddingTop="10dp"
                         android:paddingRight="30dp"
                         android:paddingBottom="10dp"
-                        android:text="添加附加费" />
+                        android:text="添加加急费" />
 
                     <TextView
                         android:id="@+id/textView3"

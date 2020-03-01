@@ -51,7 +51,8 @@ import java.util.Map.Entry;
 
 /**
  * contact list
- * 
+ *
+ * 联系人列表
  */
 public class EaseContactListFragment extends EaseBaseFragment {
     private static final String TAG = "EaseContactListFragment";

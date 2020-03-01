@@ -68,7 +68,7 @@ MERGED from [com.hjq:toast:8.0] /Users/YunZhong/.gradle/caches/transforms-2/file
 MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a6e40516c78c9e65d3d7808c6f770627/jetified-library-1.1.0/AndroidManifest.xml:2:1-15:12
 MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:2:1-160:12
 MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c26a9d5b4492b6f4ab8b48d979dcc00f/jcore-2.2.4/AndroidManifest.xml:2:1-14:12
-MERGED from [com.tencent.bugly:crashreport:3.1.7] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d07421add818c7747b6833d105336854/crashreport-3.1.7/AndroidManifest.xml:2:1-9:12
+MERGED from [com.tencent.bugly:crashreport:3.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/274e809e071594bc4fc479850f705242/crashreport-3.1.8/AndroidManifest.xml:2:1-9:12
 MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/28fa2de44468854e76e6c8080bef361f/jetified-citypicker-2.0.3/AndroidManifest.xml:2:1-17:12
 MERGED from [com.contrarywind:Android-PickerView:4.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bfed8597084aacd58150c8f4300b3647/jetified-Android-PickerView-4.1.8/AndroidManifest.xml:2:1-11:12
 MERGED from [:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:2:1-57:12
@@ -1021,8 +1021,8 @@ MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transfor
 MERGED from [cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:7:5-9:41
 MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c26a9d5b4492b6f4ab8b48d979dcc00f/jcore-2.2.4/AndroidManifest.xml:7:5-9:41
 MERGED from [cn.jiguang.sdk:jcore:2.2.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c26a9d5b4492b6f4ab8b48d979dcc00f/jcore-2.2.4/AndroidManifest.xml:7:5-9:41
-MERGED from [com.tencent.bugly:crashreport:3.1.7] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d07421add818c7747b6833d105336854/crashreport-3.1.7/AndroidManifest.xml:5:5-7:41
-MERGED from [com.tencent.bugly:crashreport:3.1.7] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d07421add818c7747b6833d105336854/crashreport-3.1.7/AndroidManifest.xml:5:5-7:41
+MERGED from [com.tencent.bugly:crashreport:3.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/274e809e071594bc4fc479850f705242/crashreport-3.1.8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.tencent.bugly:crashreport:3.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/274e809e071594bc4fc479850f705242/crashreport-3.1.8/AndroidManifest.xml:5:5-7:41
 MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/28fa2de44468854e76e6c8080bef361f/jetified-citypicker-2.0.3/AndroidManifest.xml:7:5-9:41
 MERGED from [com.zaaach:citypicker:2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/28fa2de44468854e76e6c8080bef361f/jetified-citypicker-2.0.3/AndroidManifest.xml:7:5-9:41
 MERGED from [com.contrarywind:Android-PickerView:4.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bfed8597084aacd58150c8f4300b3647/jetified-Android-PickerView-4.1.8/AndroidManifest.xml:7:5-9:41
