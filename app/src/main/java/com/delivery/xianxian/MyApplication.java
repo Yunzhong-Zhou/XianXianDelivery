@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 
 import com.delivery.xianxian.utils.MyLogger;
+import com.delivery.xianxian.utils.huanxin.HxEaseuiHelper;
 import com.hjq.toast.ToastUtils;
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.EaseUI;
@@ -80,7 +81,9 @@ public class MyApplication extends Application {
 
 
         // 初始化环信SDK
-        initEasemob();
+//        initEasemob();
+        HxEaseuiHelper.getInstance().init(this.getApplicationContext());
+
 
 //        new ScreenAdaptation(this,828,1792).register();
 //        new ScreenAdaptation(this,750,1334).register();

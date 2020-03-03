@@ -14,11 +14,11 @@ import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.activity.ChangePasswordActivity;
-import com.delivery.xianxian.activity.ChatMainActivity;
 import com.delivery.xianxian.activity.InvoiceActivity;
 import com.delivery.xianxian.activity.JiFenShangChengActivity;
 import com.delivery.xianxian.activity.LoginActivity;
 import com.delivery.xianxian.activity.MainActivity;
+import com.delivery.xianxian.utils.huanxin.MyConversationListActivity;
 import com.delivery.xianxian.activity.MyDriverActivity;
 import com.delivery.xianxian.activity.MyProfileActivity;
 import com.delivery.xianxian.activity.NoticeListActivity;
@@ -212,7 +212,7 @@ public class Fragment3 extends BaseFragment {
                     tv_xiaoxinum2.setVisibility(View.GONE);
                 }
 
-                setEaseUser();//设置环信昵称、头像
+//                setEaseUser();//设置环信昵称、头像
 
                 hideProgress();
             }
@@ -333,7 +333,8 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.linearLayout13:
                 //会话列表
-                CommonUtil.gotoActivity(getActivity(), ChatMainActivity.class);
+//                CommonUtil.gotoActivity(getActivity(), ChatMainActivity.class);
+                CommonUtil.gotoActivity(getActivity(), MyConversationListActivity.class);
                 break;
             case R.id.linearLayout15:
                 //公告列表

@@ -189,6 +189,8 @@ public class ConfirmOrderActivity extends BaseActivity {
         params.put("token", localUserInfo.getToken());
         params.put("type", "get_temperature");
         params.put("car_type_id", car_type_id);
+        params.put("money", model.getPrice());
+        params.put("use_type", use_type+"");
         Request(params);
     }
 
@@ -207,6 +209,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>获取温层费用：" + response);
                 hideProgress();
                 list_h = response.getTemperature_list();
+
                 /*if (list_h.size() > 0) {
                     temperature = list_h.get(0).getId();
                     textView1.setText(list_h.get(0).getTitle() + "：" + list_h.get(0).getTemperature());
@@ -409,6 +412,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                     params.put("goods_quantity", goods_quantity);
                     params.put("goods_bulk", goods_bulk);
                     params.put("goods_send_home", goods_send_home);
+                    // params.put("money", );//优惠券id
                     RequestAdd(params);
                 }
 

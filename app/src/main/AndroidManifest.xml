@@ -236,10 +236,15 @@
             android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
             android:label="地图定位"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delivery.xianxian.utils.huanxin.MyConversationListActivity"
+            android:label="环信消息会话列表" />
+        <activity
+            android:name="com.delivery.xianxian.activity.MyChatActivity"
+            android:label="聊天页面" />
 
         <!-- 设置环信应用的AppKey -->
         <meta-data

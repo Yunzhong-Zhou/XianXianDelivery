@@ -2017,6 +2017,7 @@ id container
 id content
 id contentPanel
 id content_container
+id conversation_container
 id coordinator
 id country_lvcountry
 id cp_cancel
@@ -2260,6 +2261,7 @@ id msg_status
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id my_conversation_list
 id name
 id navigation_header_container
 id never
@@ -2661,6 +2663,8 @@ layout activity_jifenmingxi
 layout activity_jifenshangcheng
 layout activity_login
 layout activity_main
+layout activity_my_chat
+layout activity_my_conversation_list
 layout activity_myprofile
 layout activity_noticelist
 layout activity_ordercancel

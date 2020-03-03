@@ -38,6 +38,8 @@ import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.CommonUtil;
 import com.delivery.xianxian.utils.MyLogger;
+import com.delivery.xianxian.utils.huanxin.APPConfig;
+import com.delivery.xianxian.utils.huanxin.SharedPreferencesUtils;
 import com.hyphenate.easeui.EaseConstant;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -59,6 +61,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import overlay.AMapUtil;
 import overlay.TruckRouteColorfulOverLay;
 
+import static com.delivery.xianxian.net.OkHttpClientManager.HOST;
 import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
 
 /**
@@ -484,9 +487,23 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 break;
             case R.id.textView8:
                 //聊天
-                Bundle bundle1 = new Bundle();
+                /*Bundle bundle1 = new Bundle();
                 bundle1.putString(EaseConstant.EXTRA_USER_ID, model.getTindent().getDriver_info().getHx_username());
-                CommonUtil.gotoActivityWithData(this, ChatActivity.class, bundle1, false);
+                CommonUtil.gotoActivityWithData(this, ChatActivity.class, bundle1, false);*/
+
+                //设置要发送出去的昵称
+                SharedPreferencesUtils.setParam(this, APPConfig.USER_NAME,localUserInfo.getNickname());
+                //设置要发送出去的头像
+                SharedPreferencesUtils.setParam(this,APPConfig.USER_HEAD_IMG,HOST+localUserInfo.getUserImage());
+
+                Intent intent=new Intent(this,MyChatActivity.class);
+                //传入参数
+                Bundle args=new Bundle();
+                args.putInt(EaseConstant.EXTRA_CHAT_TYPE, EaseConstant.CHATTYPE_SINGLE);
+                args.putString(EaseConstant.EXTRA_USER_ID,model.getTindent().getDriver_info().getHx_username());
+                intent.putExtra("conversation",args);
+
+                startActivity(intent);
                 break;
             case R.id.textView9:
                 //打电话

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.delivery.xianxian.R;
-import com.delivery.xianxian.fragment.MyChatFragment;
+import com.delivery.xianxian.utils.huanxin.MyChatFragment;
 import com.hyphenate.easeui.EaseConstant;
 import com.hyphenate.easeui.ui.EaseBaseActivity;
 

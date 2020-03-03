@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
-    android:versionCode="20"
-    android:versionName="Beta1.0.20" >
+    android:versionCode="21"
+    android:versionName="Beta1.0.21" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -258,6 +258,12 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delivery.xianxian.utils.huanxin.MyConversationListActivity"
+            android:label="环信消息会话列表" />
+        <activity
+            android:name="com.delivery.xianxian.activity.MyChatActivity"
+            android:label="聊天页面" />
 
         <!-- 设置环信应用的AppKey -->
         <meta-data
