@@ -12,13 +12,13 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int em_bigview_TextView = 0x7f0800dc;
-        public static final int em_bigview_imageView = 0x7f0800dd;
-        public static final int em_notification_content = 0x7f0800de;
-        public static final int em_notification_date = 0x7f0800df;
-        public static final int em_notification_icon = 0x7f0800e0;
-        public static final int em_notification_style = 0x7f0800e1;
-        public static final int em_notification_title = 0x7f0800e2;
+        public static final int em_bigview_TextView = 0x7f0800dd;
+        public static final int em_bigview_imageView = 0x7f0800de;
+        public static final int em_notification_content = 0x7f0800df;
+        public static final int em_notification_date = 0x7f0800e0;
+        public static final int em_notification_icon = 0x7f0800e1;
+        public static final int em_notification_style = 0x7f0800e2;
+        public static final int em_notification_title = 0x7f0800e3;
     }
     public static final class layout {
         private layout() {}

@@ -52,7 +52,7 @@ MERGED from [com.github.AnJiaoDe:MultiFlowLayout:V1.1.2] /Users/YunZhong/.gradle
 MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/969825d2953103b30a75f3b872991da6/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:2:1-30:12
 MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c51b4fb08646dea43e26a539cf0372c7/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:2:1-17:12
 MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:2:1-37:12
-MERGED from [:easeui] /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:easeui] /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bf783b91afaabfa85cc552e62eb81ce3/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:2:1-12:12
@@ -1001,8 +1001,8 @@ MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/cach
 MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c51b4fb08646dea43e26a539cf0372c7/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:7:5-9:41
 MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:7:5-9:41
 MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fa50737723adc2e99faf01ded1e53839/jetified-citypickerview-4.1.1/AndroidManifest.xml:7:5-9:41
-MERGED from [:easeui] /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:easeui] /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:easeui] /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:easeui] /Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41

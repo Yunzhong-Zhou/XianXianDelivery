@@ -7,7 +7,10 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-
+        versionCode 1
+        versionName "1.0.0"
+        /*versionCode 21
+        versionName "Beta1.0.21"*/
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         /*ndk {

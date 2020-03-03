@@ -8,10 +8,10 @@ import java.util.List;
  */
 public class WalletModel implements Serializable {
     /**
-     * nickname : 183****3089
-     * head : /upload/head/7.png
-     * money : 0
-     * coupon_list : [{"id":1,"title":"专车卷","money":"50","status":"正常","expired_at":"8天5小时","image":"a.jpg"}]
+     * nickname : 阿斯顿马丁
+     * head : /upload/head/2019-11-27/718d5be3ee1b187809699e330fd6d1f3.jpeg
+     * money : 6296.00
+     * coupon_list : [{"title":"专车50元优惠卷","type_text":"专车","type":"1","money":"50","status_text":"已使用","status":2},{"title":"专车8折优惠卷","type_text":"专车","type":"1","money":"80","status_text":"已使用","status":2}]
      */
 
     private String nickname;
@@ -53,28 +53,20 @@ public class WalletModel implements Serializable {
 
     public static class CouponListBean {
         /**
-         * id : 1
-         * title : 专车卷
+         * title : 专车50元优惠卷
+         * type_text : 专车
+         * type : 1
          * money : 50
-         * status : 正常
-         * expired_at : 8天5小时
-         * image : a.jpg
+         * status_text : 已使用
+         * status : 2
          */
 
-        private String id;
         private String title;
+        private String type_text;
+        private String type;
         private String money;
-        private String status;
-        private String expired_at;
-        private String image;
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
+        private String status_text;
+        private int status;
 
         public String getTitle() {
             return title;
@@ -82,6 +74,22 @@ public class WalletModel implements Serializable {
 
         public void setTitle(String title) {
             this.title = title;
+        }
+
+        public String getType_text() {
+            return type_text;
+        }
+
+        public void setType_text(String type_text) {
+            this.type_text = type_text;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
         }
 
         public String getMoney() {
@@ -92,28 +100,20 @@ public class WalletModel implements Serializable {
             this.money = money;
         }
 
-        public String getStatus() {
+        public String getStatus_text() {
+            return status_text;
+        }
+
+        public void setStatus_text(String status_text) {
+            this.status_text = status_text;
+        }
+
+        public int getStatus() {
             return status;
         }
 
-        public void setStatus(String status) {
+        public void setStatus(int status) {
             this.status = status;
-        }
-
-        public String getExpired_at() {
-            return expired_at;
-        }
-
-        public void setExpired_at(String expired_at) {
-            this.expired_at = expired_at;
-        }
-
-        public String getImage() {
-            return image;
-        }
-
-        public void setImage(String image) {
-            this.image = image;
         }
     }
 }

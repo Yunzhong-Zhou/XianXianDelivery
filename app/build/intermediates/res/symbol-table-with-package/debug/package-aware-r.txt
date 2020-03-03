@@ -2062,6 +2062,7 @@ id design_menu_item_text
 id design_navigation_view
 id dialog
 id dialog_button
+id dialog_title
 id dimensions
 id direct
 id disableHome
@@ -2551,6 +2552,7 @@ id tv_type3
 id tv_userid
 id tv_xiaoxinum
 id tv_xiaoxinum2
+id tv_youhuiquan
 id tv_zhongdian
 id txt_tixian
 id unchecked
@@ -2820,6 +2822,7 @@ layout item_selectaddress
 layout item_temperature
 layout item_temperature1
 layout item_wallet
+layout item_youhuiquan
 layout jpush_popwin_layout
 layout jpush_webview_layout
 layout layout_basepickerview

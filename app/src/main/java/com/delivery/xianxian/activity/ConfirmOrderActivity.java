@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.adapter.TemperatureAdapter;
+import com.delivery.xianxian.adapter.YouHuiQuanAdapter;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.AddFeeModel;
 import com.delivery.xianxian.model.ConfirmOrderModel;
@@ -54,15 +55,16 @@ import static com.delivery.xianxian.net.OkHttpClientManager.IMGHOST;
  */
 public class ConfirmOrderActivity extends BaseActivity {
     List<TemperatureModel.TemperatureListBean> list_h = new ArrayList<>();
-    int i1 = -1;
+    List<TemperatureModel.CouponListBean> list_y = new ArrayList<>();
+    int i1 = -1, i2 = 0;
 
     AddFeeModel model;
     String city = "", car_type_id = "", use_type = "", is_plan = "", plan_time = "", addr_ids = "",
             temperature = "", name = "", mobile = "", urgent_fee = "0", remark = "", other = "",
-            contacts_name = "", contacts_mobile = "",
+            contacts_name = "", contacts_mobile = "", coupon_id = "",
             goods_name = "", goods_quantity = "", goods_weight = "", goods_bulk = "", goods_send_home = "";
     TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView9, textView10, textView11, textView12;
+            textView9, textView10, textView11, textView12, tv_youhuiquan;
 
     private ImageView imageView1;
     boolean isgouxuan = true;
@@ -142,6 +144,8 @@ public class ConfirmOrderActivity extends BaseActivity {
         textView11 = findViewByID_My(R.id.textView11);
         textView12 = findViewByID_My(R.id.textView12);
 
+        tv_youhuiquan = findViewByID_My(R.id.tv_youhuiquan);
+
         imageView1 = findViewByID_My(R.id.imageView1);
     }
 
@@ -161,7 +165,7 @@ public class ConfirmOrderActivity extends BaseActivity {
         goods_send_home = getIntent().getStringExtra("goods_send_home");
 
 
-        MyLogger.i(">>>>>>"+is_plan +">>>>>>"+plan_time);
+        MyLogger.i(">>>>>>" + is_plan + ">>>>>>" + plan_time);
         if (is_plan.equals("1") || !plan_time.equals("")) {
             textView6.setText(plan_time);
         } else {
@@ -189,8 +193,8 @@ public class ConfirmOrderActivity extends BaseActivity {
         params.put("token", localUserInfo.getToken());
         params.put("type", "get_temperature");
         params.put("car_type_id", car_type_id);
-        params.put("money", model.getPrice());
-        params.put("use_type", use_type+"");
+        params.put("price", model.getPrice());
+        params.put("use_type", use_type + "");
         Request(params);
     }
 
@@ -200,7 +204,13 @@ public class ConfirmOrderActivity extends BaseActivity {
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
                 if (!info.equals("")) {
-                    showToast(info);
+                    showToast(info, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            finish();
+                        }
+                    });
                 }
             }
 
@@ -209,7 +219,12 @@ public class ConfirmOrderActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>获取温层费用：" + response);
                 hideProgress();
                 list_h = response.getTemperature_list();
+                list_y = response.getCoupon_list();
 
+                if (list_y.size()>0){
+                    tv_youhuiquan.setText(list_y.get(0).getTitle());
+                    coupon_id = list_y.get(0).getId();
+                }
                 /*if (list_h.size() > 0) {
                     temperature = list_h.get(0).getId();
                     textView1.setText(list_h.get(0).getTitle() + "：" + list_h.get(0).getTemperature());
@@ -233,6 +248,8 @@ public class ConfirmOrderActivity extends BaseActivity {
                         .canceledOnTouchOutside(true)
                         .dimAmount(0.8f)
                         .show();
+                TextView dialog_title = dialog.findViewById(R.id.dialog_title);
+                dialog_title.setText("温层选择");
                 ListView listView_h = dialog.findViewById(R.id.listView);
                 TemperatureAdapter adapter_h = new TemperatureAdapter(ConfirmOrderActivity.this, list_h);
                 adapter_h.setSelectItem(i1);
@@ -264,6 +281,49 @@ public class ConfirmOrderActivity extends BaseActivity {
                         dialog.dismiss();
                     }
                 });
+                break;
+            case R.id.tv_youhuiquan:
+                //优惠券
+                if (list_y.size() >0){
+                    dialog = new BaseDialog(ConfirmOrderActivity.this);
+                    dialog.contentView(R.layout.dialog_temperature)
+                            .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT))
+                            .animType(BaseDialog.AnimInType.CENTER)
+                            .canceledOnTouchOutside(true)
+                            .dimAmount(0.8f)
+                            .show();
+                    TextView dialog_title1 = dialog.findViewById(R.id.dialog_title);
+                    dialog_title1.setText("可用优惠券");
+                    ListView listView_y = dialog.findViewById(R.id.listView);
+                    YouHuiQuanAdapter adapter_y = new YouHuiQuanAdapter(ConfirmOrderActivity.this, list_y);
+                    adapter_y.setSelectItem(i2);
+                    listView_y.setAdapter(adapter_y);
+                    listView_y.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            dialog.dismiss();
+                            i2 = position;
+                            adapter_y.setSelectItem(position);
+
+                            coupon_id = list_y.get(position).getId();
+                            tv_youhuiquan.setText(list_y.get(position).getTitle());
+
+                        }
+                    });
+                    dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            temperature = "";
+                            textView1.setText("");
+                            textView2.setText("请选择");
+                            money1 = 0;
+                            textView11.setText("合计费用：￥" + (money + money1 + money2));
+                            dialog.dismiss();
+                        }
+                    });
+                }
+
                 break;
             case R.id.linearLayout2:
                 //加急费
@@ -412,7 +472,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                     params.put("goods_quantity", goods_quantity);
                     params.put("goods_bulk", goods_bulk);
                     params.put("goods_send_home", goods_send_home);
-                    // params.put("money", );//优惠券id
+                    params.put("coupon_id", coupon_id);//优惠券id
                     RequestAdd(params);
                 }
 

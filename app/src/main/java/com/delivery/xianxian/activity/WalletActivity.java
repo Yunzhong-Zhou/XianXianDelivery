@@ -116,7 +116,7 @@ public class WalletActivity extends BaseActivity {
                             holder.setText(R.id.textView1, "¥ "+model.getMoney());
                             holder.setText(R.id.textView2, model.getTitle());
 //                            TextView textView3 = holder.getView(R.id.textView3);
-                            holder.setText(R.id.textView4, "有效期："+model.getExpired_at());
+//                            holder.setText(R.id.textView4, "有效期："+model.getExpired_at());
 
                             TextView textView3 = holder.getView(R.id.textView3);
                             textView3.setOnClickListener(new View.OnClickListener() {
