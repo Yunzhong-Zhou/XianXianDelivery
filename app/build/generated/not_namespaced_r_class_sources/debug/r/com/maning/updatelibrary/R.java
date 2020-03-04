@@ -690,9 +690,9 @@ public final class R {
         public static final int titleDividerNoCustom = 0x7f080258;
         public static final int title_template = 0x7f08025b;
         public static final int topPanel = 0x7f080260;
-        public static final int uniform = 0x7f0802b9;
-        public static final int up = 0x7f0802bc;
-        public static final int wrap_content = 0x7f0802cf;
+        public static final int uniform = 0x7f0802b6;
+        public static final int up = 0x7f0802b9;
+        public static final int wrap_content = 0x7f0802cc;
     }
     public static final class integer {
         private integer() {}

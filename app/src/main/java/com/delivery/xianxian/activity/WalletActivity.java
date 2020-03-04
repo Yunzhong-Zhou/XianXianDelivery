@@ -113,19 +113,34 @@ public class WalletActivity extends BaseActivity {
                             (WalletActivity.this, R.layout.item_wallet, list) {
                         @Override
                         protected void convert(ViewHolder holder, WalletModel.CouponListBean model, int position) {
-                            holder.setText(R.id.textView1, "¥ "+model.getMoney());
+                            if (model.getMoney_type() == 1) {
+                                //打折
+                                holder.setText(R.id.textView1, model.getMoney());
+                            } else {
+                                holder.setText(R.id.textView1, "¥ " + model.getMoney());
+                            }
                             holder.setText(R.id.textView2, model.getTitle());
-//                            TextView textView3 = holder.getView(R.id.textView3);
-//                            holder.setText(R.id.textView4, "有效期："+model.getExpired_at());
-
+                            //是否使用
                             TextView textView3 = holder.getView(R.id.textView3);
-                            textView3.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    MainActivity.item = 0;
-                                    CommonUtil.gotoActivityWithFinishOtherAll(WalletActivity.this,MainActivity.class,true);
-                                }
-                            });
+                            textView3.setText(model.getStatus_text());
+                            if (model.getStatus() == 1) {
+                                //未使用
+                                textView3.setTextColor(getResources().getColor(R.color.orange));
+                                textView3.setBackgroundResource(R.drawable.yuanjiaobiankuang_5_juse);
+                                textView3.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        MainActivity.item = 0;
+                                        CommonUtil.gotoActivityWithFinishOtherAll(WalletActivity.this, MainActivity.class, true);
+                                    }
+                                });
+                            } else {
+                                //已使用
+                                textView3.setTextColor(getResources().getColor(R.color.black2));
+                                textView3.setBackgroundResource(R.drawable.yuanjiaobiankuang_5_huise);
+                            }
+                            //备注
+                            holder.setText(R.id.textView4, "备注：" + model.getRemark());
                         }
                     };
                     recyclerView.setAdapter(mAdapter);
@@ -143,7 +158,7 @@ public class WalletActivity extends BaseActivity {
         titleView.showRightTextview("余额明细", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtil.gotoActivity(WalletActivity.this,MoneyListActivity.class,false);
+                CommonUtil.gotoActivity(WalletActivity.this, MoneyListActivity.class, false);
             }
         });
     }

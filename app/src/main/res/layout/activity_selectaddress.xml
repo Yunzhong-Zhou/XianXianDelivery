@@ -202,10 +202,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:hint="发货地信息（选填）"
+                    android:hint="发货地信息"
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
+                    android:maxLength="32"
                     android:textColor="@color/black1"
                     android:textColorHint="@color/black3"
                     android:textSize="12sp" />

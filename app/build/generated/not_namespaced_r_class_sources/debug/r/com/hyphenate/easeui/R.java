@@ -1160,25 +1160,25 @@ public final class R {
         public static final int title_view = 0x7f08025d;
         public static final int top = 0x7f08025f;
         public static final int topPanel = 0x7f080260;
-        public static final int tv_ack = 0x7f080271;
-        public static final int tv_chatcontent = 0x7f08027a;
-        public static final int tv_delivered = 0x7f080281;
-        public static final int tv_error_msg = 0x7f080285;
-        public static final int tv_file_name = 0x7f080288;
-        public static final int tv_file_size = 0x7f080289;
-        public static final int tv_file_state = 0x7f08028a;
-        public static final int tv_length = 0x7f080295;
-        public static final int tv_location = 0x7f080297;
-        public static final int tv_name = 0x7f080299;
-        public static final int tv_userid = 0x7f0802b2;
-        public static final int uniform = 0x7f0802b9;
-        public static final int unread_msg_number = 0x7f0802bb;
-        public static final int up = 0x7f0802bc;
-        public static final int username = 0x7f0802be;
-        public static final int vPager = 0x7f0802bf;
-        public static final int voice_recorder = 0x7f0802ca;
-        public static final int wide = 0x7f0802cc;
-        public static final int wrap_content = 0x7f0802cf;
+        public static final int tv_ack = 0x7f08026f;
+        public static final int tv_chatcontent = 0x7f080278;
+        public static final int tv_delivered = 0x7f08027e;
+        public static final int tv_error_msg = 0x7f080282;
+        public static final int tv_file_name = 0x7f080285;
+        public static final int tv_file_size = 0x7f080286;
+        public static final int tv_file_state = 0x7f080287;
+        public static final int tv_length = 0x7f080292;
+        public static final int tv_location = 0x7f080294;
+        public static final int tv_name = 0x7f080296;
+        public static final int tv_userid = 0x7f0802af;
+        public static final int uniform = 0x7f0802b6;
+        public static final int unread_msg_number = 0x7f0802b8;
+        public static final int up = 0x7f0802b9;
+        public static final int username = 0x7f0802bb;
+        public static final int vPager = 0x7f0802bc;
+        public static final int voice_recorder = 0x7f0802c7;
+        public static final int wide = 0x7f0802c9;
+        public static final int wrap_content = 0x7f0802cc;
     }
     public static final class integer {
         private integer() {}

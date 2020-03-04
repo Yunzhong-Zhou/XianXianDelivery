@@ -2480,8 +2480,6 @@ id tv2
 id tv3
 id tv4
 id tv5
-id tv6
-id tv7
 id tvRichpushTitle
 id tvTitle
 id tv_ack
@@ -2498,7 +2496,6 @@ id tv_city
 id tv_confirm
 id tv_content1
 id tv_content2
-id tv_daohang
 id tv_delete
 id tv_delivered
 id tv_detail
@@ -2813,7 +2810,7 @@ layout item_mydriver
 layout item_noticedetail
 layout item_ordercancel
 layout item_orderdetail
-layout item_orderlist_1
+layout item_orderlist
 layout item_pay
 layout item_pop_list
 layout item_recharge_gridview

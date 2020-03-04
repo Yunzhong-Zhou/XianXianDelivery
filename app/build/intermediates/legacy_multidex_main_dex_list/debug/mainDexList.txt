@@ -188,6 +188,7 @@ com/delivery/xianxian/MyApplication$1.class
 com/delivery/xianxian/MyApplication$2.class
 com/delivery/xianxian/MyApplication.class
 com/delivery/xianxian/utils/MyLogger.class
+com/delivery/xianxian/utils/huanxin/HxEaseuiHelper.class
 com/google/android/gms/common/SignInButton$ButtonSize.class
 com/google/android/gms/common/SignInButton$ColorScheme.class
 com/google/android/gms/common/annotation/KeepForSdk.class
@@ -218,8 +219,6 @@ com/google/gson/annotations/Until.class
 com/hjq/toast/ToastUtils.class
 com/hyphenate/chat/EMCheckType$CheckType.class
 com/hyphenate/chat/EMMirror$MIRROR.class
-com/hyphenate/chat/EMOptions.class
-com/hyphenate/easeui/EaseUI.class
 com/superrtc/AndroidVideoDecoder.class
 com/superrtc/CalledByNative.class
 com/superrtc/CalledByNativeUnchecked.class

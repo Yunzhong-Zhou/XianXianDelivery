@@ -645,13 +645,13 @@ public class Fragment1 extends BaseFragment {
                 dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (!editText1.getText().toString().trim().equals("")) {
+                        if (!editText1.getText().toString().trim().equals("") && editText1.getText().toString().trim().length() <= 8) {
                             CommonUtil.hideSoftKeyboard_fragment(v, getActivity());
                             dialog.dismiss();
                             tv_kuaidi_type1.setText(editText1.getText().toString().trim());
                             goods_name = editText1.getText().toString().trim();
                         } else {
-                            myToast("请输入类型");
+                            myToast("请输入类型或类型个数不能大于8");
                         }
                     }
                 });
@@ -952,7 +952,7 @@ public class Fragment1 extends BaseFragment {
     }
 
     private boolean match() {
-        city =  tv_addr.getText().toString();
+        city = tv_addr.getText().toString();
         if (city.equals("")) {
             myToast("请选择城市");
             return false;
@@ -1018,6 +1018,12 @@ public class Fragment1 extends BaseFragment {
             myToast("收货地址和发货地址不能一样");
             return false;
         }
+
+        if (ll_add.getChildCount() > 4) {
+            myToast("途经地不能大于4个");
+            return false;
+        }
+
         addr_ids = startAddr_id;
         for (int i = 0; i < ll_add.getChildCount(); i++) {
             View childAt = ll_add.getChildAt(i);

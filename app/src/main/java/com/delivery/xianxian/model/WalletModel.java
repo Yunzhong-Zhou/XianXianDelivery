@@ -11,7 +11,7 @@ public class WalletModel implements Serializable {
      * nickname : 阿斯顿马丁
      * head : /upload/head/2019-11-27/718d5be3ee1b187809699e330fd6d1f3.jpeg
      * money : 6296.00
-     * coupon_list : [{"title":"专车50元优惠卷","type_text":"专车","type":"1","money":"50","status_text":"已使用","status":2},{"title":"专车8折优惠卷","type_text":"专车","type":"1","money":"80","status_text":"已使用","status":2}]
+     * coupon_list : [{"title":"专车8折优惠卷","type_text":"专车","type":1,"money":"8折","money_type":1,"status_text":"已使用","status":2},{"title":"专车50元优惠卷","type_text":"专车","type":1,"money":"50","money_type":2,"status_text":"已使用","status":2}]
      */
 
     private String nickname;
@@ -53,20 +53,31 @@ public class WalletModel implements Serializable {
 
     public static class CouponListBean {
         /**
-         * title : 专车50元优惠卷
+         * title : 专车8折优惠卷
          * type_text : 专车
          * type : 1
-         * money : 50
+         * money : 8折
+         * money_type : 1
          * status_text : 已使用
          * status : 2
          */
 
         private String title;
         private String type_text;
-        private String type;
+        private int type;
         private String money;
+        private int money_type;
         private String status_text;
         private int status;
+        private String remark;
+
+        public String getRemark() {
+            return remark;
+        }
+
+        public void setRemark(String remark) {
+            this.remark = remark;
+        }
 
         public String getTitle() {
             return title;
@@ -84,11 +95,11 @@ public class WalletModel implements Serializable {
             this.type_text = type_text;
         }
 
-        public String getType() {
+        public int getType() {
             return type;
         }
 
-        public void setType(String type) {
+        public void setType(int type) {
             this.type = type;
         }
 
@@ -98,6 +109,14 @@ public class WalletModel implements Serializable {
 
         public void setMoney(String money) {
             this.money = money;
+        }
+
+        public int getMoney_type() {
+            return money_type;
+        }
+
+        public void setMoney_type(int money_type) {
+            this.money_type = money_type;
         }
 
         public String getStatus_text() {

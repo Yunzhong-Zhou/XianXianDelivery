@@ -1,7 +1,9 @@
 package com.delivery.xianxian.activity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,10 +31,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by fafukeji01 on 2016/1/6.
- * 订单
+ * 订单列表
  */
 public class OrderListActivity extends BaseActivity {
-    int page1 = 1, status = 1;
+    int page1 = 1, page2 = 1, page3 = 1, status = 1;
     private RecyclerView recyclerView;
     List<OrderListModel.TindentListBean> list1 = new ArrayList<>();
     CommonAdapter<OrderListModel.TindentListBean> mAdapter1;
@@ -63,7 +65,7 @@ public class OrderListActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-        status = getIntent().getIntExtra("status",status);
+        status = getIntent().getIntExtra("status", status);
         changeUI();
         requestServer();
     }
@@ -77,23 +79,58 @@ public class OrderListActivity extends BaseActivity {
             @Override
             public void onRefresh() {
                 String string = "";
-
-                page1 = 1;
-                string = "?page=" + page1//当前页号
-                        + "&count=" + "10"//页面行数
-                        + "&status=" + status//1进行中2已完成3已取消
-                        + "&token=" + localUserInfo.getToken();
+                switch (status) {
+                    case 1:
+                        page1 = 1;
+                        string = "?page=" + page1//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                    case 2:
+                        page2 = 1;
+                        string = "?page=" + page2//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                    case 3:
+                        page3 = 1;
+                        string = "?page=" + page3//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                }
                 Request(string);
             }
 
             @Override
             public void onLoadmore() {
                 String string = "";
-                page1++;
-                string = "?page=" + page1//当前页号
-                        + "&count=" + "10"//页面行数
-                        + "&status=" + status//1进行中2已完成3已取消
-                        + "&token=" + localUserInfo.getToken();
+                switch (status) {
+                    case 1:
+                        page1++;
+                        string = "?page=" + page1//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                    case 2:
+                        page2++;
+                        string = "?page=" + page2//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                    case 3:
+                        page3++;
+                        string = "?page=" + page3//当前页号
+                                + "&count=" + "10"//页面行数
+                                + "&status=" + status//1进行中2已完成3已取消
+                                + "&token=" + localUserInfo.getToken();
+                        break;
+                }
                 RequestMore(string);
             }
         });
@@ -198,11 +235,29 @@ public class OrderListActivity extends BaseActivity {
 
         showProgress(true, getString(R.string.app_loading));
         String string = "";
-        page1 = 1;
-        string = "?page=" + page1//当前页号
-                + "&count=" + "10"//页面行数
-                + "&status=" + status//1进行中2已完成3已取消
-                + "&token=" + localUserInfo.getToken();
+        switch (status) {
+            case 1:
+                page1 = 1;
+                string = "?page=" + page1//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&status=" + status//1进行中2已完成3已取消
+                        + "&token=" + localUserInfo.getToken();
+                break;
+            case 2:
+                page2 = 1;
+                string = "?page=" + page2//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&status=" + status//1进行中2已完成3已取消
+                        + "&token=" + localUserInfo.getToken();
+                break;
+            case 3:
+                page3 = 1;
+                string = "?page=" + page3//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&status=" + status//1进行中2已完成3已取消
+                        + "&token=" + localUserInfo.getToken();
+                break;
+        }
         Request(string);
     }
 
@@ -224,7 +279,7 @@ public class OrderListActivity extends BaseActivity {
                         MyLogger.i(">>>>>>>>>订单" + response);
                         list1 = response.getTindent_list();
                         mAdapter1 = new CommonAdapter<OrderListModel.TindentListBean>
-                                (OrderListActivity.this, R.layout.item_orderlist_1, list1) {
+                                (OrderListActivity.this, R.layout.item_orderlist, list1) {
                             @Override
                             protected void convert(ViewHolder holder, OrderListModel.TindentListBean model, int position) {
                                 //订单号
@@ -272,9 +327,38 @@ public class OrderListActivity extends BaseActivity {
                                 } else {
                                     holder.setText(R.id.textView5, "温层：" + model.getTemperature());
                                 }
-                                holder.setText(R.id.textView6, model.getStart_addr());//发货地
-                                holder.setText(R.id.textView7, model.getEnd_addr());//收货地
-                                if (!model.getPlan_time().equals("")) {
+                                //地址列表
+                                LinearLayout ll_add = holder.getView(R.id.ll_add);
+                                ll_add.removeAllViews();
+                                for (int i = 0; i < model.getAddr_list().size(); i++) {
+                                    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                    LayoutInflater inflater = LayoutInflater.from(OrderListActivity.this);
+                                    View view = inflater.inflate(R.layout.item_add_fragment2_1, null, false);
+                                    view.setLayoutParams(lp);
+                                    TextView tv1 = (TextView) view.findViewById(R.id.tv1);
+                                    TextView tv2 = (TextView) view.findViewById(R.id.tv2);
+
+                                    if (i == 0) {
+                                        tv1.setText("发");
+                                        tv1.setBackgroundResource(R.drawable.yuanxing_lanse);
+
+                                    } else if (i == (model.getAddr_list().size() - 1)) {
+                                        tv1.setText("收");
+                                        tv1.setBackgroundResource(R.drawable.yuanxing_juse);
+
+                                    } else {
+                                        tv1.setText("途");
+                                        tv1.setBackgroundResource(R.drawable.yuanxing_huise);
+                                    }
+                                    tv2.setText(model.getAddr_list().get(i).getAddr());//地址
+
+                                    ll_add.addView(view);
+                                }
+                                /*holder.setText(R.id.textView6, model.getStart_addr());//发货地
+                                holder.setText(R.id.textView7, model.getEnd_addr());//收货地*/
+
+                                if (model.getIs_plan() == 1) {//是预约订单
                                     holder.setText(R.id.textView8, "预约：" + model.getPlan_time());//预约
                                 }
                                 holder.setText(R.id.textView9, "货运价格：" + model.getPrice());//货运价格
@@ -321,7 +405,17 @@ public class OrderListActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(OrderListActivity.this, URLs.OrderList + string, new OkHttpClientManager.ResultCallback<OrderListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                page1--;
+                switch (status){
+                    case 1:
+                        page1--;
+                        break;
+                    case 2:
+                        page2--;
+                        break;
+                    case 3:
+                        page3--;
+                        break;
+                }
                 showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
@@ -338,7 +432,17 @@ public class OrderListActivity extends BaseActivity {
                 List<OrderListModel.TindentListBean> list1_1 = new ArrayList<>();
                 list1_1 = response.getTindent_list();
                 if (list1_1.size() == 0) {
-                    page1--;
+                    switch (status){
+                        case 1:
+                            page1--;
+                            break;
+                        case 2:
+                            page2--;
+                            break;
+                        case 3:
+                            page3--;
+                            break;
+                    }
                     myToast(getString(R.string.app_nomore));
                 } else {
                     list1.addAll(list1_1);
