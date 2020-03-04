@@ -58,7 +58,7 @@ public class EaseNotifier {
 
     protected static int NOTIFY_ID = 0525; // start notification id
 
-    protected static final String CHANNEL_ID = "hyphenate_chatuidemo_notification";
+    protected static final String CHANNEL_ID = "XianXianLa";
     protected static final long[] VIBRATION_PATTERN = new long[]{0, 180, 80, 120};
 
     protected NotificationManager notificationManager = null;
@@ -82,7 +82,7 @@ public class EaseNotifier {
         if (Build.VERSION.SDK_INT >= 26) {
             // Create the notification channel for Android 8.0
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
-                    "hyphenate chatuidemo message default channel.", NotificationManager.IMPORTANCE_DEFAULT);
+                    "XianXianLa.", NotificationManager.IMPORTANCE_DEFAULT);
             channel.setVibrationPattern(VIBRATION_PATTERN);
             notificationManager.createNotificationChannel(channel);
         }
@@ -123,7 +123,7 @@ public class EaseNotifier {
      * @param message
      */
     public synchronized void notify(EMMessage message) {
-        if (EaseCommonUtils.isSilentMessage(message)) {
+        /*if (EaseCommonUtils.isSilentMessage(message)) {
             return;
         }
 
@@ -138,7 +138,11 @@ public class EaseNotifier {
             notificationNum++;
             fromUsers.add(message.getFrom());
             handleMessage(message);
-        }
+        }*/
+
+        notificationNum++;
+        fromUsers.add(message.getFrom());
+        handleMessage(message);
     }
 
     public synchronized void notify(List<EMMessage> messages) {

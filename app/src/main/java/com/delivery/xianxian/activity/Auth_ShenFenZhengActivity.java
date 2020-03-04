@@ -2,6 +2,7 @@ package com.delivery.xianxian.activity;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -17,20 +18,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.squareup.okhttp.Request;
 import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.Auth_ShenFenZhengModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
-import com.delivery.xianxian.utils.MyChooseImages;
 import com.delivery.xianxian.utils.FileUtil;
+import com.delivery.xianxian.utils.MyChooseImages;
 import com.delivery.xianxian.utils.MyLogger;
+import com.squareup.okhttp.Request;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import id.zelory.compressor.Compressor;
 
@@ -224,10 +227,52 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
             myToast("请上传身份证正反面图片");
             return false;
         }
+        if (isIdNO(this,identity_number) == false){
+            return false;
+        }
 
         return true;
     }
+    /**
+     * 身份证号码验证
+     */
+    private boolean isIdNO(Context context, String num) {
+        // 去掉所有空格
+        num = num.replace(" ", "");
 
+        Pattern idNumPattern = Pattern.compile("(\\d{17}[0-9xX])");
+
+        //通过Pattern获得Matcher
+        Matcher idNumMatcher = idNumPattern.matcher(num);
+
+        //判断用户输入是否为身份证号
+        if (idNumMatcher.matches()) {
+            System.out.println("您的出生年月日是：");
+            //如果是，定义正则表达式提取出身份证中的出生日期
+            Pattern birthDatePattern = Pattern.compile("\\d{6}(\\d{4})(\\d{2})(\\d{2}).*");//身份证上的前6位以及出生年月日
+
+            //通过Pattern获得Matcher
+            Matcher birthDateMather = birthDatePattern.matcher(num);
+
+            //通过Matcher获得用户的出生年月日
+            if (birthDateMather.find()) {
+                String year = birthDateMather.group(1);
+                String month = birthDateMather.group(2);
+                String date = birthDateMather.group(3);
+                if (Integer.parseInt(year) < 1900 // 如果年份是1900年之前
+                        || Integer.parseInt(month) > 12 // 月份>12月
+                        || Integer.parseInt(date) > 31 // 日期是>31号
+                ) {
+                    myToast("身份证号码不正确, 请检查");
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            myToast("请输入正确的身份证号码");
+            return false;
+        }
+    }
     @Override
     protected void updateView() {
         titleView.setTitle("实名认证");

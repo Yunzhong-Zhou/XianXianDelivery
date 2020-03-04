@@ -67,6 +67,7 @@
                 android:background="@drawable/yuanjiao_5_baise"
                 android:hint="请输入身份证号"
                 android:padding="10dp"
+                android:maxLength="18"
                 android:textColor="@color/black1"
                 android:textColorHint="@color/black3"
                 android:textSize="14sp" />

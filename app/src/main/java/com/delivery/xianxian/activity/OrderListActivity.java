@@ -20,8 +20,6 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +34,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class OrderListActivity extends BaseActivity {
     int page1 = 1, page2 = 1, page3 = 1, status = 1;
     private RecyclerView recyclerView;
-    List<OrderListModel.TindentListBean> list1 = new ArrayList<>();
-    CommonAdapter<OrderListModel.TindentListBean> mAdapter1;
+    List<OrderListModel.TindentListBean> list = new ArrayList<>();
+    CommonAdapter<OrderListModel.TindentListBean> mAdapter;
 
     private LinearLayout linearLayout1, linearLayout2, linearLayout3;
     private TextView textView1, textView2, textView3;
@@ -277,9 +275,9 @@ public class OrderListActivity extends BaseActivity {
                     public void onResponse(OrderListModel response) {
                         showContentPage();
                         MyLogger.i(">>>>>>>>>订单" + response);
-                        list1 = response.getTindent_list();
-                        mAdapter1 = new CommonAdapter<OrderListModel.TindentListBean>
-                                (OrderListActivity.this, R.layout.item_orderlist, list1) {
+                        list = response.getTindent_list();
+                        mAdapter = new CommonAdapter<OrderListModel.TindentListBean>
+                                (OrderListActivity.this, R.layout.item_orderlist, list) {
                             @Override
                             protected void convert(ViewHolder holder, OrderListModel.TindentListBean model, int position) {
                                 //订单号
@@ -355,8 +353,6 @@ public class OrderListActivity extends BaseActivity {
 
                                     ll_add.addView(view);
                                 }
-                                /*holder.setText(R.id.textView6, model.getStart_addr());//发货地
-                                holder.setText(R.id.textView7, model.getEnd_addr());//收货地*/
 
                                 if (model.getIs_plan() == 1) {//是预约订单
                                     holder.setText(R.id.textView8, "预约：" + model.getPlan_time());//预约
@@ -365,17 +361,17 @@ public class OrderListActivity extends BaseActivity {
 
                             }
                         };
-                        mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                                 if (status == 3) {
                                     //跳转取消订单详情
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("id", list1.get(i).getId());
+                                    bundle.putString("id", list.get(i).getId());
                                     CommonUtil.gotoActivityWithData(OrderListActivity.this, OrderCancelDetailActivity.class, bundle);
                                 } else {
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("id", list1.get(i).getId());
+                                    bundle.putString("id", list.get(i).getId());
                                     CommonUtil.gotoActivityWithData(OrderListActivity.this, OrderDetailsActivity.class, bundle);
                                 }
                             }
@@ -386,10 +382,10 @@ public class OrderListActivity extends BaseActivity {
                             }
                         });
 
-                        if (list1.size() > 0) {
+                        if (list.size() > 0) {
                             showContentPage();
-                            recyclerView.setAdapter(mAdapter1);
-                            mAdapter1.notifyDataSetChanged();
+                            recyclerView.setAdapter(mAdapter);
+                            mAdapter.notifyDataSetChanged();
                         } else {
                             showEmptyPage();//空数据
                         }
@@ -428,7 +424,7 @@ public class OrderListActivity extends BaseActivity {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>订单列表更多" + response);
-                JSONObject jObj;
+
                 List<OrderListModel.TindentListBean> list1_1 = new ArrayList<>();
                 list1_1 = response.getTindent_list();
                 if (list1_1.size() == 0) {
@@ -445,8 +441,8 @@ public class OrderListActivity extends BaseActivity {
                     }
                     myToast(getString(R.string.app_nomore));
                 } else {
-                    list1.addAll(list1_1);
-                    mAdapter1.notifyDataSetChanged();
+                    list.addAll(list1_1);
+                    mAdapter.notifyDataSetChanged();
                 }
 
             }
