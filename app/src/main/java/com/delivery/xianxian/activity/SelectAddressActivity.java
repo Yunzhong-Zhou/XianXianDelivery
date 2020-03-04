@@ -1070,7 +1070,7 @@ public class SelectAddressActivity extends BaseActivity {
                 int numberIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
 
                 name = cursor.getString(nameIndex);      //联系人姓名
-                mobile = cursor.getString(numberIndex).replaceAll(" ","");  //联系人号码-去掉空格
+                mobile = cursor.getString(numberIndex).trim().replaceAll(" ","");  //联系人号码-去掉空格
                 MyLogger.i(">>>>>>>>"+mobile);
                 editText3.setText(name);
                 editText4.setText(mobile);

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
     android:targetSandboxVersion="2"
-    android:versionCode="23"
-    android:versionName="Beta1.0.23" >
+    android:versionCode="24"
+    android:versionName="Beta1.0.24" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -94,7 +94,6 @@ Android 10 停用过滤视图，使用旧版存储模式
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >

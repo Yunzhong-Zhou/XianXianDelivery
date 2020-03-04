@@ -271,7 +271,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle("冷链配送");
+        titleView.setTitle("鲜鲜拉");
         titleView.hideLeftBtn();
     }
 
