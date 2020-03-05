@@ -124,9 +124,9 @@ public class FeeModelActivity extends BaseActivity {
                     TextView tv1 = pageViews.get(i).findViewById(R.id.tv1);
                     TextView tv2 = pageViews.get(i).findViewById(R.id.tv2);
                     TextView tv3 = pageViews.get(i).findViewById(R.id.tv3);
-                    tv1.setText("" + response.getCar_type().get(i).getWeight());
+                    tv1.setText("" + response.getCar_type().get(i).getWeight()+ "吨");
                     tv2.setText("" + response.getCar_type().get(i).getSize());
-                    tv3.setText("" + response.getCar_type().get(i).getBulk());
+                    tv3.setText("" + response.getCar_type().get(i).getBulk()+ "方");
                     if (!response.getCar_type().get(i).getImage().equals(""))
                         Glide.with(FeeModelActivity.this)
                                 .load(IMGHOST + response.getCar_type().get(i).getImage())

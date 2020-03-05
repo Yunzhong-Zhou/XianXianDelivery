@@ -104,6 +104,7 @@ public class GuideActivity extends Activity {
         });
 
         Map<String, String> params = new HashMap<>();
+        params.put("apkname","com.delivery.xianxian");//货主
         Request(params);
 
     }
