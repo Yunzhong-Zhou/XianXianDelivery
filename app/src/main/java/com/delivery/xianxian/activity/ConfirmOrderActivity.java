@@ -553,7 +553,9 @@ public class ConfirmOrderActivity extends BaseActivity {
 //                            .error(R.mipmap.headimg)//加载失败
                                 .into(iv1);//加载图片
                         ImageView iv2 = holder.getView(R.id.iv2);
+
                         if (pay_item == position) {
+                            pay_type = list_pay.get(pay_item).getType();
                             iv2.setImageResource(R.mipmap.ic_xuanzhong);
                         } else {
                             iv2.setImageResource(R.mipmap.ic_weixuan);
@@ -585,7 +587,7 @@ public class ConfirmOrderActivity extends BaseActivity {
 
                         Map<String, String> params = new HashMap<>();
                         params.put("token", localUserInfo.getToken());
-                        params.put("pay_type", response.getPay_type_list().get(pay_item).getType() + "");
+                        params.put("pay_type", pay_type + "");
                         params.put("t_indent_id", response.getId());
                         RequestPay(params, response.getId());
 
