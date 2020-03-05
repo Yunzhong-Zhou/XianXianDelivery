@@ -509,8 +509,9 @@ public class Fragment1 extends BaseFragment {
                 break;
             case R.id.tv_type3:
                 //快递
-                use_type = 3;
-                changeUI();
+                showToast("零担功能正在维护中...");
+                /*use_type = 3;
+                changeUI();*/
                 break;
 
             case R.id.iv_left:
@@ -840,6 +841,9 @@ public class Fragment1 extends BaseFragment {
 //                ll_shouhuo.setVisibility(View.GONE);
                 break;
             case 3:
+
+
+
                 tv_type1.setBackgroundResource(R.drawable.yuanjiao_10_huiise_top);
                 tv_type2.setBackgroundResource(R.drawable.yuanjiao_10_huiise_top);
                 tv_type3.setBackgroundResource(R.drawable.yuanjiao_10_baise_top);

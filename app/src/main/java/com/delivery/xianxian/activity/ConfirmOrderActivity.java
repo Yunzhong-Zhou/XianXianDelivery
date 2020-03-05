@@ -69,7 +69,7 @@ public class ConfirmOrderActivity extends BaseActivity {
     private ImageView imageView1;
     boolean isgouxuan = true;
 
-    int pay_item = 0;
+    int pay_item = -1;
 
     List<ConfirmOrderModel.PayTypeListBean> list_pay = new ArrayList<>();
     String pay_type = "", order_id = "";
@@ -540,9 +540,14 @@ public class ConfirmOrderActivity extends BaseActivity {
                     protected void convert(ViewHolder holder, ConfirmOrderModel.PayTypeListBean model, int position) {
                         holder.setText(R.id.tv1, model.getTitle());//标题
                         TextView tv2 = holder.getView(R.id.tv2);
-                        if (!model.getSub_title().equals("")) {
+                        if (!model.getSub_title().equals("")) {//余额-判断余额是否充足
                             tv2.setVisibility(View.VISIBLE);
-                            tv2.setText(model.getSub_title());
+                            if (Double.valueOf(response.getUseable_money()) >= Double.valueOf(response.getTotal_price())){
+                                tv2.setText(model.getSub_title());//余额充足
+                            }else {
+                                tv2.setText(model.getSub_title()+"（余额不足）");//余额不足
+                            }
+
                         } else {
                             tv2.setVisibility(View.GONE);
                         }
@@ -565,8 +570,20 @@ public class ConfirmOrderActivity extends BaseActivity {
                 mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                        pay_item = i;
-                        pay_type = list_pay.get(i).getType();
+                        if (list_pay.get(i).getType().equals("1")){
+                            //为余额支付-判断余额是否充足
+                            if (Double.valueOf(response.getUseable_money()) >= Double.valueOf(response.getTotal_price())){
+                                pay_item = i;
+                                pay_type = list_pay.get(i).getType();
+                            }else {
+                                myToast("余额不足，请选择其他支付方式");
+                            }
+
+                        }else {
+                            pay_item = i;
+                            pay_type = list_pay.get(i).getType();
+                        }
+
                         mAdapter.notifyDataSetChanged();
                     }
 
