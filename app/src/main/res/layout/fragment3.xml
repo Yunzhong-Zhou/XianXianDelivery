@@ -437,6 +437,7 @@
                         android:onClick="onClick"
                         android:orientation="horizontal"
                         android:paddingTop="16dp"
+                        android:visibility="gone"
                         android:paddingBottom="16dp">
 
                         <ImageView
@@ -463,6 +464,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
+                        android:visibility="gone"
                         android:background="@color/xian" />
 
 
@@ -516,7 +518,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="16dp"
-                            android:src="@mipmap/ic_fragment5_12" />
+                            android:src="@mipmap/ic_fragment5_10" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -561,7 +563,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="16dp"
-                            android:src="@mipmap/ic_fragment5_12" />
+                            android:src="@mipmap/ic_fragment5_10" />
 
                         <TextView
                             android:layout_width="match_parent"
