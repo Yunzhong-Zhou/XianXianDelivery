@@ -302,7 +302,20 @@ public class OrderListActivity extends BaseActivity {
                                 holder.setText(R.id.textView2, "时间：" + model.getCreated_at());//时间
                                 //状态
                                 TextView textView3 = holder.getView(R.id.textView3);
-                                textView3.setText(model.getStatus_text());
+                                if (status == 2){
+                                    //已完成-判断附加费是否收取
+                                    if (model.getIs_attach_fee() == 1){
+                                        textView3.setText(model.getStatus_text()+"-附加费已支付");
+                                    }else if (model.getIs_attach_fee() == 2){
+                                        textView3.setText(model.getStatus_text()+"-附加费未支付");
+                                    }else {
+                                        textView3.setText(model.getStatus_text()+"-附加费未添加");
+                                    }
+
+                                }else {
+                                    textView3.setText(model.getStatus_text());
+                                }
+
                                 switch (model.getStatus()) {
                                     case 0:
                                         //匹配中

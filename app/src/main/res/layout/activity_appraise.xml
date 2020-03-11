@@ -117,9 +117,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="感谢您试用鲜鲜拉"
+            android:text="感谢您使用鲜鲜拉"
             android:textColor="@color/black1"
-            android:textSize="14sp" />
+            android:textSize="25sp" />
 
         <RatingBar
             android:id="@+id/ratingbar"
@@ -127,9 +127,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:isIndicator="false"
             android:numStars="5"
+            android:layout_marginTop="5dp"
             android:rating="5"
             android:stepSize="1" />
 

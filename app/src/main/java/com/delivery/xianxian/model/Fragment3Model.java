@@ -21,6 +21,15 @@ public class Fragment3Model implements Serializable {
     private String head;
     private ShareBean share;
     private int msg;
+    private int is_certification;
+
+    public int getIs_certification() {
+        return is_certification;
+    }
+
+    public void setIs_certification(int is_certification) {
+        this.is_certification = is_certification;
+    }
 
     public int getId() {
         return id;

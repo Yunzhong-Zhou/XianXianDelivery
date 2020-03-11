@@ -68,9 +68,20 @@ public class OrderDetailsModel implements Serializable {
 
         private String cancel_at;
         private String cancel_reason;
+        private int is_attach_fee;
+
+        public int getIs_attach_fee() {
+            return is_attach_fee;
+        }
+
+        public void setIs_attach_fee(int is_attach_fee) {
+            this.is_attach_fee = is_attach_fee;
+        }
+
         /**
          * confirm_attach_data : {"id":32,"need_pay":1,"money":"1600","detail":[{"name":"逾时等候费","money":"200"},{"name":"路桥费","money":"300"},{"name":"搬运费","money":"500"},{"name":"阿斯顿","money":"600"}]}
          */
+
 
         private ConfirmAttachDataBean confirm_attach_data;
 

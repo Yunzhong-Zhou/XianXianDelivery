@@ -179,6 +179,9 @@ public class Auth_ShenFenZhengActivity extends BaseActivity {
                     public void onResponse(final Auth_ShenFenZhengModel response) {
                         hideProgress();
                         MyLogger.i(">>>>>>>>>身份认证" + response);
+                        //保存是否认证
+                        localUserInfo.setIsVerified(response.getIs_certification()+"");//1 认证 2 未认证
+
                         editText1.setText(response.getIdentity_name());
                         editText2.setText(response.getIdentity_number());
                         if (!response.getIdentity_front_image().equals("")){

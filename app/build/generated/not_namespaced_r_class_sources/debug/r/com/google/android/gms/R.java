@@ -77,8 +77,8 @@ public final class R {
         public static final int text = 0x7f080236;
         public static final int text2 = 0x7f080237;
         public static final int title_view = 0x7f08025d;
-        public static final int wide = 0x7f0802c9;
-        public static final int wrap_content = 0x7f0802cc;
+        public static final int wide = 0x7f0802ca;
+        public static final int wrap_content = 0x7f0802cd;
     }
     public static final class integer {
         private integer() {}

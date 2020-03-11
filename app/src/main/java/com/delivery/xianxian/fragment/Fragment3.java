@@ -189,6 +189,8 @@ public class Fragment3 extends BaseFragment {
             public void onResponse(Fragment3Model response) {
                 MyLogger.i(">>>>>>>>>我的" + response);
                 model = response;
+                //保存是否认证
+                localUserInfo.setIsVerified(response.getIs_certification()+"");//1 认证 2 未认证
                 //昵称
                 if (!response.getNickname().equals("")) {
                     textView1.setText(response.getNickname());

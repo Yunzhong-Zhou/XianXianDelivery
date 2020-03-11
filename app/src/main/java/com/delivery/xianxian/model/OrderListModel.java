@@ -45,6 +45,7 @@ public class OrderListModel implements Serializable {
         private String car_type;
         private int status;
         private String status_text;
+        private int is_attach_fee;
         private String temperature;
         private String start_addr;
         private String end_addr;
@@ -53,6 +54,14 @@ public class OrderListModel implements Serializable {
         private int is_plan;
         private String plan_time;
         private List<AddrListBean> addr_list;
+
+        public int getIs_attach_fee() {
+            return is_attach_fee;
+        }
+
+        public void setIs_attach_fee(int is_attach_fee) {
+            this.is_attach_fee = is_attach_fee;
+        }
 
         public String getId() {
             return id;

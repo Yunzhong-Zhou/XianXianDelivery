@@ -28,6 +28,7 @@ import com.bigkoo.pickerview.view.TimePickerView;
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.delivery.xianxian.R;
+import com.delivery.xianxian.activity.Auth_ShenFenZhengActivity;
 import com.delivery.xianxian.activity.ConfirmOrderActivity;
 import com.delivery.xianxian.activity.MainActivity;
 import com.delivery.xianxian.activity.SelectAddressActivity;
@@ -389,6 +390,9 @@ public class Fragment1 extends BaseFragment {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>首页" + response);
+                //保存是否认证
+                localUserInfo.setIsVerified(response.getIs_certification()+"");//1 认证 2 未认证
+
                 carTypeList = response.getCar_type();
                 //车型描述
                 pageViews = new ArrayList<View>();
@@ -609,16 +613,33 @@ public class Fragment1 extends BaseFragment {
                 break;*/
             case R.id.tv_nextStep:
                 //下一步
-                if (match()) {
-                    //先计算费用-返回路程等信息
-                    Map<String, String> params = new HashMap<>();
-                    params.put("token", localUserInfo.getToken());
-                    params.put("city", city);
-                    params.put("car_type_id", carTypeList.get(item).getId() + "");
-                    params.put("use_type", use_type + "");
-                    params.put("addr_ids", addr_ids);
-                    RequestAdd(params);
+                if (localUserInfo.getIsVerified().equals("2")) {
+                    showToast("您暂未完成认证，确定前往认证？", "去认证", "取消",
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(getActivity(), Auth_ShenFenZhengActivity.class, false);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                }else {
+                    if (match()) {
+                        //先计算费用-返回路程等信息
+                        Map<String, String> params = new HashMap<>();
+                        params.put("token", localUserInfo.getToken());
+                        params.put("city", city);
+                        params.put("car_type_id", carTypeList.get(item).getId() + "");
+                        params.put("use_type", use_type + "");
+                        params.put("addr_ids", addr_ids);
+                        RequestAdd(params);
+                    }
                 }
+
                 break;
             case R.id.ll_time3:
                 //用车时间-顺风车
@@ -841,9 +862,6 @@ public class Fragment1 extends BaseFragment {
 //                ll_shouhuo.setVisibility(View.GONE);
                 break;
             case 3:
-
-
-
                 tv_type1.setBackgroundResource(R.drawable.yuanjiao_10_huiise_top);
                 tv_type2.setBackgroundResource(R.drawable.yuanjiao_10_huiise_top);
                 tv_type3.setBackgroundResource(R.drawable.yuanjiao_10_baise_top);
@@ -1050,7 +1068,24 @@ public class Fragment1 extends BaseFragment {
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
                 if (!info.equals("")) {
-                    showToast(info);
+                    if (info.contains("认证")) {
+                        showToast("您暂未完成认证，确定前往认证？",
+                                "去认证", "取消",
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(getActivity(), Auth_ShenFenZhengActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                    } else {
+                        showToast(info);
+                    }
                 }
             }
 

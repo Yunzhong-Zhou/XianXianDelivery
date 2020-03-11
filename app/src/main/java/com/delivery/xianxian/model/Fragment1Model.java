@@ -6,6 +6,15 @@ import java.util.List;
  * Created by zyz on 2019-09-30.
  */
 public class Fragment1Model {
+    private int is_certification;
+
+    public int getIs_certification() {
+        return is_certification;
+    }
+
+    public void setIs_certification(int is_certification) {
+        this.is_certification = is_certification;
+    }
     private List<CarTypeBean> car_type;
 
     public List<CarTypeBean> getCar_type() {

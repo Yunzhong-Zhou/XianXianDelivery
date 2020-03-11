@@ -13,6 +13,16 @@ public class Auth_ShenFenZhengModel implements Serializable {
      * identity_reverse_image : b.jpg
      */
 
+    private int is_certification;
+
+    public int getIs_certification() {
+        return is_certification;
+    }
+
+    public void setIs_certification(int is_certification) {
+        this.is_certification = is_certification;
+    }
+
     private String identity_name;
     private String identity_number;
     private String identity_front_image;

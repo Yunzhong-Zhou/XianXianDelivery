@@ -45,7 +45,7 @@ public final class R {
         public static final int push_root_view = 0x7f0801cf;
         public static final int rlRichpushTitleBar = 0x7f0801e5;
         public static final int tvRichpushTitle = 0x7f08026d;
-        public static final int wvPopwin = 0x7f0802cd;
+        public static final int wvPopwin = 0x7f0802ce;
     }
     public static final class layout {
         private layout() {}

@@ -405,6 +405,80 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 //附加费
                 if (response.getTindent().getConfirm_attach_data() != null) {
                     tv_fujiafei.setVisibility(View.VISIBLE);
+                    if (response.getTindent().getIs_attach_fee() == 2) {
+                        //附加费未收取-弹出支付弹窗
+                        dialog = new BaseDialog(OrderDetailsActivity.this);
+                        dialog.contentView(R.layout.dialog_fujiafei)
+                                .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                        ViewGroup.LayoutParams.WRAP_CONTENT))
+                                .animType(BaseDialog.AnimInType.CENTER)
+                                .canceledOnTouchOutside(true)
+                                .dimAmount(0.8f)
+                                .show();
+                        TextView textView2 = dialog.findViewById(R.id.textView2);
+                        textView2.setText("¥" + response.getTindent().getConfirm_attach_data().getMoney());
+                        RecyclerView recyclerView = dialog.findViewById(R.id.recyclerView);
+                        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(OrderDetailsActivity.this);
+                        recyclerView.setLayoutManager(mLinearLayoutManager);
+                        CommonAdapter<OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean> mAdapter1 =
+                                new CommonAdapter<OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean>
+                                        (OrderDetailsActivity.this, R.layout.item_feemodel,
+                                                response.getTindent().getConfirm_attach_data().getDetail()) {
+                                    @Override
+                                    protected void convert(ViewHolder holder, OrderDetailsModel.TindentBean.ConfirmAttachDataBean.DetailBean model, int position) {
+                                        holder.setText(R.id.textView1, model.getName());
+                                        holder.setText(R.id.textView2, "¥" + model.getMoney());
+                                    }
+                                };
+                        recyclerView.setAdapter(mAdapter1);
+
+                        TextView textView3 = dialog.findViewById(R.id.textView3);
+                        TextView textView4 = dialog.findViewById(R.id.textView4);
+                        if (response.getTindent().getConfirm_attach_data().getNeed_pay() == 1) {
+                            //需要支付
+                            textView3.setText("稍后付款");
+                            textView4.setText("现在付款");
+                        } else {
+                            //不需要支付
+                            textView3.setText("关闭");
+                            textView4.setText("已支付");
+                        }
+                        dialog.findViewById(R.id.textView4).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (response.getTindent().getConfirm_attach_data().getNeed_pay() == 1) {
+                                    //可支付
+                                    dialog.dismiss();
+                                    showToast("是否现在支付（余额支付）", "是", "否", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                            showProgress(true, "正在支付，请稍后...");
+                                            Map<String, String> params = new HashMap<>();
+                                            params.put("token", localUserInfo.getToken());
+                                            params.put("t_indent_confirm_id", response.getTindent().getConfirm_attach_data().getIdX());
+                                            params.put("type", "5");//操作的类型1确认装货2提醒司机装货3确认卸货4附加费添加5附加费确认6转单确认7确认订单配送完毕
+                                            RequestConfirm(params, 5);
+                                        }
+                                    }, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                                } else {
+                                    dialog.dismiss();
+                                }
+                            }
+                        });
+                        dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+
                 } else {
                     tv_fujiafei.setVisibility(View.GONE);
                 }
@@ -492,16 +566,16 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
                 CommonUtil.gotoActivityWithData(this, ChatActivity.class, bundle1, false);*/
 
                 //设置要发送出去的昵称
-                SharedPreferencesUtils.setParam(this, APPConfig.USER_NAME,localUserInfo.getNickname());
+                SharedPreferencesUtils.setParam(this, APPConfig.USER_NAME, localUserInfo.getNickname());
                 //设置要发送出去的头像
-                SharedPreferencesUtils.setParam(this,APPConfig.USER_HEAD_IMG,HOST+localUserInfo.getUserImage());
+                SharedPreferencesUtils.setParam(this, APPConfig.USER_HEAD_IMG, HOST + localUserInfo.getUserImage());
 
-                Intent intent=new Intent(this,MyChatActivity.class);
+                Intent intent = new Intent(this, MyChatActivity.class);
                 //传入参数
-                Bundle args=new Bundle();
+                Bundle args = new Bundle();
                 args.putInt(EaseConstant.EXTRA_CHAT_TYPE, EaseConstant.CHATTYPE_SINGLE);
-                args.putString(EaseConstant.EXTRA_USER_ID,model.getTindent().getDriver_info().getHx_username());
-                intent.putExtra("conversation",args);
+                args.putString(EaseConstant.EXTRA_USER_ID, model.getTindent().getDriver_info().getHx_username());
+                intent.putExtra("conversation", args);
 
                 startActivity(intent);
                 break;
@@ -1121,7 +1195,8 @@ public class OrderDetailsActivity extends BaseActivity implements RouteSearch.On
     @Override
     public void onMyLocationChange(Location location) {
         MyLogger.i(">>>>>>>>我的位置：" + location.getLatitude());
-        requestServer();//30秒刷新一次数据
+//        requestServer();//30秒刷新一次数据
+
 //        lat = location.getLatitude();
 //        lng = location.getLongitude();
 //        requestServer();

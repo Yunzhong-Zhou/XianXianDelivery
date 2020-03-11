@@ -455,7 +455,19 @@ public class SelectAddressActivity extends BaseActivity {
                                 Map<String, String> params = new HashMap<>();
                                 params.put("token", localUserInfo.getToken());
                                 params.put("id", list1.get(position).getId() + "");
-                                RequestDelete(params, 1, position);
+                                RequestDelete(params, 1, position,false);
+                            }
+                        });
+                        //添加到常用地址
+                        TextView tv_addchangyong = holder.getView(R.id.tv_addchangyong);
+                        tv_addchangyong.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Map<String, String> params = new HashMap<>();
+                                params.put("token", localUserInfo.getToken());
+                                params.put("id", list1.get(position).getId() + "");
+                                params.put("coption", "add_to_often");// 移到常用
+                                RequestDelete(params, 1, position,true);
                             }
                         });
                     }
@@ -499,9 +511,11 @@ public class SelectAddressActivity extends BaseActivity {
                                 Map<String, String> params = new HashMap<>();
                                 params.put("token", localUserInfo.getToken());
                                 params.put("id", list2.get(position).getId() + "");
-                                RequestDelete(params, 2, position);
+                                RequestDelete(params, 2, position,false);
                             }
                         });
+                        TextView tv_addchangyong = holder.getView(R.id.tv_addchangyong);
+                        tv_addchangyong.setVisibility(View.GONE);
                     }
                 };
                 mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
@@ -565,7 +579,7 @@ public class SelectAddressActivity extends BaseActivity {
                 MyLogger.i(">>>>>>" + getIntent().getStringExtra("city"));
                 if (!getIntent().getStringExtra("city").equals("")) {
                     getLatlon(getIntent().getStringExtra("city"));
-                }else {
+                } else {
                     //获取位置信息
                     point = new LatLonPoint(location.getLatitude(), location.getLongitude());
                     // 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
@@ -773,7 +787,7 @@ public class SelectAddressActivity extends BaseActivity {
 
     }
 
-    private void RequestDelete(Map<String, String> params, int type, int position) {
+    private void RequestDelete(Map<String, String> params, int type, int position, boolean isChangYong) {
         OkHttpClientManager.postAsyn(SelectAddressActivity.this, URLs.DeleteAddress, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(final Request request, String info, Exception e) {
@@ -786,12 +800,20 @@ public class SelectAddressActivity extends BaseActivity {
             @Override
             public void onResponse(String response) {
                 MyLogger.i(">>>>>>>>>删除地址" + response);
-                if (type == 1) {
-                    list1.remove(position);
-                    mAdapter1.notifyDataSetChanged();
-                } else {
-                    list2.remove(position);
-                    mAdapter2.notifyDataSetChanged();
+                if (isChangYong){//常用
+                    myToast("移到常用地址成功");
+                    String string = "?page=" + 1//当前页号
+                            + "&count=" + "50"//页面行数
+                            + "&token=" + localUserInfo.getToken();
+                    Request(string);
+                }else {//删除
+                    if (type == 1) {
+                        list1.remove(position);
+                        mAdapter1.notifyDataSetChanged();
+                    } else {
+                        list2.remove(position);
+                        mAdapter2.notifyDataSetChanged();
+                    }
                 }
             }
         }, false);
@@ -1070,8 +1092,8 @@ public class SelectAddressActivity extends BaseActivity {
                 int numberIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
 
                 name = cursor.getString(nameIndex);      //联系人姓名
-                mobile = cursor.getString(numberIndex).trim().replaceAll(" ","");  //联系人号码-去掉空格
-                MyLogger.i(">>>>>>>>"+mobile);
+                mobile = cursor.getString(numberIndex).trim().replaceAll(" ", "");  //联系人号码-去掉空格
+                MyLogger.i(">>>>>>>>" + mobile);
                 editText3.setText(name);
                 editText4.setText(mobile);
 
