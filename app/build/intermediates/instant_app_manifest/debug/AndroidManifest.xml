@@ -94,6 +94,7 @@ Android 10 停用过滤视图，使用旧版存储模式
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >
@@ -243,6 +244,20 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.delivery.xianxian.activity.TemperatureActivity"
             android:label="实时温度" />
+
+        <!-- 微信支付回调 -->
+        <activity
+            android:name="com.delivery.xianxian.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wxAPPID" />
+            </intent-filter>
+        </activity>
 
         <!-- 环信 -->
         <activity

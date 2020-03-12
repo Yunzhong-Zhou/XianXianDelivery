@@ -40,7 +40,7 @@ public class RegisteredActivity extends BaseActivity {
     private EditText editText1, editText2, editText3, editText4;
 
     private ImageView imageView1;
-    boolean isgouxuan = true;
+    boolean isgouxuan = false;
 
     String phonenum = "", password1 = "", password2 = "", code = "", num = "", nickname = "", register_addr = "", hx_username = "";
 
@@ -323,8 +323,7 @@ public class RegisteredActivity extends BaseActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        hideProgress();
-
+//                                        hideProgress();
                                         //登录环信
                                         EMClient.getInstance().logout(false);
                                         EMClient.getInstance().login(hx_username, "123456", new EMCallBack() {
@@ -382,7 +381,7 @@ public class RegisteredActivity extends BaseActivity {
                                                 break;
                                             // 用户已存在
                                             case EMError.USER_ALREADY_EXIST:
-                                                MyLogger.i("用户已存在 code: " + errorCode + ", message:" + message);
+                                                myToast("用户已存在 code: " + errorCode + ", message:" + message);
                                                 break;
                                             // 参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册
                                             case EMError.USER_ILLEGAL_ARGUMENT:
@@ -393,7 +392,7 @@ public class RegisteredActivity extends BaseActivity {
                                                 MyLogger.i("服务器未知错误 code: " + errorCode + ", message:" + message);
                                                 break;
                                             case EMError.USER_REG_FAILED:
-                                                MyLogger.i("账户注册失败 code: " + errorCode + ", message:" + message);
+                                                myToast("账户注册失败 code: " + errorCode + ", message:" + message);
                                                 break;
                                             default:
                                                 MyLogger.i("ml_sign_up_failed code: " + errorCode + ", message:" + message);

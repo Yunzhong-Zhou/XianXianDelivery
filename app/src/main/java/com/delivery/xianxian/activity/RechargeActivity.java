@@ -231,9 +231,23 @@ public class RechargeActivity extends BaseActivity {
                 switch (response.getPay_type()) {
                     case "1":
                         //余额
+                        showToast("支付成功");
+                        break;
                     case "2":
                         //微信
-                        showToast("支付成功");
+                        /*IWXAPI api= WXAPIFactory.createWXAPI(RechargeActivity.this, "wxAPPID",false);//填写自己的APPID
+                        api.registerApp("wxAPPID");//填写自己的APPID，注册本身APP
+                        PayReq req = new PayReq();//PayReq就是订单信息对象
+                        //给req对象赋值
+                        req.appId = appid;//APPID
+                        req.partnerId = partnerid;//    商户号
+                        req.prepayId = prepayid;//  预付款ID
+                        req.nonceStr = getRoundString();//随机数
+                        req.timeStamp = getTimeStamp();//时间戳
+                        req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
+                        req.sign = sign;//签名
+                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求*/
+
                         break;
                     case "3":
                         //支付宝

@@ -774,7 +774,7 @@ public final class R {
     public static final class mipmap {
         private mipmap() {}
 
-        public static final int erweima = 0x7f0c0011;
+        public static final int erweima = 0x7f0c0012;
     }
     public static final class string {
         private string() {}

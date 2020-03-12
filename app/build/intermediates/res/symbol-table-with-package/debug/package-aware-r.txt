@@ -2862,6 +2862,7 @@ layout view_error
 layout view_loading
 layout view_title
 layout viewpager_page
+mipmap background
 mipmap bg_baisetouying
 mipmap bg_fragment1
 mipmap bg_jianglihuodong
