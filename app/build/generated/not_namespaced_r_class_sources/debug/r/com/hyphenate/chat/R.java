@@ -23,7 +23,7 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int em_simple_notification = 0x7f0b00ad;
+        public static final int em_simple_notification = 0x7f0b00ae;
     }
     public static final class raw {
         private raw() {}

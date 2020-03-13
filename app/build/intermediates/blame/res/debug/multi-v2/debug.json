@@ -397,22 +397,6 @@
             ]
         },
         {
-            "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/values-watch-v20_values-watch-v20.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-watch-v20/values-watch-v20.xml",
-                    "from": {
-                        "startLines": "2,5,8",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,214,385",
-                        "endLines": "4,7,10",
-                        "endColumns": "12,12,12",
-                        "endOffsets": "209,380,553"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/values-v23_values-v23.arsc.flat",
             "map": [
                 {
@@ -443,6 +427,22 @@
                         "endLines": "50",
                         "endColumns": "12",
                         "endOffsets": "3552"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/values-watch-v20_values-watch-v20.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
                     }
                 }
             ]
@@ -959,22 +959,6 @@
             ]
         },
         {
-            "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/values-v26_values-v26.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-v26/values-v26.xml",
-                    "from": {
-                        "startLines": "2,3,4,8,12,16",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,130,217,431,657,896",
-                        "endLines": "2,3,7,11,15,16",
-                        "endColumns": "74,86,12,12,12,92",
-                        "endOffsets": "125,212,426,652,891,984"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/values-fr_values-fr.arsc.flat",
             "map": [
                 {
@@ -1043,6 +1027,22 @@
                         "startOffsets": "3917",
                         "endColumns": "223",
                         "endOffsets": "4136"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/values-v26_values-v26.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-v26/values-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,431,657,896",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,426,652,891,984"
                     }
                 }
             ]
@@ -1924,22 +1924,6 @@
             ]
         },
         {
-            "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/values-watch-v21_values-watch-v21.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-watch-v21/values-watch-v21.xml",
-                    "from": {
-                        "startLines": "2,6,10",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,271,499",
-                        "endLines": "5,9,13",
-                        "endColumns": "12,12,12",
-                        "endOffsets": "266,494,724"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/values-zh-rHK_values-zh-rHK.arsc.flat",
             "map": [
                 {
@@ -2008,6 +1992,22 @@
                         "startOffsets": "105,200,293,393,475,572,680,757,833,925,1018,1109,1205,1301,1395,1491,1583,1675,1767,1844,1940,2035,2130,2227,2323,2421,2572,4849",
                         "endColumns": "94,92,99,81,96,107,76,75,91,92,90,95,95,93,95,91,91,91,76,95,94,94,96,95,97,150,93,77",
                         "endOffsets": "195,288,388,470,567,675,752,828,920,1013,1104,1200,1296,1390,1486,1578,1670,1762,1839,1935,2030,2125,2222,2318,2416,2567,2661,4922"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/values-watch-v21_values-watch-v21.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-watch-v21/values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
                     }
                 }
             ]

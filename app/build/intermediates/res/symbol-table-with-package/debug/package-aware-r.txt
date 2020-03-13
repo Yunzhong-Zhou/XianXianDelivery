@@ -2726,6 +2726,7 @@ layout dialog_jiajifei
 layout dialog_list
 layout dialog_list1
 layout dialog_pay
+layout dialog_qiandao
 layout dialog_temperature
 layout dialog_upgrade
 layout ease_acitivity_ding_msg_send
@@ -2867,6 +2868,7 @@ mipmap bg_baisetouying
 mipmap bg_fragment1
 mipmap bg_jianglihuodong
 mipmap bg_jifenshangcheng
+mipmap bg_qiandao
 mipmap bg_upgrade
 mipmap bg_wallet_1
 mipmap bg_wallet_2
