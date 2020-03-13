@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
-    android:versionCode="27"
-    android:versionName="Beta1.0.27" >
+    android:versionCode="28"
+    android:versionName="Beta1.0.28" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -91,6 +91,7 @@ Android 10 停用过滤视图，使用旧版存储模式
         android:maxAspectRatio="2.4"
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
+        android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"

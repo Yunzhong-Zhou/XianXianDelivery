@@ -102,6 +102,7 @@
                         android:background="@drawable/yuanjiao_10_huiise_top"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:text="零担"
                         android:textColor="@color/black2"
                         android:textSize="16sp" />
