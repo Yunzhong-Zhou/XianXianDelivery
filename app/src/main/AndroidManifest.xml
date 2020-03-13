@@ -309,7 +309,7 @@
             android:process=":remote" />
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="06UoorWn5QH6G36nvcm5jQo2GKPxfNTw" />
+            android:value="3ecea51f560650b1ed8a4b99808f52e8" />
 
         <!--全面屏适配-->
         <meta-data

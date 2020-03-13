@@ -626,7 +626,7 @@
 332-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:310:9-312:64
 333            android:name="com.baidu.lbsapi.API_KEY"
 333-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:311:13-52
-334            android:value="06UoorWn5QH6G36nvcm5jQo2GKPxfNTw" />
+334            android:value="3ecea51f560650b1ed8a4b99808f52e8" />
 334-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:312:13-61
 335
 336        <!-- 全面屏适配 -->
