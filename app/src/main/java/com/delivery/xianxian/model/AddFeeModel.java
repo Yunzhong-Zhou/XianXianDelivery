@@ -14,6 +14,16 @@ public class AddFeeModel implements Serializable {
      * duration : 2
      */
 
+    private  String t_indent_id;
+
+    public String getT_indent_id() {
+        return t_indent_id;
+    }
+
+    public void setT_indent_id(String t_indent_id) {
+        this.t_indent_id = t_indent_id;
+    }
+
     private String price;
     private String millage;
     private String duration;

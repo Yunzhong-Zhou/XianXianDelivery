@@ -598,15 +598,20 @@ public class ConfirmOrderActivity extends BaseActivity {
                 tv3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.dismiss();
+                        if (!pay_type.equals("")){
+                            dialog.dismiss();
 
-                        showProgress(true, "正在获取支付订单...");
+                            showProgress(true, "正在获取支付订单...");
 
-                        Map<String, String> params = new HashMap<>();
-                        params.put("token", localUserInfo.getToken());
-                        params.put("pay_type", pay_type + "");
-                        params.put("t_indent_id", response.getId());
-                        RequestPay(params, response.getId());
+                            Map<String, String> params = new HashMap<>();
+                            params.put("token", localUserInfo.getToken());
+                            params.put("pay_type", pay_type + "");
+                            params.put("t_indent_id", response.getId());
+                            RequestPay(params, response.getId());
+                        }else {
+                            myToast("请选择支付方式");
+                        }
+
 
                     }
                 });

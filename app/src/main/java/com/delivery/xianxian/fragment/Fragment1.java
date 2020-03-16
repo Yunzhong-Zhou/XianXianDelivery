@@ -31,6 +31,7 @@ import com.delivery.xianxian.R;
 import com.delivery.xianxian.activity.Auth_ShenFenZhengActivity;
 import com.delivery.xianxian.activity.ConfirmOrderActivity;
 import com.delivery.xianxian.activity.MainActivity;
+import com.delivery.xianxian.activity.OrderDetailsActivity;
 import com.delivery.xianxian.activity.SelectAddressActivity;
 import com.delivery.xianxian.base.BaseFragment;
 import com.delivery.xianxian.model.AddFeeModel;
@@ -391,7 +392,7 @@ public class Fragment1 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>首页" + response);
                 //保存是否认证
-                localUserInfo.setIsVerified(response.getIs_certification()+"");//1 认证 2 未认证
+                localUserInfo.setIsVerified(response.getIs_certification() + "");//1 认证 2 未认证
 
                 carTypeList = response.getCar_type();
                 //车型描述
@@ -627,7 +628,7 @@ public class Fragment1 extends BaseFragment {
                                     dialog.dismiss();
                                 }
                             });
-                }else {
+                } else {
                     if (match()) {
                         //先计算费用-返回路程等信息
                         Map<String, String> params = new HashMap<>();
@@ -1093,27 +1094,41 @@ public class Fragment1 extends BaseFragment {
             public void onResponse(AddFeeModel response) {
                 MyLogger.i(">>>>>>>>>计算费用" + response);
                 hideProgress();
-                model = response;
-                localUserInfo.setIsordertrue("0");//是否下单成功//0未成功，1成功
+                if (response.getT_indent_id() != null && !response.getT_indent_id().equals("")) {
+                    showToast("您有订单附加费未支付，请立即前往支付", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            Bundle bundle1 = new Bundle();
+                            bundle1.putString("id", response.getT_indent_id());
+                            CommonUtil.gotoActivityWithData(getActivity(), OrderDetailsActivity.class, bundle1);
+                        }
+                    });
 
-                Bundle bundle5 = new Bundle();
-                bundle5.putString("city", tv_addr.getText().toString());
-                bundle5.putString("car_type_id", carTypeList.get(item).getId() + "");//车型id
-                bundle5.putString("use_type", use_type + "");//用车类型1专车2顺风车3快递
-                bundle5.putString("is_plan", is_plan + "");//用车时间类型1预约2现在
-                bundle5.putString("plan_time", plan_time);//预约时间
+                } else {
+                    model = response;
+                    localUserInfo.setIsordertrue("0");//是否下单成功//0未成功，1成功
+                    Bundle bundle5 = new Bundle();
+                    bundle5.putString("city", tv_addr.getText().toString());
+                    bundle5.putString("car_type_id", carTypeList.get(item).getId() + "");//车型id
+                    bundle5.putString("use_type", use_type + "");//用车类型1专车2顺风车3快递
+                    bundle5.putString("is_plan", is_plan + "");//用车时间类型1预约2现在
+                    bundle5.putString("plan_time", plan_time);//预约时间
 
 //                bundle5.putString("mileage", response.getMillage() + "");//里程km
 //                bundle5.putString("pre_time", response.getDuration() + "");//预计耗时s
 //                bundle5.putString("price", response.getPrice() + "");//价格
-                bundle5.putString("addr_ids", addr_ids + "");//需要得位置起始地顺序id,逗号隔开(1,2,3)
-                bundle5.putString("goods_name", goods_name);//类型
-                bundle5.putString("goods_quantity", goods_quantity);//总件数
-                bundle5.putString("goods_weight", goods_weight);//总重量
-                bundle5.putString("goods_bulk", goods_bulk);//总体积
-                bundle5.putString("goods_send_home", goods_send_home);//是否送货
-                bundle5.putSerializable("AddFeeModel", response);
-                CommonUtil.gotoActivityWithData(getActivity(), ConfirmOrderActivity.class, bundle5, false);
+                    bundle5.putString("addr_ids", addr_ids + "");//需要得位置起始地顺序id,逗号隔开(1,2,3)
+                    bundle5.putString("goods_name", goods_name);//类型
+                    bundle5.putString("goods_quantity", goods_quantity);//总件数
+                    bundle5.putString("goods_weight", goods_weight);//总重量
+                    bundle5.putString("goods_bulk", goods_bulk);//总体积
+                    bundle5.putString("goods_send_home", goods_send_home);//是否送货
+                    bundle5.putSerializable("AddFeeModel", response);
+                    CommonUtil.gotoActivityWithData(getActivity(), ConfirmOrderActivity.class, bundle5, false);
+                }
+
+
             }
         });
     }

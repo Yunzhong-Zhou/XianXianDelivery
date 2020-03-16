@@ -57,10 +57,10 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int jg_channel_name_p_default = 0x7f0e016e;
-        public static final int jg_channel_name_p_high = 0x7f0e016f;
-        public static final int jg_channel_name_p_low = 0x7f0e0170;
-        public static final int jg_channel_name_p_min = 0x7f0e0171;
+        public static final int jg_channel_name_p_default = 0x7f0e0173;
+        public static final int jg_channel_name_p_high = 0x7f0e0174;
+        public static final int jg_channel_name_p_low = 0x7f0e0175;
+        public static final int jg_channel_name_p_min = 0x7f0e0176;
     }
     public static final class style {
         private style() {}

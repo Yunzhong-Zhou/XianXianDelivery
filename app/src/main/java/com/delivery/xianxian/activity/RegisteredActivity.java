@@ -183,6 +183,7 @@ public class RegisteredActivity extends BaseActivity {
         }
         if (password1.length() < 8) {
             myToast("密码过于简单，请重新设置");
+            return false;
         }
         if (!password1.equals(password2)) {
             myToast(getString(R.string.registered_h12));

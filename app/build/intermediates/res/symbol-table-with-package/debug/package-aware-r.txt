@@ -3299,6 +3299,11 @@ string dl_update_photo
 string dl_waiting
 string downwaiting
 string dynamic_expression
+string errcode_cancel
+string errcode_deny
+string errcode_success
+string errcode_unknown
+string errcode_unsupported
 string error_send_invalid_content
 string error_send_not_in_the_group
 string exit_group

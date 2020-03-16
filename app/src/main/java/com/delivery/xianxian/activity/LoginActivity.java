@@ -217,8 +217,8 @@ public class LoginActivity extends BaseActivity {
 
                     @Override
                     public void onProgress(int progress, String status) {
-                    }
 
+                    }
                     @Override
                     public void onError(int code, String error) {
                         runOnUiThread(new Runnable() {
