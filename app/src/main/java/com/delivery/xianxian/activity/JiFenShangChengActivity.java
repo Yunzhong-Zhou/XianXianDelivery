@@ -37,7 +37,8 @@ public class JiFenShangChengActivity extends BaseActivity {
     JiFenShangChengModel model;
 
     ImageView imageView1;
-    TextView textView1, textView2;
+    TextView textView1, textView2,
+            tv_type1, tv_type2, tv_type3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,10 @@ public class JiFenShangChengActivity extends BaseActivity {
         imageView1 = findViewByID_My(R.id.imageView1);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
+
+        tv_type1 = findViewByID_My(R.id.tv_type1);
+        tv_type2 = findViewByID_My(R.id.tv_type2);
+        tv_type3 = findViewByID_My(R.id.tv_type3);
 
     }
 
@@ -129,6 +134,17 @@ public class JiFenShangChengActivity extends BaseActivity {
 
                 textView1.setText(response.getNickname());//昵称
                 textView2.setText(response.getScore()+"");//积分
+
+                if (response.getType().size() >= 1){
+                    tv_type1.setText(response.getType().get(0).getVal());
+                }
+                if (response.getType().size() >= 2){
+                    tv_type2.setText(response.getType().get(1).getVal());
+                }
+                if (response.getType().size() >= 3){
+                    tv_type3.setText(response.getType().get(2).getVal());
+                }
+
 
                 //banner
                 /*images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
