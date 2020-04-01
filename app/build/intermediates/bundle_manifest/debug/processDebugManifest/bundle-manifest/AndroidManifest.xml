@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
-    android:versionCode="30"
-    android:versionName="Beta1.0.30" >
+    android:versionCode="31"
+    android:versionName="Beta1.0.31" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -94,6 +94,7 @@ Android 10 停用过滤视图，使用旧版存储模式
         android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >
@@ -254,9 +255,13 @@ Android 10 停用过滤视图，使用旧版存储模式
 
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:scheme="wxAPPID" />
+                <data android:scheme="wx79d0350178a9ff3a" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.delivery.xianxian.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
 
         <!-- 环信 -->
         <activity

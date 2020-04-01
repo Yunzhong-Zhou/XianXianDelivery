@@ -236,9 +236,12 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:scheme="wxAPPID" />
+                <data android:scheme="wx79d0350178a9ff3a" />
             </intent-filter>
         </activity>
+        <activity android:name=".wxapi.WXEntryActivity"
+            android:launchMode="singleTop"
+            android:exported="true"/>
 
         <!--环信-->
         <activity

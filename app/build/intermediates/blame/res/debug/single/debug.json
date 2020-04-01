@@ -496,6 +496,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/layout/activity_chatmain.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_wechat.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/mipmap-xhdpi/ic_wechat.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_yuanjiaobiankuang_5_juse.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/yuanjiaobiankuang_5_juse.xml"
     },
@@ -2870,6 +2874,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_default_header.xml.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/efeb10dfa485ee0a598874852c30ee63/jetified-library-1.5.1/res/layout/default_header.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_xuxian_huise_heng.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/res/drawable/xuxian_huise_heng.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ease_type_select_btn_nor.png.flat",

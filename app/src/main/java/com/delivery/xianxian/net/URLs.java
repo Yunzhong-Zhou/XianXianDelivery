@@ -29,7 +29,7 @@ public class URLs {
     /**
      * 一键登录
      */
-    public static final String Login1 = "/api/member/quick-login";
+    public static final String Login1 = "/api/member/third-login";
     /**
      * 登录 - 不是同一手机号 -授权
      */

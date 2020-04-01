@@ -6,6 +6,7 @@ import java.io.Serializable;
  * Created by zyz on 2018/6/26.
  */
 public class LoginModel implements Serializable {
+
     /**
      * id : 3
      * mobile : 15823629471

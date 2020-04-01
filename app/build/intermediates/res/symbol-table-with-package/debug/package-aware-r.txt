@@ -1817,6 +1817,7 @@ drawable wheel_val
 drawable white_radius
 drawable white_shape
 drawable xuxian_huise
+drawable xuxian_huise_heng
 drawable yuanjiao_10_baise
 drawable yuanjiao_10_baise_top
 drawable yuanjiao_10_huiise_top
@@ -2149,6 +2150,7 @@ id imageView1
 id imageView2
 id imageView3
 id imageView4
+id image_wechat
 id img
 id imgBack
 id imgRichpushBtnBack
@@ -2960,6 +2962,7 @@ mipmap ic_shouhuo
 mipmap ic_tongxunlu
 mipmap ic_tujingdian
 mipmap ic_up_black
+mipmap ic_wechat
 mipmap ic_weigouxuan
 mipmap ic_weixin
 mipmap ic_weixuan
@@ -3299,11 +3302,6 @@ string dl_update_photo
 string dl_waiting
 string downwaiting
 string dynamic_expression
-string errcode_cancel
-string errcode_deny
-string errcode_success
-string errcode_unknown
-string errcode_unsupported
 string error_send_invalid_content
 string error_send_not_in_the_group
 string exit_group

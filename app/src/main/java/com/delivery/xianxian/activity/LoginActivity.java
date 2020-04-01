@@ -23,6 +23,7 @@ import com.delivery.xianxian.R;
 import com.delivery.xianxian.base.BaseActivity;
 import com.delivery.xianxian.model.LoginModel;
 import com.delivery.xianxian.model.UpgradeModel;
+import com.delivery.xianxian.model.WeChatLoginModel;
 import com.delivery.xianxian.net.OkHttpClientManager;
 import com.delivery.xianxian.net.URLs;
 import com.delivery.xianxian.utils.CommonUtil;
@@ -34,8 +35,20 @@ import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.maning.updatelibrary.InstallUtils;
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+import com.tencent.mm.opensdk.modelmsg.SendAuth;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AlertDialog;
@@ -48,9 +61,10 @@ import static com.delivery.xianxian.net.OkHttpClientManager.HOST;
  * 登录
  */
 public class LoginActivity extends BaseActivity {
+    String code = "";
     private EditText editText1, editText2;
     private TextView textView1, textView2, textView3, textView4;
-    private ImageView imageView1;
+    private ImageView imageView1, image_wechat;
     boolean isgouxuan = false;
 
     private String phonenum = "", password = "";
@@ -84,6 +98,8 @@ public class LoginActivity extends BaseActivity {
     };
     private PermissionsChecker mPermissionsChecker; // 权限检测器
 
+    IWXAPI api;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,8 +113,11 @@ public class LoginActivity extends BaseActivity {
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
 
         mPermissionsChecker = new PermissionsChecker(this);
-    }
 
+        //注册微信api
+        api = WXAPIFactory.createWXAPI(this, "wx79d0350178a9ff3a", false);
+        api.registerApp("wx79d0350178a9ff3a");
+    }
 
     @Override
     protected void initView() {
@@ -112,6 +131,8 @@ public class LoginActivity extends BaseActivity {
         textView4 = findViewByID_My(R.id.textView4);
 
         imageView1 = findViewByID_My(R.id.imageView1);
+
+        image_wechat = findViewByID_My(R.id.image_wechat);
     }
 
     @Override
@@ -175,6 +196,20 @@ public class LoginActivity extends BaseActivity {
                 else
                     imageView1.setImageResource(R.mipmap.ic_weigouxuan);
                 break;
+
+            case R.id.image_wechat:
+                //微信登录
+
+                if (!api.isWXAppInstalled()) {
+                    myToast("您的设备未安装微信客户端");
+                } else {
+                    SendAuth.Req req = new SendAuth.Req();
+                    req.scope = "snsapi_userinfo";
+                    req.state = "wechat_sdk_demo_test";
+                    api.sendReq(req);
+                }
+
+                break;
         }
     }
 
@@ -201,7 +236,7 @@ public class LoginActivity extends BaseActivity {
                 //保存电话号码
                 localUserInfo.setPhoneNumber(response.getMobile());
                 //保存是否认证
-                localUserInfo.setIsVerified(response.getIs_certification()+"");//1 认证 2 未认证
+                localUserInfo.setIsVerified(response.getIs_certification() + "");//1 认证 2 未认证
                 //保存昵称
                 localUserInfo.setNickname(response.getNickname());
                 //保存环信ID
@@ -222,6 +257,7 @@ public class LoginActivity extends BaseActivity {
                     public void onProgress(int progress, String status) {
 
                     }
+
                     @Override
                     public void onError(int code, String error) {
                         runOnUiThread(new Runnable() {
@@ -572,6 +608,23 @@ public class LoginActivity extends BaseActivity {
         if (mPermissionsChecker.lacksPermissions(PERMISSIONS)) {
             startPermissionsActivity();
         }
+        code = getIntent().getStringExtra("code");
+        MyLogger.i(">>>>>>>" + code);
+        if (code != null && !code.equals("")) {
+            /*this.showProgress(true, "正在获取微信登录参数，请稍候...");
+            String url = "https://api.weixin.qq.com/sns/oauth2/access_token"
+                    + "?appid="+"wx79d0350178a9ff3a"
+                    +"&secret="+"77c539b9b3375eca54641a12b35b463b"
+                    +"&code="+code
+                    +"&grant_type=authorization_code";
+            requestWeChat1(url);*/
+            getIntent().removeExtra("code");
+            this.showProgress(true, "正在登录，请稍候...");
+            Map<String, String> params = new HashMap<>();
+            params.put("code", code);
+            params.put("type", "1");
+            RequestWeChatLogin(params);//微信登录
+        }
     }
 
     private void startPermissionsActivity() {
@@ -585,5 +638,244 @@ public class LoginActivity extends BaseActivity {
         if (requestCode == REQUEST_CODE && resultCode == PermissionsActivity.PERMISSIONS_DENIED) {
             finish();
         }
+    }
+
+    //微信登录
+    private void RequestWeChatLogin(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(LoginActivity.this, URLs.Login1, params, new OkHttpClientManager.ResultCallback<WeChatLoginModel>() {
+            @Override
+            public void onError(final Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(final WeChatLoginModel response) {
+                MyLogger.i(">>>>>>>>>登录" + response);
+//                localUserInfo.setTime(System.currentTimeMillis() + "");
+                if (response.getThird_id().equals("0")) {//登录通过
+                    //保存Token
+                    localUserInfo.setToken(response.getLogin_data().getFresh_token());
+                    //保存电话号码
+                    localUserInfo.setPhoneNumber(response.getLogin_data().getMobile());
+                    //保存是否认证
+                    localUserInfo.setIsVerified(response.getLogin_data().getIs_certification() + "");//1 认证 2 未认证
+                    //保存昵称
+                    localUserInfo.setNickname(response.getLogin_data().getNickname());
+                    //保存环信ID
+                    localUserInfo.setHxid(response.getLogin_data().getHx_username());
+
+                    //环信登录-为了登录成功，先退出登录
+                    EMClient.getInstance().logout(false);
+                    EMClient.getInstance().login(response.getLogin_data().getHx_username(), "123456", new EMCallBack() {
+                        @Override
+                        public void onSuccess() {
+                            hideProgress();
+                            //保存id
+                            localUserInfo.setUserId(response.getLogin_data().getId());
+                            CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
+                        }
+
+                        @Override
+                        public void onProgress(int progress, String status) {
+
+                        }
+
+                        @Override
+                        public void onError(int code, String error) {
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+//                                hideProgress();
+                                    MyLogger.i("环信登录失败：" + error);
+//                                myToast("环信登录失败：" + error);
+                                    //注册环信
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                EMClient.getInstance().createAccount(response.getLogin_data().getHx_username(), "123456");
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        //登录环信
+                                                        EMClient.getInstance().login(response.getLogin_data().getHx_username(), "123456", new EMCallBack() {
+                                                            @Override
+                                                            public void onSuccess() {
+                                                                hideProgress();
+                                                                //保存id
+                                                                localUserInfo.setUserId(response.getLogin_data().getId());
+                                                                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
+                                                            }
+
+                                                            @Override
+                                                            public void onProgress(int progress, String status) {
+                                                            }
+
+                                                            @Override
+                                                            public void onError(int code, String error) {
+                                                                runOnUiThread(new Runnable() {
+                                                                    public void run() {
+                                                                        hideProgress();
+                                                                        MyLogger.i("环信登录失败：" + error);
+                                                                        myToast("环信登录失败：" + error);
+                                                                    }
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            } catch (final HyphenateException e) {
+                                                e.printStackTrace();
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        hideProgress();
+                                                        int errorCode = e.getErrorCode();
+                                                        String message = e.getMessage();
+                                                        Log.d("lzan13", String.format("sign up - errorCode:%d, errorMsg:%s", errorCode, e.getMessage()));
+                                                        switch (errorCode) {
+                                                            // 网络错误
+                                                            case EMError.NETWORK_ERROR:
+                                                                MyLogger.i("网络错误 code: " + errorCode + ", message:" + message);
+                                                                break;
+                                                            // 用户已存在
+                                                            case EMError.USER_ALREADY_EXIST:
+                                                                MyLogger.i("用户已存在 code: " + errorCode + ", message:" + message);
+                                                                break;
+                                                            // 参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册
+                                                            case EMError.USER_ILLEGAL_ARGUMENT:
+                                                                MyLogger.i("参数不合法，一般情况是username 使用了uuid导致，不能使用uuid注册 code: " + errorCode + ", message:" + message);
+                                                                break;
+                                                            // 服务器未知错误
+                                                            case EMError.SERVER_UNKNOWN_ERROR:
+                                                                MyLogger.i("服务器未知错误 code: " + errorCode + ", message:" + message);
+                                                                break;
+                                                            case EMError.USER_REG_FAILED:
+                                                                MyLogger.i("账户注册失败 code: " + errorCode + ", message:" + message);
+                                                                break;
+                                                            default:
+                                                                MyLogger.i("ml_sign_up_failed code: " + errorCode + ", message:" + message);
+                                                                break;
+                                                        }
+                                                    }
+                                                });
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }).start();
+                                }
+                            });
+                        }
+                    });
+                } else {//未完善资料
+                    hideProgress();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("third_id", response.getThird_id());
+                    CommonUtil.gotoActivityWithData(LoginActivity.this, RegisteredActivity.class, bundle, false);
+                }
+
+            }
+        }, false);
+
+    }
+
+    //获取微信数据1
+    private void requestWeChat1(String string) {
+
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(string)
+                .get()//默认就是GET请求，可以不写
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                hideProgress();
+
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                String responseInfo = response.body().string();
+                MyLogger.i(">>>>>>>>>微信数据1:\n" + responseInfo);
+                String access_token = "";
+                String openId = "";
+                String refresh_token = "";
+                try {
+                    JSONObject jsonObject = new JSONObject(responseInfo);
+                    refresh_token = jsonObject.getString("refresh_token");
+                    access_token = jsonObject.getString("access_token");
+                    openId = jsonObject.getString("openid");
+
+                    String url = "https://api.weixin.qq.com/sns/userinfo"
+                            + "?access_token=" + access_token
+                            + "&openid=" + openId;
+
+                    requestWeChat2(url);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+    }
+
+    //获取微信数据2
+    private void requestWeChat2(String string) {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(string)
+                .get()//默认就是GET请求，可以不写
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                hideProgress();
+
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                String responseInfo = response.body().string();
+                MyLogger.i(">>>>>>>>>微信数据2:\n" + responseInfo);
+				/*
+				{
+  "openid": "OPENID",
+  "nickname": "NICKNAME",
+  "sex": 1,
+  "province": "PROVINCE",
+  "city": "CITY",
+  "country": "COUNTRY",
+  "headimgurl": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/0",
+  "privilege": ["PRIVILEGE1", "PRIVILEGE2"],
+  "unionid": " o6_bmasdasdsad6_2sgVt7hMZOPfL"
+}
+				* */
+
+                String openid = "";
+                String nickname = "";
+                String sex = "";
+                String city = "";
+                String headimgurl = "";
+                try {
+                    JSONObject jsonObject = new JSONObject(responseInfo);
+                    openid = jsonObject.getString("openid");
+                    nickname = jsonObject.getString("nickname");
+                    headimgurl = jsonObject.getString("headimgurl");
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
     }
 }
