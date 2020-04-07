@@ -128,7 +128,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="运货订单"
+                            android:text="货运订单"
                             android:textColor="@color/black1"
                             android:textSize="10sp" />
 

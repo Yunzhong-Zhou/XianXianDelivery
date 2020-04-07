@@ -277,6 +277,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                         textView1.setText("");
                         textView2.setText("请选择");
                         money1 = 0;
+                        i1 = -1;
                         textView11.setText("合计费用：￥" + (money + money1 + money2));
                         dialog.dismiss();
                     }

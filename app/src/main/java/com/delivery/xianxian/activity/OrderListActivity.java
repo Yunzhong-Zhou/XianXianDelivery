@@ -308,7 +308,7 @@ public class OrderListActivity extends BaseActivity {
                                         textView3.setText(model.getStatus_text()+"-附加费已支付");
                                     }else if (model.getIs_attach_fee() == 2){
                                         textView3.setText(model.getStatus_text()+"-附加费未支付");
-                                    }else {
+                                    }else if (model.getIs_attach_fee() == 3){
                                         textView3.setText(model.getStatus_text()+"-附加费未添加");
                                     }
 
