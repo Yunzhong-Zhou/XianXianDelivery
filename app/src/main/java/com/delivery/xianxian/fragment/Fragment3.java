@@ -204,8 +204,6 @@ public class Fragment3 extends BaseFragment {
 //                            .placeholder(R.mipmap.headimg)//加载站位图
 //                            .error(R.mipmap.headimg)//加载失败
                             .into(imageView1);//加载图片
-                else
-                    imageView1.setImageResource(R.mipmap.headimg);
                 //未读信息
                 if (response.getMsg() > 0) {
                     tv_xiaoxinum2.setVisibility(View.VISIBLE);

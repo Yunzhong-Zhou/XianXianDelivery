@@ -63,16 +63,16 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 		case BaseResp.ErrCode.ERR_USER_CANCEL:
 			//用户取消
 			Toast.makeText(this, "用户取消授权", Toast.LENGTH_SHORT).show();
-			finish();
+			CommonUtil.gotoActivity(WXEntryActivity.this, LoginActivity.class,true);
 			break;
 		case BaseResp.ErrCode.ERR_AUTH_DENIED:
 			//用户拒绝
 			Toast.makeText(this, "用户拒绝授权", Toast.LENGTH_SHORT).show();
-			finish();
+			CommonUtil.gotoActivity(WXEntryActivity.this, LoginActivity.class,true);
 			break;
 		default:
 			Toast.makeText(this, "微信登录失败", Toast.LENGTH_SHORT).show();
-			finish();
+			CommonUtil.gotoActivity(WXEntryActivity.this, LoginActivity.class,true);
 			break;
 		}
 

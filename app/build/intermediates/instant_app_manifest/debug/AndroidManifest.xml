@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
     android:targetSandboxVersion="2"
-    android:versionCode="31"
-    android:versionName="Beta1.0.31" >
+    android:versionCode="32"
+    android:versionName="Beta1.0.32" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -95,7 +95,6 @@ Android 10 停用过滤视图，使用旧版存储模式
         android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >

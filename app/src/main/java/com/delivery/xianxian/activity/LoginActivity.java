@@ -199,7 +199,6 @@ public class LoginActivity extends BaseActivity {
 
             case R.id.image_wechat:
                 //微信登录
-
                 if (!api.isWXAppInstalled()) {
                     myToast("您的设备未安装微信客户端");
                 } else {
@@ -207,6 +206,7 @@ public class LoginActivity extends BaseActivity {
                     req.scope = "snsapi_userinfo";
                     req.state = "wechat_sdk_demo_test";
                     api.sendReq(req);
+                    finish();
                 }
 
                 break;
