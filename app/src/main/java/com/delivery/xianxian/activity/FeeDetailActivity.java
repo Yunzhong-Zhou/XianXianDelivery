@@ -28,7 +28,7 @@ public class FeeDetailActivity extends BaseActivity {
     private RecyclerView recyclerView;
     List<AddFeeModel.PriceListBean> list = new ArrayList<>();
     CommonAdapter<AddFeeModel.PriceListBean> mAdapter;
-    TextView textView1, textView2;
+    TextView textView1, textView2,textView3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class FeeDetailActivity extends BaseActivity {
 
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
+        textView3 = findViewByID_My(R.id.textView3);
     }
 
     @Override
@@ -55,6 +56,20 @@ public class FeeDetailActivity extends BaseActivity {
 
         textView1.setText(model.getPrice());
         textView2.setText("（总里程" + model.getMillage() + "公里）");
+        switch (use_type){//用车类型1专车2顺风车3快递
+            case "1":
+                //专车
+                textView3.setText("若产生高速费，停车费和搬运费，请用户额外支付 \n若涉及逾时等候费，请于司机按收费标准核算");
+                break;
+            case "2":
+                //顺风车
+                textView3.setText("顺风车最低20公里起步，里程≤20公里，按20公里计算；\n≥20公里，则按起步价加上里程费计算");
+                break;
+            case "3":
+                //快递
+                textView3.setText("零担最低20公里起步，里程≤20公里，按20公里计算；\n≥20公里，则按起步价加上里程费计算");
+                break;
+        }
 
         list = model.getPrice_list();
         mAdapter = new CommonAdapter<AddFeeModel.PriceListBean>
