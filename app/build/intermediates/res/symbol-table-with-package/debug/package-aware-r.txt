@@ -2081,13 +2081,6 @@ id editText_1
 id editText_2
 id edit_query
 id edittext_layout
-id em_bigview_TextView
-id em_bigview_imageView
-id em_notification_content
-id em_notification_date
-id em_notification_icon
-id em_notification_style
-id em_notification_title
 id emojicon
 id emojicon_menu_container
 id encode_failed
@@ -2783,7 +2776,6 @@ layout ease_widget_emojicon_tab_bar
 layout ease_widget_switch_button
 layout ease_widget_title_bar
 layout ease_widget_voice_recorder
-layout em_simple_notification
 layout fragment1
 layout fragment3
 layout include_pickerview_topbar
@@ -2982,7 +2974,6 @@ mipmap txt_xianxianla_white
 mipmap weixuan
 mipmap xuanzhong
 raw beep
-raw keep
 raw outgoing
 string Add_a_button_was_clicked
 string Add_a_friend

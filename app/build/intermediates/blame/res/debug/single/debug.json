@@ -1892,10 +1892,6 @@
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ee_22.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/layout_em_simple_notification.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1c685a2c53eee241dd5702a69cd41e03/jetified-hyphenate-sdk-3.6.1/res/layout/em_simple_notification.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/drawable-hdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
@@ -4370,10 +4366,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_launcher.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/build/intermediates/packaged_res/debug/drawable-mdpi-v4/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/raw_keep.xml.flat",
-        "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1c685a2c53eee241dd5702a69cd41e03/jetified-hyphenate-sdk-3.6.1/res/raw/keep.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/build/intermediates/res/merged/debug/drawable_white_radius.xml.flat",

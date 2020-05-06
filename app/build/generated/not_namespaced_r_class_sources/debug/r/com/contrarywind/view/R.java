@@ -45,8 +45,8 @@ public final class R {
         private id() {}
 
         public static final int center = 0x7f08007d;
-        public static final int left = 0x7f08014b;
-        public static final int right = 0x7f0801df;
+        public static final int left = 0x7f080144;
+        public static final int right = 0x7f0801d8;
     }
     public static final class string {
         private string() {}

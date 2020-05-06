@@ -104,6 +104,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/libs/AMapTrack_1.1.0_AMapLocation_4.7.0_20190708.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/libs/BaiduLBS_Android.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/easeui/libs/hyphenatechat_3.6.6.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.collection:collection:1.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0@jar" level="project" />
@@ -187,10 +188,8 @@
     <orderEntry type="library" name="Gradle: com.zaaach:citypicker:2.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.contrarywind:Android-PickerView:4.1.8@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.contrarywind:wheelview:4.0.9@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.hyphenate:hyphenate-sdk:3.6.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: :alipaySdk-15.6.8-20191021122514:@aar" level="project" />
     <orderEntry type="module" module-name="easeui" />
     <orderEntry type="library" name="Gradle: org.apache.http.legacy-android-29" level="project" />
-    <orderEntry type="module" module-name="easeui" />
   </component>
 </module>
