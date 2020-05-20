@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delivery.xianxian"
-    android:versionCode="5"
-    android:versionName="1.0.5" >
+    android:versionCode="7"
+    android:versionName="1.0.7" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -94,7 +94,6 @@ Android 10 停用过滤视图，使用旧版存储模式
         android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >
@@ -285,9 +284,14 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:label="聊天页面" />
 
         <!-- 设置环信应用的AppKey -->
-        <meta-data
+        <!--
+            <meta-data
             android:name="EASEMOB_APPKEY"
             android:value="1138191008030637#xxl88" />
+        -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1138191008030637#xianxianla" />
         <!-- 声明SDK所需的service SDK核心功能 -->
         <service
             android:name="com.hyphenate.chat.EMChatService"
