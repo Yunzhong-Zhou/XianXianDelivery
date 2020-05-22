@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.delivery.xianxian"
-4    android:versionCode="7"
-5    android:versionName="1.0.7" >
+4    android:versionCode="8"
+5    android:versionName="1.0.8" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
@@ -173,942 +173,943 @@
 95-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:72:9-54
 96        android:supportsRtl="true"
 96-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:73:9-35
-97        android:theme="@style/AppTheme"
-97-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:74:9-40
-98        android:usesCleartextTraffic="true"
-98-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:76:9-44
-99        android:windowIsTranslucent="false" >
-99-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:77:9-44
-100        <activity
-100-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:78:9-86:20
-101            android:name="com.delivery.xianxian.activity.HelloActivity"
-101-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:79:13-72
-102            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > <!-- //全屏 -->
-102-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:80:13-71
-103            <intent-filter>
-103-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:81:13-85:29
-104                <action android:name="android.intent.action.MAIN" />
-104-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:82:17-69
-104-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:82:25-66
-105
-106                <category android:name="android.intent.category.LAUNCHER" />
-106-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:84:17-77
-106-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:84:27-74
-107            </intent-filter>
-108        </activity>
-109        <activity
-109-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:87:9-89:35
-110            android:name="com.delivery.xianxian.utils.permission.PermissionsActivity"
-110-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:88:13-86
-111            android:label="权限页" />
-111-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:89:13-32
-112        <activity
-112-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:90:9-93:74
-113            android:name="com.delivery.xianxian.activity.GuideActivity"
-113-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:91:13-72
-114            android:label="引导页"
-114-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:92:13-32
-115            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-115-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:93:13-71
-116        <activity
-116-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:94:9-97:61
-117            android:name="com.delivery.xianxian.activity.MainActivity"
-117-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:95:13-71
-118            android:label="主页"
-118-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:96:13-31
-119            android:theme="@style/DefaultCityPickerTheme" />
-119-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:97:13-58
-120        <activity
-120-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:98:9-100:34
-121            android:name="com.delivery.xianxian.activity.LoginActivity"
-121-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:99:13-72
-122            android:label="登录" />
-122-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:100:13-31
-123        <activity
-123-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:101:9-103:36
-124            android:name="com.delivery.xianxian.activity.ForgetPasswordActivity"
-124-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:102:13-81
-125            android:label="忘记密码" />
-125-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:103:13-33
-126        <activity
-126-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:104:9-106:35
-127            android:name="com.delivery.xianxian.activity.RegisteredActivity"
-127-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:105:13-77
-128            android:label="注册1" />
-128-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:106:13-32
-129        <activity
-129-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:107:9-109:34
-130            android:name="com.delivery.xianxian.activity.WebContentActivity"
-130-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:108:13-77
-131            android:label="网页" />
-131-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:109:13-31
-132        <activity
-132-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:110:9-112:35
-133            android:name="com.delivery.xianxian.zxing.CaptureActivity"
-133-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:111:13-71
-134            android:label="扫一扫" />
-134-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:112:13-32
-135
-136        <!-- 首页 -->
-137        <activity
-137-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:115:9-118:61
-138            android:name="com.delivery.xianxian.activity.SelectAddressActivity"
-138-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:116:13-80
-139            android:label="选取地点"
-139-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:117:13-33
-140            android:theme="@style/DefaultCityPickerTheme" />
-140-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:118:13-58
-141        <activity
-141-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:119:9-121:36
-142            android:name="com.delivery.xianxian.activity.ConfirmOrderActivity"
-142-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:120:13-79
-143            android:label="确认订单" />
-143-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:121:13-33
-144        <activity
-144-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:122:9-124:36
-145            android:name="com.delivery.xianxian.activity.FeeDetailActivity"
-145-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:123:13-76
-146            android:label="费用详情" />
-146-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:124:13-33
-147        <activity
-147-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:125:9-127:36
-148            android:name="com.delivery.xianxian.activity.FeeModelActivity"
-148-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:126:13-75
-149            android:label="收费标准" />
-149-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:127:13-33
-150        <activity
-150-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:128:9-130:38
-151            android:name="com.delivery.xianxian.activity.AddOtherActivity"
-151-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:129:13-75
-152            android:label="添加额外需求" />
-152-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:130:13-35
-153        <activity
-153-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:134:9-136:36
-154            android:name="com.delivery.xianxian.activity.NoticeListActivity"
-154-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:135:13-77
-155            android:label="公告列表" />
-155-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:136:13-33
-156        <activity
-156-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:137:9-139:36
-157            android:name="com.delivery.xianxian.activity.ScoreDetailActivity"
-157-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:138:13-78
-158            android:label="评分详情" />
-158-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:139:13-33
-159        <activity
-159-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:140:9-142:36
-160            android:name="com.delivery.xianxian.activity.CapitalStatisticsActivity"
-160-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:141:13-84
-161            android:label="资金统计" />
-161-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:142:13-33
-162        <activity
-162-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:143:9-145:34
-163            android:name="com.delivery.xianxian.activity.TakeCashActivity"
-163-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:144:13-75
-164            android:label="提现" />
-164-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:145:13-31
-165
-166        <!-- 订单 -->
-167        <activity
-167-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:148:9-150:36
-168            android:name="com.delivery.xianxian.activity.OrderListActivity"
-168-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:149:13-76
-169            android:label="货运订单" />
-169-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:150:13-33
-170        <activity
-170-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:151:9-153:36
-171            android:name="com.delivery.xianxian.activity.OrderDetailsActivity"
-171-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:152:13-79
-172            android:label="订单详情" />
-172-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:153:13-33
-173        <activity
-173-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:154:9-156:36
-174            android:name="com.delivery.xianxian.activity.OrderCancelActivity"
-174-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:155:13-78
-175            android:label="取消订单" />
-175-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:156:13-33
-176        <activity
-176-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:157:9-159:38
-177            android:name="com.delivery.xianxian.activity.OrderCancelDetailActivity"
-177-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:158:13-84
-178            android:label="取消订单详情" />
-178-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:159:13-35
-179        <activity
-179-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:160:9-162:36
-180            android:name="com.delivery.xianxian.activity.InvoiceActivity"
-180-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:161:13-74
-181            android:label="申请发票" />
-181-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:162:13-33
-182        <activity
-182-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:163:9-165:36
-183            android:name="com.delivery.xianxian.activity.AddInvoiceActivity"
-183-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:164:13-77
-184            android:label="确认开票" />
-184-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:165:13-33
-185        <activity
-185-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:166:9-168:34
-186            android:name="com.delivery.xianxian.activity.AppraiseActivity"
-186-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:167:13-75
-187            android:label="评价" />
-187-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:168:13-31
-188        <activity
-188-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:169:9-171:37
-189            android:name="com.delivery.xianxian.activity.AddSurchargeActivity"
-189-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:170:13-79
-190            android:label="添加附加费" />
-190-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:171:13-34
-191        <activity
-191-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:173:9-175:38
-192            android:name="com.delivery.xianxian.activity.TrackServiceActivity"
-192-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:174:13-79
-193            android:label="轨迹上报服务" />
-193-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:175:13-35
-194        <activity
-194-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:176:9-178:36
-195            android:name="com.delivery.xianxian.activity.TrackSearchActivity"
-195-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:177:13-78
-196            android:label="轨迹查询" />
-196-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:178:13-33
-197        <!-- 个人中心 -->
-198        <activity
-198-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:180:9-182:39
-199            android:name="com.delivery.xianxian.activity.MyProfileActivity"
-199-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:181:13-76
-200            android:label="修改头像/电话" />
-200-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:182:13-36
-201        <activity
-201-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:183:9-185:37
-202            android:name="com.delivery.xianxian.activity.ChangePhoneNumActivity"
-202-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:184:13-81
-203            android:label="修改手机号" />
-203-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:185:13-34
-204        <activity
-204-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:186:9-188:36
-205            android:name="com.delivery.xianxian.activity.ChangePasswordActivity"
-205-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:187:13-81
-206            android:label="修改密码" />
-206-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:188:13-33
-207        <activity
-207-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:189:9-191:34
-208            android:name="com.delivery.xianxian.activity.WalletActivity"
-208-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:190:13-73
-209            android:label="钱包" />
-209-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:191:13-31
-210        <activity
-210-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:192:9-194:34
-211            android:name="com.delivery.xianxian.activity.RechargeActivity"
-211-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:193:13-75
-212            android:label="充值" />
-212-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:194:13-31
-213        <activity
-213-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:195:9-197:36
-214            android:name="com.delivery.xianxian.activity.MoneyListActivity"
-214-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:196:13-76
-215            android:label="余额明细" />
-215-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:197:13-33
-216        <activity
-216-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:198:9-200:36
-217            android:name="com.delivery.xianxian.activity.JiangLiHuoDongActivity"
-217-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:199:13-81
-218            android:label="奖励活动" />
-218-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:200:13-33
-219        <activity
-219-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:201:9-203:36
-220            android:name="com.delivery.xianxian.activity.JiangLiListActivity"
-220-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:202:13-78
-221            android:label="奖励记录" />
-221-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:203:13-33
-222        <activity
-222-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:204:9-206:36
-223            android:name="com.delivery.xianxian.activity.JiFenShangChengActivity"
-223-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:205:13-82
-224            android:label="积分商城" />
-224-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:206:13-33
-225        <activity
-225-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:207:9-209:36
-226            android:name="com.delivery.xianxian.activity.JiFenLieBiaoActivity"
-226-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:208:13-79
-227            android:label="商品列表" />
-227-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:209:13-33
-228        <activity
-228-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:210:9-212:36
-229            android:name="com.delivery.xianxian.activity.DuiHuanListActivity"
-229-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:211:13-78
-230            android:label="兑换记录" />
-230-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:212:13-33
-231        <activity
-231-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:213:9-215:36
-232            android:name="com.delivery.xianxian.activity.JiFenMingXiActivity"
-232-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:214:13-78
-233            android:label="积分明细" />
-233-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:215:13-33
-234        <activity
-234-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:216:9-218:36
-235            android:name="com.delivery.xianxian.activity.ServiceCenterActivity"
-235-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:217:13-80
-236            android:label="车主助手" />
-236-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:218:13-33
-237        <activity
-237-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:219:9-221:37
-238            android:name="com.delivery.xianxian.activity.Auth_ShenFenZhengActivity"
-238-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:220:13-84
-239            android:label="身份证认证" />
-239-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:221:13-34
-240        <activity
-240-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:222:9-224:36
-241            android:name="com.delivery.xianxian.activity.MyDriverActivity"
-241-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:223:13-75
-242            android:label="我的司机" />
-242-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:224:13-33
-243        <activity
-243-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:225:9-227:36
-244            android:name="com.delivery.xianxian.activity.TemperatureActivity"
-244-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:226:13-78
-245            android:label="实时温度" />
-245-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:227:13-33
-246
-247        <!-- 微信支付回调 -->
-248        <activity
-248-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:230:9-241:20
-249            android:name="com.delivery.xianxian.wxapi.WXPayEntryActivity"
-249-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:231:13-53
-250            android:exported="true"
-250-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:232:13-36
-251            android:launchMode="singleTop" >
-251-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:233:13-43
-252            <intent-filter>
-252-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:234:13-240:29
-253                <action android:name="android.intent.action.VIEW" />
-253-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:235:17-69
-253-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:235:25-66
-254
-255                <category android:name="android.intent.category.DEFAULT" />
-255-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:17-76
-255-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:27-73
-256
-257                <data android:scheme="wx79d0350178a9ff3a" />
-257-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:17-61
-257-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:23-58
-258            </intent-filter>
-259        </activity>
-260        <activity
-260-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:242:9-244:38
-261            android:name="com.delivery.xianxian.wxapi.WXEntryActivity"
-261-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:242:19-56
-262            android:exported="true"
-262-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:244:13-36
-263            android:launchMode="singleTop" />
-263-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:243:13-43
-264
-265        <!-- 环信 -->
-266        <activity
-266-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:247:9-249:36
-267            android:name="com.delivery.xianxian.activity.ChatMainActivity"
-267-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:248:13-75
-268            android:label="聊天首页" />
-268-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:249:13-33
-269        <activity
-269-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:250:9-252:36
-270            android:name="com.delivery.xianxian.activity.ChatActivity"
-270-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:251:13-71
-271            android:label="聊天页面" />
-271-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:252:13-33
-272        <activity
-272-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:253:9-256:52
-273            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
-273-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:254:13-72
-274            android:label="地图定位"
-274-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:255:13-33
-275            android:screenOrientation="portrait" />
-275-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:256:13-49
-276        <activity
-276-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:257:9-259:52
-277            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
-277-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:258:13-76
-278            android:screenOrientation="portrait" />
-278-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:259:13-49
-279        <activity
-279-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:260:9-262:40
-280            android:name="com.delivery.xianxian.utils.huanxin.MyConversationListActivity"
-280-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:261:13-90
-281            android:label="环信消息会话列表" />
-281-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:262:13-37
-282        <activity
-282-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:263:9-265:36
-283            android:name="com.delivery.xianxian.activity.MyChatActivity"
-283-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:264:13-73
-284            android:label="聊天页面" />
-284-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:265:13-33
-285
-286        <!-- 设置环信应用的AppKey -->
-287        <!--
-288            <meta-data
-289            android:name="EASEMOB_APPKEY"
-290            android:value="1138191008030637#xxl88" />
-291        -->
-292        <meta-data
-292-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:271:9-273:59
-293            android:name="EASEMOB_APPKEY"
-293-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:272:13-42
-294            android:value="1138191008030637#xianxianla" />
-294-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:273:13-56
-295        <!-- 声明SDK所需的service SDK核心功能 -->
-296        <service
-296-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:275:9-277:39
-297            android:name="com.hyphenate.chat.EMChatService"
-297-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:276:13-60
-298            android:exported="true" />
-298-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:277:13-36
-299        <service
-299-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:278:9-281:72
-300            android:name="com.hyphenate.chat.EMJobService"
-300-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:279:13-59
-301            android:exported="true"
-301-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:280:13-36
-302            android:permission="android.permission.BIND_JOB_SERVICE" />
-302-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:281:13-69
-303        <!-- 声明SDK所需的receiver -->
-304        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver" >
-304-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:283:9-293:20
-304-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:283:19-70
-305            <intent-filter>
-305-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:284:13-287:29
-306                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-306-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:285:17-80
-306-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:285:25-77
-307
-308                <data android:scheme="package" />
-308-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:17-61
-308-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:23-58
-309            </intent-filter>
-310            <!-- 可选filter -->
-311            <intent-filter>
-311-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:289:13-292:29
-312                <action android:name="android.intent.action.BOOT_COMPLETED" />
-312-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:290:17-79
-312-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:290:25-76
-313                <action android:name="android.intent.action.USER_PRESENT" />
-313-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:291:17-77
-313-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:291:25-74
-314            </intent-filter>
-315        </receiver>
-316
-317        <!-- 高德地图 -->
-318        <activity
-318-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:296:9-299:63
-319            android:name="com.amap.api.navi.AmapRouteActivity"
-319-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:297:13-63
-320            android:configChanges="orientation|keyboardHidden|screenSize"
-320-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:298:13-74
-321            android:theme="@android:style/Theme.NoTitleBar" /> <!-- 导航组件 -->
-321-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:299:13-60
-322        <meta-data
-322-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:300:9-302:64
-323            android:name="com.amap.api.v2.apikey"
-323-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:301:13-50
-324            android:value="b31683d96c37bd2c6b874efe7750f18d" />
-324-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:302:13-61
-325        <!-- 定位 -->
-326        <service
-326-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:304:9-307:39
-327            android:name="com.delivery.xianxian.service.LocationService"
-327-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:305:13-73
-328            android:enabled="true"
-328-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:306:13-35
-329            android:exported="true" />
-329-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:307:13-36
-330        <service android:name="com.amap.api.location.APSService" /> <!-- 定位SDK服务 -->
-330-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:308:9-68
-330-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:308:18-65
-331        <service android:name="com.amap.api.track.AMapTrackService" /> <!-- 猎鹰SDK服务 -->
-331-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:309:9-71
-331-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:309:18-68
-332
+97        android:testOnly="true"
+98        android:theme="@style/AppTheme"
+98-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:74:9-40
+99        android:usesCleartextTraffic="true"
+99-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:76:9-44
+100        android:windowIsTranslucent="false" >
+100-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:77:9-44
+101        <activity
+101-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:78:9-86:20
+102            android:name="com.delivery.xianxian.activity.HelloActivity"
+102-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:79:13-72
+103            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > <!-- //全屏 -->
+103-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:80:13-71
+104            <intent-filter>
+104-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:81:13-85:29
+105                <action android:name="android.intent.action.MAIN" />
+105-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:82:17-69
+105-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:82:25-66
+106
+107                <category android:name="android.intent.category.LAUNCHER" />
+107-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:84:17-77
+107-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:84:27-74
+108            </intent-filter>
+109        </activity>
+110        <activity
+110-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:87:9-89:35
+111            android:name="com.delivery.xianxian.utils.permission.PermissionsActivity"
+111-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:88:13-86
+112            android:label="权限页" />
+112-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:89:13-32
+113        <activity
+113-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:90:9-93:74
+114            android:name="com.delivery.xianxian.activity.GuideActivity"
+114-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:91:13-72
+115            android:label="引导页"
+115-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:92:13-32
+116            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+116-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:93:13-71
+117        <activity
+117-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:94:9-97:61
+118            android:name="com.delivery.xianxian.activity.MainActivity"
+118-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:95:13-71
+119            android:label="主页"
+119-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:96:13-31
+120            android:theme="@style/DefaultCityPickerTheme" />
+120-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:97:13-58
+121        <activity
+121-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:98:9-100:34
+122            android:name="com.delivery.xianxian.activity.LoginActivity"
+122-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:99:13-72
+123            android:label="登录" />
+123-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:100:13-31
+124        <activity
+124-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:101:9-103:36
+125            android:name="com.delivery.xianxian.activity.ForgetPasswordActivity"
+125-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:102:13-81
+126            android:label="忘记密码" />
+126-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:103:13-33
+127        <activity
+127-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:104:9-106:35
+128            android:name="com.delivery.xianxian.activity.RegisteredActivity"
+128-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:105:13-77
+129            android:label="注册1" />
+129-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:106:13-32
+130        <activity
+130-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:107:9-109:34
+131            android:name="com.delivery.xianxian.activity.WebContentActivity"
+131-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:108:13-77
+132            android:label="网页" />
+132-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:109:13-31
+133        <activity
+133-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:110:9-112:35
+134            android:name="com.delivery.xianxian.zxing.CaptureActivity"
+134-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:111:13-71
+135            android:label="扫一扫" />
+135-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:112:13-32
+136
+137        <!-- 首页 -->
+138        <activity
+138-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:115:9-118:61
+139            android:name="com.delivery.xianxian.activity.SelectAddressActivity"
+139-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:116:13-80
+140            android:label="选取地点"
+140-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:117:13-33
+141            android:theme="@style/DefaultCityPickerTheme" />
+141-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:118:13-58
+142        <activity
+142-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:119:9-121:36
+143            android:name="com.delivery.xianxian.activity.ConfirmOrderActivity"
+143-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:120:13-79
+144            android:label="确认订单" />
+144-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:121:13-33
+145        <activity
+145-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:122:9-124:36
+146            android:name="com.delivery.xianxian.activity.FeeDetailActivity"
+146-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:123:13-76
+147            android:label="费用详情" />
+147-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:124:13-33
+148        <activity
+148-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:125:9-127:36
+149            android:name="com.delivery.xianxian.activity.FeeModelActivity"
+149-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:126:13-75
+150            android:label="收费标准" />
+150-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:127:13-33
+151        <activity
+151-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:128:9-130:38
+152            android:name="com.delivery.xianxian.activity.AddOtherActivity"
+152-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:129:13-75
+153            android:label="添加额外需求" />
+153-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:130:13-35
+154        <activity
+154-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:134:9-136:36
+155            android:name="com.delivery.xianxian.activity.NoticeListActivity"
+155-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:135:13-77
+156            android:label="公告列表" />
+156-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:136:13-33
+157        <activity
+157-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:137:9-139:36
+158            android:name="com.delivery.xianxian.activity.ScoreDetailActivity"
+158-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:138:13-78
+159            android:label="评分详情" />
+159-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:139:13-33
+160        <activity
+160-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:140:9-142:36
+161            android:name="com.delivery.xianxian.activity.CapitalStatisticsActivity"
+161-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:141:13-84
+162            android:label="资金统计" />
+162-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:142:13-33
+163        <activity
+163-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:143:9-145:34
+164            android:name="com.delivery.xianxian.activity.TakeCashActivity"
+164-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:144:13-75
+165            android:label="提现" />
+165-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:145:13-31
+166
+167        <!-- 订单 -->
+168        <activity
+168-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:148:9-150:36
+169            android:name="com.delivery.xianxian.activity.OrderListActivity"
+169-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:149:13-76
+170            android:label="货运订单" />
+170-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:150:13-33
+171        <activity
+171-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:151:9-153:36
+172            android:name="com.delivery.xianxian.activity.OrderDetailsActivity"
+172-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:152:13-79
+173            android:label="订单详情" />
+173-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:153:13-33
+174        <activity
+174-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:154:9-156:36
+175            android:name="com.delivery.xianxian.activity.OrderCancelActivity"
+175-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:155:13-78
+176            android:label="取消订单" />
+176-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:156:13-33
+177        <activity
+177-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:157:9-159:38
+178            android:name="com.delivery.xianxian.activity.OrderCancelDetailActivity"
+178-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:158:13-84
+179            android:label="取消订单详情" />
+179-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:159:13-35
+180        <activity
+180-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:160:9-162:36
+181            android:name="com.delivery.xianxian.activity.InvoiceActivity"
+181-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:161:13-74
+182            android:label="申请发票" />
+182-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:162:13-33
+183        <activity
+183-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:163:9-165:36
+184            android:name="com.delivery.xianxian.activity.AddInvoiceActivity"
+184-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:164:13-77
+185            android:label="确认开票" />
+185-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:165:13-33
+186        <activity
+186-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:166:9-168:34
+187            android:name="com.delivery.xianxian.activity.AppraiseActivity"
+187-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:167:13-75
+188            android:label="评价" />
+188-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:168:13-31
+189        <activity
+189-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:169:9-171:37
+190            android:name="com.delivery.xianxian.activity.AddSurchargeActivity"
+190-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:170:13-79
+191            android:label="添加附加费" />
+191-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:171:13-34
+192        <activity
+192-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:173:9-175:38
+193            android:name="com.delivery.xianxian.activity.TrackServiceActivity"
+193-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:174:13-79
+194            android:label="轨迹上报服务" />
+194-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:175:13-35
+195        <activity
+195-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:176:9-178:36
+196            android:name="com.delivery.xianxian.activity.TrackSearchActivity"
+196-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:177:13-78
+197            android:label="轨迹查询" />
+197-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:178:13-33
+198        <!-- 个人中心 -->
+199        <activity
+199-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:180:9-182:39
+200            android:name="com.delivery.xianxian.activity.MyProfileActivity"
+200-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:181:13-76
+201            android:label="修改头像/电话" />
+201-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:182:13-36
+202        <activity
+202-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:183:9-185:37
+203            android:name="com.delivery.xianxian.activity.ChangePhoneNumActivity"
+203-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:184:13-81
+204            android:label="修改手机号" />
+204-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:185:13-34
+205        <activity
+205-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:186:9-188:36
+206            android:name="com.delivery.xianxian.activity.ChangePasswordActivity"
+206-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:187:13-81
+207            android:label="修改密码" />
+207-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:188:13-33
+208        <activity
+208-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:189:9-191:34
+209            android:name="com.delivery.xianxian.activity.WalletActivity"
+209-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:190:13-73
+210            android:label="钱包" />
+210-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:191:13-31
+211        <activity
+211-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:192:9-194:34
+212            android:name="com.delivery.xianxian.activity.RechargeActivity"
+212-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:193:13-75
+213            android:label="充值" />
+213-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:194:13-31
+214        <activity
+214-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:195:9-197:36
+215            android:name="com.delivery.xianxian.activity.MoneyListActivity"
+215-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:196:13-76
+216            android:label="余额明细" />
+216-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:197:13-33
+217        <activity
+217-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:198:9-200:36
+218            android:name="com.delivery.xianxian.activity.JiangLiHuoDongActivity"
+218-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:199:13-81
+219            android:label="奖励活动" />
+219-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:200:13-33
+220        <activity
+220-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:201:9-203:36
+221            android:name="com.delivery.xianxian.activity.JiangLiListActivity"
+221-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:202:13-78
+222            android:label="奖励记录" />
+222-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:203:13-33
+223        <activity
+223-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:204:9-206:36
+224            android:name="com.delivery.xianxian.activity.JiFenShangChengActivity"
+224-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:205:13-82
+225            android:label="积分商城" />
+225-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:206:13-33
+226        <activity
+226-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:207:9-209:36
+227            android:name="com.delivery.xianxian.activity.JiFenLieBiaoActivity"
+227-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:208:13-79
+228            android:label="商品列表" />
+228-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:209:13-33
+229        <activity
+229-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:210:9-212:36
+230            android:name="com.delivery.xianxian.activity.DuiHuanListActivity"
+230-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:211:13-78
+231            android:label="兑换记录" />
+231-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:212:13-33
+232        <activity
+232-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:213:9-215:36
+233            android:name="com.delivery.xianxian.activity.JiFenMingXiActivity"
+233-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:214:13-78
+234            android:label="积分明细" />
+234-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:215:13-33
+235        <activity
+235-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:216:9-218:36
+236            android:name="com.delivery.xianxian.activity.ServiceCenterActivity"
+236-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:217:13-80
+237            android:label="车主助手" />
+237-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:218:13-33
+238        <activity
+238-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:219:9-221:37
+239            android:name="com.delivery.xianxian.activity.Auth_ShenFenZhengActivity"
+239-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:220:13-84
+240            android:label="身份证认证" />
+240-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:221:13-34
+241        <activity
+241-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:222:9-224:36
+242            android:name="com.delivery.xianxian.activity.MyDriverActivity"
+242-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:223:13-75
+243            android:label="我的司机" />
+243-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:224:13-33
+244        <activity
+244-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:225:9-227:36
+245            android:name="com.delivery.xianxian.activity.TemperatureActivity"
+245-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:226:13-78
+246            android:label="实时温度" />
+246-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:227:13-33
+247
+248        <!-- 微信支付回调 -->
+249        <activity
+249-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:230:9-241:20
+250            android:name="com.delivery.xianxian.wxapi.WXPayEntryActivity"
+250-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:231:13-53
+251            android:exported="true"
+251-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:232:13-36
+252            android:launchMode="singleTop" >
+252-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:233:13-43
+253            <intent-filter>
+253-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:234:13-240:29
+254                <action android:name="android.intent.action.VIEW" />
+254-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:235:17-69
+254-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:235:25-66
+255
+256                <category android:name="android.intent.category.DEFAULT" />
+256-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:17-76
+256-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:27-73
+257
+258                <data android:scheme="wx79d0350178a9ff3a" />
+258-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:17-61
+258-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:23-58
+259            </intent-filter>
+260        </activity>
+261        <activity
+261-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:242:9-244:38
+262            android:name="com.delivery.xianxian.wxapi.WXEntryActivity"
+262-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:242:19-56
+263            android:exported="true"
+263-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:244:13-36
+264            android:launchMode="singleTop" />
+264-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:243:13-43
+265
+266        <!-- 环信 -->
+267        <activity
+267-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:247:9-249:36
+268            android:name="com.delivery.xianxian.activity.ChatMainActivity"
+268-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:248:13-75
+269            android:label="聊天首页" />
+269-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:249:13-33
+270        <activity
+270-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:250:9-252:36
+271            android:name="com.delivery.xianxian.activity.ChatActivity"
+271-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:251:13-71
+272            android:label="聊天页面" />
+272-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:252:13-33
+273        <activity
+273-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:253:9-256:52
+274            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
+274-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:254:13-72
+275            android:label="地图定位"
+275-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:255:13-33
+276            android:screenOrientation="portrait" />
+276-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:256:13-49
+277        <activity
+277-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:257:9-259:52
+278            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+278-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:258:13-76
+279            android:screenOrientation="portrait" />
+279-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:259:13-49
+280        <activity
+280-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:260:9-262:40
+281            android:name="com.delivery.xianxian.utils.huanxin.MyConversationListActivity"
+281-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:261:13-90
+282            android:label="环信消息会话列表" />
+282-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:262:13-37
+283        <activity
+283-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:263:9-265:36
+284            android:name="com.delivery.xianxian.activity.MyChatActivity"
+284-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:264:13-73
+285            android:label="聊天页面" />
+285-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:265:13-33
+286
+287        <!-- 设置环信应用的AppKey -->
+288        <!--
+289            <meta-data
+290            android:name="EASEMOB_APPKEY"
+291            android:value="1138191008030637#xxl88" />
+292        -->
+293        <meta-data
+293-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:271:9-273:59
+294            android:name="EASEMOB_APPKEY"
+294-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:272:13-42
+295            android:value="1138191008030637#xianxianla" />
+295-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:273:13-56
+296        <!-- 声明SDK所需的service SDK核心功能 -->
+297        <service
+297-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:275:9-277:39
+298            android:name="com.hyphenate.chat.EMChatService"
+298-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:276:13-60
+299            android:exported="true" />
+299-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:277:13-36
+300        <service
+300-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:278:9-281:72
+301            android:name="com.hyphenate.chat.EMJobService"
+301-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:279:13-59
+302            android:exported="true"
+302-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:280:13-36
+303            android:permission="android.permission.BIND_JOB_SERVICE" />
+303-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:281:13-69
+304        <!-- 声明SDK所需的receiver -->
+305        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver" >
+305-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:283:9-293:20
+305-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:283:19-70
+306            <intent-filter>
+306-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:284:13-287:29
+307                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+307-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:285:17-80
+307-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:285:25-77
+308
+309                <data android:scheme="package" />
+309-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:17-61
+309-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:23-58
+310            </intent-filter>
+311            <!-- 可选filter -->
+312            <intent-filter>
+312-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:289:13-292:29
+313                <action android:name="android.intent.action.BOOT_COMPLETED" />
+313-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:290:17-79
+313-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:290:25-76
+314                <action android:name="android.intent.action.USER_PRESENT" />
+314-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:291:17-77
+314-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:291:25-74
+315            </intent-filter>
+316        </receiver>
+317
+318        <!-- 高德地图 -->
+319        <activity
+319-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:296:9-299:63
+320            android:name="com.amap.api.navi.AmapRouteActivity"
+320-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:297:13-63
+321            android:configChanges="orientation|keyboardHidden|screenSize"
+321-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:298:13-74
+322            android:theme="@android:style/Theme.NoTitleBar" /> <!-- 导航组件 -->
+322-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:299:13-60
+323        <meta-data
+323-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:300:9-302:64
+324            android:name="com.amap.api.v2.apikey"
+324-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:301:13-50
+325            android:value="b31683d96c37bd2c6b874efe7750f18d" />
+325-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:302:13-61
+326        <!-- 定位 -->
+327        <service
+327-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:304:9-307:39
+328            android:name="com.delivery.xianxian.service.LocationService"
+328-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:305:13-73
+329            android:enabled="true"
+329-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:306:13-35
+330            android:exported="true" />
+330-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:307:13-36
+331        <service android:name="com.amap.api.location.APSService" /> <!-- 定位SDK服务 -->
+331-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:308:9-68
+331-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:308:18-65
+332        <service android:name="com.amap.api.track.AMapTrackService" /> <!-- 猎鹰SDK服务 -->
+332-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:309:9-71
+332-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:309:18-68
 333
-334        <!-- 百度地图所需的service -->
-335        <service
-335-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:312:9-315:41
-336            android:name="com.baidu.location.f"
-336-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:313:13-48
-337            android:enabled="true"
-337-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:314:13-35
-338            android:process=":remote" />
-338-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:315:13-38
-339
-340        <meta-data
-340-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:316:9-318:64
-341            android:name="com.baidu.lbsapi.API_KEY"
-341-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:317:13-52
-342            android:value="3ecea51f560650b1ed8a4b99808f52e8" />
-342-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:318:13-61
-343
-344        <!-- 全面屏适配 -->
-345        <meta-data
-345-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:321:9-323:35
-346            android:name="android.max_aspect"
-346-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:322:13-46
-347            android:value="2.4" />
-347-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:323:13-32
-348        <!-- 适配华为（huawei）刘海屏 -->
-349        <meta-data
-349-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:325:9-327:36
-350            android:name="android.notch_support"
-350-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:326:13-49
-351            android:value="true" />
-351-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:327:13-33
-352        <!-- 适配小米（xiaomi）刘海屏 -->
-353        <meta-data
-353-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:329:9-331:50
-354            android:name="notch.config"
-354-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:330:13-40
-355            android:value="portrait|landscape" />
-355-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:331:13-47
-356
-357        <!-- 极光推送  开始 -->
-358        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
-359        <activity
-359-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:335:9-345:20
-360            android:name="cn.jpush.android.ui.PopWinActivity"
-360-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:336:13-62
-361            android:exported="true"
-361-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:337:13-36
-362            android:theme="@style/MyDialogStyle" >
-362-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:339:13-49
-363            <intent-filter>
-363-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:340:13-344:29
-364                <category android:name="android.intent.category.DEFAULT" />
-364-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:17-76
-364-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:27-73
-365
-366                <action android:name="cn.jpush.android.ui.PopWinActivity" />
-366-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:342:17-77
-366-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:342:25-74
-367
-368                <category android:name="com.delivery.xianxian" />
-368-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
-369            </intent-filter>
-370        </activity>
-371        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
-372        <activity
-372-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:347:9-358:20
-373            android:name="cn.jpush.android.ui.PushActivity"
-373-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:348:13-60
-374            android:configChanges="orientation|keyboardHidden"
-374-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:349:13-63
-375            android:exported="true"
-375-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:350:13-36
-376            android:theme="@android:style/Theme.NoTitleBar" >
-376-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:352:13-60
-377            <intent-filter>
-377-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:353:13-357:29
-378                <action android:name="cn.jpush.android.ui.PushActivity" />
-378-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:354:17-75
-378-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:354:25-72
-379
-380                <category android:name="android.intent.category.DEFAULT" />
-380-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:17-76
-380-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:27-73
-381                <category android:name="com.delivery.xianxian" />
-381-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
-382            </intent-filter>
-383        </activity>
-384        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
-385        <service
-385-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:9-367:19
-386            android:name="com.delivery.xianxian.utils.jpush.PushService"
-386-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:18-57
-387            android:enabled="true"
-387-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:361:13-35
-388            android:exported="false"
-388-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:362:13-37
-389            android:process=":pushcore" >
-389-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:363:13-40
-390            <intent-filter>
-390-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:364:13-366:29
-391                <action android:name="cn.jiguang.user.service.action" />
-391-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:365:17-73
-391-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:365:25-70
-392            </intent-filter>
-393        </service>
-394        <!-- 可配置 android:process 参数将 PushService 放在其他进程中 -->
-395        <service
-395-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:369:9-379:19
-396            android:name="cn.jpush.android.service.PushService"
-396-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:370:13-64
-397            android:enabled="true"
-397-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:371:13-35
-398            android:exported="false"
-398-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:372:13-37
-399            android:process=":pushcore" >
-399-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:73:13-40
-400            <intent-filter>
-400-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:373:13-378:29
-401                <action android:name="cn.jpush.android.intent.REGISTER" />
-401-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:374:17-75
-401-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:374:25-72
-402                <action android:name="cn.jpush.android.intent.REPORT" />
-402-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:375:17-73
-402-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:375:25-70
-403                <action android:name="cn.jpush.android.intent.PushService" />
-403-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:376:17-78
-403-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:376:25-75
-404                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
-404-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:377:17-76
-404-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:377:25-73
-405            </intent-filter>
-406        </service>
-407        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的 JPush 服务相互拉起的功能。 -->
-408        <service
-408-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:381:9-389:19
-409            android:name="cn.jpush.android.service.DaemonService"
-409-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:382:13-66
-410            android:enabled="true"
-410-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:383:13-35
-411            android:exported="true" >
-411-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:384:13-36
-412            <intent-filter>
-412-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:385:13-388:29
-413                <action android:name="cn.jpush.android.intent.DaemonService" />
-413-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:386:17-80
-413-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:386:25-77
-414
-415                <category android:name="com.delivery.xianxian" />
-415-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
-416            </intent-filter>
-417        </service>
-418
-419        <!-- since 3.1.0 Required SDK 核心功能 -->
-420        <provider
-421            android:name="cn.jpush.android.service.DownloadProvider"
-421-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:394:13-69
-422            android:authorities="com.delivery.xianxian.DownloadProvider"
-422-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:393:13-68
-423            android:exported="true" />
-423-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:395:13-36
-424
-425        <receiver
-425-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:397:9-414:20
-426            android:name="cn.jpush.android.service.PushReceiver"
-426-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:398:13-65
-427            android:enabled="true"
-427-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:399:13-35
-428            android:exported="false" >
-428-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:99:13-37
-429            <intent-filter android:priority="1000" >
-429-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:400:13-403:29
-429-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:400:28-51
-430                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
-430-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:401:17-94
-430-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:401:25-91
-431
-432                <category android:name="com.delivery.xianxian" />
-432-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
-433            </intent-filter>
-434            <intent-filter>
-434-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:404:13-407:29
-435                <action android:name="android.intent.action.USER_PRESENT" />
-435-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:291:17-77
-435-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:291:25-74
-436                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-436-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:406:17-79
-436-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:406:25-76
-437            </intent-filter>
-438            <!-- Optional -->
-439            <intent-filter>
-439-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:409:13-413:29
-440                <action android:name="android.intent.action.PACKAGE_ADDED" />
-440-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:410:17-78
-440-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:410:25-75
-441                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-441-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:285:17-80
-441-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:285:25-77
-442
-443                <data android:scheme="package" />
-443-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:17-61
-443-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:23-58
-444            </intent-filter>
-445        </receiver>
-446
-447        <activity
-447-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:415:9-424:20
-448            android:name="cn.jpush.android.service.JNotifyActivity"
-448-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:416:13-68
-449            android:exported="true"
-449-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:417:13-36
-450            android:taskAffinity="jpush.custom"
-450-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:418:13-48
-451            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-451-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:419:13-72
-452            <intent-filter>
-452-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:420:13-423:29
-453                <action android:name="cn.jpush.android.intent.JNotifyActivity" />
-453-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:421:17-82
-453-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:421:25-79
-454
-455                <category android:name="com.delivery.xianxian" />
-455-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
-456            </intent-filter>
-457        </activity>
-458        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
-459        <receiver
-459-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:426:9-444:20
-460            android:name="com.delivery.xianxian.utils.jpush.MyJPushMessageReceiver"
-460-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:427:13-63
-461            android:enabled="true"
-461-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:428:13-35
-462            android:exported="false" >
-462-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:429:13-37
-463            <intent-filter>
-463-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:430:13-443:29
-464
-465                <!-- Required 用户注册 SDK 的 intent -->
-466                <action android:name="cn.jpush.android.intent.REGISTRATION" />
-466-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:432:17-79
-466-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:432:25-76
-467                <!-- Required 用户接收 SDK 消息的 intent -->
-468                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
-468-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:434:17-83
-468-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:434:25-80
-469                <!-- Required 用户接收 SDK 通知栏信息的 intent -->
-470                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
-470-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:436:17-88
-470-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:436:25-85
-471                <!-- Required 用户打开自定义通知栏的 intent -->
-472                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
-472-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:438:17-86
-472-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:438:25-83
-473                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
-474                <action android:name="cn.jpush.android.intent.CONNECTION" />
-474-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:440:17-77
-474-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:440:25-74
-475                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
-475-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:441:17-82
-475-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:441:25-79
-476
-477                <category android:name="com.delivery.xianxian" />
-477-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
-478            </intent-filter>
-479        </receiver>
-480        <receiver
-480-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:445:9-458:20
-481            android:name="com.delivery.xianxian.utils.jpush.MyReceiver"
-481-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:446:13-51
-482            android:enabled="true"
-482-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:447:13-35
-483            android:exported="false" >
-483-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:448:13-37
-484            <intent-filter>
-484-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:449:13-457:29
-485                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
-485-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:432:17-79
-485-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:432:25-76
-486                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
-486-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:434:17-83
-486-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:434:25-80
-487                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
-487-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:436:17-88
-487-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:436:25-85
-488                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
-488-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:438:17-86
-488-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:438:25-83
-489                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
-489-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:454:17-91
-489-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:454:25-88
-490                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
-490-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:440:17-77
-490-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:440:25-74
-491                <category android:name="com.delivery.xianxian" />
-491-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
-492            </intent-filter>
-493        </receiver>
-494        <!-- 极光推送  结束 -->
-495
+334
+335        <!-- 百度地图所需的service -->
+336        <service
+336-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:312:9-315:41
+337            android:name="com.baidu.location.f"
+337-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:313:13-48
+338            android:enabled="true"
+338-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:314:13-35
+339            android:process=":remote" />
+339-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:315:13-38
+340
+341        <meta-data
+341-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:316:9-318:64
+342            android:name="com.baidu.lbsapi.API_KEY"
+342-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:317:13-52
+343            android:value="3ecea51f560650b1ed8a4b99808f52e8" />
+343-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:318:13-61
+344
+345        <!-- 全面屏适配 -->
+346        <meta-data
+346-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:321:9-323:35
+347            android:name="android.max_aspect"
+347-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:322:13-46
+348            android:value="2.4" />
+348-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:323:13-32
+349        <!-- 适配华为（huawei）刘海屏 -->
+350        <meta-data
+350-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:325:9-327:36
+351            android:name="android.notch_support"
+351-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:326:13-49
+352            android:value="true" />
+352-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:327:13-33
+353        <!-- 适配小米（xiaomi）刘海屏 -->
+354        <meta-data
+354-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:329:9-331:50
+355            android:name="notch.config"
+355-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:330:13-40
+356            android:value="portrait|landscape" />
+356-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:331:13-47
+357
+358        <!-- 极光推送  开始 -->
+359        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+360        <activity
+360-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:335:9-345:20
+361            android:name="cn.jpush.android.ui.PopWinActivity"
+361-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:336:13-62
+362            android:exported="true"
+362-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:337:13-36
+363            android:theme="@style/MyDialogStyle" >
+363-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:339:13-49
+364            <intent-filter>
+364-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:340:13-344:29
+365                <category android:name="android.intent.category.DEFAULT" />
+365-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:17-76
+365-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:27-73
+366
+367                <action android:name="cn.jpush.android.ui.PopWinActivity" />
+367-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:342:17-77
+367-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:342:25-74
+368
+369                <category android:name="com.delivery.xianxian" />
+369-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
+370            </intent-filter>
+371        </activity>
+372        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+373        <activity
+373-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:347:9-358:20
+374            android:name="cn.jpush.android.ui.PushActivity"
+374-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:348:13-60
+375            android:configChanges="orientation|keyboardHidden"
+375-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:349:13-63
+376            android:exported="true"
+376-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:350:13-36
+377            android:theme="@android:style/Theme.NoTitleBar" >
+377-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:352:13-60
+378            <intent-filter>
+378-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:353:13-357:29
+379                <action android:name="cn.jpush.android.ui.PushActivity" />
+379-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:354:17-75
+379-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:354:25-72
+380
+381                <category android:name="android.intent.category.DEFAULT" />
+381-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:17-76
+381-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:27-73
+382                <category android:name="com.delivery.xianxian" />
+382-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
+383            </intent-filter>
+384        </activity>
+385        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
+386        <service
+386-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:9-367:19
+387            android:name="com.delivery.xianxian.utils.jpush.PushService"
+387-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:360:18-57
+388            android:enabled="true"
+388-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:361:13-35
+389            android:exported="false"
+389-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:362:13-37
+390            android:process=":pushcore" >
+390-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:363:13-40
+391            <intent-filter>
+391-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:364:13-366:29
+392                <action android:name="cn.jiguang.user.service.action" />
+392-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:365:17-73
+392-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:365:25-70
+393            </intent-filter>
+394        </service>
+395        <!-- 可配置 android:process 参数将 PushService 放在其他进程中 -->
+396        <service
+396-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:369:9-379:19
+397            android:name="cn.jpush.android.service.PushService"
+397-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:370:13-64
+398            android:enabled="true"
+398-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:371:13-35
+399            android:exported="false"
+399-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:372:13-37
+400            android:process=":pushcore" >
+400-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:73:13-40
+401            <intent-filter>
+401-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:373:13-378:29
+402                <action android:name="cn.jpush.android.intent.REGISTER" />
+402-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:374:17-75
+402-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:374:25-72
+403                <action android:name="cn.jpush.android.intent.REPORT" />
+403-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:375:17-73
+403-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:375:25-70
+404                <action android:name="cn.jpush.android.intent.PushService" />
+404-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:376:17-78
+404-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:376:25-75
+405                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+405-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:377:17-76
+405-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:377:25-73
+406            </intent-filter>
+407        </service>
+408        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的 JPush 服务相互拉起的功能。 -->
+409        <service
+409-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:381:9-389:19
+410            android:name="cn.jpush.android.service.DaemonService"
+410-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:382:13-66
+411            android:enabled="true"
+411-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:383:13-35
+412            android:exported="true" >
+412-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:384:13-36
+413            <intent-filter>
+413-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:385:13-388:29
+414                <action android:name="cn.jpush.android.intent.DaemonService" />
+414-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:386:17-80
+414-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:386:25-77
+415
+416                <category android:name="com.delivery.xianxian" />
+416-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
+417            </intent-filter>
+418        </service>
+419
+420        <!-- since 3.1.0 Required SDK 核心功能 -->
+421        <provider
+422            android:name="cn.jpush.android.service.DownloadProvider"
+422-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:394:13-69
+423            android:authorities="com.delivery.xianxian.DownloadProvider"
+423-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:393:13-68
+424            android:exported="true" />
+424-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:395:13-36
+425
+426        <receiver
+426-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:397:9-414:20
+427            android:name="cn.jpush.android.service.PushReceiver"
+427-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:398:13-65
+428            android:enabled="true"
+428-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:399:13-35
+429            android:exported="false" >
+429-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:99:13-37
+430            <intent-filter android:priority="1000" >
+430-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:400:13-403:29
+430-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:400:28-51
+431                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+431-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:401:17-94
+431-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:401:25-91
+432
+433                <category android:name="com.delivery.xianxian" />
+433-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
+434            </intent-filter>
+435            <intent-filter>
+435-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:404:13-407:29
+436                <action android:name="android.intent.action.USER_PRESENT" />
+436-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:291:17-77
+436-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:291:25-74
+437                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+437-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:406:17-79
+437-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:406:25-76
+438            </intent-filter>
+439            <!-- Optional -->
+440            <intent-filter>
+440-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:409:13-413:29
+441                <action android:name="android.intent.action.PACKAGE_ADDED" />
+441-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:410:17-78
+441-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:410:25-75
+442                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+442-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:285:17-80
+442-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:285:25-77
+443
+444                <data android:scheme="package" />
+444-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:17-61
+444-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:239:23-58
+445            </intent-filter>
+446        </receiver>
+447
+448        <activity
+448-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:415:9-424:20
+449            android:name="cn.jpush.android.service.JNotifyActivity"
+449-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:416:13-68
+450            android:exported="true"
+450-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:417:13-36
+451            android:taskAffinity="jpush.custom"
+451-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:418:13-48
+452            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+452-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:419:13-72
+453            <intent-filter>
+453-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:420:13-423:29
+454                <action android:name="cn.jpush.android.intent.JNotifyActivity" />
+454-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:421:17-82
+454-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:421:25-79
+455
+456                <category android:name="com.delivery.xianxian" />
+456-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
+457            </intent-filter>
+458        </activity>
+459        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+460        <receiver
+460-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:426:9-444:20
+461            android:name="com.delivery.xianxian.utils.jpush.MyJPushMessageReceiver"
+461-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:427:13-63
+462            android:enabled="true"
+462-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:428:13-35
+463            android:exported="false" >
+463-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:429:13-37
+464            <intent-filter>
+464-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:430:13-443:29
+465
+466                <!-- Required 用户注册 SDK 的 intent -->
+467                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+467-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:432:17-79
+467-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:432:25-76
+468                <!-- Required 用户接收 SDK 消息的 intent -->
+469                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+469-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:434:17-83
+469-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:434:25-80
+470                <!-- Required 用户接收 SDK 通知栏信息的 intent -->
+471                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+471-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:436:17-88
+471-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:436:25-85
+472                <!-- Required 用户打开自定义通知栏的 intent -->
+473                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+473-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:438:17-86
+473-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:438:25-83
+474                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+475                <action android:name="cn.jpush.android.intent.CONNECTION" />
+475-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:440:17-77
+475-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:440:25-74
+476                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+476-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:441:17-82
+476-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:441:25-79
+477
+478                <category android:name="com.delivery.xianxian" />
+478-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
+479            </intent-filter>
+480        </receiver>
+481        <receiver
+481-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:445:9-458:20
+482            android:name="com.delivery.xianxian.utils.jpush.MyReceiver"
+482-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:446:13-51
+483            android:enabled="true"
+483-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:447:13-35
+484            android:exported="false" >
+484-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:448:13-37
+485            <intent-filter>
+485-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:449:13-457:29
+486                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+486-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:432:17-79
+486-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:432:25-76
+487                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
+487-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:434:17-83
+487-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:434:25-80
+488                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+488-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:436:17-88
+488-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:436:25-85
+489                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
+489-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:438:17-86
+489-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:438:25-83
+490                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+490-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:454:17-91
+490-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:454:25-88
+491                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+491-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:440:17-77
+491-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:440:25-74
+492                <category android:name="com.delivery.xianxian" />
+492-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:343:27-58
+493            </intent-filter>
+494        </receiver>
+495        <!-- 极光推送  结束 -->
 496
-497        <!-- 7.0限制-私有目录被限制访问 -->
-498        <!--
-499        exported:要求必须为false，为true则会报安全异常。
-500        grantUriPermissions:true，表示授予 URI 临时访问权限。
-501        -->
-502        <provider
-503            android:name="androidx.core.content.FileProvider"
-503-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:465:13-62
-504            android:authorities="com.delivery.xianxian.fileprovider"
-504-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:466:13-64
-505            android:exported="false"
-505-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:467:13-37
-506            android:grantUriPermissions="true" >
-506-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:468:13-47
-507            <meta-data
-507-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:469:13-471:57
-508                android:name="android.support.FILE_PROVIDER_PATHS"
-508-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:470:17-67
-509                android:resource="@xml/file_provider" />
-509-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:471:17-54
-510        </provider>
-511
-512        <!-- 9.0 -->
-513        <uses-library
-513-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:475:9-477:40
-514            android:name="org.apache.http.legacy"
-514-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:476:13-50
-515            android:required="false" />
-515-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:477:13-37
-516
-517        <provider
-517-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
-518            android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"
-518-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
-519            android:authorities="com.delivery.xianxian.updateFileProvider"
-519-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
-520            android:exported="false"
-520-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
-521            android:grantUriPermissions="true" >
-521-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
-522            <meta-data
-522-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:469:13-471:57
-523                android:name="android.support.FILE_PROVIDER_PATHS"
-523-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:470:17-67
-524                android:resource="@xml/mn_update_file_provider" />
-524-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:471:17-54
-525        </provider>
-526
-527        <activity
-527-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
-528            android:name="com.lljjcoder.style.citylist.CityListSelectActivity"
-528-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
-529            android:screenOrientation="portrait"
-529-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
-530            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-530-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
-531        </activity>
-532        <activity
-532-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
-533            android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"
-533-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
-534            android:screenOrientation="portrait"
-534-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
-535            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-535-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
-536        </activity>
-537        <activity
-537-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
-538            android:name="com.lljjcoder.style.citythreelist.CityActivity"
-538-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
-539            android:screenOrientation="portrait"
-539-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
-540            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-540-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
-541        </activity>
-542        <activity
-542-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
-543            android:name="com.lljjcoder.style.citythreelist.AreaActivity"
-543-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
-544            android:screenOrientation="portrait"
-544-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
-545            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-545-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
-546        </activity> <!-- Required SDK核心功能 -->
-547        <receiver
-547-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:118:9-120:40
-548            android:name="cn.jpush.android.service.AlarmReceiver"
-548-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:119:13-66
-549            android:exported="false" />
-549-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:120:13-37
-550        <receiver
-550-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:121:9-123:40
-551            android:name="cn.jpush.android.service.SchedulerReceiver"
-551-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:122:13-70
-552            android:exported="false" /> <!-- since 3.0.9 Required SDK 核心功能 -->
-552-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:123:13-37
-553        <provider
-553-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:126:9-130:43
-554            android:name="cn.jpush.android.service.DataProvider"
-554-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:127:13-65
-555            android:authorities="com.delivery.xianxian.DataProvider"
-555-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:128:13-64
-556            android:exported="false"
-556-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:129:13-37
-557            android:process=":pushcore" /> <!-- Required  . Enable it you can get statistics data with channel -->
-557-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:130:13-40
-558        <meta-data
-558-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:151:9-153:48
-559            android:name="JPUSH_CHANNEL"
-559-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:152:13-41
-560            android:value="developer-default" />
-560-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:153:13-45
-561        <meta-data
-561-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:154:9-156:47
-562            android:name="JPUSH_APPKEY"
-562-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:155:13-40
-563            android:value="e3e139ef999980e9367ca143" />
-563-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:156:13-44
-564
-565        <activity
-565-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:27:9-32:20
-566            android:name="com.alipay.sdk.app.H5PayActivity"
-566-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:28:13-60
-567            android:configChanges="orientation|keyboardHidden|navigation"
-567-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:29:13-74
-568            android:exported="false"
-568-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:30:13-37
-569            android:screenOrientation="behind" >
-569-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:31:13-47
-570        </activity>
-571        <activity
-571-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:33:9-38:20
-572            android:name="com.alipay.sdk.app.H5AuthActivity"
-572-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:34:13-61
-573            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-573-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:35:13-85
-574            android:exported="false"
-574-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:36:13-37
-575            android:screenOrientation="behind" >
-575-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:37:13-47
-576        </activity>
-577        <activity
-577-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:39:9-48:20
-578            android:name="com.alipay.sdk.app.PayResultActivity"
-578-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:40:13-64
-579            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-579-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:41:13-85
-580            android:exported="true"
-580-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:42:13-36
-581            android:launchMode="singleInstance"
-581-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:43:13-48
-582            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-582-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:44:13-72
-583            <intent-filter>
-583-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:45:13-47:29
-584                <category android:name="android.intent.category.DEFAULT" />
-584-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:17-76
-584-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:27-73
-585            </intent-filter>
-586        </activity>
-587        <activity
-587-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:49:9-54:20
-588            android:name="com.alipay.sdk.app.AlipayResultActivity"
-588-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:50:13-67
-589            android:exported="true"
-589-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:51:13-36
-590            android:launchMode="singleTask"
-590-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:52:13-44
-591            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-591-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:53:13-72
-592        </activity>
-593        <activity
-593-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e73877dc4f1abd3d1dc8c10929c26f2/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:9-172
-594            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-594-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e73877dc4f1abd3d1dc8c10929c26f2/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:19-85
-595            android:exported="false"
-595-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e73877dc4f1abd3d1dc8c10929c26f2/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:146-170
-596            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-596-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e73877dc4f1abd3d1dc8c10929c26f2/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:86-145
-597
-598        <meta-data
-598-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0f9c8cdf03b286a2e5a381984fe0761b/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:9-121
-599            android:name="com.google.android.gms.version"
-599-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0f9c8cdf03b286a2e5a381984fe0761b/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:20-65
-600            android:value="@integer/google_play_services_version" />
-600-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0f9c8cdf03b286a2e5a381984fe0761b/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:66-119
-601    </application>
-602
-603</manifest>
+497
+498        <!-- 7.0限制-私有目录被限制访问 -->
+499        <!--
+500        exported:要求必须为false，为true则会报安全异常。
+501        grantUriPermissions:true，表示授予 URI 临时访问权限。
+502        -->
+503        <provider
+504            android:name="androidx.core.content.FileProvider"
+504-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:465:13-62
+505            android:authorities="com.delivery.xianxian.fileprovider"
+505-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:466:13-64
+506            android:exported="false"
+506-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:467:13-37
+507            android:grantUriPermissions="true" >
+507-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:468:13-47
+508            <meta-data
+508-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:469:13-471:57
+509                android:name="android.support.FILE_PROVIDER_PATHS"
+509-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:470:17-67
+510                android:resource="@xml/file_provider" />
+510-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:471:17-54
+511        </provider>
+512
+513        <!-- 9.0 -->
+514        <uses-library
+514-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:475:9-477:40
+515            android:name="org.apache.http.legacy"
+515-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:476:13-50
+516            android:required="false" />
+516-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:477:13-37
+517
+518        <provider
+518-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
+519            android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"
+519-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
+520            android:authorities="com.delivery.xianxian.updateFileProvider"
+520-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
+521            android:exported="false"
+521-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
+522            android:grantUriPermissions="true" >
+522-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b3329e7e81d72cab2ff3b41cdf157ea/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
+523            <meta-data
+523-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:469:13-471:57
+524                android:name="android.support.FILE_PROVIDER_PATHS"
+524-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:470:17-67
+525                android:resource="@xml/mn_update_file_provider" />
+525-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:471:17-54
+526        </provider>
+527
+528        <activity
+528-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
+529            android:name="com.lljjcoder.style.citylist.CityListSelectActivity"
+529-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
+530            android:screenOrientation="portrait"
+530-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
+531            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+531-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
+532        </activity>
+533        <activity
+533-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
+534            android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"
+534-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
+535            android:screenOrientation="portrait"
+535-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
+536            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+536-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
+537        </activity>
+538        <activity
+538-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
+539            android:name="com.lljjcoder.style.citythreelist.CityActivity"
+539-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
+540            android:screenOrientation="portrait"
+540-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
+541            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+541-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
+542        </activity>
+543        <activity
+543-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
+544            android:name="com.lljjcoder.style.citythreelist.AreaActivity"
+544-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
+545            android:screenOrientation="portrait"
+545-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
+546            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+546-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3c888a936733471e0f72ff26b1567b/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
+547        </activity> <!-- Required SDK核心功能 -->
+548        <receiver
+548-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:118:9-120:40
+549            android:name="cn.jpush.android.service.AlarmReceiver"
+549-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:119:13-66
+550            android:exported="false" />
+550-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:120:13-37
+551        <receiver
+551-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:121:9-123:40
+552            android:name="cn.jpush.android.service.SchedulerReceiver"
+552-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:122:13-70
+553            android:exported="false" /> <!-- since 3.0.9 Required SDK 核心功能 -->
+553-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:123:13-37
+554        <provider
+554-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:126:9-130:43
+555            android:name="cn.jpush.android.service.DataProvider"
+555-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:127:13-65
+556            android:authorities="com.delivery.xianxian.DataProvider"
+556-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:128:13-64
+557            android:exported="false"
+557-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:129:13-37
+558            android:process=":pushcore" /> <!-- Required  . Enable it you can get statistics data with channel -->
+558-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:130:13-40
+559        <meta-data
+559-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:151:9-153:48
+560            android:name="JPUSH_CHANNEL"
+560-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:152:13-41
+561            android:value="developer-default" />
+561-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:153:13-45
+562        <meta-data
+562-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:154:9-156:47
+563            android:name="JPUSH_APPKEY"
+563-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:155:13-40
+564            android:value="e3e139ef999980e9367ca143" />
+564-->[cn.jiguang.sdk:jpush:3.5.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/df91d5f8ed2a6c1edfb5b2aa90c851fc/jpush-3.5.4/AndroidManifest.xml:156:13-44
+565
+566        <activity
+566-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:27:9-32:20
+567            android:name="com.alipay.sdk.app.H5PayActivity"
+567-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:28:13-60
+568            android:configChanges="orientation|keyboardHidden|navigation"
+568-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:29:13-74
+569            android:exported="false"
+569-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:30:13-37
+570            android:screenOrientation="behind" >
+570-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:31:13-47
+571        </activity>
+572        <activity
+572-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:33:9-38:20
+573            android:name="com.alipay.sdk.app.H5AuthActivity"
+573-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:34:13-61
+574            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+574-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:35:13-85
+575            android:exported="false"
+575-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:36:13-37
+576            android:screenOrientation="behind" >
+576-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:37:13-47
+577        </activity>
+578        <activity
+578-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:39:9-48:20
+579            android:name="com.alipay.sdk.app.PayResultActivity"
+579-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:40:13-64
+580            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+580-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:41:13-85
+581            android:exported="true"
+581-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:42:13-36
+582            android:launchMode="singleInstance"
+582-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:43:13-48
+583            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+583-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:44:13-72
+584            <intent-filter>
+584-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:45:13-47:29
+585                <category android:name="android.intent.category.DEFAULT" />
+585-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:17-76
+585-->/Users/YunZhong/AndroidStudioProject/鲜鲜拉-货主/XianXianDelivery/app/src/main/AndroidManifest.xml:237:27-73
+586            </intent-filter>
+587        </activity>
+588        <activity
+588-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:49:9-54:20
+589            android:name="com.alipay.sdk.app.AlipayResultActivity"
+589-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:50:13-67
+590            android:exported="true"
+590-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:51:13-36
+591            android:launchMode="singleTask"
+591-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:52:13-44
+592            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+592-->[:alipaySdk-15.6.8-20191021122514:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed5065f5727923158f90f3dfca6605a8/alipaySdk-15.6.8-20191021122514/AndroidManifest.xml:53:13-72
+593        </activity>
+594        <activity
+594-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e73877dc4f1abd3d1dc8c10929c26f2/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:9-172
+595            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+595-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e73877dc4f1abd3d1dc8c10929c26f2/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:19-85
+596            android:exported="false"
+596-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e73877dc4f1abd3d1dc8c10929c26f2/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:146-170
+597            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+597-->[com.google.android.gms:play-services-base:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5e73877dc4f1abd3d1dc8c10929c26f2/jetified-play-services-base-11.4.0/AndroidManifest.xml:19:86-145
+598
+599        <meta-data
+599-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0f9c8cdf03b286a2e5a381984fe0761b/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:9-121
+600            android:name="com.google.android.gms.version"
+600-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0f9c8cdf03b286a2e5a381984fe0761b/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:20-65
+601            android:value="@integer/google_play_services_version" />
+601-->[com.google.android.gms:play-services-basement:11.4.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0f9c8cdf03b286a2e5a381984fe0761b/jetified-play-services-basement-11.4.0/AndroidManifest.xml:20:66-119
+602    </application>
+603
+604</manifest>
